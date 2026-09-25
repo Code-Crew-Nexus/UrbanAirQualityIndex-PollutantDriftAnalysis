@@ -34,11 +34,12 @@ for (sc in scopes) {
   # Load train-only model for SV summary
   train_model_path <- sprintf("models/phase5B/%s_svm_train.rds", tolower(sc))
   train_fit_obj <- readRDS(train_model_path)
+  train_n_samples <- nrow(design_df %>% filter(.data[[use_col]] == TRUE, eligible_svm, split == "TRAIN"))
   
   sv_summary_list[[length(sv_summary_list) + 1]] <- data.frame(
     scope = sc,
     fit_stage = "TRAIN_ONLY",
-    total_samples = train_fit_obj$model$tot.nSV + (nrow(train_fit_obj$model$SV) - train_fit_obj$model$tot.nSV), # total fitting n
+    total_samples = train_n_samples,
     cost = sel_cost,
     gamma = sel_gamma,
     total_support_vectors = train_fit_obj$n_support_vectors,
@@ -47,8 +48,6 @@ for (sc in scopes) {
     sv_proportion = train_fit_obj$sv_proportion,
     stringsAsFactors = FALSE
   )
-  # Fix total_samples to exact training nrow
-  sv_summary_list[[length(sv_summary_list)]]$total_samples <- if (sc == "HYDERABAD") 1398 else 3501
   
   # -------------------------------------------------------------
   # STAGE 1: TEST REFIT (TRAIN + VALIDATION -> evaluate on TEST)

@@ -1,6 +1,6 @@
 # tests/testthat/test_phase5b.R
-# Phase 5B: Test Suite for RBF Support Vector Machine Adverse-AQI Classification
-# Verifies all 51 criteria specified in Phase 5B contract
+# Phase 5B.1: Hardened Test Suite for RBF Support Vector Machine Adverse-AQI Classification
+# Verifies all criteria specified in Phase 5B and Phase 5B.1 contracts
 
 library(testthat)
 library(readr)
@@ -10,7 +10,7 @@ library(yaml)
 source("../../R/30_classification_metrics.R")
 source("../../R/32_svm_helpers.R")
 
-context("Phase 5B RBF Support Vector Machine Classification Tests")
+context("Phase 5B.1 Hardened RBF Support Vector Machine Classification Tests")
 
 # Load artifacts
 design_df <- read_csv("../../data/analysis/phase5B/phase5B_design_master.csv", show_col_types = FALSE)
@@ -23,10 +23,12 @@ holdout_metrics <- read_csv("../../analysis/phase5B/tables/phase5B_holdout_metri
 prev_df <- read_csv("../../analysis/phase5B/tables/phase5B_prevalence_by_split.csv", show_col_types = FALSE)
 spec_yml <- yaml::read_yaml("../../config/phase5B_svm_specification.yml")
 sel_yml <- yaml::read_yaml("../../config/phase5B_selected_svm.yml")
+leakage_audit <- read_csv("../../analysis/phase5B/tables/phase5B_selection_leakage_audit.csv", show_col_types = FALSE)
+metric_audit <- read_csv("../../analysis/phase5B/tables/phase5B_metric_consistency_audit.csv", show_col_types = FALSE)
+dep_audit <- read_csv("../../analysis/phase5B/tables/phase5B_archive_dependency_audit.csv", show_col_types = FALSE)
 
 # ==============================================================================
 # BLOCK A: Target Definition, Alignment, Splits & Feature Exclusions
-# Tests 1-4, 14-20, 23-25
 # ==============================================================================
 test_that("Block A: Target definition, alignment, chronology and feature contract", {
   # 1. Target exactly AQI_(t+1) > 100
@@ -66,13 +68,14 @@ test_that("Block A: Target definition, alignment, chronology and feature contrac
   # 16. Unresolved gases excluded
   # 17. Future predictors excluded
   # 18. Phase-3 results excluded
-  # 19. Phase-5 PC features excluded
-  # 20. Phase-5 cluster features excluded
+  # 19. Phase-5 PC features excluded (PC1, PC2, PC3, PC4)
+  # 20. Phase-5 cluster features excluded (cluster, cluster_label, centroid_distance)
   prohibited <- c("aqi_category", "dominant_pollutant", "pm2_5_subindex", "pm10_subindex", "o3_subindex",
                   "co_source_mean", "no2_source_mean", "so2_source_mean", "drift_score", "p_val",
-                  "PC1", "PC2", "PC3", "PC4", "cluster", "cluster_label", "centroid_distance")
-  hyd_features <- svm_continuous_predictors()
-  expect_true(length(intersect(hyd_features, prohibited)) == 0)
+                  "PC1", "PC2", "PC3", "PC4", "cluster", "cluster_label", "centroid_distance",
+                  "centroid_distance_percentile")
+  current_features <- svm_continuous_predictors()
+  expect_equal(length(intersect(current_features, prohibited)), 0)
   
   # 23. No imputation
   expect_true(all(!is.na(design_df %>% filter(eligible_svm) %>% select(all_of(expected_cont)))))
@@ -85,7 +88,6 @@ test_that("Block A: Target definition, alignment, chronology and feature contrac
 
 # ==============================================================================
 # BLOCK B: Sample Sizes and Positive Counts by Split and Scope
-# Tests 5-13, 44, 46
 # ==============================================================================
 test_that("Block B: Exact complete-case observation and class counts", {
   # Hyderabad counts
@@ -126,7 +128,7 @@ test_that("Block B: Exact complete-case observation and class counts", {
   expect_equal(ind_counts$n[ind_counts$split == "FINAL_RECENT_HOLDOUT"], 238)
   expect_equal(ind_counts$positive_n[ind_counts$split == "FINAL_RECENT_HOLDOUT"], 22)
   
-  # 13. Correct positive counts by split (sum across scopes for TEST and HOLDOUT)
+  # 13. Correct positive counts by split
   expect_equal(sum(test_metrics$positive_n), 11 + 294)
   expect_equal(sum(holdout_metrics$positive_n), 0 + 22)
   
@@ -139,63 +141,93 @@ test_that("Block B: Exact complete-case observation and class counts", {
 })
 
 # ==============================================================================
-# BLOCK C: Preprocessing, One-Hot Encoding & Standardization Isolation
-# Tests 21-22, 36-39
+# BLOCK C: Preprocessing, One-Hot Encoding & Standardization Isolation (Hardened)
 # ==============================================================================
-test_that("Block C: Preprocessing, encoding and standardization integrity", {
-  # 21. Categorical features one-hot encoded
+test_that("Block C: Preprocessing, encoding and standardization integrity for both scopes", {
+  cont_vars <- svm_continuous_predictors()
+  
+  # --- Hyderabad Scope ---
   hyd_tr <- design_df %>% filter(use_hyderabad == TRUE, eligible_svm, split == "TRAIN")
   hyd_val <- design_df %>% filter(use_hyderabad == TRUE, eligible_svm, split == "VALIDATION")
   prep_hyd <- prepare_svm_features(hyd_tr, hyd_val)
   
-  # 7 stations + 7 DOW = 14 dummy cols; + 11 continuous = 25 total
   expect_equal(prep_hyd$p, 25)
-  station_dummies <- grep("^station_", prep_hyd$feature_names, value = TRUE)
-  dow_dummies <- grep("^dow_", prep_hyd$feature_names, value = TRUE)
-  expect_equal(length(station_dummies), 7)
-  expect_equal(length(dow_dummies), 7)
+  st_hyd <- grep("^station_", prep_hyd$feature_names, value = TRUE)
+  dow_hyd <- grep("^dow_", prep_hyd$feature_names, value = TRUE)
+  expect_equal(length(st_hyd), 7)
+  expect_equal(length(dow_hyd), 7)
+  expect_true(all(prep_hyd$X_train[, c(st_hyd, dow_hyd)] %in% c(0, 1)))
   
-  # Dummies strictly 0/1
-  expect_true(all(prep_hyd$X_train[, c(station_dummies, dow_dummies)] %in% c(0, 1)))
+  tr_means_hyd <- colMeans(prep_hyd$X_train[, cont_vars])
+  tr_sds_hyd <- apply(prep_hyd$X_train[, cont_vars], 2, sd)
+  expect_true(all(abs(tr_means_hyd) < 1e-10))
+  expect_true(all(abs(tr_sds_hyd - 1.0) < 1e-10))
   
-  # 22. Numeric features standardized from fitting data only
-  # Continuous train columns have mean approx 0 and sd approx 1
-  cont_vars <- svm_continuous_predictors()
-  tr_means <- colMeans(prep_hyd$X_train[, cont_vars])
-  tr_sds <- apply(prep_hyd$X_train[, cont_vars], 2, sd)
-  expect_true(all(abs(tr_means) < 1e-10))
-  expect_true(all(abs(tr_sds - 1.0) < 1e-10))
+  # --- India Scope (Section 16 Hardening) ---
+  ind_tr <- design_df %>% filter(use_india == TRUE, eligible_svm, split == "TRAIN")
+  ind_val <- design_df %>% filter(use_india == TRUE, eligible_svm, split == "VALIDATION")
+  prep_ind <- prepare_svm_features(ind_tr, ind_val)
   
-  # 36. TEST refit uses TRAIN + VALIDATION only
-  # 37. TEST absent from TEST refit preprocessing
+  expect_equal(prep_ind$p, 33)
+  st_ind <- grep("^station_", prep_ind$feature_names, value = TRUE)
+  dow_ind <- grep("^dow_", prep_ind$feature_names, value = TRUE)
+  expect_equal(length(st_ind), 15)
+  expect_equal(length(dow_ind), 7)
+  expect_true(all(prep_ind$X_train[, c(st_ind, dow_ind)] %in% c(0, 1)))
+  
+  tr_means_ind <- colMeans(prep_ind$X_train[, cont_vars])
+  tr_sds_ind <- apply(prep_ind$X_train[, cont_vars], 2, sd)
+  expect_true(all(abs(tr_means_ind) < 1e-10))
+  expect_true(all(abs(tr_sds_ind - 1.0) < 1e-10))
+  
+  # --- Scaling Parameter Match: TEST Refit (Train + Validation) ---
   scale_test_df <- read_csv("../../analysis/phase5B/tables/phase5B_scaling_parameters_test_refit.csv", show_col_types = FALSE)
-  train_val_hyd <- design_df %>% filter(use_hyderabad == TRUE, eligible_svm, split %in% c("TRAIN", "VALIDATION"))
-  for (v in cont_vars) {
-    exp_m <- mean(train_val_hyd[[v]])
-    exp_s <- sd(train_val_hyd[[v]])
-    act_m <- scale_test_df$mean[scale_test_df$scope == "HYDERABAD" & scale_test_df$feature == v]
-    act_s <- scale_test_df$sd[scale_test_df$scope == "HYDERABAD" & scale_test_df$feature == v]
-    expect_equal(act_m, exp_m, tolerance = 1e-6)
-    expect_equal(act_s, exp_s, tolerance = 1e-6)
+  for (sc in c("HYDERABAD", "INDIA")) {
+    use_col <- if (sc == "HYDERABAD") "use_hyderabad" else "use_india"
+    train_val_df <- design_df %>% filter(.data[[use_col]] == TRUE, eligible_svm, split %in% c("TRAIN", "VALIDATION"))
+    for (v in cont_vars) {
+      exp_m <- mean(train_val_df[[v]])
+      exp_s <- sd(train_val_df[[v]])
+      act_m <- scale_test_df$mean[scale_test_df$scope == sc & scale_test_df$feature == v]
+      act_s <- scale_test_df$sd[scale_test_df$scope == sc & scale_test_df$feature == v]
+      expect_equal(act_m, exp_m, tolerance = 1e-6)
+      expect_equal(act_s, exp_s, tolerance = 1e-6)
+    }
   }
   
-  # 38. Final-history refit uses through 2026-08-31 only
-  # 39. HOLDOUT absent from final-history fit
+  # --- Scaling Parameter Match: Final History Refit (Train + Val + Test) ---
   scale_hist_df <- read_csv("../../analysis/phase5B/tables/phase5B_scaling_parameters_final_history.csv", show_col_types = FALSE)
-  hist_hyd <- design_df %>% filter(use_hyderabad == TRUE, eligible_svm, split %in% c("TRAIN", "VALIDATION", "TEST"))
-  for (v in cont_vars) {
-    exp_m <- mean(hist_hyd[[v]])
-    exp_s <- sd(hist_hyd[[v]])
-    act_m <- scale_hist_df$mean[scale_hist_df$scope == "HYDERABAD" & scale_hist_df$feature == v]
-    act_s <- scale_hist_df$sd[scale_hist_df$scope == "HYDERABAD" & scale_hist_df$feature == v]
-    expect_equal(act_m, exp_m, tolerance = 1e-6)
-    expect_equal(act_s, exp_s, tolerance = 1e-6)
+  for (sc in c("HYDERABAD", "INDIA")) {
+    use_col <- if (sc == "HYDERABAD") "use_hyderabad" else "use_india"
+    hist_df <- design_df %>% filter(.data[[use_col]] == TRUE, eligible_svm, split %in% c("TRAIN", "VALIDATION", "TEST"))
+    for (v in cont_vars) {
+      exp_m <- mean(hist_df[[v]])
+      exp_s <- sd(hist_df[[v]])
+      act_m <- scale_hist_df$mean[scale_hist_df$scope == sc & scale_hist_df$feature == v]
+      act_s <- scale_hist_df$sd[scale_hist_df$scope == sc & scale_hist_df$feature == v]
+      expect_equal(act_m, exp_m, tolerance = 1e-6)
+      expect_equal(act_s, exp_s, tolerance = 1e-6)
+    }
+  }
+  
+  # --- Factor-Level Safety (Section 17 Hardening) ---
+  for (sc in c("HYDERABAD", "INDIA")) {
+    use_col <- if (sc == "HYDERABAD") "use_hyderabad" else "use_india"
+    fit_df <- design_df %>% filter(.data[[use_col]] == TRUE, eligible_svm, split %in% c("TRAIN", "VALIDATION", "TEST"))
+    eval_df <- design_df %>% filter(.data[[use_col]] == TRUE, eligible_svm, split == "FINAL_RECENT_HOLDOUT")
+    
+    fit_st <- unique(fit_df$project_station_id)
+    eval_st <- unique(eval_df$project_station_id)
+    expect_true(all(eval_st %in% fit_st))
+    
+    fit_dow <- unique(fit_df$day_of_week)
+    eval_dow <- unique(eval_df$day_of_week)
+    expect_true(all(eval_dow %in% fit_dow))
   }
 })
 
 # ==============================================================================
 # BLOCK D: Hyperparameter Grid, RBF Kernel & Selection Logic
-# Tests 26-33, 40
 # ==============================================================================
 test_that("Block D: Hyperparameter grid, RBF kernel and validation selection", {
   # 26. RBF kernel only
@@ -212,13 +244,19 @@ test_that("Block D: Hyperparameter grid, RBF kernel and validation selection", {
   expect_equal(base_g_hyd, 1 / 25)
   expect_equal(sort(unique(hyd_grid_sub$gamma)), sort(expected_mults * base_g_hyd))
   
+  ind_grid_sub <- val_grid %>% filter(scope == "INDIA")
+  base_g_ind <- unique(ind_grid_sub$base_gamma)
+  expect_equal(base_g_ind, 1 / 33)
+  expect_equal(sort(unique(ind_grid_sub$gamma)), sort(expected_mults * base_g_ind))
+  
   # 29. Candidate count = 20 per scope (40 total)
-  expect_equal(nrow(val_grid %>% filter(scope == "HYDERABAD")), 20)
-  expect_equal(nrow(val_grid %>% filter(scope == "INDIA")), 20)
+  expect_equal(nrow(hyd_grid_sub), 20)
+  expect_equal(nrow(ind_grid_sub), 20)
   expect_equal(nrow(val_grid), 40)
   
   # 30. Hyperparameter selection uses VALIDATION PR-AUC only
   # 31. Selected candidate equals deterministic rule
+  # 18. Selection Leakage Audit verification
   for (sc in c("HYDERABAD", "INDIA")) {
     sub_g <- val_grid %>% filter(scope == sc)
     max_pr <- max(sub_g$validation_PR_AUC)
@@ -230,6 +268,11 @@ test_that("Block D: Hyperparameter grid, RBF kernel and validation selection", {
     expect_equal(sel_row$selected_cost, best_c)
     expect_equal(sel_row$selected_gamma, best_g)
     expect_equal(sel_row$selection_basis, "VALIDATION_PR_AUC")
+    
+    audit_row <- leakage_audit %>% filter(scope == sc)
+    expect_equal(audit_row$reproducibility_status, "VERIFIED_IDENTICAL")
+    expect_equal(audit_row$reproduced_selected_cost, best_c)
+    expect_equal(audit_row$reproduced_selected_gamma, best_g)
   }
   
   # 32. TEST excluded from selection
@@ -238,18 +281,15 @@ test_that("Block D: Hyperparameter grid, RBF kernel and validation selection", {
   expect_false(any(grepl("HOLDOUT", names(val_grid))))
   
   # 40. Raw decision scores are not labeled probabilities
-  # Verify decision scores are continuous unbounded real numbers (contain negative and values > 1)
   expect_true(any(test_preds$decision_score < 0))
   expect_true(any(test_preds$decision_score > 1))
 })
 
 # ==============================================================================
 # BLOCK E: Score Orientation, Decision Values & Metric Bounds
-# Tests 34-35, 41-43, 45, 47
 # ==============================================================================
 test_that("Block E: Score orientation and metric validity", {
   # 34. Score orientation learned from fit data only
-  # Verify orientation multiplier exists and is +1 or -1
   expect_true(all(val_grid$score_orientation_multiplier %in% c(-1, 1)))
   
   # 35. Oriented validation ROC-AUC >= 0.5 where defined
@@ -279,28 +319,24 @@ test_that("Block E: Score orientation and metric validity", {
   expect_true(is.na(hyd_h$F1))
   
   # 47. Prediction row counts exact
-  # TEST: 477 (Hyd) + 1389 (India) = 1866 rows
   expect_equal(nrow(test_preds), 477 + 1389)
-  # HOLDOUT: 111 (Hyd) + 238 (India) = 349 rows
   expect_equal(nrow(holdout_preds), 111 + 238)
+  
+  # 19. Metric Consistency Audit verification
+  expect_equal(nrow(metric_audit), 56)
+  expect_true(all(metric_audit$match_status %in% c("MATCH", "BOTH_NA")))
+  expect_true(all(metric_audit$absolute_difference < 1e-10))
 })
 
 # ==============================================================================
-# BLOCK F: Cross-Phase Immutability, Artifact Existence & Network Isolation
-# Tests 48-51
+# BLOCK F: Baseline Immutability, Archive Self-Containment & Network Isolation
 # ==============================================================================
-test_that("Block F: Cross-phase baseline immutability and artifact existence", {
+test_that("Block F: Baseline immutability, artifact existence and network isolation", {
   # 48. Frozen Phase-4 summary unchanged
   p4_sum <- read_csv("../../analysis/phase4C/tables/phase4_supervised_learning_summary.csv", show_col_types = FALSE)
   expect_equal(nrow(p4_sum), 8)
   expect_equal(p4_sum$Logistic_PR_AUC[p4_sum$scope == "INDIA" & p4_sum$split == "TEST" & p4_sum$model_name == "MODEL_B"],
                0.8254781557712162, tolerance = 1e-8)
-  
-  # 49. Frozen Phase-5A artifacts unchanged
-  expect_true(file.exists("../../data/analysis/phase5A/Hyderabad_PCA_History.csv"))
-  expect_true(file.exists("../../data/analysis/phase5A/India_PCA_History.csv"))
-  expect_true(file.exists("../../models/phase5A/hyderabad_kmeans.rds"))
-  expect_true(file.exists("../../models/phase5A/india_kmeans.rds"))
   
   # 50. Required SVM RDS objects exist
   expected_models <- c(
@@ -315,13 +351,18 @@ test_that("Block F: Cross-phase baseline immutability and artifact existence", {
     expect_true(file.exists(m_path), info = paste("Model RDS exists:", m_path))
   }
   
+  # 15. Archive Dependency Audit verification
+  expect_equal(nrow(dep_audit), 32)
+  expect_true(all(dep_audit$status == "PASS"))
+  expect_true(all(dep_audit$included_in_archive == "YES"))
+  
   # 51. No network calls in Phase-5B execution scripts
-  # Inspect scripts for download.file, install.packages, curl, http
   p5b_scripts <- c(
     "../../scripts/20a_phase5B_prepare_design.R",
     "../../scripts/20b_phase5B_train_validate_select.R",
     "../../scripts/20c_phase5B_test_holdout_evaluation.R",
-    "../../scripts/20d_phase5B_figures.R"
+    "../../scripts/20d_phase5B_figures.R",
+    "../../scripts/21a_phase5B1_consistency_audit.R"
   )
   for (s_path in p5b_scripts) {
     lines <- readLines(s_path, warn = FALSE)

@@ -56,7 +56,15 @@ Thumbs.db
 !/analysis/phase5A/tables/*.csv
 /analysis/phase5A/figures/
 
-# Data analysis outputs: allow curated phase5A data
+!/analysis/phase5B/
+/analysis/phase5B/*
+!/analysis/phase5B/tables/
+!/analysis/phase5B/tables/*.csv
+/analysis/phase5B/figures/
+
+# Data analysis outputs: allow curated phase5A and phase5B data
 /data/analysis/*
 !/data/analysis/phase5A/
 !/data/analysis/phase5A/*.csv
+!/data/analysis/phase5B/
+!/data/analysis/phase5B/*.csv

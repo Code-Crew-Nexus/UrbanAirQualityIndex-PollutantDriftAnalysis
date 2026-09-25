@@ -27,7 +27,9 @@ PCA dimensionality reduction, K-Means pollution-regime discovery, and unsupervis
 **[FROZEN] PHASE 5 UNSUPERVISED LEARNING FROZEN — READY FOR GIT INTEGRATION.**
 
 ### Phase 5B
-SVM classification comparison (Upcoming)
+RBF Support Vector Machine next-day adverse-AQI classification comparison.
+
+**[COMPLETE] PHASE 5B SVM CLASSIFICATION READY FOR REVIEW.**
 
 
 ### Phase 6

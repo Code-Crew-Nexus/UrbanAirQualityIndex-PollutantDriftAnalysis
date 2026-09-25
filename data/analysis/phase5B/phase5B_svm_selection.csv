@@ -1,0 +1,3 @@
+scope,engine,kernel,selected_cost,selected_gamma,validation_PR_AUC,validation_ROC_AUC,validation_average_precision,selection_basis,tie_rule
+HYDERABAD,e1071,radial,16,0.01,0.885726954615157,0.9511433782267116,0.8862142227052824,VALIDATION_PR_AUC,higher_PR_AUC_then_lower_cost_then_lower_gamma_tol_1e-10
+INDIA,e1071,radial,4,0.007575757575757576,0.9216914715145871,0.8802309464114637,0.9217858280703233,VALIDATION_PR_AUC,higher_PR_AUC_then_lower_cost_then_lower_gamma_tol_1e-10

@@ -38,9 +38,9 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 5. Statistical Inference (Benjamini-Hochberg FDR)
 6. Multiple Linear Regression (MLR)
 7. Logistic Regression Classification
-8. PCA / K-Means — *NEXT*
-9. SVM — *OPTIONAL*
-10. R Shiny — *PLANNED*
+8. PCA / K-Means — COMPLETE
+9. SVM — COMPLETE / READY FOR REVIEW
+10. R Shiny — NEXT
 
 ## 9. Key Supervised-Learning Findings
 - **Selected MLR family**: Model B (Persistence-Aware).

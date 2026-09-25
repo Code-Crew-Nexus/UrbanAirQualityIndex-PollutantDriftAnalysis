@@ -1,0 +1,104 @@
+# Phase 5B Support Vector Machine (RBF) Specification
+# Academic Context: Statistics for Machine Learning (SML) PBL
+# Target: Next-day adverse AQI classification (AQI_(t+1) > 100)
+
+specification_metadata:
+  phase: "5B"
+  name: "RBF Support Vector Machine Adverse-AQI Classification"
+  project: "UrbanAirQualityIndex-PollutantDriftAnalysis"
+  frozen_baseline: "v0.5-unsupervised-freeze"
+
+engine_configuration:
+  engine: "e1071"
+  function: "e1071::svm"
+  kernel: "radial"
+  type: "C-classification"
+  scale: false # Internal automatic scaling OFF; explicit project scaling applied
+  probability: false # Decision margin classifier; raw decision values used
+  seed: 20260925
+
+target_definition:
+  target_variable: "target_adverse_next_day"
+  source_target: "aqi_verified at t+1 calendar day"
+  rule: "1 if target_aqi_next_day > 100 else 0"
+  missing_policy: "NA if t+1 observation unavailable; no forward fill or interpolation"
+
+feature_contract:
+  continuous_features:
+    - "pm2_5_aqi_input"
+    - "pm10_aqi_input"
+    - "o3_8h_max"
+    - "temperature"
+    - "humidity"
+    - "wind_speed"
+    - "sin_wind_direction"
+    - "cos_wind_direction"
+    - "month_sin"
+    - "month_cos"
+    - "aqi_verified"
+  categorical_features:
+    - "project_station_id"
+    - "day_of_week"
+  encoding:
+    categorical: "deterministic full one-hot encoding (0/1 indicators for each frozen factor level)"
+    continuous: "z-score standardization using training/fitting split mean and standard deviation"
+  prohibited_features:
+    - "target_aqi_next_day"
+    - "target_adverse_next_day (as predictor)"
+    - "target_category_next_day"
+    - "future weather"
+    - "future pollutants"
+    - "aqi_category"
+    - "dominant_pollutant"
+    - "subindices"
+    - "source-scale gases (CO, NO2, SO2)"
+    - "Phase 3 drift metrics"
+    - "Phase 4 predictions"
+    - "Phase 5 PCA scores (PC1, PC2, PC3, PC4)"
+    - "Phase 5 clusters and centroid distances"
+
+chronological_splits:
+  split_variable: "target_date (date + 1)"
+  TRAIN:
+    start_date: "2025-03-02"
+    end_date: "2025-12-31"
+  VALIDATION:
+    start_date: "2026-01-01"
+    end_date: "2026-04-30"
+  TEST:
+    start_date: "2026-05-01"
+    end_date: "2026-08-31"
+  FINAL_RECENT_HOLDOUT:
+    start_date: "2026-09-01"
+    end_date: "2026-09-21"
+  random_split_allowed: false
+
+hyperparameter_grid:
+  cost_candidates:
+    - 0.25
+    - 1.0
+    - 4.0
+    - 16.0
+  gamma_multiplier_candidates:
+    - 0.25
+    - 0.5
+    - 1.0
+    - 2.0
+    - 4.0
+  base_gamma_formula: "1 / p (where p is number of encoded predictors: 25 for Hyderabad, 33 for India)"
+  total_candidates_per_scope: 20
+
+model_selection_policy:
+  primary_metric: "VALIDATION_PR_AUC"
+  direction: "maximize"
+  tie_tolerance: 1.0e-10
+  tie_rule: "prefer lower cost, then lower gamma"
+  test_leakage_policy: "TEST and HOLDOUT strictly locked; never seen during tuning"
+
+experimental_constraints:
+  random_split_allowed: false
+  class_resampling_policy: "none (NO SMOTE, NO oversampling, NO undersampling, NO synthetic positives, NO class weighting)"
+  standardization_policy: "continuous predictors standardized from fitting data only; learned scaling parameters applied to evaluation sets"
+  zero_variance_policy: "continuous predictors must have training_sd > 0; zero-variance dummy columns in train removed"
+  score_orientation_policy: "continuous decision value oriented so larger score = adverse evidence; multiplier determined from fitting data ROC-AUC only"
+  phase5_features_allowed: false

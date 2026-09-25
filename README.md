@@ -64,18 +64,26 @@ The codebase uses strict functional decoupling and seed-locked statistical sampl
 *Instructions to be populated upon final Shiny integration.*
 
 ## 13. Team
-| Name | Roll Number |
-|---|---|
-| Mangali Sai Krishna | 24R11A6669 |
-| Md. Abdul Rayain | 24R11A6673 |
-| RISHIT GHOSH | 24R11A6685 |
-| Yaram Karthik | 24R11A66A1 |
+| Name | Roll Number | GitHub |
+|---|---|---|
+| Mangali Sai Krishna | 24R11A6669 | @Saikrishna-dev-oss |
+| Md. Abdul Rayain | 24R11A6673 | @rayainwarrior-dev |
+| RISHIT GHOSH | 24R11A6685 | @rajghosh06-dev |
+| Yaram Karthik | 24R11A66A1 | @karthik10-dev |
 
-## 14. Limitations
+## 14. Suggestions & Feedback
+This repository is maintained as an academic SML PBL by the listed project team.
+
+External Pull Requests and direct code contributions are not accepted.
+
+Suggestions, ideas and academic feedback are welcome through GitHub Discussions.
+
+## 15. Limitations
 Supervised static models struggle to adapt classification boundaries gracefully when background baseline prevalences collapse.
 
-## 15. Current Status
+## 16. Current Status
 **PHASE 4 SUPERVISED LEARNING FROZEN.**
 
-## 16. License
+## 17. License
 License to be finalized by the project team.
+

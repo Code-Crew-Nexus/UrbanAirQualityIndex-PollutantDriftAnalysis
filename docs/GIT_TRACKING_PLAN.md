@@ -18,7 +18,6 @@ The following core directories and files are actively tracked in Git:
 - `.gitignore`
 - `.gitattributes`
 - `.Renviron.example`
-- `.github/`
 
 ## IGNORE
 The following files and paths are strictly excluded to protect secrets, raw data, and internal history:

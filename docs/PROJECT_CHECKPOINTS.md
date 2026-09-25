@@ -17,6 +17,10 @@ Next-day supervised learning
 ### Checkpoint G1
 Git/GitHub baseline curation and documentation consolidation.
 
+### Checkpoint G1.1
+PBL collaboration policy, team identity, and pre-remote tag alignment.
+
+
 ### Phase 5
 PCA / K-Means and optional advanced SML (Upcoming)
 

@@ -1,0 +1,8 @@
+HYDERABAD:
+  selected_family: MODEL_B
+  selected_threshold: 0.3112681
+  selection_basis: VALIDATION_PR_AUC
+INDIA:
+  selected_family: MODEL_B
+  selected_threshold: 0.713448
+  selection_basis: VALIDATION_PR_AUC

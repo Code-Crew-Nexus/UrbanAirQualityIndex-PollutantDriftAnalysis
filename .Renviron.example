@@ -1,0 +1,24 @@
+# ==============================================================================
+# Environment Configuration Template: UrbanAirQualityIndex-PollutantDriftAnalysis
+# ==============================================================================
+# INSTRUCTIONS:
+# 1. Copy this file to '.Renviron' in your project root:
+#    cp .Renviron.example .Renviron
+# 2. Add your verified API credentials below.
+# 3. DO NOT commit '.Renviron' to version control (it is excluded via .gitignore).
+#
+# NOTE: Open-Meteo does NOT require an API key for non-commercial open archive queries.
+# Do NOT define OPENMETEO_API_KEY or CPCB_API_KEY unless official changes mandate them.
+# ==============================================================================
+
+# OpenAQ API v3 Key (Obtain from https://explore.openaq.org)
+# Required for api.openaq.org/v3 endpoints via 'X-API-Key' header
+OPENAQ_API_KEY=
+
+# Data.gov.in API Key (Obtain from https://data.gov.in)
+# Required for official Indian Open Government Data platform queries
+DATAGOV_API_KEY=
+
+# Kaggle API Credentials (Optional - only if accessing Kaggle API programmatically)
+KAGGLE_USERNAME=
+KAGGLE_KEY=

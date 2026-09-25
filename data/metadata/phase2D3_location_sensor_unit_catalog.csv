@@ -1,0 +1,379 @@
+project_station_id,source_location_id,station_name,city,sensor_id,sensor_name,parameter_id,parameter_name,parameter_unit,datetime_first,datetime_last,selected_sensor,possible_unit_counterpart
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234783,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234785,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234787,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234784,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234786,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:30:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234782,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234790,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234788,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,12234789,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,14340715,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,14340714,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,14340713,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,399,pm10 µg/m³,1,pm10,µg/m³,2016-02-05T14:55:00Z,2018-02-21T21:15:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,35,pm25 µg/m³,2,pm25,µg/m³,2016-02-05T14:55:00Z,2018-02-21T21:15:00Z,FALSE,FALSE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,394,o3 µg/m³,3,o3,µg/m³,2016-02-05T14:55:00Z,2018-01-24T09:30:00Z,FALSE,TRUE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,36,no2 µg/m³,5,no2,µg/m³,2016-02-05T14:55:00Z,2018-02-21T20:45:00Z,FALSE,TRUE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,392,co µg/m³,4,co,µg/m³,2016-02-05T14:55:00Z,2018-02-21T20:45:00Z,FALSE,TRUE
+PROJ_002,17,"R K Puram, Delhi - DPCC",Delhi,393,so2 µg/m³,6,so2,µg/m³,2016-02-05T14:55:00Z,2018-02-21T21:15:00Z,FALSE,TRUE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,712,no2 µg/m³,5,no2,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,711,o3 µg/m³,3,o3,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,710,co µg/m³,4,co,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,715,pm10 µg/m³,1,pm10,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,714,pm25 µg/m³,2,pm25,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,713,so2 µg/m³,6,so2,µg/m³,2016-03-21T19:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235585,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235581,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235579,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235584,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235578,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235580,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235586,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235583,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,12235582,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,14340862,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,14340861,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",Hyderabad,14340863,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235655,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235648,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235653,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235656,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-08-13T14:45:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235654,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235652,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235650,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235651,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,12235649,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,14340871,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,14340872,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,14340870,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,14311,so2 µg/m³,6,so2,µg/m³,2017-06-19T20:00:00Z,2022-10-16T15:00:00Z,FALSE,TRUE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,5340,no2 µg/m³,5,no2,µg/m³,2016-03-21T10:00:00Z,2022-10-16T15:00:00Z,FALSE,TRUE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,1305375,o3 µg/m³,3,o3,µg/m³,2021-05-05T03:00:00Z,2022-10-16T15:00:00Z,FALSE,TRUE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,5339,co µg/m³,4,co,µg/m³,2016-03-21T10:00:00Z,2022-10-16T15:00:00Z,FALSE,TRUE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,14319,pm25 µg/m³,2,pm25,µg/m³,2017-02-18T22:00:00Z,2022-10-16T15:00:00Z,FALSE,FALSE
+PROJ_019,2586,"Manali, Chennai - CPCB",Chennai,1305374,pm10 µg/m³,1,pm10,µg/m³,2021-05-05T03:00:00Z,2022-10-16T15:00:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235400,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235399,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235402,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235403,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235401,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235398,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235395,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235396,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,12235397,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14340835,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14340834,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14340833,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-08-15T05:00:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14820,co µg/m³,4,co,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14842,no2 µg/m³,5,no2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14843,o3 µg/m³,3,o3,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,14813,pm10 µg/m³,1,pm10,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,15217,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,15221,so2 µg/m³,6,so2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235629,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-06-23T11:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235625,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235627,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235623,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235626,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235621,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235622,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235628,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,12235624,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14341875,nox ppb,23,nox,ppb,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14341876,wind_direction deg,22,wind_direction,deg,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14341877,wind_speed m/s,34,wind_speed,m/s,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,15259,pm10 µg/m³,1,pm10,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14908,o3 µg/m³,3,o3,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,TRUE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14927,no2 µg/m³,5,no2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,TRUE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,15258,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,FALSE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,14940,co µg/m³,4,co,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,TRUE
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,15245,so2 µg/m³,6,so2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T00:45:00Z,FALSE,TRUE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242116,co ppb,102,co,ppb,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242118,no2 ppb,15,no2,ppb,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242119,o3 µg/m³,3,o3,µg/m³,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242121,pm25 µg/m³,2,pm25,µg/m³,2025-02-19T06:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,14340846,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242124,temperature c,100,temperature,c,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,14340845,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242120,pm10 µg/m³,1,pm10,µg/m³,2025-02-19T06:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,14340847,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242123,so2 ppb,101,so2,ppb,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242122,relativehumidity %,98,relativehumidity,%,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,12242117,no ppb,24,no,ppb,2025-02-19T04:45:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,15046,pm10 µg/m³,1,pm10,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,15167,so2 µg/m³,6,so2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,14918,no2 µg/m³,5,no2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,15178,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,15034,o3 µg/m³,3,o3,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",Hyderabad,15193,co µg/m³,4,co,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14950,o3 µg/m³,3,o3,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14969,co µg/m³,4,co,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14947,pm10 µg/m³,1,pm10,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14944,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14957,no2 µg/m³,5,no2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14939,so2 µg/m³,6,so2,µg/m³,2018-03-09T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235460,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235458,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235455,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T16:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235459,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235461,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235463,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235462,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235456,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,12235457,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14340842,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14340844,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,14340843,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14963,so2 µg/m³,6,so2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14991,no2 µg/m³,5,no2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14964,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14986,o3 µg/m³,3,o3,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,35977,pm10 µg/m³,1,pm10,µg/m³,2019-08-01T07:15:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14996,co µg/m³,4,co,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235666,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235668,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235670,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235673,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235671,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235674,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235669,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235667,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,12235672,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14340876,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14340877,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",Ahmedabad,14340878,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234804,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234807,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:15:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234805,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234806,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-22T02:15:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234801,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234800,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234803,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234808,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-06-23T11:00:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,12234802,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14341726,wind_speed m/s,34,wind_speed,m/s,2025-10-10T20:15:00Z,2026-09-22T06:30:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14341725,wind_direction deg,22,wind_direction,deg,2025-10-10T20:15:00Z,2026-09-22T06:30:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14341724,nox ppb,23,nox,ppb,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14977,no2 µg/m³,5,no2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14973,pm10 µg/m³,1,pm10,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14982,co µg/m³,4,co,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14975,o3 µg/m³,3,o3,µg/m³,2018-03-11T20:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14970,so2 µg/m³,6,so2,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",Jaipur,14971,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T05:30:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235521,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235520,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235517,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:15:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235523,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:15:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235518,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235524,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235519,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235525,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-08-06T11:15:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,12235522,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:15:00Z,TRUE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,14341853,wind_speed m/s,34,wind_speed,m/s,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,14341851,nox ppb,23,nox,ppb,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,14341852,wind_direction deg,22,wind_direction,deg,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,15149,no2 µg/m³,5,no2,µg/m³,2018-03-09T03:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,15151,co µg/m³,4,co,µg/m³,2018-03-09T03:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,15142,so2 µg/m³,6,so2,µg/m³,2018-03-09T03:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,36168,pm10 µg/m³,1,pm10,µg/m³,2020-07-23T09:15:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,15148,o3 µg/m³,3,o3,µg/m³,2018-03-09T03:30:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",Lucknow,15143,pm25 µg/m³,2,pm25,µg/m³,2018-03-09T03:30:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12289836,so2 ppb,101,so2,ppb,2025-02-24T02:30:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235830,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235834,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235836,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235835,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235829,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235833,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235831,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,12235832,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,14340924,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,14340922,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,14340923,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,19993,co µg/m³,4,co,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,19987,so2 µg/m³,6,so2,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,19968,o3 µg/m³,3,o3,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,19978,pm25 µg/m³,2,pm25,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,20076,no2 µg/m³,5,no2,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_092,6945,"Kurla, Mumbai - MPCB",Mumbai,19975,pm10 µg/m³,1,pm10,µg/m³,2019-06-19T00:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235269,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235268,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235264,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235266,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235267,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235265,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235262,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235263,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,12235270,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,14340804,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-06-23T11:00:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,14340803,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,14340802,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20175,no2 µg/m³,5,no2,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20173,co µg/m³,4,co,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20155,o3 µg/m³,3,o3,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20162,pm25 µg/m³,2,pm25,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20152,so2 µg/m³,6,so2,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,20172,pm10 µg/m³,1,pm10,µg/m³,2018-08-10T06:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236105,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236100,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236101,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236097,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236103,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236104,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236102,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236099,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,12236098,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,14341984,nox ppb,23,nox,ppb,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,14341986,wind_speed m/s,34,wind_speed,m/s,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,14341985,wind_direction deg,22,wind_direction,deg,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35386,so2 µg/m³,6,so2,µg/m³,2019-12-26T10:45:00Z,2022-10-16T15:45:00Z,FALSE,TRUE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35189,co µg/m³,4,co,µg/m³,2019-12-26T05:15:00Z,2022-10-16T15:45:00Z,FALSE,TRUE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35373,pm25 µg/m³,2,pm25,µg/m³,2019-12-26T05:15:00Z,2022-10-16T15:45:00Z,FALSE,FALSE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35223,o3 µg/m³,3,o3,µg/m³,2019-12-26T05:15:00Z,2022-10-16T15:45:00Z,FALSE,TRUE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35204,no2 µg/m³,5,no2,µg/m³,2019-12-26T10:45:00Z,2022-10-16T15:45:00Z,FALSE,TRUE
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",Patna,35349,pm10 µg/m³,1,pm10,µg/m³,2019-12-26T05:15:00Z,2022-10-16T15:45:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36575,pm10 µg/m³,1,pm10,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36563,o3 µg/m³,3,o3,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36635,so2 µg/m³,6,so2,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36550,no2 µg/m³,5,no2,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36592,pm25 µg/m³,2,pm25,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,36548,co µg/m³,4,co,µg/m³,2019-12-24T09:45:00Z,2022-10-31T01:45:00Z,FALSE,TRUE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235758,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235757,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235763,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235764,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235762,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235756,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235760,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235759,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,12235761,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:15:00Z,TRUE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,14340902,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,14340903,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",Guwahati,14340904,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236019,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236023,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236021,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236020,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236022,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236017,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236016,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236018,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,12236024,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,14340960,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,14340959,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,14340961,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36617,so2 µg/m³,6,so2,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36614,o3 µg/m³,3,o3,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36616,pm25 µg/m³,2,pm25,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36615,pm10 µg/m³,1,pm10,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,FALSE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36612,co µg/m³,4,co,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",Bhopal,36613,no2 µg/m³,5,no2,µg/m³,2019-09-23T10:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236459,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236463,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236458,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236464,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-08-21T04:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236460,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236461,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236466,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-08-21T04:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236465,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,12236462,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,14341024,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-08-21T04:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,14341023,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-08-21T04:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,14341022,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39468,no2 µg/m³,5,no2,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,TRUE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39471,o3 µg/m³,3,o3,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,TRUE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39467,pm10 µg/m³,1,pm10,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39469,so2 µg/m³,6,so2,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,TRUE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39466,pm25 µg/m³,2,pm25,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,FALSE
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,39470,co µg/m³,4,co,µg/m³,2020-11-13T12:15:00Z,2022-07-07T07:15:00Z,FALSE,TRUE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237100,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237093,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237096,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237097,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237094,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237101,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237098,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237099,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,12237095,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,14341202,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,14341203,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,14341204,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960395,o3 µg/m³,3,o3,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,TRUE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960397,co µg/m³,4,co,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,TRUE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960403,no2 µg/m³,5,no2,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,TRUE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960401,so2 µg/m³,6,so2,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,TRUE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960400,pm10 µg/m³,1,pm10,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,FALSE
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,1960399,pm25 µg/m³,2,pm25,µg/m³,2022-05-26T12:00:00Z,2022-10-16T14:15:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237125,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237126,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237128,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237121,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237122,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237124,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237127,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237123,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,12237120,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,14341209,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,14341208,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,14341210,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960398,no2 µg/m³,5,no2,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960405,so2 µg/m³,6,so2,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960396,co µg/m³,4,co,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960394,pm25 µg/m³,2,pm25,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960404,pm10 µg/m³,1,pm10,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,1960402,o3 µg/m³,3,o3,µg/m³,2022-05-26T12:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237117,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237111,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237112,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237114,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237113,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237115,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237118,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237116,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,12237119,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,14341205,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,14341207,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,14341206,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960599,so2 µg/m³,6,so2,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960600,o3 µg/m³,3,o3,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960587,pm25 µg/m³,2,pm25,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960606,pm10 µg/m³,1,pm10,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,FALSE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960604,co µg/m³,4,co,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",Hyderabad,1960586,no2 µg/m³,5,no2,µg/m³,2022-05-26T13:00:00Z,2022-10-16T16:00:00Z,FALSE,TRUE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237091,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237092,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-06-23T11:15:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237088,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237089,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237085,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237086,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237090,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237087,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,12237084,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,14341201,wind_speed m/s,34,wind_speed,m/s,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,14341199,nox ppb,23,nox,ppb,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,14341200,wind_direction deg,22,wind_direction,deg,2025-10-10T18:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002324,co µg/m³,4,co,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002329,pm10 µg/m³,1,pm10,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002327,pm25 µg/m³,2,pm25,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002328,no2 µg/m³,5,no2,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002326,so2 µg/m³,6,so2,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",Hyderabad,2002325,o3 µg/m³,3,o3,µg/m³,2022-06-16T07:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235890,temperature c,100,temperature,c,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235885,o3 µg/m³,3,o3,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235889,so2 ppb,101,so2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235888,relativehumidity %,98,relativehumidity,%,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235884,no2 ppb,15,no2,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235883,no ppb,24,no,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235886,pm10 µg/m³,1,pm10,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235882,co ppb,102,co,ppb,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,12235887,pm25 µg/m³,2,pm25,µg/m³,2025-02-18T20:15:00Z,2026-09-24T17:30:00Z,TRUE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,14341947,wind_direction deg,22,wind_direction,deg,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,14341946,nox ppb,23,nox,ppb,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,14341948,wind_speed m/s,34,wind_speed,m/s,2025-10-10T20:15:00Z,2026-09-24T17:30:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,19997,pm25 µg/m³,2,pm25,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,19991,o3 µg/m³,3,o3,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,20002,so2 µg/m³,6,so2,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,19994,pm10 µg/m³,1,pm10,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,FALSE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,19986,co µg/m³,4,co,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",Kolkata,19988,no2 µg/m³,5,no2,µg/m³,2019-06-18T23:00:00Z,2022-10-31T02:00:00Z,FALSE,TRUE

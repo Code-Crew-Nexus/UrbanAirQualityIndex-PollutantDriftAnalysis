@@ -1,0 +1,5 @@
+pollutant,source_unit,target_unit,conversion_formula,conversion_factor,reference_temperature_c,official_source_id,official_page_or_table,verification_status
+no2,ppb,µg/m³,ppb_to_ugm3,1.88,25,cpcb_caaqms_protocol,"Standard Parameter Naming Protocol and Conversion Factors",VERIFIED
+so2,ppb,µg/m³,ppb_to_ugm3,2.62,25,cpcb_caaqms_protocol,"Standard Parameter Naming Protocol and Conversion Factors",VERIFIED
+co,ppb,mg/m³,ppb_to_mgm3,0.001145,25,cpcb_caaqms_protocol,"Standard Parameter Naming Protocol and Conversion Factors",VERIFIED
+o3,ppb,µg/m³,ppb_to_ugm3,1.96,25,cpcb_caaqms_protocol,"Standard Parameter Naming Protocol and Conversion Factors",VERIFIED

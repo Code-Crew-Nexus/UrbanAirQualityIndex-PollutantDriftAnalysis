@@ -1,0 +1,7 @@
+pollutant,severe_lower_bound,candidate_days_exceeding,maximum_observed_regulatory_input,policy_impact
+pm10,431,24,670,Extrapolation Policy triggers frequently
+pm2_5,251,51,681.1739130434783,Extrapolation Policy triggers frequently
+no2,401,2,2147.3046666666664,Extrapolation Policy triggers frequently
+so2,1601,1,1747.8675,Extrapolation Policy triggers frequently
+co,34.1,2,908,Extrapolation Policy triggers frequently
+o3,749,0,497,Policy rarely/never triggers

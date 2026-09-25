@@ -1,0 +1,55 @@
+# Project Configuration for UrbanAirQualityIndex-PollutantDriftAnalysis
+# B.Tech CSE (AI & ML) III Year / I Sem - Statistics for Machine Learning PBL
+
+project:
+  name: "UrbanAirQualityIndex-PollutantDriftAnalysis"
+  timezone: "Asia/Kolkata"
+  country: "India"
+  country_iso: "IN"
+  description: "Data-engineering pipeline and statistical analysis of urban air pollution and pollutant drift."
+
+pollutants:
+  core:
+    - "PM2.5"
+    - "PM10"
+    - "NO2"
+    - "SO2"
+    - "CO"
+    - "O3"
+  optional:
+    - "NH3"
+
+units:
+  canonical:
+    pm2_5: "µg/m³"
+    pm10: "µg/m³"
+    no2: "µg/m³"
+    so2: "µg/m³"
+    co: "mg/m³"
+    o3: "µg/m³"
+    nh3: "µg/m³"
+    temperature: "°C"
+    humidity: "%"
+    wind_speed: "m/s"
+    wind_direction: "°"
+
+audit:
+  candidate_city_file: "config/candidate_india_cities.csv"
+  selected_stations_file: "config/selected_stations.csv"
+  audit_window_days: 90
+  sample_window_days: 7
+  target_hyderabad_stations:
+    min: 5
+    max: 8
+  target_india_cities:
+    min: 12
+    max: 15
+
+paths:
+  raw_air_quality: "data/raw/air_quality"
+  raw_weather: "data/raw/weather"
+  raw_reference: "data/raw/reference"
+  interim: "data/interim"
+  metadata: "data/metadata"
+  processed: "data/processed"
+  logs: "logs"

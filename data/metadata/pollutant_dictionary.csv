@@ -1,0 +1,8 @@
+canonical_name,display_name,chemical_symbol,possible_source_aliases,canonical_unit,description,core_pollutant,notes
+pm2_5,Particulate Matter <= 2.5 µm,PM2.5,"pm25;pm2.5;PM2.5;PM 2.5;Particulate Matter 2.5;pm2_5",µg/m³,Fine inhalable particles with diameters 2.5 micrometers and smaller,TRUE,Primary criterion pollutant in India; penetrates deep into lungs and cardiovascular system
+pm10,Particulate Matter <= 10 µm,PM10,"pm10;pm10.0;PM10;PM 10;Particulate Matter 10",µg/m³,Inhalable particles with diameters 10 micrometers and smaller,TRUE,Primary thoracic coarse particulate matter; originates from road dust construction and windblown soils
+no2,Nitrogen Dioxide,NO2,"no2;NO2;Nitrogen dioxide;NO_2",µg/m³,Reddish-brown toxic gas produced from high-temperature combustion,TRUE,Combustion byproduct primarily from vehicular emissions and power plants
+so2,Sulphur Dioxide,SO2,"so2;SO2;Sulfur dioxide;Sulphur dioxide;SO_2",µg/m³,Toxic gas with a pungent irritating smell from sulfur-containing fuels,TRUE,Emitted predominantly by thermal power stations oil refineries and industrial smelting
+co,Carbon Monoxide,CO,"co;CO;Carbon monoxide",mg/m³,Colorless odorless toxic gas formed by incomplete combustion of carbon-based fuels,TRUE,Canonical unit is mg/m3 per CPCB and WHO standards; note 1 mg/m3 = 1000 µg/m3
+o3,Ozone,O3,"o3;O3;Ozone;Ground-level Ozone",µg/m³,Secondary photochemical oxidant formed by VOCs and NOx in presence of sunlight,TRUE,Ground-level secondary pollutant; photochemically generated during peak daylight hours
+nh3,Ammonia,NH3,"nh3;NH3;Ammonia;NH_3",µg/m³,Pungent alkaline gaseous compound of nitrogen and hydrogen,FALSE,Optional criterion pollutant; agricultural waste livestock and localized urban fertilizer emissions

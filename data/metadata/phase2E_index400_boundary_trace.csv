@@ -1,0 +1,2 @@
+project_station_id,date,pm2_5_aqi_input,pm10_aqi_input,o3_8h_max,pm2_5_subindex,pm10_subindex,o3_subindex
+PROJ_002,2025-11-24,250,362,130,400,314,143

@@ -1,0 +1,4 @@
+dataset,rows,columns,station_count,date_min,date_max,duplicate_station_date_rows,missing_aqi_count,valid_aqi_count,weather_missing_count,policy_name,schema_hash_or_signature
+UAQI_Master_Daily,11970,84,21,2025-03-01,2026-09-21,0,2509,9461,0,VERIFIED_SUBSET_PM25_PM10_O3,019984439fa6df0c2cd18f26f14ead30
+UAQI_Hyderabad_Daily,3990,84,7,2025-03-01,2026-09-21,0,1120,2870,0,VERIFIED_SUBSET_PM25_PM10_O3,019984439fa6df0c2cd18f26f14ead30
+UAQI_India_Daily,8550,84,15,2025-03-01,2026-09-21,0,1515,7035,0,VERIFIED_SUBSET_PM25_PM10_O3,019984439fa6df0c2cd18f26f14ead30

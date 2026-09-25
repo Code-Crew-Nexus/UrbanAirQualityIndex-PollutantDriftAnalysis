@@ -1,0 +1,16 @@
+city,state,region,priority,include_in_audit,notes
+Hyderabad,Telangana,South,1,TRUE,Primary focus city; mandatory for dedicated multi-station dataset and national comparison
+Delhi,Delhi,North,1,TRUE,National Capital Region; dense CAAQMS network; prominent winter pollution dynamics
+Mumbai,Maharashtra,West,1,TRUE,Major coastal metropolis; maritime wind influences on dispersion
+Bengaluru,Karnataka,South,1,TRUE,Major southern plateau city; significant urban vehicular emissions
+Chennai,Tamil Nadu,South,1,TRUE,Major southern coastal metropolis; maritime boundary layer dynamics
+Kolkata,West Bengal,East,1,TRUE,Major eastern riverine metropolis; high seasonal particulate levels
+Pune,Maharashtra,West,2,TRUE,Major western plateau urban center; industrial and vehicular sources
+Ahmedabad,Gujarat,West,2,TRUE,Major western arid/semi-arid industrial hub
+Jaipur,Rajasthan,North,2,TRUE,Northern semi-arid climate zone; desert dust interaction
+Lucknow,Uttar Pradesh,North,2,TRUE,Upper/Middle Gangetic plain; frequent high winter inversion
+Patna,Bihar,East,2,TRUE,Middle Gangetic plain; severe seasonal particulate pollution
+Bhopal,Madhya Pradesh,Central,2,TRUE,Central India plateau region; inland continental climate
+Nagpur,Maharashtra,Central,2,TRUE,Central geographic reference; logistics and thermal power vicinity
+Visakhapatnam,Andhra Pradesh,South,2,TRUE,Eastern coastal industrial port city; complex coastal terrain
+Guwahati,Assam,North East,2,TRUE,Northeastern river valley gateway; unique topography and meteorology

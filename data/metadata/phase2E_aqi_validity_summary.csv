@@ -1,0 +1,23 @@
+project_station_id,station_name,city,scope,total_days,valid_aqi_days,invalid_aqi_days,valid_aqi_pct,insufficient_pm2_5_days,insufficient_pm10_days,insufficient_o3_days,no_valid_o3_window_days,other_invalid_days,first_valid_aqi_date,last_valid_aqi_date
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,570,469,101,82.28070175438596,67,73,67,0,64,2025-03-01,2026-09-20
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,570,444,126,77.89473684210526,109,110,84,0,108,2025-03-01,2026-09-20
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,570,448,122,78.59649122807018,102,102,77,2,94,2025-03-01,2026-09-20
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,251,319,44.03508771929825,291,267,240,0,258,2025-03-01,2026-09-18
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,570,507,63,88.94736842105263,54,54,47,0,54,2025-03-01,2026-09-20
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,361,209,63.33333333333333,137,189,99,0,133,2025-03-01,2026-09-20
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,570,474,96,83.15789473684211,69,70,67,0,66,2025-03-01,2026-09-20
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,570,483,87,84.73684210526315,76,77,61,0,77,2025-03-01,2026-09-20
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,570,491,79,86.14035087719299,66,66,65,0,66,2025-03-01,2026-09-20
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,570,492,78,86.31578947368422,65,62,57,0,61,2025-03-01,2026-09-20
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,570,395,175,69.2982456140351,159,160,129,0,160,2025-03-01,2026-09-20
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,570,525,45,92.10526315789474,40,40,37,0,40,2025-03-01,2026-09-20
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,570,457,113,80.17543859649123,86,87,80,0,81,2025-03-01,2026-09-20
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,570,499,71,87.54385964912281,61,60,51,0,60,2025-03-01,2026-09-20
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,570,413,157,72.45614035087719,115,114,104,23,112,2025-03-01,2026-09-20
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,570,484,86,84.91228070175438,69,69,53,1,67,2025-03-01,2026-09-20
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,570,454,116,79.64912280701755,104,104,97,0,104,2025-03-01,2026-09-20
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,468,102,82.10526315789474,81,81,66,0,81,2025-03-01,2026-09-20
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,431,139,75.6140350877193,108,115,94,0,109,2025-03-01,2026-09-20
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,454,116,79.64912280701755,96,97,81,0,96,2025-03-01,2026-09-20
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,461,109,80.87719298245614,96,96,78,0,96,2025-03-01,2026-09-20
+OVERALL,ALL,ALL,ALL,11970,9461,2509,79.03926482873851,2051,2093,1734,26,1987,2025-03-01,2026-09-20

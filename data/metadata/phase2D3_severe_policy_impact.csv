@@ -1,0 +1,7 @@
+pollutant,candidate_days_exceeding,maximum_observed_regulatory_input,policy_impact
+co,0,NA,Policy rarely/never triggers
+no2,0,NA,Policy rarely/never triggers
+o3,0,497,Policy rarely/never triggers
+pm10,1596,1460,Extrapolation Policy triggers frequently
+pm2_5,1517,5870,Extrapolation Policy triggers frequently
+so2,0,NA,Policy rarely/never triggers

@@ -1,0 +1,22 @@
+project_station_id,station_name,o3_valid_source_hours,o3_valid_8h_window_count,o3_selected_averaging_period,o3_subindex,aqi_validity_reason
+PROJ_002,"R K Puram, Delhi - DPCC",17,19,8-hour,17,valid
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",24,24,8-hour,25,valid
+PROJ_019,"Manali, Chennai - CPCB",17,14,8-hour,57,valid
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",20,17,8-hour,53,valid
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",24,24,8-hour,50,valid
+PROJ_044,"Central University, Hyderabad - TSPCB",24,24,8-hour,16,valid
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",24,24,8-hour,17,valid
+PROJ_050,"Maninagar, Ahmedabad - GPCB",24,24,8-hour,32,valid
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",19,16,8-hour,47,valid
+PROJ_063,"Lalbagh, Lucknow - CPCB",24,24,8-hour,32,valid
+PROJ_092,"Kurla, Mumbai - MPCB",23,24,8-hour,29,valid
+PROJ_094,"Jadavpur, Kolkata - WBPCB",24,24,8-hour,53,valid
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",24,24,8-hour,27,valid
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",24,24,8-hour,45,valid
+PROJ_142,"Railway Colony, Guwahati - APCB",21,18,8-hour,27,valid
+PROJ_144,"T T Nagar, Bhopal - MPPCB",19,22,8-hour,137,valid
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",24,24,8-hour,124,valid
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",24,24,8-hour,35,valid
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",24,24,8-hour,31,valid
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",24,24,8-hour,35,valid
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",24,24,8-hour,22,valid

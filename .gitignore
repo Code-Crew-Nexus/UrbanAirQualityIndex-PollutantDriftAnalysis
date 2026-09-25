@@ -1,0 +1,45 @@
+# Secrets
+.Renviron
+.Renviron.*
+!.Renviron.example
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Runtime
+logs/
+scratch/
+
+# Internal audit history
+docs/internal_phase_history/
+
+# Review archives
+review_archive_*.zip
+*.zip
+
+# Large/raw data
+data/raw/
+data/interim/
+
+# Temporary/cache
+tmp/
+temp/
+cache/
+
+# Python/support files if created
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+data/quarantine/
+
+data/quarantine/
+data/modeling/
+analysis/
+!analysis/phase4C/tables/phase4_supervised_learning_summary.csv
+

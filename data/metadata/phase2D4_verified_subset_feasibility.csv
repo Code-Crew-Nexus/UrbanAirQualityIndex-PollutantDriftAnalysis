@@ -1,0 +1,23 @@
+project_station_id,station_name,city,scope,total_days,days_valid_pm2_5,days_valid_pm10,days_valid_o3,days_valid_all_three
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,570,503,497,503,486
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,570,461,460,468,454
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,570,468,468,485,460
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,279,303,325,266
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,570,516,516,520,516
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,433,381,454,373
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,570,501,500,502,490
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,570,494,493,499,492
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,570,504,504,505,504
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,570,505,508,512,504
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,570,411,410,426,405
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,570,530,530,530,530
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,570,484,483,483,469
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,570,509,510,508,506
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,570,455,456,449,443
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,570,501,501,508,499
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,570,466,466,467,465
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,489,489,493,489
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,462,455,463,454
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,474,473,479,471
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,Hyderabad,570,474,474,478,473
+OVERALL,ALL,ALL,ALL,11970,9919,9877,10057,9749

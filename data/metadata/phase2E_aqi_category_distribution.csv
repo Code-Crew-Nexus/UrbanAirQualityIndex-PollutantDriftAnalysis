@@ -1,0 +1,97 @@
+scope,city,station_name,aqi_category,day_count,percentage_of_valid_aqi_days
+Both,Hyderabad,"Zoo Park, Hyderabad - TSPCB",Good,86,19.36936936936937
+Both,Hyderabad,"Zoo Park, Hyderabad - TSPCB",Moderately Polluted,156,35.13513513513514
+Both,Hyderabad,"Zoo Park, Hyderabad - TSPCB",Satisfactory,202,45.4954954954955
+Hyderabad,Hyderabad,"Bollaram Industrial Area, Hyderabad - TSPCB",Good,25,9.9601593625498
+Hyderabad,Hyderabad,"Bollaram Industrial Area, Hyderabad - TSPCB",Moderately Polluted,80,31.872509960159363
+Hyderabad,Hyderabad,"Bollaram Industrial Area, Hyderabad - TSPCB",Satisfactory,146,58.16733067729084
+Hyderabad,Hyderabad,"Central University, Hyderabad - TSPCB",Good,207,57.340720221606645
+Hyderabad,Hyderabad,"Central University, Hyderabad - TSPCB",Moderately Polluted,37,10.249307479224377
+Hyderabad,Hyderabad,"Central University, Hyderabad - TSPCB",Satisfactory,117,32.40997229916898
+Hyderabad,Hyderabad,"ECIL Kapra, Hyderabad - TSPCB",Good,22,4.700854700854701
+Hyderabad,Hyderabad,"ECIL Kapra, Hyderabad - TSPCB",Moderately Polluted,12,2.564102564102564
+Hyderabad,Hyderabad,"ECIL Kapra, Hyderabad - TSPCB",Poor,1,0.2136752136752137
+Hyderabad,Hyderabad,"ECIL Kapra, Hyderabad - TSPCB",Satisfactory,433,92.52136752136752
+Hyderabad,Hyderabad,"Kompally Municipal Office, Hyderabad - TSPCB",Good,3,0.6960556844547563
+Hyderabad,Hyderabad,"Kompally Municipal Office, Hyderabad - TSPCB",Moderately Polluted,16,3.7122969837587005
+Hyderabad,Hyderabad,"Kompally Municipal Office, Hyderabad - TSPCB",Poor,1,0.23201856148491878
+Hyderabad,Hyderabad,"Kompally Municipal Office, Hyderabad - TSPCB",Satisfactory,411,95.35962877030161
+Hyderabad,Hyderabad,"New Malakpet, Hyderabad - TSPCB",Good,41,8.893709327548807
+Hyderabad,Hyderabad,"New Malakpet, Hyderabad - TSPCB",Moderately Polluted,5,1.0845986984815619
+Hyderabad,Hyderabad,"New Malakpet, Hyderabad - TSPCB",Satisfactory,415,90.02169197396964
+Hyderabad,Hyderabad,"Somajiguda, Hyderabad - TSPCB",Good,16,3.524229074889868
+Hyderabad,Hyderabad,"Somajiguda, Hyderabad - TSPCB",Moderately Polluted,81,17.841409691629956
+Hyderabad,Hyderabad,"Somajiguda, Hyderabad - TSPCB",Poor,7,1.5418502202643172
+Hyderabad,Hyderabad,"Somajiguda, Hyderabad - TSPCB",Satisfactory,348,76.65198237885463
+Hyderabad,Hyderabad,"Somajiguda, Hyderabad - TSPCB",Very Poor,2,0.4405286343612335
+India,Ahmedabad,"Maninagar, Ahmedabad - GPCB",Good,30,6.211180124223603
+India,Ahmedabad,"Maninagar, Ahmedabad - GPCB",Moderately Polluted,218,45.13457556935818
+India,Ahmedabad,"Maninagar, Ahmedabad - GPCB",Poor,8,1.6563146997929608
+India,Ahmedabad,"Maninagar, Ahmedabad - GPCB",Satisfactory,222,45.962732919254655
+India,Ahmedabad,"Maninagar, Ahmedabad - GPCB",Very Poor,5,1.0351966873706004
+India,Bengaluru,"Jayanagar 5th Block, Bengaluru - KSPCB",Good,162,35.44857768052516
+India,Bengaluru,"Jayanagar 5th Block, Bengaluru - KSPCB",Moderately Polluted,107,23.413566739606125
+India,Bengaluru,"Jayanagar 5th Block, Bengaluru - KSPCB",Poor,1,0.2188183807439825
+India,Bengaluru,"Jayanagar 5th Block, Bengaluru - KSPCB",Satisfactory,187,40.91903719912472
+India,Bhopal,"T T Nagar, Bhopal - MPPCB",Good,87,17.97520661157025
+India,Bhopal,"T T Nagar, Bhopal - MPPCB",Moderately Polluted,229,47.31404958677686
+India,Bhopal,"T T Nagar, Bhopal - MPPCB",Poor,41,8.47107438016529
+India,Bhopal,"T T Nagar, Bhopal - MPPCB",Satisfactory,117,24.173553719008265
+India,Bhopal,"T T Nagar, Bhopal - MPPCB",Very Poor,10,2.066115702479339
+India,Chennai,"Manali, Chennai - CPCB",Good,127,28.348214285714285
+India,Chennai,"Manali, Chennai - CPCB",Moderately Polluted,68,15.178571428571427
+India,Chennai,"Manali, Chennai - CPCB",Poor,12,2.6785714285714284
+India,Chennai,"Manali, Chennai - CPCB",Satisfactory,235,52.45535714285714
+India,Chennai,"Manali, Chennai - CPCB",Severe,1,0.2232142857142857
+India,Chennai,"Manali, Chennai - CPCB",Very Poor,5,1.1160714285714286
+India,Delhi,"R K Puram, Delhi - DPCC",Good,11,2.345415778251599
+India,Delhi,"R K Puram, Delhi - DPCC",Moderately Polluted,193,41.15138592750533
+India,Delhi,"R K Puram, Delhi - DPCC",Poor,63,13.432835820895523
+India,Delhi,"R K Puram, Delhi - DPCC",Satisfactory,103,21.961620469083158
+India,Delhi,"R K Puram, Delhi - DPCC",Severe,23,4.904051172707889
+India,Delhi,"R K Puram, Delhi - DPCC",Very Poor,76,16.204690831556505
+India,Guwahati,"Railway Colony, Guwahati - APCB",Good,170,41.162227602905574
+India,Guwahati,"Railway Colony, Guwahati - APCB",Moderately Polluted,48,11.62227602905569
+India,Guwahati,"Railway Colony, Guwahati - APCB",Poor,44,10.653753026634384
+India,Guwahati,"Railway Colony, Guwahati - APCB",Satisfactory,127,30.750605326876514
+India,Guwahati,"Railway Colony, Guwahati - APCB",Very Poor,24,5.811138014527845
+India,Jaipur,"Police Commissionerate, Jaipur - RSPCB",Good,42,8.55397148676171
+India,Jaipur,"Police Commissionerate, Jaipur - RSPCB",Moderately Polluted,200,40.73319755600815
+India,Jaipur,"Police Commissionerate, Jaipur - RSPCB",Poor,10,2.0366598778004072
+India,Jaipur,"Police Commissionerate, Jaipur - RSPCB",Satisfactory,237,48.26883910386965
+India,Jaipur,"Police Commissionerate, Jaipur - RSPCB",Very Poor,2,0.40733197556008144
+India,Kolkata,"Jadavpur, Kolkata - WBPCB",Good,169,32.19047619047619
+India,Kolkata,"Jadavpur, Kolkata - WBPCB",Moderately Polluted,58,11.047619047619047
+India,Kolkata,"Jadavpur, Kolkata - WBPCB",Poor,54,10.285714285714285
+India,Kolkata,"Jadavpur, Kolkata - WBPCB",Satisfactory,215,40.95238095238095
+India,Kolkata,"Jadavpur, Kolkata - WBPCB",Very Poor,29,5.523809523809524
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Good,35,7.113821138211382
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Moderately Polluted,206,41.86991869918699
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Poor,77,15.650406504065039
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Satisfactory,155,31.50406504065041
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Severe,1,0.20325203252032523
+India,Lucknow,"Lalbagh, Lucknow - CPCB",Very Poor,18,3.6585365853658534
+India,Mumbai,"Kurla, Mumbai - MPCB",Good,37,9.367088607594937
+India,Mumbai,"Kurla, Mumbai - MPCB",Moderately Polluted,112,28.354430379746837
+India,Mumbai,"Kurla, Mumbai - MPCB",Satisfactory,222,56.20253164556962
+India,Mumbai,"Kurla, Mumbai - MPCB",Severe,10,2.5316455696202533
+India,Mumbai,"Kurla, Mumbai - MPCB",Very Poor,14,3.5443037974683547
+India,Nagpur,"Opp GPO Civil Lines, Nagpur - MPCB",Good,183,36.09467455621302
+India,Nagpur,"Opp GPO Civil Lines, Nagpur - MPCB",Moderately Polluted,171,33.72781065088758
+India,Nagpur,"Opp GPO Civil Lines, Nagpur - MPCB",Poor,12,2.366863905325444
+India,Nagpur,"Opp GPO Civil Lines, Nagpur - MPCB",Satisfactory,141,27.810650887573964
+India,Patna,"Rajbansi Nagar, Patna - BSPCB",Good,172,34.46893787575151
+India,Patna,"Rajbansi Nagar, Patna - BSPCB",Moderately Polluted,143,28.65731462925852
+India,Patna,"Rajbansi Nagar, Patna - BSPCB",Poor,5,1.002004008016032
+India,Patna,"Rajbansi Nagar, Patna - BSPCB",Satisfactory,179,35.87174348697395
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Good,99,21.80616740088106
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Moderately Polluted,117,25.770925110132158
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Poor,37,8.149779735682818
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Satisfactory,170,37.44493392070485
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Severe,12,2.643171806167401
+India,Pune,"Revenue Colony-Shivajinagar, Pune - IITM",Very Poor,19,4.185022026431718
+India,Visakhapatnam,"GVM Corporation, Visakhapatnam - APPCB",Good,18,3.79746835443038
+India,Visakhapatnam,"GVM Corporation, Visakhapatnam - APPCB",Moderately Polluted,254,53.58649789029536
+India,Visakhapatnam,"GVM Corporation, Visakhapatnam - APPCB",Poor,22,4.641350210970464
+India,Visakhapatnam,"GVM Corporation, Visakhapatnam - APPCB",Satisfactory,164,34.59915611814346
+India,Visakhapatnam,"GVM Corporation, Visakhapatnam - APPCB",Very Poor,16,3.375527426160337

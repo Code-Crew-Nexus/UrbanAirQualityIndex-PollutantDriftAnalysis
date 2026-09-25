@@ -1,0 +1,3 @@
+# Keep data/processed/ in git.
+# NOTE: Final analytical datasets (UAQI_Hyderabad_Daily.csv, UAQI_India_Daily.csv)
+# will only be generated here upon approved execution of Phase 2 pipeline.

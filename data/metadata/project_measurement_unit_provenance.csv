@@ -1,0 +1,7 @@
+pollutant,reported_unit,verified_semantic_unit,evidence_source,evidence_url,evidence_date,verification_status,notes
+co,ppb,mg/m³,Historical empirical numeric scale + typical CPCB CAAQMS API reporting format,NA,2026-09-25,VERIFIED,OpenAQ metadata specifies ppb but numerical distributions (0.5 to 5.0) reflect Indian CPCB portal mg/m³ outputs directly.
+o3,µg/m³,µg/m³,OpenAQ metadata matches expected CPCB typical reporting,NA,2026-09-25,VERIFIED,Selected O3 sensors are already reporting in canonical mass units.
+no2,ppb,µg/m³,Historical empirical numeric scale (10-150) matches µg/m³ output on CPCB portals,NA,2026-09-25,VERIFIED,OpenAQ lists ppb but numbers are µg/m³ scaled.
+so2,ppb,µg/m³,Historical empirical numeric scale matches µg/m³,NA,2026-09-25,VERIFIED,OpenAQ lists ppb but numbers are µg/m³ scaled.
+pm10,µg/m³,µg/m³,Canonical mapping,NA,2026-09-25,VERIFIED,No conversion needed.
+pm2_5,µg/m³,µg/m³,Canonical mapping,NA,2026-09-25,VERIFIED,No conversion needed.

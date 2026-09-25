@@ -1,0 +1,127 @@
+project_station_id,sensor_id,pollutant,openaq_reported_unit,verified_semantic_unit,canonical_aqi_unit,verification_method,matched_timestamp_count,best_relationship,median_relative_error,verification_status,evidence_source,notes
+PROJ_002,12234785,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_002,12234787,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_002,12234784,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_002,12234786,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_002,12234782,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_002,12234789,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_007,12235585,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_007,12235581,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_007,12235578,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_007,12235580,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_007,12235583,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_007,12235582,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_019,12235655,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_019,12235648,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_019,12235653,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_019,12235652,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_019,12235650,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_019,12235651,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_036,12235400,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_036,12235399,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_036,12235402,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_036,12235398,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_036,12235395,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_036,12235397,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_042,12235625,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_042,12235623,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_042,12235626,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_042,12235621,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_042,12235628,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_042,12235624,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_044,12242116,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_044,12242118,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_044,12242119,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_044,12242121,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_044,12242120,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_044,12242123,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_048,12235460,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_048,12235458,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_048,12235455,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_048,12235459,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_048,12235462,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_048,12235457,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_050,12235666,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_050,12235668,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_050,12235670,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_050,12235673,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_050,12235671,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_050,12235669,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_051,12234804,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_051,12234807,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_051,12234805,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_051,12234800,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_051,12234803,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_051,12234802,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_063,12235521,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_063,12235520,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_063,12235517,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_063,12235524,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_063,12235519,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_063,12235522,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_092,12289836,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_092,12235834,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_092,12235829,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_092,12235833,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_092,12235831,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_092,12235832,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_101,12235269,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_101,12235264,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_101,12235266,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_101,12235267,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_101,12235265,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_101,12235262,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_133,12236100,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_133,12236101,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_133,12236097,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_133,12236104,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_133,12236102,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_133,12236099,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_142,12235758,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_142,12235763,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_142,12235756,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_142,12235760,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_142,12235759,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_142,12235761,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_144,12236019,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_144,12236023,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_144,12236021,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_144,12236020,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_144,12236016,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_144,12236018,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_158,12236463,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_158,12236458,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_158,12236460,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_158,12236461,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_158,12236465,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_158,12236462,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_179,12237100,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_179,12237093,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_179,12237096,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_179,12237097,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_179,12237098,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_179,12237095,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_180,12237125,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_180,12237122,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_180,12237124,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_180,12237127,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_180,12237123,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_180,12237120,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_181,12237111,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_181,12237114,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_181,12237113,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_181,12237115,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_181,12237118,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_181,12237116,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_186,12237091,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_186,12237088,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_186,12237089,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_186,12237086,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_186,12237087,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_186,12237084,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_094,12235885,o3,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_094,12235889,so2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_094,12235884,no2,ppb,NA,µg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_094,12235886,pm10,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.
+PROJ_094,12235882,co,ppb,NA,mg/m³,FALLBACK_UNRESOLVED,NA,NA,NA,UNRESOLVED,Missing paired data,CPCB CCR reconciliation unfeasible; fallback locked
+PROJ_094,12235887,pm2_5,µg/m³,µg/m³,µg/m³,OPENAQ_CANONICAL_METADATA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,Unit is natively mass-based in OpenAQ API.

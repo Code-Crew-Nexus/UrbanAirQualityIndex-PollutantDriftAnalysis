@@ -1,0 +1,98 @@
+project_station_id,station_name,city,scope,dominant_pollutant,count
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,o3,8
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,"o3,pm10",1
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,"o3,pm2_5",1
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,pm10,256
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,"pm10,pm2_5",2
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,India,pm2_5,201
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,o3,10
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,pm10,329
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,"pm10,pm2_5",10
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,Both,pm2_5,95
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,o3,81
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,"o3,pm10",1
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,"o3,pm2_5",2
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,pm10,264
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,"pm10,pm2_5",2
+PROJ_019,"Manali, Chennai - CPCB",Chennai,India,pm2_5,98
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,o3,117
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,108
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,"pm10,pm2_5",2
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm2_5,24
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,o3,24
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,"o3,pm10",2
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,pm10,376
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,"pm10,pm2_5",12
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,India,pm2_5,93
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,o3,16
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,"o3,pm10",6
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,"o3,pm10,pm2_5",2
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,267
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,"pm10,pm2_5",13
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm2_5,57
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,o3,7
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,"o3,pm10",1
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,pm10,409
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,India,pm2_5,57
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,o3,68
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,pm10,344
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,"pm10,pm2_5",1
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,India,pm2_5,70
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,o3,8
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,"o3,pm10",1
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,pm10,354
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,"pm10,pm2_5",5
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,India,pm2_5,123
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,o3,49
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,"o3,pm10",5
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,"o3,pm2_5",1
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,pm10,285
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,"pm10,pm2_5",4
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,India,pm2_5,148
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,o3,4
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,pm10,380
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,"pm10,pm2_5",1
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,India,pm2_5,10
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,o3,45
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,"o3,pm10",1
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,pm10,197
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,"pm10,pm2_5",41
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,India,pm2_5,241
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,o3,107
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,"o3,pm10",2
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,"o3,pm2_5",1
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,pm10,305
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,"pm10,pm2_5",3
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,India,pm2_5,39
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,o3,90
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,"o3,pm10",3
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,"o3,pm2_5",1
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,pm10,332
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,"pm10,pm2_5",6
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,India,pm2_5,67
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,o3,18
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,"o3,pm10,pm2_5",14
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,pm10,96
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,"pm10,pm2_5",8
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,India,pm2_5,277
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,o3,245
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,"o3,pm10",1
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,pm10,201
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,India,pm2_5,37
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,o3,33
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,"o3,pm10",1
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,pm10,276
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,"pm10,pm2_5",6
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,India,pm2_5,138
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,442
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Hyderabad,"pm10,pm2_5",4
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm2_5,22
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,Hyderabad,o3,8
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,423
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,o3,3
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,333
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,"pm10,pm2_5",10
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm2_5,108
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm10,447
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,Hyderabad,"pm10,pm2_5",2
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,Hyderabad,pm2_5,12

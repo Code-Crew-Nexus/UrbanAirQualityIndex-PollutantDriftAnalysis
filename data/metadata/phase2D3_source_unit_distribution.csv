@@ -1,0 +1,127 @@
+project_station_id,station_name,city,pollutant,source_unit_reported,source_unit_verified,numeric_count,min,p01,p05,median,p95,p99,max,canonical_conversion_status,audit_status,notes
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,o3,µg/m³,µg/m³,12016,0,0.8,3.68,21.5,100,147,225,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,pm2_5,µg/m³,µg/m³,12146,1,7.5765,17.5,58.5,272,431.5499999999993,873,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,no2,ppb,NA,12223,0,3.83,9.63,32.1,92.48999999999997,120,373,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,pm10,µg/m³,µg/m³,12075,1,17.8,42.7,150,420,584,1460,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,co,ppb,NA,12039,0,0.0825,0.23,0.935,3.63,5.67,9.33,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_002,"R K Puram, Delhi - DPCC",Delhi,so2,ppb,NA,11716,0,0.6,2.65,15.5,48.8,155.85000000000036,1910,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11738,0,0.5,1.1,2.78,9.45,17.16299999999992,1120,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11642,0,2.85,3.95,23.4,26,47.51800000000003,67.5,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11755,0,0,0.035,0.393,1.52,2.03,908,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11682,0,2.18,3.05,8.6,79.1,106,168,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,11441,0,2,6.5,41,81.5,85,87,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_007,"Zoo Park, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,11432,0,4.25,14.5,78,177,184,188,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,so2,ppb,NA,11409,0,3.45,3.45,11.7,21.9,82.39200000000001,634,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,co,ppb,NA,11747,0.0109,0.218,0.218,0.573,2.19,4.560799999999981,8.65,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,pm2_5,µg/m³,µg/m³,11431,0,0,5.17,19.6,85.8,185,5870,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,pm10,µg/m³,µg/m³,11390,0,8.9978,14.3,58.7,125,193,1400,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,no2,ppb,NA,11470,0,0,0.49890000000000007,8.25,17.9,26.561999999999895,493,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_019,"Manali, Chennai - CPCB",Chennai,o3,µg/m³,µg/m³,11742,0,7.54,8.140500000000001,22.1,55.6,102.59000000000016,457,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,7177,0,2.5,5.5,22.5,76,85,87,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,7447,0,5.230000000000004,14,66.5,157,178,189,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,8061,0,1.0620000000000005,2.7,5.6,10.7,13.939999999999964,148,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,8048,0,24.9,25.7,50.6,80.6,121,196,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,8058,0,0,0.25470000000000004,0.633,1.31,3.25,8.28,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_036,"Bollaram Industrial Area, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,8059,0,5.0454,12.9,26.2,41.1,56.9,194,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,pm10,µg/m³,µg/m³,12286,0,0,15.1,69.05,182,232,1000,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,no2,ppb,NA,12432,0,0,3.74,13.6,55.2,83.1,135,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,pm2_5,µg/m³,µg/m³,12287,0,0,6.52,30.9,91.6,121,655,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,co,ppb,NA,12430,0,0,0.173,0.55,2.51,3.67,6.15,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,so2,ppb,NA,12431,0,0.14239999999999997,1.7,7.41,36.95,97.0700000000008,348,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_042,"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,o3,µg/m³,µg/m³,12431,0,0.8095,1.825,10.3,63.3,86,232,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11259,0,0,0.055,0.378,1.01,1.43,24.6,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11198,0,1.1694,5.67,22.8,52.3,76.7090000000002,1170,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11260,0,4.37,6.88,14.3,23.9,25.8,127,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,10816,0,0,3,14.7,57.625,75,87,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,9943,0,5,10.5,41,129,161,188,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_044,"Central University, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11197,0,0.4,1.63,5.73,11.8,22.103999999999907,409,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,pm2_5,µg/m³,µg/m³,12096,1,4.237500000000001,10.5,36,110,155,917,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,o3,µg/m³,µg/m³,12069,0,1.9936000000000005,4,17.7,78.8,116,493,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,co,ppb,NA,11482,0,0.025,0.0875,0.423,1.32,1.97,4.38,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,pm10,µg/m³,µg/m³,12142,3,27.5,41.5,107,259,430.59000000000015,875,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,so2,ppb,NA,12071,0,0.667,2.48,8.57,40.349999999999994,80.82999999999993,274,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_048,"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,no2,ppb,NA,12206,0.3,4.7335,9.785,39.2,97.4,139.95000000000073,465,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,co,ppb,NA,12181,-3.39,0.02,0.219,0.588,1.47,2.47,7.71,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,no2,ppb,NA,12054,-4.2,0.4280100000000006,14.8,28.2,80.63500000000003,105,2050,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,pm10,µg/m³,µg/m³,12050,0,6.714300000000001,26.9,87.7,191.54999999999927,318,1000,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,so2,ppb,NA,12045,-0.201,0.14708,12.5,29.2,79.9,123,892,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,pm2_5,µg/m³,µg/m³,12048,0,0.8287599999999999,10.3,36.8,90.46499999999996,147.53000000000063,1000,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_050,"Maninagar, Ahmedabad - GPCB",Ahmedabad,o3,µg/m³,µg/m³,12158,0,1.74,6.77,38.9,91.31499999999996,120,497,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,pm10,µg/m³,µg/m³,12109,0,12.416,33.54,89.4,200,296,1350,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,so2,ppb,NA,12109,0,3.1508000000000003,4.97,12.5,26.7,37.692000000000014,481,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,pm2_5,µg/m³,µg/m³,12101,0,4.49,18.2,43.3,91.7,128,1000,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,co,ppb,NA,12141,0,0,0.1,1.16,2.21,3.68,9.95,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,o3,µg/m³,µg/m³,12139,0,1.39,9.198999999999998,26.6,67.7,86.06200000000007,225,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_051,"Police Commissionerate, Jaipur - RSPCB",Jaipur,no2,ppb,NA,12088,0,0,6.9735,69.1,126,168.1299999999992,493,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,pm10,µg/m³,µg/m³,12166,0,7.8255,25.924999999999997,109,336,545.0500000000011,1300,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,o3,µg/m³,µg/m³,12332,0,2.3631,6.615500000000001,27.7,70.1,88.96900000000005,281,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,co,ppb,NA,12335,0,0,0.016,0.796,2.1429999999999927,3.7365999999999984,9.99,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,so2,ppb,NA,12291,0,0.0075,0.48,5.62,16.4,35.510000000000034,713,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,no2,ppb,NA,12340,0,13.2,16.6,31.2,53,70.02200000000012,337,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_063,"Lalbagh, Lucknow - CPCB",Lucknow,pm2_5,µg/m³,µg/m³,12169,0,0,8.411999999999999,47.5,129.60000000000036,207,852,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,so2,ppb,NA,10344,14.6,23.3,23.3,29.2,29.3,29.3,29.3,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,pm2_5,µg/m³,µg/m³,10447,0.9,9.283,17.8,38,167,266,394,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,co,ppb,NA,10851,0.0167,0.035,0.0525,0.237,0.5,0.57,1,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,pm10,µg/m³,µg/m³,10415,1.95,18.4,36.2,83,190,630,768,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,no2,ppb,NA,10938,2.26,2.45,2.63,4.46,7.11,7.802599999999984,12.1,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_092,"Kurla, Mumbai - MPCB",Mumbai,o3,µg/m³,µg/m³,10850,21.6,27.8,28.1,28.4,28.7,29,49,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,so2,ppb,NA,11201,0,0.5,1.4,9.28,23.7,31.2,60.5,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,no2,ppb,NA,10140,0,2.1117,4.08,11.3,39.50499999999992,60.6,134,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,pm10,µg/m³,µg/m³,11667,1.5,8,16,56.5,145,190,702,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,pm2_5,µg/m³,µg/m³,11743,1,4.5,8,24.5,70,90.5,794,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,o3,µg/m³,µg/m³,11612,0.02,1.0211,6.9255,28.1,72.9,106,444,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_101,"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,co,ppb,NA,11370,0.01,0.02,0.06,0.263,1.01,1.68,7.71,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,o3,µg/m³,µg/m³,12248,0,0.55735,3.89,27.4,69.46499999999996,113.53000000000064,293,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,pm10,µg/m³,µg/m³,12291,0,14.19,22.6,64.1,156,199,691,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,co,ppb,NA,12168,0,0.03505100000000001,0.216,0.707,1.83,2.853299999999999,318,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,so2,ppb,NA,12232,-0.515,0.43655,1.72,5.78,13.3,18.7,163,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,pm2_5,µg/m³,µg/m³,12280,-27.5,4.9132,10.6,29.7,76.30499999999992,98,388,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_133,"Rajbansi Nagar, Patna - BSPCB",Patna,no2,ppb,NA,12305,0,1.2708000000000002,8.1,23.7,75.57999999999993,129,318,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,no2,ppb,NA,11227,0,0,0,2.58,2.77,2.87,10,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,so2,ppb,NA,11326,0,0.4785,2.06,19.8,34.3,39.4,48.6,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,co,ppb,NA,11334,0,0,0,0.508,1.72,2.7567000000000004,6.04,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,pm10,µg/m³,µg/m³,11209,0,0,0,46.5,252,357,999,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,o3,µg/m³,µg/m³,11128,0,0,0,0,75.02999999999993,315,489,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_142,"Railway Colony, Guwahati - APCB",Guwahati,pm2_5,µg/m³,µg/m³,11231,0,0,0.75,30.8,141.5,208,250,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,o3,µg/m³,µg/m³,12311,0,6.6819999999999995,14.3,55.6,153,191,273,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,so2,ppb,NA,12232,0,3.05,6.016500000000002,13.8,24.3,33.06900000000005,143,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,pm2_5,µg/m³,µg/m³,12189,1,5.33,9,25,96,159,553,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,pm10,µg/m³,µg/m³,12180,1,15.5,25,88,208,306.2099999999991,950,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,co,ppb,NA,12226,0,0.0925,0.223,0.733,1.9075,3.2525,6.11,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_144,"T T Nagar, Bhopal - MPPCB",Bhopal,no2,ppb,NA,12304,0,7.25,9,21.9,69.5,98.49699999999991,231,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,pm2_5,µg/m³,µg/m³,11266,0,0,3.9425,35.7,152,462,717,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,co,ppb,NA,11318,0,0,0.175,1.15,4.381499999999996,7.33,10,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,no2,ppb,NA,11299,0,3.3392,8.638,25.2,109,148,253,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,o3,µg/m³,µg/m³,11316,0,0,1,13.8,75.9,124,321,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,so2,ppb,NA,10802,0,0.32,1.09,9.91,30.094999999999892,48.3,388,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_158,"Revenue Colony-Shivajinagar, Pune - IITM",Pune,pm10,µg/m³,µg/m³,11266,0,0,0,68.4,247.75,353,761,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11734,0,0,0,8.96,34.3,74.26800000000003,602,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11811,-0.11,0.0568,0.162,0.493,0.888,1.1589999999999965,4.98,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11814,5.08,6.36,8.6565,23.2,56.9,66.4,72.8,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,11742,0,22.964,49.6,73.4,97.1,112,1070,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,11740,0,13.4,20.5,29.6,44.4,62.82200000000011,892,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_179,"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11770,0,2.14,4.474500000000001,14,32.6,46.73099999999995,87.1,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,11335,0,8.523399999999999,17,30,37.3,39.5,62.7,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11345,0,6.17,7.36,11.2,14.7,16.3,30,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,11221,0,47.2,54.9,78.8,103,156,704,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11179,0,0,2.6289999999999996,7.87,15.3,77.92199999999994,1250,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11339,-8.06,8.1576,10.589999999999998,26.4,43.510000000000034,71.4,165,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_180,"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11326,0,0.133,0.17,0.31,0.628,0.96775,2.97,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11879,0,0.12,0.19,0.545,1.15,1.78,6.31,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11813,-0.035,2.77,7.97,19.8,39.6,54.78799999999991,350,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11879,0,4.9256,7.95,12.3,20.6,33.92199999999993,78.6,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,11652,0,37.6,49.3,83.9,127,177.48999999999978,1180,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11868,0,3.05,6.62,12.4,29.2,35.733,222,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_181,"Somajiguda, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,11689,0,9.02,15.9,39.3,87.96000000000004,152.1200000000008,997,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,so2,ppb,NA,11584,0,2.32,5.2315,11.7,16.4,20.2,214,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,pm10,µg/m³,µg/m³,11657,0,44.6,46.78,68.5,97.3,120,452,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,pm2_5,µg/m³,µg/m³,11653,0,11.3,15.3,28.4,55,81.64399999999986,402,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,no2,ppb,NA,11696,0,6.539000000000001,8.8,11.4,14.5,16.2,37.9,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,o3,µg/m³,µg/m³,11694,0,3.3893000000000004,9.65,20.7,40.3,51.4,260,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_186,"New Malakpet, Hyderabad - TSPCB",Hyderabad,co,ppb,NA,11695,0,0.00745019999999999,0.115,0.55,0.893,1.3905999999999947,22.7,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,o3,µg/m³,µg/m³,12679,0,4.8178,7.489000000000002,14.9,56.009999999999856,109,331,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,so2,ppb,NA,12685,0,0.93952,1.62,4.1,10.1,17.9,227,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,no2,ppb,NA,12656,0,0.08618999999999995,6.3175,23,82.1,134,289,blocked_unresolved,PLAUSIBLE_SCALE,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,pm10,µg/m³,µg/m³,12681,0,17.9,27.4,62.3,258,351.2000000000007,814,canonical_pass_through,PLAUSIBLE_SCALE,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,co,ppb,NA,12526,0,0.21075,0.293,0.493,2,3.8975,5.64,blocked_unresolved,IMPLAUSIBLE_NUMERIC_SCALE_FOR_DECLARED_UNIT,NA
+PROJ_094,"Jadavpur, Kolkata - WBPCB",Kolkata,pm2_5,µg/m³,µg/m³,12680,0,9.7137,17.4,35.2,137,185,422,canonical_pass_through,PLAUSIBLE_SCALE,NA

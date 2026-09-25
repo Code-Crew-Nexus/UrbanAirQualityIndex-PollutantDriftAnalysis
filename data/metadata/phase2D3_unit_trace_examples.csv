@@ -1,0 +1,10 @@
+station,pollutant,timestamp,selected_sensor_id,selected_value,selected_reported_unit,counterpart_sensor_id,counterpart_value,counterpart_unit,relationship_observed,verified_semantic_unit
+"R K Puram, Delhi - DPCC",co,NA,12234782,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"R K Puram, Delhi - DPCC",no2,NA,12234784,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"R K Puram, Delhi - DPCC",so2,NA,12234789,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Zoo Park, Hyderabad - TSPCB",co,NA,12235578,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Zoo Park, Hyderabad - TSPCB",no2,NA,12235580,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Zoo Park, Hyderabad - TSPCB",so2,NA,12235585,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Jadavpur, Kolkata - WBPCB",co,NA,12235882,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Jadavpur, Kolkata - WBPCB",no2,NA,12235884,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA
+"Jadavpur, Kolkata - WBPCB",so2,NA,12235889,NA,ppb,NA,NA,NA,NO_COUNTERPART,NA

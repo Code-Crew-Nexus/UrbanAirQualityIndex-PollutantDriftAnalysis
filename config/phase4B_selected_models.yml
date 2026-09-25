@@ -1,0 +1,6 @@
+HYDERABAD:
+  selected_family: MODEL_B
+  selection_basis: VALIDATION_MAE
+INDIA:
+  selected_family: MODEL_B
+  selection_basis: VALIDATION_MAE

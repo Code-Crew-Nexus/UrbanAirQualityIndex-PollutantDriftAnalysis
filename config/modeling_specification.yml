@@ -1,0 +1,87 @@
+prediction_target: target_aqi_next_day
+target_definition: "aqi_verified on exact calendar day t+1 at the same station"
+aqi_policy: VERIFIED_SUBSET_PM25_PM10_O3
+
+model_A:
+  explicit_formula: 'target_aqi_next_day ~ pm2_5_aqi_input + pm10_aqi_input + o3_8h_max + temperature + humidity + wind_speed + sin_wind_direction + cos_wind_direction + day_of_week + month_sin + month_cos + factor(project_station_id)'
+  prohibit_dot_formula: true
+  name: "Environmental-Only MLR"
+  predictors: 
+    - pm2_5_aqi_input
+    - pm10_aqi_input
+    - o3_8h_max
+    - temperature
+    - humidity
+    - wind_speed
+    - sin_wind_direction
+    - cos_wind_direction
+    - day_of_week
+    - month_sin
+    - month_cos
+    - project_station_id
+  purpose: "Measure predictive information from current pollution, weather, and calendar context without directly using current AQI."
+
+model_B:
+  explicit_formula: 'target_aqi_next_day ~ pm2_5_aqi_input + pm10_aqi_input + o3_8h_max + temperature + humidity + wind_speed + sin_wind_direction + cos_wind_direction + day_of_week + month_sin + month_cos + factor(project_station_id) + aqi_verified'
+  prohibit_dot_formula: true
+  name: "Persistence-Aware MLR"
+  predictors: 
+    - aqi_verified
+    - pm2_5_aqi_input
+    - pm10_aqi_input
+    - o3_8h_max
+    - temperature
+    - humidity
+    - wind_speed
+    - sin_wind_direction
+    - cos_wind_direction
+    - day_of_week
+    - month_sin
+    - month_cos
+    - project_station_id
+  purpose: "Determine whether current AQI improves prediction beyond environmental inputs."
+
+benchmarks:
+  - name: "Persistence"
+    definition: "prediction_persistence = aqi_verified on day t"
+  - name: "Training-Station Mean"
+    definition: "Station-specific mean target AQI estimated from TRAINING DATA ONLY"
+
+splits:
+  split_basis: target_date
+  train_dates:
+    start: "2025-03-02"
+    end: "2025-12-31"
+  validation_dates:
+    start: "2026-01-01"
+    end: "2026-04-30"
+  test_dates:
+    start: "2026-05-01"
+    end: "2026-08-31"
+  final_holdout_dates:
+    start: "2026-09-01"
+    end: "2026-09-21"
+
+regression_metrics:
+  primary: "MAE"
+  co_primary: "RMSE"
+  additional: ["R-squared", "mean error / bias", "median absolute error"]
+
+logistic_target_definition:
+  target_adverse_next_day: "1 if target_aqi_next_day > 100 else 0"
+  interpretation: "1 = Moderately Polluted / Poor / Very Poor / Severe, 0 = Good / Satisfactory"
+
+logistic_metrics: ["ROC-AUC", "PR-AUC", "sensitivity / recall", "specificity", "precision", "F1", "balanced accuracy", "Brier score"]
+
+missing_data_policy:
+  baseline_policy: "Complete-case analysis. No imputation during baseline MLR experiments."
+
+preprocessing_policy:
+  numeric_predictors: "Keep physical units for primary interpretable MLR."
+  categorical_predictors: "Factor encoding learned from training data."
+  standardization: "Must fit mean/SD on TRAINING DATA ONLY."
+
+station_encoding: "Categorical/factor fixed-effect predictor."
+
+random_split_allowed: false
+holdout_tuning_allowed: false

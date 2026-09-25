@@ -1,0 +1,127 @@
+"project_station_id","source_location_id","station_name","city","state","parameter","sensor_id","sensor_datetime_first","sensor_datetime_last","source_unit","canonical_target_unit","unit_compatibility_status","use_hyderabad","use_india"
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","o3",12234785,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","pm2_5",12234787,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","no2",12234784,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","pm10",12234786,"2025-02-18T20:30:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","co",12234782,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_002",17,"R K Puram, Delhi - DPCC","Delhi","Delhi","so2",12234789,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12235585,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12235581,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","co",12235578,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12235580,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12235583,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,TRUE
+"PROJ_007",407,"Zoo Park, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12235582,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","so2",12235655,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","co",12235648,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","pm2_5",12235653,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","pm10",12235652,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","no2",12235650,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_019",2586,"Manali, Chennai - CPCB","Chennai","Tamil Nadu","o3",12235651,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12235400,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12235399,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12235402,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12235398,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","co",12235395,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_036",5599,"Bollaram Industrial Area, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12235397,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","pm10",12235625,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","no2",12235623,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","pm2_5",12235626,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","co",12235621,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","so2",12235628,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_042",5621,"Opp GPO Civil Lines, Nagpur - MPCB","Nagpur","Maharashtra","o3",12235624,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","co",12242116,"2025-02-19T04:45:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12242118,"2025-02-19T04:45:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12242119,"2025-02-19T04:45:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12242121,"2025-02-19T06:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12242120,"2025-02-19T06:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_044",5623,"Central University, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12242123,"2025-02-19T04:45:00Z","2026-09-21T15:00:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","pm2_5",12235460,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","o3",12235458,"2025-02-18T20:15:00Z","2026-09-21T14:45:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","co",12235455,"2025-02-18T20:15:00Z","2026-09-21T15:15:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","pm10",12235459,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","so2",12235462,"2025-02-18T20:15:00Z","2026-09-21T15:15:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_048",5628,"GVM Corporation, Visakhapatnam - APPCB","Visakhapatnam","Andhra Pradesh","no2",12235457,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","co",12235666,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","no2",12235668,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","pm10",12235670,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","so2",12235673,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","pm2_5",12235671,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_050",5631,"Maninagar, Ahmedabad - GPCB","Ahmedabad","Gujarat","o3",12235669,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","pm10",12234804,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","so2",12234807,"2025-02-18T20:15:00Z","2026-09-21T15:15:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","pm2_5",12234805,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","co",12234800,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","o3",12234803,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_051",5633,"Police Commissionerate, Jaipur - RSPCB","Jaipur","Rajasthan","no2",12234802,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","pm10",12235521,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","o3",12235520,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","co",12235517,"2025-02-18T20:15:00Z","2026-09-21T15:15:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","so2",12235524,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","no2",12235519,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_063",5659,"Lalbagh, Lucknow - CPCB","Lucknow","Uttar Pradesh","pm2_5",12235522,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","so2",12289836,"2025-02-24T02:30:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","pm2_5",12235834,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","co",12235829,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","pm10",12235833,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","no2",12235831,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_092",6945,"Kurla, Mumbai - MPCB","Mumbai","Maharashtra","o3",12235832,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","so2",12235269,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","no2",12235264,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","pm10",12235266,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","pm2_5",12235267,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","o3",12235265,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_101",6973,"Jayanagar 5th Block, Bengaluru - KSPCB","Bengaluru","Karnataka","co",12235262,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","o3",12236100,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","pm10",12236101,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","co",12236097,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","so2",12236104,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","pm2_5",12236102,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_133",10599,"Rajbansi Nagar, Patna - BSPCB","Patna","Bihar","no2",12236099,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","no2",12235758,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","so2",12235763,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","co",12235756,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","pm10",12235760,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","o3",12235759,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_142",10903,"Railway Colony, Guwahati - APCB","Guwahati","Assam","pm2_5",12235761,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","o3",12236019,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","so2",12236023,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","pm2_5",12236021,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","pm10",12236020,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","co",12236016,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_144",10913,"T T Nagar, Bhopal - MPPCB","Bhopal","Madhya Pradesh","no2",12236018,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","pm2_5",12236463,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","co",12236458,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","no2",12236460,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","o3",12236461,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","so2",12236465,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_158",11613,"Revenue Colony-Shivajinagar, Pune - IITM","Pune","Maharashtra","pm10",12236462,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12237100,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","co",12237093,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12237096,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12237097,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12237098,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_179",344103,"ECIL Kapra, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12237095,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12237125,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12237122,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12237124,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12237127,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12237123,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_180",344104,"Kompally Municipal Office, Hyderabad - TSPCB","Hyderabad","Telangana","co",12237120,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","co",12237111,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12237114,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12237113,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12237115,"2025-02-18T20:15:00Z","2026-09-21T14:45:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12237118,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_181",344140,"Somajiguda, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12237116,"2025-02-18T20:15:00Z","2026-09-21T14:45:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","so2",12237091,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","pm10",12237088,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","pm2_5",12237089,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","no2",12237086,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","o3",12237087,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",TRUE,FALSE
+"PROJ_186",352465,"New Malakpet, Hyderabad - TSPCB","Hyderabad","Telangana","co",12237084,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",TRUE,FALSE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","o3",12235885,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","so2",12235889,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","no2",12235884,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","µg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","pm10",12235886,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","co",12235882,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","ppb","mg/m³","conversion_required_later",FALSE,TRUE
+"PROJ_094",6950,"Jadavpur, Kolkata - WBPCB","Kolkata","West Bengal","pm2_5",12235887,"2025-02-18T20:15:00Z","2026-09-21T15:30:00Z","µg/m³","µg/m³","canonical",FALSE,TRUE

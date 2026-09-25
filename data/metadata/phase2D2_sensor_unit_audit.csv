@@ -1,0 +1,127 @@
+project_station_id,source_location_id,station_name,sensor_id,parameter,openaq_parameter_id,openaq_parameter_name,openaq_parameter_unit,stored_source_unit,canonical_target_unit,metadata_unit_match,unit_audit_status,notes
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234785,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234787,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234784,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234786,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234782,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_002,17,"R K Puram, Delhi - DPCC",12234789,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235585,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235581,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235578,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235580,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235583,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_007,407,"Zoo Park, Hyderabad - TSPCB",12235582,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235655,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235648,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235653,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235652,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235650,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_019,2586,"Manali, Chennai - CPCB",12235651,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235400,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235399,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235402,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235398,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235395,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_036,5599,"Bollaram Industrial Area, Hyderabad - TSPCB",12235397,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235625,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235623,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235626,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235621,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235628,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_042,5621,"Opp GPO Civil Lines, Nagpur - MPCB",12235624,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242116,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242118,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242119,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242121,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242120,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_044,5623,"Central University, Hyderabad - TSPCB",12242123,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235460,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235458,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235455,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235459,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235462,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_048,5628,"GVM Corporation, Visakhapatnam - APPCB",12235457,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235666,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235668,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235670,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235673,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235671,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_050,5631,"Maninagar, Ahmedabad - GPCB",12235669,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234804,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234807,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234805,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234800,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234803,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_051,5633,"Police Commissionerate, Jaipur - RSPCB",12234802,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235521,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235520,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235517,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235524,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235519,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_063,5659,"Lalbagh, Lucknow - CPCB",12235522,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12289836,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12235834,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12235829,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12235833,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12235831,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_092,6945,"Kurla, Mumbai - MPCB",12235832,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235269,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235264,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235266,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235267,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235265,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_101,6973,"Jayanagar 5th Block, Bengaluru - KSPCB",12235262,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236100,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236101,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236097,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236104,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236102,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_133,10599,"Rajbansi Nagar, Patna - BSPCB",12236099,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235758,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235763,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235756,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235760,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235759,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_142,10903,"Railway Colony, Guwahati - APCB",12235761,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236019,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236023,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236021,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236020,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236016,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_144,10913,"T T Nagar, Bhopal - MPPCB",12236018,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236463,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236458,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236460,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236461,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236465,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_158,11613,"Revenue Colony-Shivajinagar, Pune - IITM",12236462,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237100,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237093,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237096,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237097,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237098,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_179,344103,"ECIL Kapra, Hyderabad - TSPCB",12237095,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237125,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237122,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237124,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237127,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237123,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_180,344104,"Kompally Municipal Office, Hyderabad - TSPCB",12237120,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237111,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237114,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237113,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237115,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237118,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_181,344140,"Somajiguda, Hyderabad - TSPCB",12237116,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237091,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237088,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237089,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237086,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237087,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_186,352465,"New Malakpet, Hyderabad - TSPCB",12237084,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235885,o3,3,o3,µg/m³,µg/m³,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235889,so2,101,so2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235884,no2,15,no2,ppb,ppb,µg/m³,TRUE,NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235886,pm10,1,pm10,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235882,co,102,co,ppb,ppb,mg/m³,TRUE,DECLARED_UNIT_NUMERIC_SCALE_REVIEW_REQUIRED,NA
+PROJ_094,6950,"Jadavpur, Kolkata - WBPCB",12235887,pm2_5,2,pm25,µg/m³,µg/m³,µg/m³,TRUE,UNIT_MATCHED,NA

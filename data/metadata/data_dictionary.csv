@@ -1,0 +1,34 @@
+column_name,data_type,unit,description,source_or_derived,required_in_final_dataset,notes
+date,Date,YYYY-MM-DD,Calendar date in Indian Standard Time (Asia/Kolkata),derived,TRUE,Standardized calendar day after local timezone conversion
+state,character,NA,Name of Indian State or Union Territory,source,TRUE,Normalized administrative state name
+city,character,NA,Name of urban municipality or city,source,TRUE,Normalized city name
+station_id,character,NA,Unique identifier of monitoring station,source,TRUE,Canonical station code (e.g. TG001 or source-prefixed code)
+station_name,character,NA,Full descriptive name of CAAQMS station,source,TRUE,Official station location name
+latitude,numeric,decimal degrees,Geographic latitude coordinate (WGS84),source,TRUE,Station spatial coordinate
+longitude,numeric,decimal degrees,Geographic longitude coordinate (WGS84),source,TRUE,Station spatial coordinate
+pm2_5,numeric,µg/m³,Daily mean particulate matter <= 2.5 µm,source,TRUE,Canonical concentration; 24-hr aggregated
+pm10,numeric,µg/m³,Daily mean particulate matter <= 10 µm,source,TRUE,Canonical concentration; 24-hr aggregated
+no2,numeric,µg/m³,Daily mean nitrogen dioxide concentration,source,TRUE,Canonical concentration; 24-hr aggregated
+so2,numeric,µg/m³,Daily mean sulphur dioxide concentration,source,TRUE,Canonical concentration; 24-hr aggregated
+co,numeric,mg/m³,Daily carbon monoxide concentration,source,TRUE,Canonical concentration in mg/m³ per CPCB standard
+o3,numeric,µg/m³,Daily ground-level ozone concentration,source,TRUE,Canonical concentration; 8-hr or 24-hr compliant
+nh3,numeric,µg/m³,Daily mean ammonia concentration,source,FALSE,Optional criterion pollutant concentration
+temperature,numeric,°C,Daily mean ambient temperature at 2m,source,TRUE,From Open-Meteo ERA5 / historical archive
+humidity,numeric,%,Daily mean relative humidity at 2m,source,TRUE,From Open-Meteo ERA5 / historical archive
+wind_speed,numeric,km/h,Daily mean wind speed at 10m,source,TRUE,From Open-Meteo ERA5 / historical archive
+wind_direction,numeric,degrees,Daily resultant or mean wind direction at 10m,source,TRUE,Wind direction in meteorological degrees (0-360)
+pm25_subindex,numeric,index (0-500),Individual pollutant subindex for PM2.5,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+pm10_subindex,numeric,index (0-500),Individual pollutant subindex for PM10,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+no2_subindex,numeric,index (0-500),Individual pollutant subindex for NO2,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+so2_subindex,numeric,index (0-500),Individual pollutant subindex for SO2,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+co_subindex,numeric,index (0-500),Individual pollutant subindex for CO,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+o3_subindex,numeric,index (0-500),Individual pollutant subindex for O3,derived,FALSE,Calculated via official CPCB piecewise linear breakpoints in Phase 2
+aqi,numeric,index (0-500),Composite Indian Air Quality Index,derived,TRUE,Maximum of pollutant sub-indices subject to CPCB sufficiency rules
+aqi_category,character,NA,Qualitative health risk category,derived,TRUE,CPCB categories: Good Satisfactory Moderate Poor Very Poor Severe
+dominant_pollutant,character,NA,Pollutant responsible for highest subindex,derived,TRUE,Name of pollutant determining overall AQI value
+day_of_week,character,NA,Day of week name in IST,derived,TRUE,e.g. Monday Tuesday; captures diurnal/weekly cycle
+month,character,NA,Calendar month name,derived,TRUE,e.g. January February; captures seasonal baseline
+season,character,NA,Climatological season in India,derived,TRUE,Winter (Dec-Feb) Summer/Pre-monsoon (Mar-May) Monsoon (Jun-Sep) Post-monsoon (Oct-Nov)
+air_data_source,character,NA,Primary provenance source for air quality measurements,derived,TRUE,e.g. openaq, cpcb, data.gov.in, kaggle_reference
+weather_source,character,NA,Provenance source for meteorological observations,derived,TRUE,e.g. openmeteo_archive
+data_quality_flag,character,NA,Data completeness and validation flag,derived,TRUE,e.g. valid, partial_core, interpolated_meteorology

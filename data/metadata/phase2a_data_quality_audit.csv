@@ -1,0 +1,2 @@
+"audit_target","total_raw_result_rows","source_null_value_rows","missing_timestamp_raw","total_valid_normalized_rows","missing_timestamp_normalized","duplicate_timestamp_key_rows"
+"Phase 2A OpenAQ",85739,18,0,85721,0,0

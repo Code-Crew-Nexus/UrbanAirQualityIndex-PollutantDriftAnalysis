@@ -1,0 +1,4 @@
+pollutant,numeric_input_count,valid_subindex_count,minimum_subindex,median_subindex,mean_subindex,maximum_subindex,count_gt_500_uncapped,count_negative,count_NA
+pm2_5,9919,9919,0,55,75.80875088214538,871,16,0,2051
+pm10,9877,9877,0,80,86.020046572846,703,13,0,2093
+o3,10236,10210,0,31,40.216062683643486,297,0,0,1760

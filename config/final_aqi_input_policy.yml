@@ -1,0 +1,18 @@
+policy_name: "VERIFIED_SUBSET_PM25_PM10_O3"
+policy_version: "1.0"
+effective_date: "2026-09-25"
+included_pollutants:
+  - "pm2_5"
+  - "pm10"
+  - "o3"
+excluded_pollutants:
+  - "co"
+  - "no2"
+  - "so2"
+exclusion_reasons: "OpenAQ dual-unit tracking ended in 2022. No temporal overlap exists for direct verification, and official CPCB historical portal lacks automated machine-readable API access without bypassing security. Source semantics cannot be reliably proven, requiring conservative exclusion."
+semantic_unit_table: "data/metadata/phase2D4_final_sensor_semantic_units.csv"
+official_minimum_pollutant_rule: "Minimum 3 valid pollutants including PM2.5 or PM10."
+hourly_sufficiency_rule: "Minimum 16 valid hours per 24-hour day to calculate sub-index."
+o3_method: "Trailing running 8-hour O3 evaluation with 6-of-8 window completeness rule. Minimum 16 source hours in the local calendar day required. Evaluates 31-hour vector (7 preceding + 24 local hours). Special 1-hour O3 upper-band evaluation where applicable."
+co_method: "Maximum 8-hour rolling average within the day (EXCLUDED)."
+notes: "AQI derived from this policy is a conservative verified-input estimate. The exclusion of CO, NO2, and SO2 ensures mathematically proven regulatory boundaries, but may underestimate AQI if those unverified gases were driving the highest sub-index."

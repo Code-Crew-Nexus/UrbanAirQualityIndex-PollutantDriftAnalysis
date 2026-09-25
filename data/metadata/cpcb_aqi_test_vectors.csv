@@ -1,0 +1,14 @@
+test_id,pollutant,input_concentration,canonical_unit,band,listed_index_low,effective_index_low,index_high,expected_unrounded_subindex,expected_final_subindex,source_type,official_source_id,official_page_or_table,notes
+test_pm10_1,pm10,40,µg/m³,Good,0,0,50,40,40,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,Boundary case <= 50
+test_pm10_2,pm10,51,µg/m³,Satisfactory,51,50,100,50,50,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_pm10_3,pm10,120,µg/m³,Moderately Polluted,101,100,200,112.751677,113,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_pm25_1,pm2_5,25,µg/m³,Good,0,0,50,41.666667,42,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,Normal interpolation
+test_pm25_2,pm2_5,150,µg/m³,Very Poor,301,300,400,322.48062,322,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_no2_1,no2,41,µg/m³,Satisfactory,51,50,100,50,50,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,ILO - 1 boundary
+test_no2_2,no2,180,µg/m³,Moderately Polluted,101,100,200,200,200,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,Upper boundary
+test_so2_1,so2,81,µg/m³,Moderately Polluted,101,100,200,100,100,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,ILO - 1 boundary
+test_co_1,co,1.0,mg/m³,Good,0,0,50,50,50,synthetic_boundary,cpcb_aqi_report_2014,Table 3.11,Upper boundary
+test_co_2,co,1.5,mg/m³,Satisfactory,51,50,100,72.22222,72,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_co_3,co,25,mg/m³,Very Poor,301,300,400,346.7455,347,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_o3_8hr_1,o3,150,µg/m³,Moderately Polluted,101,100,200,173.1343,173,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check
+test_o3_1hr_1,o3,300,µg/m³,Very Poor,301,300,400,316.8831,317,synthetic_interpolation,cpcb_aqi_report_2014,Table 3.11,ILO - 1 check

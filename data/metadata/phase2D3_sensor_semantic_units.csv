@@ -1,0 +1,127 @@
+project_station_id,source_location_id,sensor_id,pollutant,openaq_reported_unit,verified_semantic_unit,canonical_target_unit,verification_method,counterpart_sensor_id,matched_timestamp_count,best_fit_relationship,median_relative_error,verification_status,evidence_source,evidence_interval,notes
+PROJ_002,17,12234785,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_002,17,12234787,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_002,17,12234784,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_002,17,12234786,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_002,17,12234782,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_002,17,12234789,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_007,407,12235585,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_007,407,12235581,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_007,407,12235578,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_007,407,12235580,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_007,407,12235583,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_007,407,12235582,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_019,2586,12235655,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_019,2586,12235648,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_019,2586,12235653,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_019,2586,12235652,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_019,2586,12235650,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_019,2586,12235651,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_036,5599,12235400,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_036,5599,12235399,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_036,5599,12235402,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_036,5599,12235398,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_036,5599,12235395,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_036,5599,12235397,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_042,5621,12235625,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_042,5621,12235623,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_042,5621,12235626,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_042,5621,12235621,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_042,5621,12235628,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_042,5621,12235624,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_044,5623,12242116,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_044,5623,12242118,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_044,5623,12242119,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_044,5623,12242121,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_044,5623,12242120,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_044,5623,12242123,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_048,5628,12235460,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_048,5628,12235458,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_048,5628,12235455,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_048,5628,12235459,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_048,5628,12235462,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_048,5628,12235457,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_050,5631,12235666,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_050,5631,12235668,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_050,5631,12235670,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_050,5631,12235673,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_050,5631,12235671,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_050,5631,12235669,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_051,5633,12234804,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_051,5633,12234807,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_051,5633,12234805,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_051,5633,12234800,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_051,5633,12234803,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_051,5633,12234802,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_063,5659,12235521,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_063,5659,12235520,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_063,5659,12235517,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_063,5659,12235524,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_063,5659,12235519,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_063,5659,12235522,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_092,6945,12289836,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_092,6945,12235834,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_092,6945,12235829,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_092,6945,12235833,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_092,6945,12235831,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_092,6945,12235832,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_101,6973,12235269,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_101,6973,12235264,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_101,6973,12235266,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_101,6973,12235267,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_101,6973,12235265,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_101,6973,12235262,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_133,10599,12236100,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_133,10599,12236101,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_133,10599,12236097,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_133,10599,12236104,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_133,10599,12236102,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_133,10599,12236099,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_142,10903,12235758,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_142,10903,12235763,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_142,10903,12235756,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_142,10903,12235760,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_142,10903,12235759,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_142,10903,12235761,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_144,10913,12236019,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_144,10913,12236023,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_144,10913,12236021,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_144,10913,12236020,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_144,10913,12236016,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_144,10913,12236018,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_158,11613,12236463,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_158,11613,12236458,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_158,11613,12236460,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_158,11613,12236461,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_158,11613,12236465,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_158,11613,12236462,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_179,344103,12237100,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_179,344103,12237093,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_179,344103,12237096,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_179,344103,12237097,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_179,344103,12237098,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_179,344103,12237095,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_180,344104,12237125,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_180,344104,12237122,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_180,344104,12237124,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_180,344104,12237127,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_180,344104,12237123,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_180,344104,12237120,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_181,344140,12237111,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_181,344140,12237114,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_181,344140,12237113,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_181,344140,12237115,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_181,344140,12237118,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_181,344140,12237116,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_186,352465,12237091,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_186,352465,12237088,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_186,352465,12237089,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_186,352465,12237086,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_186,352465,12237087,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_186,352465,12237084,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_094,6950,12235885,o3,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_094,6950,12235889,so2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_094,6950,12235884,no2,ppb,NA,µg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_094,6950,12235886,pm10,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.
+PROJ_094,6950,12235882,co,ppb,NA,mg/m³,NO_COUNTERPART,NA,NA,NA,NA,UNRESOLVED,Missing paired data,NA,No mass counterpart found on OpenAQ and no manual CPCB query performed.
+PROJ_094,6950,12235887,pm2_5,µg/m³,µg/m³,µg/m³,CANONICAL_METADATA,NA,NA,µg/m³,NA,VERIFIED,OpenAQ API Metadata,NA,Unit is natively mass-based in OpenAQ API.

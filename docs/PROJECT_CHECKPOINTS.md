@@ -25,10 +25,11 @@ Phase-5 unsupervised baseline integration into main repository.
 
 ### Phase 5B
 RBF SVM classification comparison  
-**SCIENTIFICALLY COMPLETE**
+**FROZEN: `v0.6-svm-freeze`**
 
 ### Checkpoint G3
-SVM integration + final modeling freeze
+SVM integration + final modeling freeze  
+**COMPLETE: `v0.6-svm-freeze`**
 
 ### Phase 6
 R Shiny integration  

@@ -1,0 +1,9 @@
+scope,PC,top_abs_feature,top_abs_loading,second_abs_feature,second_abs_loading,top_positive_feature,top_positive_loading,top_negative_feature,top_negative_loading,interpretation_summary
+HYDERABAD,PC1,pm10_aqi_input,-0.554371901553176,pm2_5_aqi_input,-0.5082073881350254,wind_speed,0.468791069839425,pm10_aqi_input,-0.554371901553176,"Dominant: pm10_aqi_input (-0.554), pm2_5_aqi_input (-0.508)"
+HYDERABAD,PC2,temperature,0.7305724806207118,humidity,-0.5053615364098002,temperature,0.7305724806207118,humidity,-0.5053615364098002,"Dominant: temperature (0.731), humidity (-0.505)"
+HYDERABAD,PC3,o3_8h_max,-0.9746662743646521,pm2_5_aqi_input,0.19846085085532597,pm2_5_aqi_input,0.19846085085532597,o3_8h_max,-0.9746662743646521,"Dominant: o3_8h_max (-0.975), pm2_5_aqi_input (0.198)"
+HYDERABAD,PC4,wind_speed,-0.7661103417301579,temperature,-0.4310616137796682,None,NA,wind_speed,-0.7661103417301579,"Dominant: wind_speed (-0.766), temperature (-0.431)"
+INDIA,PC1,pm10_aqi_input,-0.5826435314756225,pm2_5_aqi_input,-0.5390724066953271,humidity,0.3565243513756091,pm10_aqi_input,-0.5826435314756225,"Dominant: pm10_aqi_input (-0.583), pm2_5_aqi_input (-0.539)"
+INDIA,PC2,temperature,0.6524992898610354,humidity,-0.5733737166840589,temperature,0.6524992898610354,humidity,-0.5733737166840589,"Dominant: temperature (0.652), humidity (-0.573)"
+INDIA,PC3,wind_speed,-0.8880018297642919,pm10_aqi_input,-0.29136121600305104,o3_8h_max,0.19770049758453215,wind_speed,-0.8880018297642919,"Dominant: wind_speed (-0.888), pm10_aqi_input (-0.291)"
+INDIA,PC4,o3_8h_max,-0.7745955457323848,temperature,0.49378385218512344,temperature,0.49378385218512344,o3_8h_max,-0.7745955457323848,"Dominant: o3_8h_max (-0.775), temperature (0.494)"

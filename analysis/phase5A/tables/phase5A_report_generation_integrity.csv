@@ -1,0 +1,11 @@
+report_section,source_table,programmatic_linkage,verification_status
+Section C: PCA Eigenvalues & Variance,analysis/phase5A/tables/phase5A_pca_variance_explained.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section C: Retained Component Selection,analysis/phase5A/tables/phase5A_pca_selection.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section D: Scaling Parameters,analysis/phase5A/tables/phase5A_scaling_parameters.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section E: K-Selection Diagnostics,analysis/phase5A/tables/phase5A_k_selection_diagnostics.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section F: History Cluster Sizes & Profiles,analysis/phase5A/tables/phase5A_cluster_profiles.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section G: Regime Frequency Comparison,analysis/phase5A/tables/phase5A_regime_frequency_comparison.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section H: Seasonal Distribution,analysis/phase5A/tables/phase5A_season_cluster_distribution.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section I: Station Cluster Distribution,analysis/phase5A/tables/phase5A_station_cluster_distribution.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section J: Recent Evaluation & Centroid Distance,analysis/phase5A/tables/phase5A_recent_centroid_distance_summary.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED
+Section K: Cluster Descriptive Labels,analysis/phase5A/tables/phase5A_cluster_labels.csv,Declared authoritative source table for final report section,SOURCE_PROVENANCE_DECLARED

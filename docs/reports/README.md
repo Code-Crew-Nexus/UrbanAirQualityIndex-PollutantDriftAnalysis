@@ -10,6 +10,8 @@ This directory contains the final consolidated summaries for the frozen analytic
   Summarizes the next-day AQI prediction design, MLR vs Logistic classification, model selection, tie-safe metrics, and temporal prevalence shift impacts.
 - [Phase 5: PCA Dimensionality Analysis & K-Means Pollution-Regime Discovery](phase5_pca_kmeans_summary.md)
   Summarizes the unsupervised latent dimensionality reduction (4 PCs retained, ~90% variance) and K-Means pollution regime discovery ($k=3$) across Hyderabad and India panels.
+- [Phase 5B: RBF Support Vector Machine Adverse-AQI Classification](phase5b_svm_summary.md)
+  Summarizes the nonlinear RBF SVM adverse-AQI classification, validation PR-AUC hyperparameter selection, locked TEST benchmarking against Logistic Model B and persistence, and late-monsoon holdout evaluation.
 
 *Note: Detailed intermediate phase audit reports, debugging traces, and closure validations are retained locally in the `docs/internal_phase_history/` directory and are not part of the collaborative repository to maintain clarity.*
 

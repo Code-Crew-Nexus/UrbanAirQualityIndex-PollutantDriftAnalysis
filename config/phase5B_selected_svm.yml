@@ -1,0 +1,22 @@
+selection_metadata:
+  phase: 5B
+  timestamp: 2026-09-25 23:24:07.678689
+  selection_criterion: VALIDATION_PR_AUC
+  tie_rule: higher_PR_AUC_then_lower_cost_then_lower_gamma_tol_1e-10
+  test_leakage: NONE (TEST and HOLDOUT strictly locked)
+hyderabad:
+  engine: e1071
+  kernel: radial
+  cost: 16.0
+  gamma: 0.01
+  validation_PR_AUC: 0.885727
+  validation_ROC_AUC: 0.9511434
+  validation_average_precision: 0.8862142
+india:
+  engine: e1071
+  kernel: radial
+  cost: 4.0
+  gamma: 0.0075758
+  validation_PR_AUC: 0.9216915
+  validation_ROC_AUC: 0.8802309
+  validation_average_precision: 0.9217858

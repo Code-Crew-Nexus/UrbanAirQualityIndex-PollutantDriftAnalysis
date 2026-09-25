@@ -78,12 +78,12 @@ cat("Saved: phase5A_cluster_profiles.csv\n")
 # Based directly on data profiles:
 cluster_labels_df <- tribble(
   ~scope, ~cluster, ~descriptive_label, ~profile_basis, ~caution,
-  "HYDERABAD", "Cluster 1", "warm-dry-moderate-pollution", "High temperature (30.3C), low humidity (42.8%), moderate particulate and ozone (AQI ~80.5); dominant in Summer/Pre-monsoon", "Unsupervised cluster; does not represent a causal source allocation",
-  "HYDERABAD", "Cluster 2", "humid-monsoon-lower-pollution", "High humidity (75.6%), elevated wind (3.87 m/s), low PM2.5/PM10 (AQI ~56.5); dominant in Monsoon", "Meteorological dilution does not imply total absence of local emissions",
-  "HYDERABAD", "Cluster 3", "cool-calm-particulate-elevated", "Lower temperature (23.9C), calm wind (2.02 m/s), elevated PM2.5 and PM10 (AQI ~99.8); dominant in Winter", "Inversion-driven accumulation across urban panel; not a single point source",
-  "INDIA", "Cluster 1", "cool-stagnant-particulate-elevated", "Low temperature (21.5C), low wind (1.80 m/s), severe PM2.5 (100.4 ug/m3) and PM10 (186.2 ug/m3, AQI ~211.4); dominant in Winter", "Multi-station representative subset; cannot be generalized as an entire citywide mean",
-  "INDIA", "Cluster 2", "hot-dry-ozone-dust-elevated", "High temperature (30.7C), low humidity (40.9%), elevated O3 (68.3 ug/m3) and PM10 (115.8 ug/m3, AQI ~120.9); dominant in Summer/Pre-monsoon", "High photochemical and crustal aerosol activity; unverified gases excluded",
-  "INDIA", "Cluster 3", "humid-monsoon-lower-pollution", "High humidity (77.2%), higher wind (2.77 m/s), lowest PM2.5/PM10/O3 (AQI ~66.5); dominant in Monsoon (55.5% of history observations)", "Regional wet scavenging across national monitoring stations"
+  "HYDERABAD", "Cluster 1", "warm-dry-moderate-pollution", "High temperature (mean 30.3 C), low humidity (mean 42.8%), moderate particulate and ozone levels; observed predominantly in summer / pre-monsoon", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means.",
+  "HYDERABAD", "Cluster 2", "humid-windy-lower-pollution", "High humidity (mean 75.6%), elevated wind speed (mean 3.87 m/s), low PM2.5 and PM10 levels; observed predominantly in monsoon", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means.",
+  "HYDERABAD", "Cluster 3", "cool-low-wind-particulate-elevated", "Lower temperature (mean 23.9 C), low wind speed (mean 2.02 m/s), elevated PM2.5 and PM10 levels; observed predominantly in winter", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means.",
+  "INDIA", "Cluster 1", "cool-low-wind-particulate-elevated", "Low temperature (mean 21.5 C), low wind speed (mean 1.80 m/s), elevated PM2.5 (mean 100.4 ug/m3) and PM10 (mean 186.2 ug/m3); observed predominantly in winter", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means.",
+  "INDIA", "Cluster 2", "hot-dry-ozone-pm10-elevated", "High temperature (mean 30.7 C), low humidity (mean 40.9%), elevated O3 (mean 68.3 ug/m3) and PM10 (mean 115.8 ug/m3); observed predominantly in summer / pre-monsoon", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means.",
+  "INDIA", "Cluster 3", "humid-windy-lower-pollution", "High humidity (mean 77.2%), active wind (mean 2.77 m/s), lower particulate and ozone concentrations; observed predominantly in monsoon", "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
 )
 write_csv(cluster_labels_df, "analysis/phase5A/tables/phase5A_cluster_labels.csv")
 cat("Saved: phase5A_cluster_labels.csv\n")
@@ -260,7 +260,7 @@ p06 <- ggplot(hyd_hist, aes(x = PC1, y = PC2, color = initial_cluster)) +
   geom_point(alpha = 0.5, size = 1.8) +
   stat_ellipse(level = 0.85, linewidth = 1) +
   scale_color_brewer(palette = "Set1") +
-  labs(title = "Figure 06: Hyderabad History PCA Projection (PC1 vs PC2)", subtitle = "Observations in latent space colored by selected K=3 K-Means clusters", x = "PC1 (Particulate Intensity / Dispersion)", y = "PC2 (Thermal / Humidity Contrast)", color = "Regime") +
+  labs(title = "Figure 06: Hyderabad History PCA Projection (PC1 vs PC2)", subtitle = "Observations in latent space colored by selected K=3 K-Means clusters", x = "PC1 (Particulate / Ventilation Contrast)", y = "PC2 (Thermal-Moisture Contrast)", color = "Regime") +
   theme_clean
 ggsave("analysis/phase5A/figures/06_hyderabad_pca_pc1_pc2_by_cluster.png", p06, width = 8, height = 5.5, dpi = 300)
 
@@ -269,7 +269,7 @@ p07 <- ggplot(ind_hist, aes(x = PC1, y = PC2, color = initial_cluster)) +
   geom_point(alpha = 0.4, size = 1.5) +
   stat_ellipse(level = 0.85, linewidth = 1) +
   scale_color_brewer(palette = "Set1") +
-  labs(title = "Figure 07: India Representative Panel PCA Projection (PC1 vs PC2)", subtitle = "National monitoring observations colored by selected K=3 K-Means clusters", x = "PC1 (Particulate Loading vs Scavenging)", y = "PC2 (Thermal / Humidity Contrast)", color = "Regime") +
+  labs(title = "Figure 07: India Representative Panel PCA Projection (PC1 vs PC2)", subtitle = "National monitoring observations colored by selected K=3 K-Means clusters", x = "PC1 (Particulate / Ventilation Contrast)", y = "PC2 (Thermal-Moisture Contrast)", color = "Regime") +
   theme_clean
 ggsave("analysis/phase5A/figures/07_india_pca_pc1_pc2_by_cluster.png", p07, width = 8, height = 5.5, dpi = 300)
 
@@ -345,7 +345,7 @@ p13 <- ggplot(regime_freq_df %>% filter(scope == "HYDERABAD"), aes(x = cluster, 
   geom_col(position = position_dodge(width = 0.8), width = 0.7) +
   scale_fill_manual(values = c("MODELING_HISTORY" = "#34495e", "RECENT_EVALUATION" = "#e67e22")) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  labs(title = "Figure 13: Hyderabad Regime Frequency Shift (History vs September)", subtitle = "Substantial September expansion of Cluster 2 (humid-monsoon-lower-pollution)", x = "Cluster Regime", y = "Percentage of Complete Days", fill = "Period") +
+  labs(title = "Figure 13: Hyderabad Regime Frequency Shift (History vs September)", subtitle = "Recent September observations show higher proportion of Cluster 2 (humid-windy-lower-pollution)", x = "Cluster Regime", y = "Percentage of Complete Days", fill = "Period") +
   theme_clean
 ggsave("analysis/phase5A/figures/13_hyderabad_regime_frequency_history_vs_recent.png", p13, width = 8, height = 4.5, dpi = 300)
 
@@ -354,7 +354,7 @@ p14 <- ggplot(regime_freq_df %>% filter(scope == "INDIA"), aes(x = cluster, y = 
   geom_col(position = position_dodge(width = 0.8), width = 0.7) +
   scale_fill_manual(values = c("MODELING_HISTORY" = "#2980b9", "RECENT_EVALUATION" = "#e67e22")) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  labs(title = "Figure 14: India Panel Regime Frequency Shift (History vs September)", subtitle = "September shifts predominantly into Cluster 3 (humid-monsoon-lower-pollution)", x = "Cluster Regime", y = "Percentage of Complete Days", fill = "Period") +
+  labs(title = "Figure 14: India Panel Regime Frequency Shift (History vs September)", subtitle = "Recent September observations show higher proportion of Cluster 3 (humid-windy-lower-pollution)", x = "Cluster Regime", y = "Percentage of Complete Days", fill = "Period") +
   theme_clean
 ggsave("analysis/phase5A/figures/14_india_regime_frequency_history_vs_recent.png", p14, width = 8, height = 4.5, dpi = 300)
 

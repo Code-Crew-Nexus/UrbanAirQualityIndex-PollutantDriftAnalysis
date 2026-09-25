@@ -21,10 +21,10 @@ Git/GitHub baseline curation and documentation consolidation.
 PBL collaboration policy, team identity, and pre-remote tag alignment.
 
 
-### Phase 5A
-PCA dimensionality reduction and K-Means pollution-regime discovery (4 PCs retained, k=3 regimes).
+### Phase 5A / 5A.1
+PCA dimensionality reduction, K-Means pollution-regime discovery, and unsupervised result integrity reconciliation.
 
-**[FROZEN] PHASE 5A PCA / K-MEANS REGIME DISCOVERY FROZEN.**
+**[FROZEN] PHASE 5A UNSUPERVISED ANALYSIS FROZEN — READY FOR NEXT SML EXTENSION.**
 
 ### Phase 5B
 SVM classification comparison (Upcoming)

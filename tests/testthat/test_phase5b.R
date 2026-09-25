@@ -26,6 +26,8 @@ sel_yml <- yaml::read_yaml("../../config/phase5B_selected_svm.yml")
 leakage_audit <- read_csv("../../analysis/phase5B/tables/phase5B_selection_leakage_audit.csv", show_col_types = FALSE)
 metric_audit <- read_csv("../../analysis/phase5B/tables/phase5B_metric_consistency_audit.csv", show_col_types = FALSE)
 dep_audit <- read_csv("../../analysis/phase5B/tables/phase5B_archive_dependency_audit.csv", show_col_types = FALSE)
+membership_audit <- read_csv("../../analysis/phase5B/tables/phase5B_archive_membership_audit.csv", show_col_types = FALSE)
+report_metric_table <- read_csv("../../analysis/phase5B/tables/phase5B_final_report_metric_table.csv", show_col_types = FALSE)
 
 # ==============================================================================
 # BLOCK A: Target Definition, Alignment, Splits & Feature Exclusions
@@ -351,10 +353,23 @@ test_that("Block F: Baseline immutability, artifact existence and network isolat
     expect_true(file.exists(m_path), info = paste("Model RDS exists:", m_path))
   }
   
-  # 15. Archive Dependency Audit verification
+  # 15. Project Dependency Audit verification
   expect_equal(nrow(dep_audit), 32)
   expect_true(all(dep_audit$status == "PASS"))
-  expect_true(all(dep_audit$included_in_archive == "YES"))
+  expect_true(all(dep_audit$project_dependency_exists == "YES"))
+  
+  # 16. Real Archive Membership Audit verification (Section 4 & 21)
+  expect_gt(nrow(membership_audit), 35)
+  expect_true(all(membership_audit$status == "PASS"))
+  expect_true(all(membership_audit$project_file_exists == TRUE))
+  expect_true(all(membership_audit$archive_member_exists == TRUE))
+  
+  # 17. Programmatic Final Report Metric Table verification (Section 11)
+  expect_equal(nrow(report_metric_table), 12)
+  expect_equal(report_metric_table$average_precision[report_metric_table$scope == "INDIA" & 
+                                                      report_metric_table$split == "FINAL_RECENT_HOLDOUT" & 
+                                                      report_metric_table$model_name == "RBF_SVM"],
+               0.5667060834286939, tolerance = 1e-8)
   
   # 51. No network calls in Phase-5B execution scripts
   p5b_scripts <- c(
@@ -362,7 +377,8 @@ test_that("Block F: Baseline immutability, artifact existence and network isolat
     "../../scripts/20b_phase5B_train_validate_select.R",
     "../../scripts/20c_phase5B_test_holdout_evaluation.R",
     "../../scripts/20d_phase5B_figures.R",
-    "../../scripts/21a_phase5B1_consistency_audit.R"
+    "../../scripts/21a_phase5B1_consistency_audit.R",
+    "../../scripts/21b_phase5B2_archive_audit.R"
   )
   for (s_path in p5b_scripts) {
     lines <- readLines(s_path, warn = FALSE)

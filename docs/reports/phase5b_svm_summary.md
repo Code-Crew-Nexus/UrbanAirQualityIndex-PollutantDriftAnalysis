@@ -9,7 +9,7 @@
 
 ## 1. Research Question & Purpose
 
-Phase 4 established an interpretable, calibrated Logistic Regression model (Model B) for next-day adverse air quality classification, alongside a simple single-day persistence benchmark. Phase 5A independently demonstrated that six-pollutant urban air quality forms discrete latent regimes via PCA and $K$-Means.
+Phase 4 established an interpretable Logistic Regression probability model (Model B, whose probability calibration was evaluated separately in Phase 4) for next-day adverse air quality classification, alongside a simple single-day persistence benchmark. Phase 5A independently demonstrated that a six-feature pollutant–meteorological structure (PM2.5, PM10, O3, temperature, humidity and wind speed) forms discrete latent regimes via PCA and $K$-Means.
 
 Phase 5B investigates a focused predictive inquiry:
 > **Can a nonlinear radial-basis function Support Vector Machine (RBF SVM) improve out-of-sample discrimination of next-day adverse air quality ($\text{AQI}_{t+1} > 100$) over the linear log-odds decision boundary of Logistic Model B and simple persistence?**
@@ -25,12 +25,12 @@ To maintain absolute methodological fairness and prevent data leakage:
 
 All splits are defined strictly by target calendar date ($t+1$), matching the frozen Phase-4 prediction contract:
 
-| Chronological Split | Target Date Window | Hyderabad Panel ($n$, Adverse Positives) | India Representative Panel ($n$, Adverse Positives) | Atmospheric & Seasonal Dynamics |
+| Chronological Split | Target Date Window | Hyderabad Panel ($n$, Adverse Positives) | India Representative Panel ($n$, Adverse Positives) | Chronological Modeling Period & Seasonal Context |
 | :--- | :--- | :---: | :---: | :--- |
-| **TRAIN** | 2025-03-02 to 2025-12-31 | 1,398 ($269$, $19.2\%$) | 3,501 ($1,553$, $44.4\%$) | Pre-monsoon, monsoon, and post-monsoon baseline |
-| **VALIDATION** | 2026-01-01 to 2026-04-30 | 498 ($66$, $13.3\%$) | 1,302 ($828$, $63.6\%$) | Winter thermal inversions & early summer across Indo-Gangetic Plain |
-| **TEST** | 2026-05-01 to 2026-08-31 | 477 ($11$, $2.3\%$) | 1,389 ($294$, $21.2\%$) | Peak summer heat & monsoon period characterized by lower ambient concentrations |
-| **FINAL HOLDOUT** | 2026-09-01 to 2026-09-21 | 111 ($0$, $0.0\%$) | 238 ($22$, $9.2\%$) | Late monsoon out-of-sample post-freeze holdout |
+| **TRAIN** | 2025-03-02 to 2025-12-31 | 1,398 ($269$, $19.2\%$) | 3,501 ($1,553$, $44.4\%$) | Historical training period across seasonal cycle |
+| **VALIDATION** | 2026-01-01 to 2026-04-30 | 498 ($66$, $13.3\%$) | 1,302 ($828$, $63.6\%$) | January–April 2026 validation period |
+| **TEST** | 2026-05-01 to 2026-08-31 | 477 ($11$, $2.3\%$) | 1,389 ($294$, $21.2\%$) | May–August 2026 test period |
+| **FINAL HOLDOUT** | 2026-09-01 to 2026-09-21 | 111 ($0$, $0.0\%$) | 238 ($22$, $9.2\%$) | September 2026 recent holdout |
 
 The sample sizes and adverse-event counts derived deterministically from [UAQI_Master_Daily.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/data/processed/UAQI_Master_Daily.csv) match the project's frozen complete-case population to the exact integer.
 
@@ -73,6 +73,7 @@ A predeclared grid of 20 candidate combinations was evaluated on the **VALIDATIO
 Following validation selection, hyperparameters were permanently locked. Models were refit on **$\text{TRAIN} + \text{VALIDATION}$** with relearned preprocessing parameters and evaluated **once** on the locked **TEST** set ($N=477$ Hyderabad, $N=1,389$ India).
 
 ### Comparative Metric Performance (TEST Split):
+*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
 
 | Scope | Model Family | Positive $n$ | PR-AUC | ROC-AUC | Average Precision | Sensitivity | Specificity | Precision | Native $F_1$ Score | Balanced Accuracy | Overall Accuracy |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -83,14 +84,14 @@ Following validation selection, hyperparameters were permanently locked. Models 
 | INDIA | Logistic Model B | 294 | **$0.8255$** | $0.9317$ | $0.8258$ | $0.4218$ | $0.9909$ | $0.9254$ | **$0.5794$** | $0.7063$ | $87.04\%$ |
 | INDIA | Persistence | 294 | **$0.6555$** | $0.8270$ | $0.5856$ | $0.7279$ | $0.9260$ | $0.7254$ | **$0.7267$** | $0.8270$ | $88.41\%$ |
 
-$^*$*Note: In Hyderabad TEST, adverse prevalence collapsed to $2.3\%$. The native margin predicted $5$ false positives and $0$ true positives ($TP=0, FP=5$), resulting in an undefined/zero $F_1$ score.*
+$^*$*Note: In Hyderabad TEST, adverse prevalence was $2.3\%$. The native margin predicted $5$ false positives and $0$ true positives ($TP=0, FP=5$), resulting in $F_1 = \text{NA}$ under the project metric convention.*
 
 ### Key Scientific Findings on TEST:
 1. **India Representative Panel:**
    - **Ranking Advantage:** The nonlinear RBF SVM achieved a higher PR-AUC ($0.8335$) than Logistic Model B ($0.8255$, $\Delta = +0.0081$) and far surpassed Persistence ($0.6555$, $\Delta = +0.1780$).
    - **Hard Classification Advantage:** Native SVM margin classification achieved $F_1 = 0.7218$ ($65.31\%$ sensitivity, $80.67\%$ precision), outperforming Logistic Model B ($F_1 = 0.5794$, sensitivity $42.18\%$) and performing comparably to persistence ($F_1 = 0.7267$).
 2. **Hyderabad Panel:**
-   - In Hyderabad, where summer monsoon precipitation coincided with reduced adverse occurrences (11 events across 477 observations), the RBF SVM lagged behind Logistic Model B (PR-AUC $0.1179$ vs. $0.1666$, $\Delta = -0.0487$). The uncalibrated separating margin failed to capture true positives without threshold tuning.
+   - In Hyderabad during the May–August 2026 test period (11 adverse events across 477 observations), the RBF SVM lagged behind Logistic Model B (PR-AUC $0.1179$ vs. $0.1666$, $\Delta = -0.0487$). The unweighted separating margin did not capture true positives ($F_1 = \text{NA}$ under the project metric convention).
 
 ---
 
@@ -98,17 +99,20 @@ $^*$*Note: In Hyderabad TEST, adverse prevalence collapsed to $2.3\%$. The nativ
 
 Models were refit across **all available history** through August 31, 2026 ($\text{TRAIN} + \text{VALIDATION} + \text{TEST}$) and evaluated on the out-of-sample September Holdout (2026-09-01 to 2026-09-21):
 
-| Scope | Model Family | Positive $n$ | PR-AUC | ROC-AUC | Native $F_1$ Score | Sensitivity | Specificity | Precision | Accuracy |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **INDIA** | **RBF SVM** | 22 | **$0.5419$** | $0.8843$ | **$0.5405$** | $0.4545$ | $0.9769$ | $0.6667$ | $92.86\%$ |
-| INDIA | Logistic Model B | 22 | **$0.5688$** | $0.8927$ | **$0.4138$** | $0.2727$ | $0.9861$ | $0.6667$ | $92.02\%$ |
-| INDIA | Persistence | 22 | **$0.5113$** | $0.7769$ | **$0.6047$** | $0.5909$ | $0.9769$ | $0.7222$ | $94.12\%$ |
-| **HYDERABAD** | **RBF SVM** | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
-| HYDERABAD | Logistic Model B | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
-| HYDERABAD | Persistence | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
+### Comparative Metric Performance (September Holdout):
+*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
+
+| Scope | Model Family | Positive $n$ | PR-AUC | ROC-AUC | Average Precision | Native $F_1$ Score | Sensitivity | Specificity | Precision | Accuracy |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **INDIA** | **RBF SVM** | 22 | **$0.5419$** | $0.8843$ | **$0.5667$** | **$0.5405$** | $0.4545$ | $0.9769$ | $0.6667$ | $92.86\%$ |
+| INDIA | Logistic Model B | 22 | **$0.5688$** | $0.8927$ | **$0.5828$** | **$0.4138$** | $0.2727$ | $0.9954$ | $0.8571$ | $92.86\%$ |
+| INDIA | Persistence | 22 | **$0.5113$** | $0.7769$ | **$0.4036$** | **$0.6047$** | $0.5909$ | $0.9630$ | $0.6190$ | $92.86\%$ |
+| **HYDERABAD** | **RBF SVM** | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
+| HYDERABAD | Logistic Model B | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
+| HYDERABAD | Persistence | 0 | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $\text{NA}$ | $1.0000$ | $\text{NA}$ | $100.0\%$ |
 
 ### Single-Class Hyderabad Holdout Limitation:
-In Hyderabad, late monsoon conditions in September 2026 coincided with all 111 observations remaining below the AQI 100 threshold ($0$ adverse days; all observations non-adverse under the AQI $\le 100$ threshold). All 111 oriented decision scores produced by the SVM were strictly negative (scores $< 0$), resulting in $TN=111, FP=0$ ($100\%$ accuracy and specificity). Because only one class is present in the ground truth, ranking metrics (ROC-AUC, PR-AUC) and positive detection metrics ($F_1$, sensitivity) are mathematically undefined ($\text{NA}$). As mandated by project policy, high accuracy under single-class holdouts is not interpreted as evidence of adverse-event discrimination.
+In Hyderabad, during the September 2026 recent holdout, all 111 observations remained below the AQI 100 threshold ($0$ adverse days; all observations non-adverse under the AQI $\le 100$ threshold). All 111 oriented decision scores produced by the SVM were strictly negative (scores $< 0$), resulting in $TN=111, FP=0$ ($100\%$ accuracy and specificity). Because only one class is present in the ground truth, ranking metrics (ROC-AUC, PR-AUC) and positive detection metrics ($F_1$, sensitivity) are mathematically undefined ($\text{NA}$). As mandated by project policy, high accuracy under single-class holdouts is not interpreted as evidence of adverse-event discrimination.
 
 ---
 
@@ -133,17 +137,15 @@ Support vectors comprise $18.7\% - 34.1\%$ of the training cohorts across refit 
 
 | Evaluation Dimension | Logistic Regression (Model B) | RBF Support Vector Machine | Methodological Implications |
 | :--- | :--- | :--- | :--- |
-| **Decision Boundary** | Linear in log-odds space | Highly nonlinear kernel hypersphere | SVM captures multi-pollutant non-linear interactions better in heterogeneous panels (India). |
+| **Decision Boundary** | Linear in log-odds space | Nonlinear kernel decision boundary | The RBF SVM permits nonlinear separation in the joint predictor space and showed higher India TEST PR-AUC than Logistic Model B. |
 | **Model Output** | Estimated adverse-event probabilities $P(Y=1 \mid X)$ | Continuous distance to margin boundary | Logistic outputs provide direct operational risk probabilities; SVM scores require external calibration. |
 | **Ranking Performance** | India TEST PR-AUC: $0.8255$ | India TEST PR-AUC: **$0.8335$** | SVM demonstrates superior discriminative ranking when class balance is moderate. |
 | **Hard Classification** | India TEST $F_1$: $0.5794$ | India TEST $F_1$: **$0.7218$** | Native SVM separating hyperplanes capture $65.3\%$ of adverse days with $80.7\%$ precision. |
-| **Interpretability** | Direct odds ratios ($\exp(\beta)$) per unit shift | Black-box dual kernel representation | Logistic Regression remains indispensable for environmental policy and feature attribution. |
-| **Severe Low-Prevalence** | Tunable operating thresholds | Native margin can struggle without tuning | Under extreme class rarity (Hyderabad TEST $2.3\%$), Logistic threshold tuning proved more resilient. |
+| **Interpretability** | Direct odds ratios ($\exp(\beta)$) per unit shift | Dual kernel representation | Logistic Regression remains the more directly interpretable model because its coefficients/odds ratios and estimated probabilities have a straightforward statistical interpretation. |
+| **Severe Low-Prevalence** | Tunable operating thresholds | Native margin can struggle without tuning | Under low adverse prevalence (Hyderabad TEST $2.3\%$), Logistic Model B ranked adverse events better and detected true positives that the unweighted SVM did not ($F_1 = \text{NA}$ under the project metric convention). |
 
 ---
 
-## 9. Final Conclusion
+## 9. Final Public Conclusion
 
-1. **Nonlinear Kernel Value Validated in Heterogeneous Cohorts:** On the 15-station India Representative Panel, the nonlinear RBF SVM demonstrated superior out-of-sample discrimination over Logistic Model B on the locked TEST set, raising PR-AUC from $0.8255$ to $0.8335$ and lifting the hard classification $F_1$ score from $0.5794$ to $0.7218$ (matching Persistence at $0.7267$).
-2. **Complementary Modeling Roles & Trade-offs:** While the RBF SVM provides enhanced classification margin separation on the heterogeneous India test panel, Logistic Regression retains its critical role as the primary interpretable probability model. Under extreme class rarity (Hyderabad TEST), Logistic Model B dominated ranking ($0.1666$ vs $0.1179$) and classification due to operating threshold flexibility. On out-of-sample India holdout, Logistic Model B retained higher PR-AUC ($0.5688$ vs $0.5419$), and Persistence achieved higher hard $F_1$ ($0.6047$ vs $0.5405$).
-3. **Reproducibility & Baseline Freeze:** All Phase-5B models, grids, predictions, and metrics are fully self-contained and reproducible from tracked repository artifacts.
+On India TEST, RBF SVM modestly improved ranking over Logistic Model B (PR-AUC 0.8335 vs 0.8255) and improved native hard-classification F1 (0.7218 vs 0.5794), while persistence retained a slightly higher F1 (0.7267). On India September holdout, Logistic Model B retained higher PR-AUC (0.5688 vs SVM 0.5419), while persistence retained the highest F1 (0.6047). In Hyderabad TEST, Logistic Model B ranked adverse events better and detected true positives that the unweighted SVM did not. Thus RBF SVM provides complementary nonlinear classification value rather than universal superiority.

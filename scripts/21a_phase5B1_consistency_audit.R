@@ -196,9 +196,9 @@ if (nrow(mismatches) > 0) {
 }
 
 # ==============================================================================
-# AUDIT 3: ARCHIVE DEPENDENCY AUDIT (Section 15)
+# AUDIT 3: PROJECT DEPENDENCY AUDIT (Working Directory Verification)
 # ==============================================================================
-cat("\n--- 3. Generating Archive Dependency Audit Table ---\n")
+cat("\n--- 3. Generating Project Dependency Audit Table ---\n")
 
 dependencies <- c(
   "R/30_classification_metrics.R",
@@ -241,7 +241,7 @@ for (dep in dependencies) {
   archive_audit_records[[length(archive_audit_records) + 1]] <- data.frame(
     dependency = dep,
     required_by = "test_phase5b.R / Phase 5B Pipeline",
-    included_in_archive = if (f_exists) "YES" else "MISSING",
+    project_dependency_exists = if (f_exists) "YES" else "MISSING",
     status = if (f_exists) "PASS" else "FAIL",
     stringsAsFactors = FALSE
   )
@@ -250,12 +250,12 @@ for (dep in dependencies) {
 dep_audit_df <- bind_rows(archive_audit_records)
 dep_audit_path <- file.path(tables_dir, "phase5B_archive_dependency_audit.csv")
 write_csv(dep_audit_df, dep_audit_path)
-cat("Saved archive dependency audit to:", dep_audit_path, "(", nrow(dep_audit_df), "dependencies )\n")
+cat("Saved project dependency audit to:", dep_audit_path, "(", nrow(dep_audit_df), "dependencies )\n")
 failed_deps <- dep_audit_df %>% filter(status != "PASS")
 if (nrow(failed_deps) > 0) {
-  stop("FATAL: Archive dependency audit found missing dependencies:\n", print(failed_deps))
+  stop("FATAL: Project dependency audit found missing dependencies:\n", print(failed_deps))
 } else {
-  cat("[OK] All 32 archive dependencies verified and present (0 failures).\n")
+  cat("[OK] All 32 project dependencies verified and present in working tree (0 failures).\n")
 }
 
 cat(">>> scripts/21a_phase5B1_consistency_audit.R completed successfully.\n")

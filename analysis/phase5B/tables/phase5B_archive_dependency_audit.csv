@@ -1,4 +1,4 @@
-dependency,required_by,included_in_archive,status
+dependency,required_by,project_dependency_exists,status
 R/30_classification_metrics.R,test_phase5b.R / Phase 5B Pipeline,YES,PASS
 R/32_svm_helpers.R,test_phase5b.R / Phase 5B Pipeline,YES,PASS
 config/phase5B_svm_specification.yml,test_phase5b.R / Phase 5B Pipeline,YES,PASS

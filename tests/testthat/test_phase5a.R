@@ -285,7 +285,8 @@ test_that("Phase 5A: Reproducibility and Code Safety", {
     "../../scripts/18b_phase5A_kmeans.R",
     "../../scripts/18c_phase5A_profiles_figures.R",
     "../../scripts/19a_phase5A1_consistency_audit.R",
-    "../../scripts/19b_phase5A2_reproducibility_check.R"
+    "../../scripts/19b_phase5A2_reproducibility_check.R",
+    "../../scripts/19c_phase5_git_reproducibility_audit.R"
   )
   for (sc in all_scripts) {
     expect_true(file.exists(sc))
@@ -293,11 +294,9 @@ test_that("Phase 5A: Reproducibility and Code Safety", {
     expect_false(grepl("curl|httr|download.file|openaq.org|open-meteo.com", code_text))
   }
   
-  # 2. Frozen Phase-4 supervised learning outputs remain untouched
-  expect_true(file.exists("../../analysis/phase4C/tables/phase4_supervised_learning_summary.csv"))
-  expect_true(file.exists("../../models/phase4C/hyderabad_model_B_train.rds"))
-  expect_true(file.exists("../../models/phase4B/india_model_B_train.rds"))
-  
-  # 3. Report generation integrity documentation exists
-  expect_true(file.exists("../../analysis/phase5A/tables/phase5A_report_generation_integrity.csv"))
+  # 2. Report generation integrity documentation exists with declared source provenance
+  rep_gen_path <- "../../analysis/phase5A/tables/phase5A_report_generation_integrity.csv"
+  expect_true(file.exists(rep_gen_path))
+  rep_gen_df <- read_csv(rep_gen_path, show_col_types = FALSE)
+  expect_true(all(rep_gen_df$verification_status == "SOURCE_PROVENANCE_DECLARED"))
 })

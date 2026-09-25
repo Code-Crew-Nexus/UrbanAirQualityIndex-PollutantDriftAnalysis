@@ -199,9 +199,8 @@ report_gen_df <- tibble(
     "analysis/phase5A/tables/phase5A_recent_centroid_distance_summary.csv",
     "analysis/phase5A/tables/phase5A_cluster_labels.csv"
   ),
-  record_count = c(12, 2, 12, 14, 42, 12, 24, 66, 2, 6),
-  programmatic_linkage = rep("Directly populated from authoritative table via scripts/19a", 10),
-  verification_status = rep("VERIFIED_CONSISTENT", 10)
+  programmatic_linkage = rep("Declared authoritative source table for final report section", 10),
+  verification_status = rep("SOURCE_PROVENANCE_DECLARED", 10)
 )
 
 write_csv(report_gen_df, "analysis/phase5A/tables/phase5A_report_generation_integrity.csv")

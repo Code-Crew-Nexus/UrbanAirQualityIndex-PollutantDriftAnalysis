@@ -1,0 +1,13 @@
+scope,period,cluster,descriptive_label,n,percentage
+HYDERABAD,MODELING_HISTORY,Cluster 1,warm-dry-moderate-pollution,866,31.5
+HYDERABAD,MODELING_HISTORY,Cluster 2,humid-windy-lower-pollution,962,34.99
+HYDERABAD,MODELING_HISTORY,Cluster 3,cool-low-wind-particulate-elevated,921,33.5
+HYDERABAD,RECENT_EVALUATION,Cluster 1,warm-dry-moderate-pollution,28,23.14
+HYDERABAD,RECENT_EVALUATION,Cluster 2,humid-windy-lower-pollution,82,67.77
+HYDERABAD,RECENT_EVALUATION,Cluster 3,cool-low-wind-particulate-elevated,11,9.09
+INDIA,MODELING_HISTORY,Cluster 1,cool-low-wind-particulate-elevated,1261,18.56
+INDIA,MODELING_HISTORY,Cluster 2,hot-dry-ozone-pm10-elevated,1764,25.96
+INDIA,MODELING_HISTORY,Cluster 3,humid-windy-lower-pollution,3771,55.49
+INDIA,RECENT_EVALUATION,Cluster 1,cool-low-wind-particulate-elevated,3,1.15
+INDIA,RECENT_EVALUATION,Cluster 2,hot-dry-ozone-pm10-elevated,22,8.4
+INDIA,RECENT_EVALUATION,Cluster 3,humid-windy-lower-pollution,237,90.46

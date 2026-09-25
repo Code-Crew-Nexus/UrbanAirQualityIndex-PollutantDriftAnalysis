@@ -1,7 +1,7 @@
 # Phase 5A: PCA Dimensionality Analysis & K-Means Pollution-Regime Discovery
 
 ## 1. Unsupervised Research Objective
-Following the formal freeze of the supervised prediction layer (Phase 4), Phase 5A investigated whether multi-station urban air quality and localized meteorological dynamics can be represented by a reduced latent coordinate system, and whether recurring, interpretable **environmental pollution regimes** emerge without relying on target labels or composite AQI definitions.
+Following the formal freeze of the supervised prediction layer (Phase 4 is frozen at Git tag `v0.4-supervised-freeze`), Phase 5A investigated whether multi-station urban air quality and localized meteorological dynamics can be represented by a reduced latent coordinate system, and whether recurring, interpretable **environmental pollution regimes** emerge without relying on target labels or composite AQI definitions. Phase-5 scientific tests validate Phase-5 artifacts exclusively and are completely decoupled from prior phase model binaries.
 
 ## 2. Feature Contract & Exclusion Policy
 The unsupervised feature space was strictly restricted to six standardized physical and meteorological measurements:

@@ -33,13 +33,13 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 ## 8. Statistical / SML Workflow
 1. Data Engineering
 2. AQI Calculation
-3. Exploratory Data Analysis (EDA)
-4. Pollutant Drift (Block-Bootstrap Inference)
-5. Statistical Inference (Benjamini-Hochberg FDR)
-6. Multiple Linear Regression (MLR)
-7. Logistic Regression Classification
+3. Exploratory Data Analysis
+4. Pollutant Drift
+5. Statistical Inference
+6. Multiple Linear Regression
+7. Logistic Regression
 8. PCA / K-Means — COMPLETE
-9. SVM — COMPLETE / READY FOR GIT INTEGRATION
+9. RBF SVM — COMPLETE
 10. R Shiny — NEXT
 
 ## 9. Key Supervised-Learning Findings
@@ -48,6 +48,7 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 - **Selected Logistic family**: Model B (Persistence-Aware).
 - **Logistic Model B**: Achieved improved probability ranking and Brier scoring in several out-of-sample evaluations, especially the India subset.
 - **Hard threshold performance**: The fixed-threshold F1 classification remained highly sensitive to the temporal prevalence shifts observed during season transitions.
+- **RBF Support Vector Machine**: RBF SVM provided complementary nonlinear classification performance. On India TEST: SVM PR-AUC ≈ 0.8335 (vs. Logistic Model B ≈ 0.8255), and SVM native F1 ≈ 0.7218 (vs. Logistic Model B ≈ 0.5794 and Persistence ≈ 0.7267). On India September holdout: Logistic Model B retained the higher PR-AUC, while persistence retained the higher F1. In Hyderabad TEST: Logistic Model B performed better than the unweighted SVM for adverse-event ranking and positive detection.
 
 ## 10. Repository Structure
 - `docs/reports/`: Canonical final phase summaries.
@@ -82,7 +83,15 @@ Suggestions, ideas and academic feedback are welcome through GitHub Discussions.
 Supervised static models struggle to adapt classification boundaries gracefully when background baseline prevalences collapse.
 
 ## 16. Current Status
-**PHASE 4 SUPERVISED LEARNING FROZEN.**
+**STATISTICAL / SML MODELING CORE COMPLETE.**
+
+Frozen modeling milestones:
+- `v0.4-supervised-freeze`
+- `v0.5-unsupervised-freeze`
+- `v0.6-svm-freeze` — to be created by G3
+
+Next:
+**PHASE 6 — R SHINY DASHBOARD INTEGRATION**
 
 ## 17. License
 License to be finalized by the project team.

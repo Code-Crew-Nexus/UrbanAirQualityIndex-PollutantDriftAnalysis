@@ -1,36 +1,35 @@
 # Project Checkpoints
 
 ### Phase 1
-Source validation and station-selection architecture
+Source validation / station architecture
 
 ### Phase 2
-Real-data pipeline + final AQI dataset
+Real-data processing + verified AQI
 
 ### Phase 3
 EDA + drift + statistical inference
 
 ### Phase 4
-Next-day supervised learning
+MLR + Logistic Regression  
+**FROZEN: `v0.4-supervised-freeze`**
 
-**[FROZEN] PHASE 4 SUPERVISED LEARNING FROZEN.**
+### Checkpoint G1 / G1.1
+Git/GitHub baseline curation, PBL collaboration policy, and repository structure freeze.
 
-### Checkpoint G1
-Git/GitHub baseline curation and documentation consolidation.
+### Phase 5A
+PCA + K-Means  
+**FROZEN: `v0.5-unsupervised-freeze`**
 
-### Checkpoint G1.1
-PBL collaboration policy, team identity, and pre-remote tag alignment.
-
-
-### Phase 5A / 5A.1 / 5A.2
-PCA dimensionality reduction, K-Means pollution-regime discovery, and unsupervised result integrity reconciliation.
-
-**[FROZEN] PHASE 5 UNSUPERVISED LEARNING FROZEN — READY FOR GIT INTEGRATION.**
+### Checkpoint G2
+Phase-5 unsupervised baseline integration into main repository.
 
 ### Phase 5B
-RBF Support Vector Machine next-day adverse-AQI classification comparison.
+RBF SVM classification comparison  
+**SCIENTIFICALLY COMPLETE**
 
-**[COMPLETE] PHASE 5B SVM CLASSIFICATION READY FOR REVIEW.**
-
+### Checkpoint G3
+SVM integration + final modeling freeze
 
 ### Phase 6
-R Shiny integration (Upcoming)
+R Shiny integration  
+**NEXT**

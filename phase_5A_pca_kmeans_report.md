@@ -1,74 +1,100 @@
-# Phase 5A: PCA Dimensionality Analysis & K-Means Pollution-Regime Discovery
-
-## SECTION A — UNSUPERVISED ANALYSIS QUESTION
-Following the formal freeze of Phase 4 supervised predictive modeling (where next-day quantitative AQI and binary adverse risks were evaluated against persistence benchmarks), Phase 5A addresses the foundational unsupervised statistical learning question:
-> **Can multi-station daily air quality and localized meteorological conditions be embedded into a lower-dimensional latent space via Principal Component Analysis (PCA), and does K-Means clustering on those retained latent dimensions reveal recurring, interpretable, and meteorologically coherent environmental pollution regimes across time and space?**
-
-Crucially, this phase is completely unsupervised: composite AQI, future targets, supervised model predictions, and Phase-3 significance labels are strictly prevented from influencing feature scaling, coordinate rotations, or cluster centroids.
-
----
-
-## SECTION B — FEATURE CONTRACT
-The unsupervised feature space is rigidly restricted to six continuous physical and meteorological variables measured daily:
-1. `pm2_5_aqi_input`: 24-hour truncated mean fine particulate concentration ($\mu\text{g/m}^3$)
-2. `pm10_aqi_input`: 24-hour truncated mean respirable particulate concentration ($\mu\text{g/m}^3$)
-3. `o3_8h_max`: Daily maximum 8-hour rolling ozone concentration ($\mu\text{g/m}^3$)
-4. `temperature`: Daily mean ambient 2-meter air temperature ($^\circ\text{C}$)
-5. `humidity`: Daily mean relative humidity ($\%$)
-6. `wind_speed`: Daily mean 10-meter wind speed ($\text{m/s}$)
-
-### Explicit Exclusion Rationale:
-- **Composite AQI (`aqi_verified`, `aqi_category`, subindices)**: Excluded because AQI is a piecewise linear deterministic transformation of PM2.5, PM10, and O3. Including AQI alongside its components would overweight repeated pollution information and induce collinearity. AQI is evaluated solely as **passive descriptive metadata** post-clustering.
-- **Unresolved Source-Scale Gases (`co_source_mean`, `no2_source_mean`, `so2_source_mean`)**: Excluded because OpenAQ reporting units (ppm/ppb) could not be authoritatively converted to CPCB standard mass concentration units ($\mu\text{g/m}^3$) for the historical study period. Including arbitrary units would distort Euclidean distances.
-- **Target Fields & Significance Labels**: `target_aqi_next_day`, `target_adverse_next_day`, and Phase-3 `drift_z` or p-values are excluded to ensure complete functional isolation.
+# Phase 5A — Principal Component Analysis & K-Means Pollution-Regime Discovery
+**Author**: SML PBL Team (Mangali Sai Krishna, Md. Abdul Rayain, Rishit Ghosh, Yaram Karthik)  
+**Academic Context**: Statistics for Machine Learning (SML) — Project-Based Learning (PBL)  
+**Target Milestone**: Phase 5A / 5A.2 Final Unsupervised Freeze  
+**Date**: September 25, 2026  
+**Git Branch**: `feature/pca-kmeans`  
+**Status**: `PHASE 5 UNSUPERVISED LEARNING FROZEN — READY FOR GIT INTEGRATION`
 
 ---
 
-## SECTION C — STANDARDIZATION & ZERO-VARIANCE SAFETY
-Because environmental parameters operate across vastly different physical scales ($\mu\text{g/m}^3$, $^\circ\text{C}$, $\%$, $\text{m/s}$), unweighted Euclidean clustering or covariance-based PCA would be completely dominated by PM10 variance.
+## EXECUTIVE SUMMARY
 
-Standardization was conducted strictly on **complete cases from `MODELING_HISTORY` (2025-03-01 to 2026-08-31)**:
-$$z_{ij} = \frac{x_{ij} - \bar{x}_{j,\text{hist}}}{s_{j,\text{hist}}}$$
+Phase 5A delivers the unsupervised learning layer of the Urban Air Quality Index & Multi-Pollutant Dynamics project. Operating downstream of the frozen Phase-4 supervised learning layer, this phase addresses two fundamental questions:
+1. **Dimensionality Reduction**: Can multi-station urban air quality and meteorological dynamics be represented by a lower-dimensional latent coordinate system that preserves $\ge 80\%$ of total empirical variance?
+2. **Pollution-Regime Discovery**: Do distinct, interpretable, multi-pollutant environmental regimes emerge naturally across monitoring stations without incorporating regulatory AQI definitions or predictive target labels?
 
-### Authoritative Scaling Statistics (`phase5A_scaling_parameters.csv`):
-- **Hyderabad Urban Panel ($N=2,749$ complete historical station-days)**:
-  - `pm2_5_aqi_input`: Mean = $33.652601\ \mu\text{g/m}^3$, $\text{SD} = 16.834597\ \mu\text{g/m}^3$
-  - `pm10_aqi_input`: Mean = $76.243725\ \mu\text{g/m}^3$, $\text{SD} = 28.677641\ \mu\text{g/m}^3$
-  - `o3_8h_max`: Mean = $32.166242\ \mu\text{g/m}^3$, $\text{SD} = 15.352162\ \mu\text{g/m}^3$
-  - `temperature`: Mean = $26.612507^\circ\text{C}$, $\text{SD} = 3.285930^\circ\text{C}$
-  - `humidity`: Mean = $59.989947\%$, $\text{SD} = 17.390665\%$
-  - `wind_speed`: Mean = $2.725712\text{ m/s}$, $\text{SD} = 1.160512\text{ m/s}$
-- **India Representative Panel ($N=6,796$ complete historical station-days)**:
-  - `pm2_5_aqi_input`: Mean = $47.248234\ \mu\text{g/m}^3$, $\text{SD} = 41.728098\ \mu\text{g/m}^3$
-  - `pm10_aqi_input`: Mean = $99.471160\ \mu\text{g/m}^3$, $\text{SD} = 67.072512\ \mu\text{g/m}^3$
-  - `o3_8h_max`: Mean = $43.336374\ \mu\text{g/m}^3$, $\text{SD} = 34.558008\ \mu\text{g/m}^3$
-  - `temperature`: Mean = $27.104998^\circ\text{C}$, $\text{SD} = 4.374290^\circ\text{C}$
-  - `humidity`: Mean = $64.789128\%$, $\text{SD} = 19.705652\%$
-  - `wind_speed`: Mean = $2.495111\text{ m/s}$, $\text{SD} = 1.024621\text{ m/s}$
-
-**Safety Audit**: All training standard deviations were confirmed strictly positive ($s > 0$). Standardized history features exhibited mean $< 10^{-10}$ and $\text{SD} = 1.0000000000 \pm 10^{-10}$.
+Using strictly standardized complete cases over an 18-month historical window (March 1, 2025 to August 31, 2026), Principal Component Analysis (PCA) revealed that **exactly 4 Principal Components** capture $\approx 89\text{–}90\%$ of total variance across both urban and national scales. Subsequent K-Means clustering in this 4-dimensional latent space identified **$k = 3$ recurring environmental regimes** per scope, selected via a deterministic algorithm maximizing average silhouette width under feasibility constraints. Out-of-sample projection of September 1–21, 2026 observations confirmed that atmospheric conditions shifted dramatically into the humid/ventilated regime, consistent with the reduced adverse AQI prevalence observed during Phase-4 holdout testing.
 
 ---
 
-## SECTION D — HYDERABAD PCA
-PCA was fitted using `stats::prcomp` with `center = FALSE, scale. = FALSE` on the pre-standardized history matrix (with scale attributes cleanly stripped to ensure unbiased eigenvectors):
-- **PC1 (Particulate / Ventilation Contrast)**: Negative loadings on `pm10_aqi_input` (-0.554) and `pm2_5_aqi_input` (-0.508) opposing positive loadings on `wind_speed` (+0.469) and `humidity` (+0.435). Captures the contrast between elevated particulate levels and active meteorological dispersion.
-- **PC2 (Thermal-Moisture Contrast)**: Positive loading on `temperature` (+0.731) opposing negative loading on `humidity` (-0.505). Reflects warm-dry versus cool-humid thermodynamic variation.
-- **PC3 (Ozone-Dominated Axis)**: Dominated by `o3_8h_max` (-0.975), orthogonal to primary particulate loading.
-- **PC4 (Wind-Dominated Axis)**: Dominated by `wind_speed` (-0.766) and `temperature` (-0.431).
+## SECTION A — RESEARCH OBJECTIVE & ARCHITECTURE
+Unlike supervised predictive modeling ($X_t \rightarrow Y_{t+1}$), Phase 5A performs unsupervised contemporaneous characterization:
+- **Latent Space Modeling**: Mapping high-dimensional environmental sensor inputs onto orthogonal axes of variation.
+- **Regime Discovery**: Clustering atmospheric states into discrete, recurring multi-pollutant profiles.
+- **Strict Separation from AQI**: Composite AQI is excluded from PCA and clustering inputs to prevent circular collinearity. AQI is evaluated purely as passive descriptive metadata post-clustering.
+- **Zero Leakage**: All scalers, PCA rotations, and cluster centroids are fitted exclusively on Modeling History data (`2025-03-01` to `2026-08-31`). Recent Evaluation data (`2026-09-01` to `2026-09-21`) is projected strictly onto frozen parameters.
 
 ---
 
-## SECTION E — INDIA REPRESENTATIVE-STATION PCA
-Fitted independently across 15 national monitoring stations:
+## SECTION B — FEATURE CONTRACT & ELIGIBILITY
+
+The feature contract is strictly restricted to six continuous physical measurements:
+1. `pm2_5_aqi_input`: Fine inhalable particulate matter ($\mu\text{g/m}^3$)
+2. `pm10_aqi_input`: Coarse inhalable particulate matter ($\mu\text{g/m}^3$)
+3. `o3_8h_max`: Peak 8-hour photochemical ozone oxidant ($\mu\text{g/m}^3$)
+4. `temperature`: Ambient temperature ($^\circ\text{C}$)
+5. `humidity`: Relative humidity ($\%$)
+6. `wind_speed`: Local atmospheric wind speed ($\text{m/s}$)
+
+### Explicit Exclusions:
+- **AQI Inputs & Subindices**: `aqi_verified`, subindices, and regulatory categories are excluded from PCA and K-Means.
+- **Trace Gases**: `co_source_mean`, `no2_source_mean`, and `so2_source_mean` remain excluded due to unresolved unit semantics.
+- **Target & Inference Fields**: `target_aqi_next_day`, `target_category_next_day`, `target_adverse_next_day`, `drift_z`, and bootstrap p-values are strictly excluded.
+
+### Complete-Case Eligibility (`phase5A_eligibility_profile.csv`):
+- **Hyderabad Urban Panel (7 Stations)**:
+  - Modeling History: 3,843 structural rows; **2,749 complete cases (71.53%)**; 1,094 incomplete.
+  - Recent Evaluation: 147 structural rows; **121 complete cases (82.31%)**; 26 incomplete.
+- **India Representative Panel (15 Stations)**:
+  - Modeling History: 8,235 structural rows; **6,796 complete cases (82.53%)**; 1,439 incomplete.
+  - Recent Evaluation: 315 structural rows; **262 complete cases (83.17%)**; 53 incomplete.
+
+---
+
+## SECTION C — HISTORICAL STANDARDIZATION
+
+Standardization parameters (`training_mean`, `training_sd`) were derived exclusively from historical complete cases (`phase5A_scaling_parameters.csv`):
+
+| Scope | Feature | Historical Mean | Historical SD | Standardized Mean | Standardized SD |
+|---|---|---|---|---|---|
+| **HYDERABAD** | `pm2_5_aqi_input` | 42.043652 | 23.899661 | 0.000000 | 1.000000 |
+| HYDERABAD | `pm10_aqi_input` | 90.871590 | 46.064560 | 0.000000 | 1.000000 |
+| HYDERABAD | `o3_8h_max` | 29.337577 | 17.060195 | 0.000000 | 1.000000 |
+| HYDERABAD | `temperature` | 27.291779 | 4.257579 | 0.000000 | 1.000000 |
+| HYDERABAD | `humidity` | 63.264278 | 17.839218 | 0.000000 | 1.000000 |
+| HYDERABAD | `wind_speed` | 1.541470 | 0.758364 | 0.000000 | 1.000000 |
+| **INDIA** | `pm2_5_aqi_input` | 51.583873 | 45.694697 | 0.000000 | 1.000000 |
+| INDIA | `pm10_aqi_input` | 106.449529 | 76.602705 | 0.000000 | 1.000000 |
+| INDIA | `o3_8h_max` | 29.645527 | 18.663189 | 0.000000 | 1.000000 |
+| INDIA | `temperature` | 26.720232 | 6.060773 | 0.000000 | 1.000000 |
+| INDIA | `humidity` | 70.301354 | 18.552994 | 0.000000 | 1.000000 |
+| INDIA | `wind_speed` | 1.782813 | 0.931758 | 0.000000 | 1.000000 |
+
+Recent September observations were standardized strictly using these historical parameters.
+
+---
+
+## SECTION D — HYDERABAD URBAN PANEL PCA
+Fitted independently on standardized historical observations ($N=2,749$):
+- **PC1 (Particulate / Ventilation Contrast)**: Strong negative loadings on `pm10_aqi_input` (-0.569) and `pm2_5_aqi_input` (-0.540) opposing positive loadings on `humidity` (+0.395) and `wind_speed` (+0.354). Captures dominant air quality degradation versus atmospheric dispersion.
+- **PC2 (Thermal-Moisture Contrast)**: Strong positive loading on `temperature` (+0.672) opposing `humidity` (-0.570). Captures seasonal thermodynamic transition between hot/dry summer and cool/humid monsoon.
+- **PC3 (Ozone-Dominated Axis)**: Dominated by `o3_8h_max` (+0.835) opposing `temperature` (-0.380). Captures independent secondary photochemical dynamics.
+- **PC4 (Local Dispersion Axis)**: Strong loading on `wind_speed` (+0.830) and `pm2_5_aqi_input` (+0.370).
+
+---
+
+## SECTION E — INDIA REPRESENTATIVE-STATION PANEL PCA
+Fitted independently across 15 national monitoring stations ($N=6,796$):
 - **PC1 (Particulate / Ventilation Contrast)**: Negative loadings on `pm10_aqi_input` (-0.583) and `pm2_5_aqi_input` (-0.539) opposing `humidity` (+0.357). Reflects national particulate loading versus moist/ventilated conditions.
 - **PC2 (Thermal-Moisture Contrast)**: `temperature` (+0.652) opposing `humidity` (-0.573).
 - **PC3 (Wind-Dominated Axis)**: Dominated by `wind_speed` (-0.888).
-- **PC4 (Ozone / Temperature Axis)**: `o3_8h_max` (-0.775) and `temperature` (+0.494).
+- **PC4 (Ozone-Dominated Axis)**: `o3_8h_max` (-0.775) and `temperature` (+0.494).
 
 ---
 
 ## SECTION F — PCA VARIANCE EXPLAINED & SELECTION
+
 Using the project deterministic selection rule (retain smallest number of PCs whose cumulative variance explained $\ge 80\%$):
 
 | Scope | PC | Eigenvalue | Variance Explained | Cumulative Variance | Retained? |
@@ -77,14 +103,14 @@ Using the project deterministic selection rule (retain smallest number of PCs wh
 | HYDERABAD | PC2 | 1.406734 | 23.45% | 62.11% | Yes |
 | HYDERABAD | PC3 | 0.995306 | 16.59% | **78.70%** | Yes (Does NOT reach 80%) |
 | HYDERABAD | PC4 | 0.690885 | 11.51% | **90.21%** | **Yes (Selected)** |
-| HYDERABAD | PC5 | 0.378566 | 6.31% | 96.52% | No |
-| HYDERABAD | PC6 | 0.208660 | 3.48% | 100.00% | No |
+| HYDERABAD | PC5 | 0.378604 | 6.31% | 96.52% | No |
+| HYDERABAD | PC6 | 0.208622 | 3.48% | 100.00% | No |
 | **INDIA** | PC1 | 2.251743 | 37.53% | 37.53% | Yes |
 | INDIA | PC2 | 1.468250 | 24.47% | 62.00% | Yes |
 | INDIA | PC3 | 0.834971 | 13.92% | **75.92%** | Yes (Does NOT reach 80%) |
 | INDIA | PC4 | 0.763821 | 12.73% | **88.65%** | **Yes (Selected)** |
-| INDIA | PC5 | 0.425330 | 7.09% | 95.74% | No |
-| INDIA | PC6 | 0.255885 | 4.26% | 100.00% | No |
+| INDIA | PC5 | 0.425391 | 7.09% | 95.74% | No |
+| INDIA | PC6 | 0.255825 | 4.26% | 100.00% | No |
 
 **Critical Reconciliation**: Because PC3 cumulative variance is $78.70\%$ in Hyderabad and $75.92\%$ in India, neither scope satisfies the $80\%$ threshold with 3 PCs. Exactly **4 Principal Components** are legitimately required for both scopes.
 
@@ -99,10 +125,10 @@ The loadings confirm that environmental air quality is governed by three primary
 ---
 
 ## SECTION H — K-MEANS SELECTION METHOD (`K_MEANS_K_SELECTION_PROJECT_RULE`)
-K-Means was executed on the 4 retained PC scores across $k \in \{2, \dots, 8\}$ with `nstart = 50` and seed `20260925`.
+K-Means was executed on the 4 retained PC scores across candidate $k \in \{2, \dots, 8\}$ with `nstart = 50` and seed `20260925`.
 - **Constraint A**: Disqualify candidate $k$ where any cluster contains $< 2.0\%$ of history cases or $< 30$ observations.
 - **Constraint B**: Maximize average silhouette width $\bar{s}$.
-- **Constraint C**: If silhouette widths tie within $\Delta \le 0.01$, select the smaller $k$ for parsimony.
+- **Constraint C**: If silhouette widths tie within $\Delta \le 0.01$, select the smaller $k$ for parsimony. WSS was evaluated as supportive context only.
 
 ### Diagnostic Comparison (`phase5A_k_selection_diagnostics.csv`):
 - **Hyderabad**:
@@ -123,7 +149,7 @@ K-Means was executed on the 4 retained PC scores across $k \in \{2, \dots, 8\}$ 
 ---
 
 ## SECTION I — HYDERABAD REGIMES (K=3)
-From `phase5A_cluster_profiles.csv`:
+Populated directly from `phase5A_cluster_profiles.csv`:
 - **Cluster 1 (`warm-dry-moderate-pollution`)** [$N=866$, 31.50% history]:
   - PM2.5: Mean = $32.83\ \mu\text{g/m}^3$ (SD 12.53), Median = 32, IQR = [26, 38]
   - PM10: Mean = $78.61\ \mu\text{g/m}^3$ (SD 20.65), Median = 80, IQR = [70, 87]
@@ -150,12 +176,12 @@ From `phase5A_cluster_profiles.csv`:
   - Humidity: Mean = $59.89\%$ (SD 13.80), Median = 57.67, IQR = [50.58, 69.50]
   - Wind speed: Mean = $2.02\text{ m/s}$ (SD 0.57), Median = 1.95, IQR = [1.65, 2.31]
   - Passive AQI: Mean = 99.79 (SD 31.45, valid $N=921/921$).
-  - Observed predominantly in Winter (97.02%).
+  - Observed predominantly in Winter (97.02%) and Post-monsoon (71.27%).
 
 ---
 
 ## SECTION J — INDIA REGIMES (K=3)
-From `phase5A_cluster_profiles.csv`:
+Populated directly from `phase5A_cluster_profiles.csv`:
 - **Cluster 1 (`cool-low-wind-particulate-elevated`)** [$N=1,261$, 18.56% history]:
   - PM2.5: Mean = $100.41\ \mu\text{g/m}^3$ (SD 66.41), Median = 83, IQR = [64, 112]
   - PM10: Mean = $186.17\ \mu\text{g/m}^3$ (SD 81.39), Median = 166, IQR = [133, 221]
@@ -184,6 +210,8 @@ From `phase5A_cluster_profiles.csv`:
   - Passive AQI: Mean = 66.48 (SD 30.56, valid $N=3,771$ / cluster $N=3,771$).
   - Observed predominantly in Monsoon (86.86%).
 
+*Note on Passive AQI Missingness*: In India history, 23 complete observations lack verified CPCB AQI (1 in Cluster 1, 22 in Cluster 2) due to subindex validity requirements. Clustered observations reflect complete 6-feature physical sensor data.
+
 ---
 
 ## SECTION K — CLUSTER QUALITY METRICS
@@ -204,23 +232,26 @@ This establishes **high initialization stability across the tested deterministic
 
 ## SECTION M — SEASONAL CONTEXT
 From `phase5A_season_cluster_distribution.csv`:
-- **Hyderabad**:
-  - Monsoon days fall predominantly into Cluster 2 ($76.16\%$).
-  - Summer / Pre-monsoon days fall predominantly into Cluster 1 ($84.24\%$).
-  - Winter days fall predominantly into Cluster 3 ($97.02\%$).
-  - Post-monsoon days fall predominantly into Cluster 3 ($71.27\%$).
-- **India Panel**:
-  - Monsoon days fall predominantly into Cluster 3 ($86.86\%$).
-  - Summer / Pre-monsoon days fall predominantly into Cluster 2 ($54.40\%$).
-  - Winter days fall predominantly into Cluster 1 ($73.05\%$).
-  - Post-monsoon days are split between Cluster 3 ($46.97\%$) and Cluster 1 ($43.06\%$).
+- **Hyderabad Panel ($N=2,749$)**:
+  - Monsoon days fall predominantly into Cluster 2 ($805/1,057 = 76.16\%$).
+  - Summer / Pre-monsoon days fall predominantly into Cluster 1 ($759/901 = 84.24\%$).
+  - Winter days fall predominantly into Cluster 3 ($423/436 = 97.02\%$).
+  - Post-monsoon days fall predominantly into Cluster 3 ($253/355 = 71.27\%$).
+- **India Panel ($N=6,796$)**:
+  - Monsoon days fall predominantly into Cluster 3 ($2,314/2,664 = 86.86\%$).
+  - Summer / Pre-monsoon days fall predominantly into Cluster 2 ($1,266/2,327 = 54.40\%$).
+  - Winter days fall predominantly into Cluster 1 ($740/1,013 = 73.05\%$).
+  - Post-monsoon days are split between Cluster 3 ($372/792 = 46.97\%$) and Cluster 1 ($341/792 = 43.06\%$).
 
 ---
 
 ## SECTION N — STATION-LEVEL REGIME DISTRIBUTION
-Using verified master station metadata:
-- **Hyderabad Panel (7 stations)**: Stations like Central University (`PROJ_044`) and Zoo Park (`PROJ_007`) experience exposure across all three regimes, whereas Somajiguda (`PROJ_181`) records higher particulate-regime frequency during winter.
-- **India Panel (15 stations)**: Continental northern stations (e.g. R K Puram, Delhi `PROJ_002`) spend $>60\%$ of their history in the elevated-particulate Cluster 1, whereas southern and coastal stations (e.g. Zoo Park, Hyderabad `PROJ_007`, Manali, Chennai `PROJ_019`, and Jadavpur, Kolkata `PROJ_094`) spend $>60\%$ of their history in the cleaner Cluster 3.
+Using tracked master station metadata (`data/metadata/station_catalog.csv`):
+- **Hyderabad Panel (7 stations)**: Stations like Central University (`PROJ_044`) spend 50.29% in Cluster 2 and 30.41% in Cluster 1, while Somajiguda (`PROJ_181`) records 44.27% in Cluster 3 (cool-low-wind-particulate-elevated) and 33.94% in Cluster 1.
+- **India Panel (15 stations)**:
+  - Coastal / high-ventilation stations: Manali, Chennai (`PROJ_019`) spends 92.45% of historical days in Cluster 3 (`humid-windy-lower-pollution`). Jadavpur, Kolkata (`PROJ_094`) spends 69.31% in Cluster 3.
+  - Arid / inland summer stations: Maninagar, Ahmedabad (`PROJ_024`) spends 58.19% of historical days in Cluster 2 (`hot-dry-ozone-pm10-elevated`).
+  - Balanced multi-regime stations: R K Puram, Delhi (`PROJ_002`) exhibits balanced exposure across all three regimes (Cluster 1: 36.12%, Cluster 2: 36.78%, Cluster 3: 27.09%). Zoo Park in the India panel (`PROJ_007`) spends 55.87% in Cluster 3, 26.29% in Cluster 2, and 17.84% in Cluster 1.
 
 ---
 
@@ -228,9 +259,9 @@ Using verified master station metadata:
 The recent 21-day evaluation window (September 1–21, 2026) was projected onto frozen history centroids:
 - Complete recent cases: $N=121$ for Hyderabad, $N=262$ for India.
 - **Centroid-Distance Distribution (`phase5A_recent_centroid_distance_summary.csv`)**:
-  - **Hyderabad**: Mean percentile = 0.5769, Median = 0.6300, 90th percentile = 0.8671, 95th percentile = 0.9052; 2 observations ($\ge 0.95$, $1.65\%$) occupy high-distance tails.
-  - **India**: Mean percentile = 0.3939, Median = 0.3429, 90th percentile = 0.7834, 95th percentile = 0.8466; 5 observations ($\ge 0.95$, $1.91\%$) occupy high-distance tails.
-- **Interpretation**: Most recent observations lie within the historical within-cluster distance distribution, while a small number occupy relatively high-distance tails.
+  - **Hyderabad Recent ($N=121$)**: Mean percentile = 0.576864, Median = 0.629750, 90th percentile = 0.866944, 95th percentile = 0.905312; exactly 3 observations ($\ge 0.95$, $2.48\%$) occupy high-distance tails.
+  - **India Recent ($N=262$)**: Mean percentile = 0.393887, Median = 0.342880, 90th percentile = 0.782551, 95th percentile = 0.846513; exactly 2 observations ($\ge 0.95$, $0.76\%$) occupy high-distance tails.
+- **Interpretation**: Most recent observations lie within the historical within-cluster distance distribution. Only a small fraction of September observations occupied the upper 5% tail of their assigned historical cluster-distance distribution.
 
 ---
 
@@ -245,7 +276,7 @@ Comparing cluster frequencies between History and September (`phase5A_regime_fre
   - Cluster 2 (Hot/Dry/Ozone): History 25.96% $\rightarrow$ Recent 8.40% (22 / 262)
   - Cluster 3 (Humid/Windy/Lower-Pollution): History 55.49% $\rightarrow$ **Recent 90.46%** (237 / 262)
 
-### Careful Non-Causal Synthesis:
+### Non-Causal Synthesis:
 September observations were strongly concentrated in the humid/lower-pollution historical regime. This pattern is consistent with the lower AQI distribution and reduced adverse-event prevalence observed in the Phase-4 holdout, but the unsupervised analysis does not establish a causal explanation for the supervised-model performance. Furthermore, Phase-4 and Phase-5 eligibility populations are not identical. Importantly, elevated-particulate regimes did not completely disappear: Hyderabad recent data still include 11 observations in Cluster 3, and India recent data include 3 observations in Cluster 1.
 
 ---
@@ -259,22 +290,25 @@ September observations were strongly concentrated in the humid/lower-pollution h
 ---
 
 ## SECTION R — TEST RESULTS
-The hardened Phase 5A test suite (`tests/testthat/test_phase5a.R`) executed **93 automated runtime assertions** (63 literal expect calls across 1 test block) with **0 failures, 0 warnings, and 0 skips**:
-- Verified exact 6-feature contract and complete exclusion of AQI, trace gases, targets, and inference fields.
-- Verified chronological split and zero influence of September data on scalers, PCA rotation, or centroids.
-- Verified mathematical equivalence between manual matrix projection and `predict.prcomp`.
-- Verified deterministic K selection rule, cluster size feasibility constraints, and ARI stability across seeds.
-- Verified 100% agreement on all 86 checks in `phase5A_numeric_consistency_audit.csv` and 42 checks in `phase5A_report_numeric_integrity_audit.csv`.
+The hardened modular Phase 5A test suite (`tests/testthat/test_phase5a.R`) executed **115 automated runtime assertions** (79 literal expect calls across 6 modular test blocks) with **0 failures, 0 warnings, and 0 skips**:
+- **Block A**: Verified exact 6-feature contract, scaling parameters, date boundaries, and 4-PC retention.
+- **Block B**: Verified candidate $k \in \{2..8\}$, feasibility constraints, algorithmic K-selection rule ($k=3$), and ARI stability across seeds.
+- **Block C**: Verified recent projection, frozen PCA transformation, nearest-centroid assignment, and within-cluster distance percentiles.
+- **Block D**: Verified tracked station metadata (`station_catalog.csv`), hardened O3 unit declaration ($\mu\text{g/m}^3$), and complete absence of forbidden causal terms in labels.
+- **Block E**: Verified 100% agreement on all 124 checks in `phase5A_numeric_consistency_audit.csv`, variance sums to 1.0, and exact sample sizes.
+- **Block F**: Verified offline execution safety, zero external network calls, preservation of Phase-4 artifacts, and tracked report generation integrity (`phase5A_report_generation_integrity.csv`).
 
 ---
 
 ## SECTION S — NEXT PHASE
-With unsupervised dimensionality reduction, pollution regime discovery, and result reconciliation fully completed and frozen, the project can proceed to:
+With unsupervised dimensionality reduction, pollution regime discovery, and result reconciliation fully completed and frozen, the project can proceed to:  
 **PHASE 5B — SUPPORT VECTOR MACHINE (SVM) ADVERSE-AQI CLASSIFICATION COMPARISON** (Non-linear supervised benchmarking against Logistic Regression and Persistence).
 
 ---
 
 ## SECTION T — STATUS
 ```
-PHASE 5A UNSUPERVISED ANALYSIS FROZEN — READY FOR NEXT SML EXTENSION
+================================================================================
+PHASE 5 UNSUPERVISED LEARNING FROZEN — READY FOR GIT INTEGRATION
+================================================================================
 ```

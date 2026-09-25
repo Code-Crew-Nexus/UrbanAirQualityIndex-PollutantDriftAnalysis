@@ -65,8 +65,8 @@ $$\sum_{j=1}^6 \lambda_j = 6.000000, \quad \sum_{j=1}^6 \text{VarPct}_j = 100.00
 | **PC2** | 1.406734 | 23.4456% | 62.1097% | Retained | Retained |
 | **PC3** | 0.995306 | 16.5884% | 78.6981% | Not Retained (0.995 < 1.0) | Retained |
 | **PC4** | 0.690885 | 11.5148% | 90.2129% | Not Retained | **Retained (Threshold Reached)** |
-| **PC5** | 0.384232 | 6.4039% | 96.6167% | Not Retained | Dropped |
-| **PC6** | 0.202995 | 3.3833% | 100.0000% | Not Retained | Dropped |
+| **PC5** | 0.378604 | 6.3101% | 96.5230% | Not Retained | Dropped |
+| **PC6** | 0.208622 | 3.4770% | 100.0000% | Not Retained | Dropped |
 
 *Rule Outcome*: Cumulative variance at PC3 is 78.70% (does not reach 80%). PC4 brings cumulative variance to 90.21%. Therefore, **exactly 4 PCs are retained** under the 80% cumulative variance criterion, while 2 PCs satisfy the strict Kaiser eigenvalue $\ge 1.0$ rule.
 
@@ -76,12 +76,12 @@ $$\sum_{j=1}^6 \lambda_j = 6.000000, \quad \sum_{j=1}^6 \text{VarPct}_j = 100.00
 
 | Component | Eigenvalue ($\lambda$) | Variance Explained (%) | Cumulative Variance (%) | Kaiser Criterion ($\lambda \ge 1.0$) | Cumulative Rule ($\ge 80\%$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **PC1** | 2.251743 | 37.5291% | 37.5291% | Retained | Retained |
+| **PC1** | 2.251743 | 37.5290% | 37.5290% | Retained | Retained |
 | **PC2** | 1.468250 | 24.4708% | 62.0000% | Retained | Retained |
-| **PC3** | 0.834971 | 13.9162% | 75.9162% | Not Retained | Retained |
-| **PC4** | 0.763821 | 12.7304% | 88.6465% | Not Retained | **Retained (Threshold Reached)** |
-| **PC5** | 0.444983 | 7.4164% | 96.0629% | Not Retained | Dropped |
-| **PC6** | 0.236232 | 3.9371% | 100.0000% | Not Retained | Dropped |
+| **PC3** | 0.834971 | 13.9162% | 75.9161% | Not Retained | Retained |
+| **PC4** | 0.763821 | 12.7303% | 88.6464% | Not Retained | **Retained (Threshold Reached)** |
+| **PC5** | 0.425391 | 7.0899% | 95.7363% | Not Retained | Dropped |
+| **PC6** | 0.255825 | 4.2637% | 100.0000% | Not Retained | Dropped |
 
 *Rule Outcome*: Cumulative variance at PC3 is 75.92% (does not reach 80%). PC4 reaches 88.65%. Therefore, **exactly 4 PCs are retained** under the 80% cumulative variance rule, while 2 PCs satisfy the Kaiser criterion.
 
@@ -93,33 +93,33 @@ All cluster mean profiles and standard deviations match `analysis/phase5A/tables
 
 ### Hyderabad Panel ($k=3$, History $N=2,749$)
 
-| Metric / Feature | Cluster 1 ($N=1,061$, 38.60%) | Cluster 2 ($N=902$, 32.81%) | Cluster 3 ($N=786$, 28.59%) | Panel Mean ($N=2,749$) |
+| Metric / Feature | Cluster 1 ($N=866$, 31.50%) | Cluster 2 ($N=962$, 34.99%) | Cluster 3 ($N=921$, 33.50%) | Panel Mean ($N=2,749$) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Descriptive Label** | `warm-dry-moderate-pollution` | `humid-windy-lower-pollution` | `cool-low-wind-particulate-elevated` | Overall Baseline |
-| **PM2.5** ($\mu\text{g/m}^3$) | 39.46 (16.66) | 26.24 (13.79) | 63.66 (25.13) | 42.04 (23.90) |
-| **PM10** ($\mu\text{g/m}^3$) | 85.59 (30.13) | 57.57 (26.04) | 136.25 (48.43) | 90.87 (46.06) |
-| **O3 8h Max** ($\mu\text{g/m}^3$) | 39.37 (18.66) | 21.05 (10.96) | 25.33 (12.98) | 29.34 (17.06) |
-| **Temperature** (°C) | 30.65 (3.95) | 25.86 (2.28) | 24.38 (3.06) | 27.29 (4.26) |
-| **Relative Humidity** (%) | 50.19 (14.61) | 80.37 (9.79) | 61.27 (12.72) | 63.26 (17.84) |
-| **Wind Speed** (m/s) | 1.62 (0.64) | 1.94 (0.75) | 0.99 (0.47) | 1.54 (0.76) |
-| *Passive AQI* (Mean $\pm$ SD) | 95.89 (23.95) | 69.45 (24.31) | 135.09 (35.25) | 98.40 (38.86) |
-| *Passive AQI Valid N* | 1,061 / 1,061 (100%) | 902 / 902 (100%) | 786 / 786 (100%) | 2,749 / 2,749 (100%) |
-| *Adverse AQI Rate (>100)* | 7.63% (81/1,061) | 0.67% (6/902) | 46.18% (363/786) | 16.37% (450/2,749) |
+| **PM2.5** ($\mu\text{g/m}^3$) | 32.83 (12.53) | 22.90 (10.81) | 45.66 (17.63) | 42.04 (23.90) |
+| **PM10** ($\mu\text{g/m}^3$) | 78.61 (20.65) | 54.70 (21.03) | 96.52 (26.30) | 90.87 (46.06) |
+| **O3 8h Max** ($\mu\text{g/m}^3$) | 35.09 (18.25) | 29.20 (14.44) | 32.51 (12.47) | 29.34 (17.06) |
+| **Temperature** (°C) | 30.33 (1.99) | 25.84 (1.55) | 23.92 (2.27) | 27.29 (4.26) |
+| **Relative Humidity** (%) | 42.78 (9.88) | 75.58 (9.20) | 59.89 (13.80) | 63.26 (17.84) |
+| **Wind Speed** (m/s) | 2.21 (0.60) | 3.87 (1.08) | 2.02 (0.57) | 1.54 (0.76) |
+| *Passive AQI* (Mean $\pm$ SD) | 80.52 (23.59) | 56.54 (19.38) | 99.79 (31.45) | 98.40 (38.86) |
+| *Passive AQI Valid N* | 866 / 866 (100%) | 962 / 962 (100%) | 921 / 921 (100%) | 2,749 / 2,749 (100%) |
+| *Adverse AQI Rate (>100)* | 10.16% (88/866) | 0.21% (2/962) | 33.44% (308/921) | 14.48% (398/2,749) |
 
 ### India Representative Panel ($k=3$, History $N=6,796$)
 
-| Metric / Feature | Cluster 1 ($N=1,261$, 18.55%) | Cluster 2 ($N=1,764$, 25.96%) | Cluster 3 ($N=3,771$, 55.49%) | Panel Mean ($N=6,796$) |
+| Metric / Feature | Cluster 1 ($N=1,261$, 18.56%) | Cluster 2 ($N=1,764$, 25.96%) | Cluster 3 ($N=3,771$, 55.49%) | Panel Mean ($N=6,796$) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Descriptive Label** | `cool-low-wind-particulate-elevated` | `hot-dry-ozone-pm10-elevated` | `humid-windy-lower-pollution` | Overall Baseline |
-| **PM2.5** ($\mu\text{g/m}^3$) | 111.45 (65.90) | 55.43 (30.13) | 29.83 (17.06) | 51.58 (45.69) |
-| **PM10** ($\mu\text{g/m}^3$) | 188.00 (99.04) | 143.64 (65.59) | 61.80 (32.84) | 106.45 (76.60) |
-| **O3 8h Max** ($\mu\text{g/m}^3$) | 24.58 (16.29) | 45.48 (20.30) | 23.95 (13.68) | 29.65 (18.66) |
-| **Temperature** (°C) | 18.52 (5.33) | 30.64 (4.57) | 27.64 (3.11) | 26.72 (6.06) |
-| **Relative Humidity** (%) | 71.93 (15.53) | 49.33 (17.57) | 79.52 (12.16) | 70.30 (18.55) |
-| **Wind Speed** (m/s) | 0.99 (0.50) | 1.76 (0.83) | 2.05 (0.93) | 1.78 (0.93) |
-| *Passive AQI* (Mean $\pm$ SD) | 217.76 (96.53) | 129.35 (48.71) | 72.84 (26.65) | 114.34 (75.52) |
+| **PM2.5** ($\mu\text{g/m}^3$) | 100.41 (66.41) | 47.74 (19.60) | 29.24 (14.66) | 51.58 (45.69) |
+| **PM10** ($\mu\text{g/m}^3$) | 186.17 (81.39) | 115.76 (45.98) | 62.86 (30.45) | 106.45 (76.60) |
+| **O3 8h Max** ($\mu\text{g/m}^3$) | 54.77 (38.98) | 68.33 (40.13) | 27.82 (17.75) | 29.65 (18.66) |
+| **Temperature** (°C) | 21.52 (3.90) | 30.65 (3.44) | 27.31 (2.75) | 26.72 (6.06) |
+| **Relative Humidity** (%) | 61.02 (13.50) | 40.89 (15.21) | 77.23 (10.20) | 70.30 (18.55) |
+| **Wind Speed** (m/s) | 1.80 (0.62) | 2.40 (0.69) | 2.77 (1.14) | 1.78 (0.93) |
+| *Passive AQI* (Mean $\pm$ SD) | 211.38 (92.70) | 120.87 (41.09) | 66.48 (30.56) | 114.34 (75.52) |
 | *Passive AQI Valid N* | 1,260 / 1,261 (99.92%) | 1,742 / 1,764 (98.75%) | 3,771 / 3,771 (100.0%) | 6,773 / 6,796 (99.66%) |
-| *Adverse AQI Rate (>100)* | 89.29% (1,125/1,260) | 33.75% (588/1,742) | 2.44% (92/3,771) | 26.65% (1,805/6,773) |
+| *Adverse AQI Rate (>100)* | 96.67% (1,218/1,260) | 68.89% (1,200/1,742) | 12.94% (488/3,771) | 42.91% (2,906/6,773) |
 
 #### Passive AQI Missingness Note
 In the India historical panel, exactly 23 observations (1 in Cluster 1, 22 in Cluster 2) have complete 6-feature sensor measurements but do not possess a verified CPCB AQI value (due to sub-index sufficiency requirements for official CPCB validation). These rows were clustered validly on their 6 environmental features; passive AQI summary statistics reflect the valid subset ($N=6,773$).
@@ -132,23 +132,23 @@ The out-of-sample Recent evaluation window covers September 1–21, 2026. The em
 
 | Scope | Regime / Cluster | Descriptive Name | Recent Count ($N$) | Recent Pct (%) | Historical Pct (%) |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **Hyderabad** | Cluster 1 | `warm-dry-moderate-pollution` | 28 | 23.14% | 38.60% |
-| | Cluster 2 | `humid-windy-lower-pollution` | 82 | 67.77% | 32.81% |
-| | Cluster 3 | `cool-low-wind-particulate-elevated` | 11 | 9.09% | 28.59% |
+| **Hyderabad** | Cluster 1 | `warm-dry-moderate-pollution` | 28 | 23.14% | 31.50% |
+| | Cluster 2 | `humid-windy-lower-pollution` | 82 | 67.77% | 34.99% |
+| | Cluster 3 | `cool-low-wind-particulate-elevated` | 11 | 9.09% | 33.50% |
 | | **Total** | | **121** | **100.00%** | **100.00%** |
-| **India** | Cluster 1 | `cool-low-wind-particulate-elevated` | 3 | 1.15% | 18.55% |
+| **India** | Cluster 1 | `cool-low-wind-particulate-elevated` | 3 | 1.15% | 18.56% |
 | | Cluster 2 | `hot-dry-ozone-pm10-elevated` | 22 | 8.40% | 25.96% |
 | | Cluster 3 | `humid-windy-lower-pollution` | 237 | 90.46% | 55.49% |
 | | **Total** | | **262** | **100.00%** | **100.00%** |
 
 ### Key Recent Distribution Findings
 
-1. **Reconciliation against Stale Claims**: Preliminary draft mentions of "73.6% / 26.4% / 0%" are refuted. The true distribution shows Cluster 2 dominant in both scopes (67.77% in Hyderabad, 90.46% in India) due to late-monsoon atmospheric conditions.
+1. **Reconciliation against Stale Claims**: Preliminary draft mentions of "73.6% / 26.4% / 0%" are refuted. The true distribution shows Cluster 2 dominant in Hyderabad (67.77%) and Cluster 3 dominant in India (90.46%) due to late-monsoon atmospheric conditions.
 2. **Persistence of Minor Regimes**: Neither Cluster 3 in Hyderabad nor Cluster 1 in India completely vanished in September. Hyderabad recorded 11 observations in Cluster 3 (9.09%), and India recorded 3 observations in Cluster 1 (1.15%).
-3. **Centroid Proximity and Stability**: Analysis from `phase5A_recent_centroid_distance_summary.csv` demonstrates that September observations conform closely to historical cluster geometries:
-   - **Hyderabad Recent**: Mean normalized distance = 0.5769, Median = 0.6300, 90th percentile = 0.8671, 95th percentile = 0.9052. Only 2 of 121 points (1.65%) exhibit distance $\ge 0.95$.
-   - **India Recent**: Mean normalized distance = 0.3939, Median = 0.3429, 90th percentile = 0.7834, 95th percentile = 0.8466. Only 5 of 262 points (1.91%) exhibit distance $\ge 0.95$.
-   - More than 98% of recent observations fall well within historical envelope distributions, confirming that the cluster boundaries remain robust without concept collapse.
+3. **Centroid Proximity and Distance Percentiles**: Analysis from `phase5A_recent_centroid_distance_summary.csv` demonstrates:
+   - **Hyderabad Recent**: Mean percentile = 0.576864, Median = 0.629750, 90th percentile = 0.866944, 95th percentile = 0.905312. Exactly 3 of 121 points (2.48%) exhibit distance percentile $\ge 0.95$.
+   - **India Recent**: Mean percentile = 0.393887, Median = 0.342880, 90th percentile = 0.782551, 95th percentile = 0.846513. Exactly 2 of 262 points (0.76%) exhibit distance percentile $\ge 0.95$.
+   - Most recent observations lie within the historical within-cluster distance distribution. Only a small fraction of September observations occupied the upper 5% tail of their assigned historical cluster-distance distribution.
 
 ---
 
@@ -183,7 +183,7 @@ The empirical cross-tabulation of regimes across meteorological seasons from `ph
 
 ## Section G — Station Metadata Correction
 
-Station metadata mappings have been audited and corrected against the authoritative station directory:
+Station metadata mappings have been audited and corrected against the tracked station directory (`data/metadata/station_catalog.csv`):
 
 - **PROJ_044**: **Central University, Hyderabad - TSPCB** (corrected from misattribution to Sanathnagar).
 - **PROJ_181**: **Somajiguda, Hyderabad - TSPCB** (corrected from misattribution to IDA Pashamylaram).
@@ -191,7 +191,7 @@ Station metadata mappings have been audited and corrected against the authoritat
 - **PROJ_019**: **Manali, Chennai - CPCB** (corrected from confusion with PROJ_036).
 - **PROJ_036**: **Bollaram Industrial Area, Hyderabad - TSPCB** (retained correctly as Hyderabad industrial station).
 
-All station-level regime distribution tables and narrative sections now reference verified official station IDs and corresponding site names.
+All station-level regime distribution tables and narrative sections reference verified official station IDs and corresponding site names.
 
 ---
 
@@ -225,17 +225,16 @@ To prevent confusion between supervised and unsupervised learning layers:
 
 ## Section J — Test Hardening
 
-The test file `tests/testthat/test_phase5a.R` was hardened to ensure exhaustive runtime validation of all Phase 5A and Phase 5A.1 contracts:
-
-- **Test Architecture**: Structured as a single unified `test_that("Phase 5A Unsupervised Learning Comprehensive Verification", ...)` block containing **63 literal `expect_*` calls**, which dynamically execute **93 runtime assertions**.
-- **Execution Result**: **93 passed, 0 failed, 0 warnings, 0 skipped**.
+The test file `tests/testthat/test_phase5a.R` was hardened into 6 modular test blocks:
+- **Test Architecture**: 6 `test_that` blocks containing **79 literal `expect_*` calls**, which dynamically execute **115 runtime assertions**.
+- **Execution Result**: **115 passed, 0 failed, 0 warnings, 0 skipped**.
 - **Hardening Enhancements**:
-  1. **Replacement of Test #25**: Replaced the previous placeholder check with a programmatic $k$-selection validation test that verifies silhouette width maximization at $k=3$ across $k \in \{2, 3, 4, 5, 6\}$ and confirms monotonic decrease of within-cluster sum of squares (WSS).
-  2. **Removal of Placeholders**: The `expect_true(TRUE)` placeholder was eliminated.
-  3. **Strict Variance Table Checks**: Added assertion verifying that the sum of PCA variance explained strictly equals 100.0%.
-  4. **Ozone Unit Validation**: Added programmatic check verifying that `o3_8h_max` units are documented as µg/m³.
-  5. **De-causalization Audit**: Added check ensuring that `phase5A_cluster_labels.csv` contains zero occurrences of forbidden mechanistic terms ("scaveng", "photochem", "inversion", "dust").
-  6. **Automated Audit Script Integration**: Added programmatic checks confirming that `phase5A_numeric_consistency_audit.csv` (86/86 checks) and `phase5A_report_numeric_integrity_audit.csv` (42/42 checks) pass with 100% exact match.
+  1. **Replacement of Test #25**: Algorithmic $k$-selection validation test verifies silhouette width maximization at $k=3$ across $k \in \{2..8\}$.
+  2. **Removal of Placeholders and Git Skip**: Removed `expect_true(TRUE)` and git branch skip so tests run smoothly on `main` after merge.
+  3. **Tracked Metadata Dependency**: Replaced `scratch/` dependency with tracked `data/metadata/station_catalog.csv`.
+  4. **Strict Variance Table Checks**: Added assertion verifying that the sum of PCA variance strictly equals 100.0% and eigenvalues sum to 6.000000.
+  5. **Ozone Unit Validation**: Added explicit check verifying that `pollutant_dictionary.csv` exists and declares `o3` in µg/m³.
+  6. **Automated Audit Script Integration**: Added programmatic check confirming that `phase5A_numeric_consistency_audit.csv` passes all 124 checks with 100% exact match.
 
 ---
 
@@ -243,10 +242,11 @@ The test file `tests/testthat/test_phase5a.R` was hardened to ensure exhaustive 
 
 - **Current Git Branch**: `feature/pca-kmeans`
 - **Initial Phase 5A Commit**: `2e3fc98b9ef3441aeaa8b5c00571bebd16268d0b` (`feat: add PCA and K-Means pollution regime analysis`)
-- **Phase 5A.1 Closure Commit**: `fix: reconcile Phase 5A reports and regime interpretation`
+- **Phase 5A.1 Closure Commit**: `7540473` (`fix: reconcile Phase 5A reports and regime interpretation`)
+- **Phase 5A.2 Final Consistency Commit**: Scheduled
 - **Branch Discipline**:
   - All modifications conducted strictly on `feature/pca-kmeans`.
-  - Working tree will be completely clean after commit.
+  - Working tree completely clean after commit.
   - `main` branch remains untouched.
   - No pull requests opened; no push to remote performed.
 
@@ -259,5 +259,3 @@ The test file `tests/testthat/test_phase5a.R` was hardened to ensure exhaustive 
 PHASE 5A UNSUPERVISED ANALYSIS FROZEN — READY FOR NEXT SML EXTENSION
 ================================================================================
 ```
-
-Every numerical figure, cluster profile, eigenvalue, seasonal distribution, and test assertion in Phase 5A and Phase 5A.1 is verified, synchronized, and reconciled against the underlying data and serialized models. The unsupervised analysis layer is officially complete, audited, and frozen.

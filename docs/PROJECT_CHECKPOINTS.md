@@ -21,8 +21,14 @@ Git/GitHub baseline curation and documentation consolidation.
 PBL collaboration policy, team identity, and pre-remote tag alignment.
 
 
-### Phase 5
-PCA / K-Means and optional advanced SML (Upcoming)
+### Phase 5A
+PCA dimensionality reduction and K-Means pollution-regime discovery (4 PCs retained, k=3 regimes).
+
+**[FROZEN] PHASE 5A PCA / K-MEANS REGIME DISCOVERY FROZEN.**
+
+### Phase 5B
+SVM classification comparison (Upcoming)
+
 
 ### Phase 6
 R Shiny integration (Upcoming)

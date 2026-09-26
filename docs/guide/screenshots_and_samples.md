@@ -31,7 +31,7 @@ Precision-Recall Area Under the Curve on locked test observations ($N=477$ Hyder
 ![Test PR-AUC Comparison](../figures/phase5b_10_test_prauc_comparison.png)
 
 - **Script:** `scripts/20d_phase5B_figures.R`
-- **Key Takeaway:** SVM established higher probability ranking on the diverse national panel, but experienced sensitivity limitations in Hyderabad where test-period adverse prevalence was only $2.3\%$.
+- **Key Takeaway:** SVM established higher PR-AUC event ranking on the diverse national panel, but experienced sensitivity limitations in Hyderabad where test-period adverse prevalence was only $2.3\%$.
 
 ---
 
@@ -53,17 +53,17 @@ Comparison of eigenvalues and cumulative variance explained by the 6 orthogonal 
 ![Cumulative Variance Comparison](../figures/03_cumulative_variance_comparison.png)
 
 - **Script:** `scripts/18c_phase5A_profiles_figures.R`
-- **Key Takeaway:** The first 4 principal components capture $>83\%$ of multi-sensor variance, confirming that urban atmospheric dynamics compress into a low-dimensional orthogonal subspace.
+- **Key Takeaway:** The first 4 principal components capture **90.21% (Hyderabad)** and **88.65% (India)** of multi-sensor variance, confirming that urban atmospheric dynamics compress into a low-dimensional orthogonal subspace.
 
 ---
 
 ### Biplot Projection: PC1 vs. PC2 by $K$-Means Cluster (India Representative Panel)
-Two-dimensional projection of multi-station observations onto the particulate (PC1) and photochemical (PC2) axes, color-coded by the 4 discovered pollution regimes.
+Two-dimensional projection of multi-station observations onto the particulate/ventilation (PC1) and thermal-moisture (PC2) axes, color-coded by the 3 selected pollution regimes.
 
 ![India PC1 vs PC2 Cluster Biplot](../figures/07_india_pca_pc1_pc2_by_cluster.png)
 
 - **Script:** `scripts/18c_phase5A_profiles_figures.R`
-- **Key Takeaway:** Partitions multi-station observations cleanly into Clean/Scavenged, Photochemical Moderate, Particulate High, and Severe Inversion regimes.
+- **Key Takeaway:** Partitions multi-station observations into 3 selected regimes (`cool-low-wind-particulate-elevated`, `hot-dry-ozone-pm10-elevated`, and `humid-windy-lower-pollution`). Cluster labels are descriptive regime summaries and do not identify atmospheric chemical mechanisms or pollutant sources.
 
 ---
 

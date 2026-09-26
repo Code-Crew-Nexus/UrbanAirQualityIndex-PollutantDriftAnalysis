@@ -1,11 +1,11 @@
 # scripts/31_phase6A_build_archive.R
-# Phase 6A: Assembles and audits review_archive_phase6A_light.zip
+# Phase 6A.1: Assembles and audits review_archive_phase6A1_light.zip
 
 cat("============================================================\n")
-cat("Phase 6A: Review Archive Builder & Membership Auditor\n")
+cat("Phase 6A.1: Review Archive Builder & Membership Auditor\n")
 cat("============================================================\n\n")
 
-archive_file <- "review_archive_phase6A_light.zip"
+archive_file <- "review_archive_phase6A1_light.zip"
 if (file.exists(archive_file)) {
   cat("Removing existing archive:", archive_file, "\n")
   unlink(archive_file)
@@ -16,7 +16,7 @@ files_to_pack <- character(0)
 
 # Website core & HTML
 html_files <- list.files("docs", pattern = "\\.html$", full.names = TRUE)
-files_to_pack <- c(files_to_pack, html_files, "docs/.nojekyll")
+files_to_pack <- c(files_to_pack, html_files, "docs/.nojekyll", "docs/favicon.ico")
 
 # CSS and JS
 css_files <- list.files("docs/assets/css", recursive = TRUE, full.names = TRUE)
@@ -31,10 +31,14 @@ files_to_pack <- c(files_to_pack, vendor_files)
 guide_files <- list.files("docs/guide", recursive = TRUE, full.names = TRUE)
 files_to_pack <- c(files_to_pack, guide_files)
 
-# Canonical docs referenced in manifest
+# Canonical docs referenced in manifest and audits
 canonical_docs <- c(
   "README.md",
+  "docs/TEAM.md",
+  "docs/WEBSITE_SCIENTIFIC_TRUTH.md",
+  "docs/PACKAGE_REQUIREMENTS.md",
   "docs/WEBSITE_DOCUMENTATION_AUDIT.md",
+  "docs/WEBSITE_LINK_AUDIT.md",
   "docs/ENVIRONMENT.md",
   "docs/cpcb_aqi_methodology_verified.md",
   "docs/data_sources.md",
@@ -50,6 +54,10 @@ canonical_docs <- c(
   "docs/reports/phase5b_svm_summary.md"
 )
 files_to_pack <- c(files_to_pack, canonical_docs)
+
+# Documentation figure assets
+figure_files <- list.files("docs/figures", pattern = "\\.png$", full.names = TRUE)
+files_to_pack <- c(files_to_pack, figure_files)
 
 # Config specs
 config_files <- list.files("config", recursive = TRUE, full.names = TRUE)
@@ -67,10 +75,14 @@ files_to_pack <- c(files_to_pack, script_files)
 test_files <- c("tests/testthat/test_phase6a_website.R", "tests/fixtures/math_smoke_fixtures.md")
 files_to_pack <- c(files_to_pack, test_files)
 
-# Phase 6A report
-files_to_pack <- c(files_to_pack, "phase_6A_static_website_foundation_report.md")
+# Phase reports
+reports_to_pack <- c(
+  "phase_6A_static_website_foundation_report.md",
+  "phase_6A1_website_scientific_integrity_report.md"
+)
+files_to_pack <- c(files_to_pack, reports_to_pack[file.exists(reports_to_pack)])
 
-# UI review screenshots
+# UI review screenshots (if present)
 screenshot_files <- list.files("analysis/phase6A/ui_review", pattern = "\\.png$", full.names = TRUE)
 files_to_pack <- c(files_to_pack, screenshot_files)
 
@@ -105,6 +117,9 @@ if (!file.exists(archive_file)) {
 archive_bytes <- file.size(archive_file)
 cat(sprintf("Archive successfully created: %s (%.2f MB)\n\n", archive_file, archive_bytes / (1024 * 1024)))
 
+# Also create backwards-compatible review_archive_phase6A_light.zip copy
+file.copy(archive_file, "review_archive_phase6A_light.zip", overwrite = TRUE)
+
 # Perform Archive Membership Audit
 cat("--- Auditing Archive Membership ---\n")
 zip_contents <- utils::unzip(archive_file, list = TRUE)
@@ -129,6 +144,6 @@ if (any(audit_df$status != "PASS")) {
 }
 
 cat("\n============================================================\n")
-cat("SUCCESS: review_archive_phase6A_light.zip is 100% self-contained!\n")
+cat("SUCCESS: review_archive_phase6A1_light.zip is 100% self-contained!\n")
 cat(sprintf("Total audited members: %d | All PASS\n", nrow(audit_df)))
 cat("============================================================\n")

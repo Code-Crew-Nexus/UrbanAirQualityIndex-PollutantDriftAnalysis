@@ -58,9 +58,9 @@ This document outlines the structured execution history of the project from init
 
 ## Phase 3 — Exploratory Analysis, Pollutant Drift & Statistical Inference
 
-- **Objective:** Quantify distributional properties of pollutants, measure seasonal distribution shifts (drift), and compute formal confidence intervals under temporal autocorrelation.
+- **Objective:** Quantify distributional properties of pollutants, measure temporal distribution shifts (drift) across rolling windows, and compute formal confidence intervals under temporal autocorrelation.
 - **Input:** `data/processed/UAQI_Master_Daily.csv`.
-- **Method:** Parametric and non-parametric summary statistics, seasonal mean difference ratios ($D_z$), and moving-block bootstrap resampling ($B = 1{,}000$ iterations) with autocorrelation-preserving block sizes.
+- **Method:** Parametric and non-parametric summary statistics, rolling standardized mean difference ($D_z = (\bar{x}_{recent} - \bar{x}_{baseline})/s_{baseline}$ over 30-day recent vs. preceding 90-day baseline), and moving-block bootstrap resampling ($B = 2{,}000$ iterations, primary block length = 7 days, sensitivity blocks = 3 and 14 days) with Benjamini-Hochberg FDR correction.
 - **Key Script(s):**
   - `scripts/10_phase3A_exploratory_analysis.R`
   - `scripts/11_phase3B_pollutant_drift.R`
@@ -68,7 +68,7 @@ This document outlines the structured execution history of the project from init
 - **Output Artifact(s):**
   - `analysis/phase3A/`, `analysis/phase3B/`, `analysis/phase3C/`
   - `docs/reports/phase3_statistical_analysis_summary.md`
-- **Key Result:** Statistically significant monsoon scavenging observed in particulate matter across all stations ($D_z < -1.2$), whereas ground-level ozone demonstrated localized photochemical counter-drift in high-temperature inland corridors.
+- **Key Result:** Empirical tests revealed a heterogeneous mixture of supported increases, supported decreases, unsupported shifts, and non-eligible series across stations. Block-resampling demonstrated that fewer descriptive mean shifts achieved formal statistical significance under autocorrelation than naïve tests suggest; no universal single-direction conclusion (such as uniform scavenging) is supported.
 - **Important Limitation:** Standardized drift scores ($D_z$) are descriptive effect sizes and do not prove causal emission abatement mechanisms.
 - **Related Figure / Screenshot:** Summary statistics and bootstrap distributions detailed in [`docs/reports/phase3_statistical_analysis_summary.md`](../reports/phase3_statistical_analysis_summary.md).
 
@@ -79,7 +79,7 @@ This document outlines the structured execution history of the project from init
 - **Objective:** Design leakage-free temporal splits, train Multiple Linear Regression (MLR) models for continuous next-day AQI prediction ($\widehat{\text{AQI}}_{t+1}$), and train Logistic Regression models for adverse-event classification ($\text{AQI}_{t+1} > 100$).
 - **Input:**
   - `data/processed/UAQI_Master_Daily.csv`
-  - Temporal splits: TRAIN (through 2025-12-31), VALIDATION (2026-01-01 to 2026-04-30), locked TEST (2026-05-01 to 2026-08-31), final HOLDOUT (2026-09-01 to 2026-09-21)
+  - Temporal splits: TRAIN (`2025-03-02` to `2025-12-31`), VALIDATION (`2026-01-01` to `2026-04-30`), locked TEST (`2026-05-01` to `2026-08-31`), final HOLDOUT (`2026-09-01` to `2026-09-21`)
 - **Method:** Ordinary least squares (OLS) regression and generalized linear models (GLM binomial family). Comparison of persistence-free (Model A) vs. persistence-aware (Model B) specifications. Model selection on VALIDATION split via PR-AUC and MAE.
 - **Key Script(s):**
   - `scripts/13_phase4A_prediction_design.R`
@@ -94,8 +94,8 @@ This document outlines the structured execution history of the project from init
   - `docs/figures/07_test_mae_comparison.png`
   - `docs/figures/05_validation_prauc_comparison.png`
   - `docs/figures/20_logistic_benchmark_comparison.png`
-- **Key Result:** Persistence-aware Model B was selected across both MLR and Logistic families. However, naive single-day persistence ($\text{AQI}_t$) frequently matched or outperformed fitted models on MAE and hard-$F_1$ during high-inertia seasonal regimes. Logistic Model B maintained strong probability ranking (PR-AUC $\approx 0.8255$ on India TEST).
-- **Important Limitation:** Fixed classification thresholds ($p^* = 0.50$) experienced severe sensitivity collapse during seasonal monsoon transitions where adverse event frequency dropped from $64\%$ to $21\%$ (India) and $13\%$ to $2.3\%$ (Hyderabad).
+- **Key Result:** Persistence-aware Model B was selected across both MLR and Logistic families. However, naive single-day persistence ($\text{AQI}_t$) retained lower primary MAE on frozen TEST and holdout evaluations. For Logistic regression, operating decision thresholds selected on validation ($p^* \approx 0.311268$ for Hyderabad, $p^* \approx 0.713448$ for India) yielded strong PR-AUC ranking ($0.8255$ on India TEST).
+- **Important Limitation:** Fixed classification thresholds are sensitive to temporal prevalence shifts (e.g. adverse event frequency drops between seasonal windows).
 - **Related Figure / Screenshot:** [`docs/figures/05_validation_prauc_comparison.png`](../figures/05_validation_prauc_comparison.png) and [`docs/figures/07_test_mae_comparison.png`](../figures/07_test_mae_comparison.png).
 
 ---
@@ -103,8 +103,8 @@ This document outlines the structured execution history of the project from init
 ## Phase 5A — Unsupervised Discovery (PCA & $K$-Means Regimes)
 
 - **Objective:** Evaluate multi-sensor dimensionality via Principal Component Analysis (PCA) and discover discrete urban air quality regimes across stations via $K$-Means clustering.
-- **Input:** Standardized continuous environmental features from `data/processed/UAQI_Master_Daily.csv` (PM2.5, PM10, O3, temperature, humidity, wind speed).
-- **Method:** Correlation-matrix eigen-decomposition (`prcomp` with unit variance scaling) and seed-locked Hartigan-Wong $K$-Means with silhouette-width and elbow-curve validation.
+- **Input:** Standardized continuous environmental features from `data/processed/UAQI_Master_Daily.csv` ($\text{PM}_{2.5}, \text{PM}_{10}, \text{O}_3$, temperature, humidity, wind speed; composite AQI and unresolved gases excluded).
+- **Method:** Correlation-matrix eigen-decomposition (`prcomp` with unit variance scaling) and seed-locked Hartigan-Wong $K$-Means evaluated across candidate $k \in \{2, \dots, 8\}$ with silhouette-width and cluster size feasibility rules.
 - **Key Script(s):**
   - `scripts/18a_phase5A_pca.R`
   - `scripts/18b_phase5A_kmeans.R`
@@ -115,8 +115,8 @@ This document outlines the structured execution history of the project from init
   - `docs/figures/03_cumulative_variance_comparison.png`
   - `docs/figures/06_hyderabad_pca_pc1_pc2_by_cluster.png`
   - `docs/figures/07_india_pca_pc1_pc2_by_cluster.png`
-- **Key Result:** Identified that **4 principal components retain $>83\%$ of multi-sensor variance**, separating particulate stagnation (PC1) from secondary photochemical activity (PC2). Partitioned urban atmospheres into **$k=4$ reproducible clusters** (Clean/Scavenged, Photochemical Moderate, Particulate High, Severe Stagnation).
-- **Important Limitation:** Linear PCA does not capture non-linear manifold geometry; $K$-Means forces spherical cluster boundaries in normalized feature space.
+- **Key Result:** Identified that **4 principal components retain $90.21\%$ cumulative variance in Hyderabad and $88.65\%$ in India**. Evaluated $k \in \{2, \dots, 8\}$ and deterministically selected **$k=3$ clusters for both panels**, identifying table-derived descriptive regimes: `warm-dry-moderate-pollution`, `humid-windy-lower-pollution`, and `cool-low-wind-particulate-elevated` for Hyderabad; `cool-low-wind-particulate-elevated`, `hot-dry-ozone-pm10-elevated`, and `humid-windy-lower-pollution` for India.
+- **Important Limitation:** PCA was fitted independently by scope; cluster labels are descriptive regime summaries and do not identify atmospheric chemical mechanisms or specific emission sources.
 - **Related Figure / Screenshot:** [`docs/figures/03_cumulative_variance_comparison.png`](../figures/03_cumulative_variance_comparison.png) and [`docs/figures/07_india_pca_pc1_pc2_by_cluster.png`](../figures/07_india_pca_pc1_pc2_by_cluster.png).
 
 ---
@@ -137,8 +137,9 @@ This document outlines the structured execution history of the project from init
   - `docs/figures/phase5b_10_test_prauc_comparison.png`
   - `docs/figures/phase5b_11_test_f1_comparison.png`
   - `docs/figures/phase5b_20_overall_svm_comparison_summary.png`
-- **Key Result:** On the India Representative Panel, RBF SVM ($C=4.0, \gamma=0.007576$) achieved **superior PR-AUC on the locked TEST set ($0.8335$)** compared to Logistic Model B ($0.8255$) and elevated native hard-classification $F_1$ from $0.5794$ to $0.7218$.
-- **Important Limitation:** In low-prevalence regimes (Hyderabad TEST with $2.3\%$ adverse events), the uncalibrated zero-threshold margin ($s(\mathbf{x}) \ge 0$) produced zero true positives, highlighting that flexible kernel methods require operating threshold tuning under extreme class imbalance.
+- **Key Result:** On the India Representative Panel, RBF SVM ($C=4.0, \gamma=0.007576$) achieved **superior PR-AUC ranking on the locked TEST set ($0.8335$)** compared to Logistic Model B ($0.8255$) and elevated native hard-classification $F_1$ from $0.5794$ to $0.7218$.
+- **Important Limitation:** Raw SVM decision scores $s(\mathbf{x})$ are uncalibrated event rankings rather than probabilities. In low-prevalence regimes (Hyderabad TEST with $2.3\%$ adverse events), the native uncalibrated zero boundary produced zero true positives ($F_1 = \text{NA}$). Alternative operating thresholds or calibration could be evaluated as future extensions.
+- **Related Figure / Screenshot:** [`docs/figures/phase5b_20_overall_svm_comparison_summary.png`](../figures/phase5b_20_overall_svm_comparison_summary.png) and [`docs/figures/phase5b_10_test_prauc_comparison.png`](../figures/phase5b_10_test_prauc_comparison.png).
 - **Related Figure / Screenshot:** [`docs/figures/phase5b_20_overall_svm_comparison_summary.png`](../figures/phase5b_20_overall_svm_comparison_summary.png) and [`docs/figures/phase5b_10_test_prauc_comparison.png`](../figures/phase5b_10_test_prauc_comparison.png).
 
 ---

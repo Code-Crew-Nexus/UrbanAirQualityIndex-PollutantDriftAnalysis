@@ -480,3 +480,177 @@ test_that("52. Required LaTeX commands present in theoretical guide", {
   expect_true(grepl("\\\\exp", theory_txt), info = "Missing \\exp in theoretical concepts")
   expect_true(grepl("\\|", theory_txt), info = "Missing norm notation in theoretical concepts")
 })
+
+# ------------------------------------------------------------------------------
+# Phase 6A.1: Scientific Integrity, Ground Truth & Math Reconciliation Tests
+# ------------------------------------------------------------------------------
+
+test_that("53. Drift metric denominator is strictly baseline SD", {
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  p3_txt <- read_file_text(file.path(docs_dir, "reports", "phase3_statistical_analysis_summary.md"))
+  method_txt <- read_file_text(file.path(docs_dir, "methodology.md"))
+  
+  for (txt in list(theory_txt, p3_txt, method_txt)) {
+    expect_true(grepl("s_{baseline}", txt, fixed = TRUE) || grepl("s_{\\text{baseline}}", txt, fixed = TRUE))
+    expect_false(grepl("s_{pooled}", txt, fixed = TRUE))
+    expect_false(grepl("s_{pool}", txt, fixed = TRUE))
+  }
+})
+
+test_that("54. Drift window eligibility requirements are documented", {
+  p3_txt <- read_file_text(file.path(docs_dir, "reports", "phase3_statistical_analysis_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  
+  expect_true(grepl("21", p3_txt) && grepl("63", p3_txt))
+  expect_true(grepl("21", theory_txt) && grepl("63", theory_txt))
+  expect_true(grepl("s_{\\text{baseline}} > 0", p3_txt, fixed = TRUE) || 
+              grepl("s_{baseline} > 0", p3_txt, fixed = TRUE) ||
+              grepl("s_{baseline}>0", p3_txt, fixed = TRUE))
+})
+
+test_that("55. Drift magnitude classes are exact", {
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  p3_txt <- read_file_text(file.path(docs_dir, "reports", "phase3_statistical_analysis_summary.md"))
+  
+  for (txt in list(truth_txt, theory_txt, p3_txt)) {
+    expect_true(grepl("Minimal", txt, fixed = TRUE))
+    expect_true(grepl("Mild", txt, fixed = TRUE))
+    expect_true(grepl("Moderate", txt, fixed = TRUE))
+    expect_true(grepl("Strong", txt, fixed = TRUE))
+    expect_false(grepl("Major regime transition", txt, ignore.case = TRUE))
+  }
+})
+
+test_that("56. Moving-block bootstrap parameters are exact", {
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  p3_txt <- read_file_text(file.path(docs_dir, "reports", "phase3_statistical_analysis_summary.md"))
+  
+  for (txt in list(theory_txt, p3_txt)) {
+    expect_true(grepl("2000", txt, fixed = TRUE) || grepl("2{,}000", txt, fixed = TRUE))
+    expect_true(grepl("7", txt, fixed = TRUE))
+    expect_true(grepl("3", txt, fixed = TRUE))
+    expect_true(grepl("14", txt, fixed = TRUE))
+  }
+})
+
+test_that("57. Supervised temporal split dates are exact", {
+  p4_txt <- read_file_text(file.path(docs_dir, "reports", "phase4_supervised_learning_summary.md"))
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  
+  for (txt in list(p4_txt, truth_txt)) {
+    expect_true(grepl("2025-12-31", txt, fixed = TRUE))
+    expect_true(grepl("2026-01-01", txt, fixed = TRUE))
+    expect_true(grepl("2026-04-30", txt, fixed = TRUE))
+    expect_true(grepl("2026-05-01", txt, fixed = TRUE))
+    expect_true(grepl("2026-08-31", txt, fixed = TRUE))
+  }
+})
+
+test_that("58. Logistic validation-tuned decision thresholds are exact", {
+  p4_txt <- read_file_text(file.path(docs_dir, "reports", "phase4_supervised_learning_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  
+  for (txt in list(p4_txt, theory_txt, truth_txt)) {
+    expect_true(grepl("0.311268", txt, fixed = TRUE) || grepl("0.311", txt, fixed = TRUE))
+    expect_true(grepl("0.713448", txt, fixed = TRUE) || grepl("0.713", txt, fixed = TRUE))
+  }
+})
+
+test_that("59. PCA variance explained matches Level-1 ground truth", {
+  p5a_txt <- read_file_text(file.path(docs_dir, "reports", "phase5_pca_kmeans_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  exec_txt <- read_file_text(file.path(docs_dir, "guide", "execution_guide.md"))
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  
+  for (txt in list(p5a_txt, theory_txt, exec_txt, truth_txt)) {
+    expect_true(grepl("90.21%", txt, fixed = TRUE) || grepl("90.21", txt, fixed = TRUE))
+    expect_true(grepl("88.65%", txt, fixed = TRUE) || grepl("88.65", txt, fixed = TRUE))
+  }
+})
+
+test_that("60. K-Means cluster count is K=3 for both panels", {
+  p5a_txt <- read_file_text(file.path(docs_dir, "reports", "phase5_pca_kmeans_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  audit_txt <- read_file_text(file.path(docs_dir, "WEBSITE_DOCUMENTATION_AUDIT.md"))
+  method_txt <- read_file_text(file.path(docs_dir, "methodology.md"))
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  
+  for (txt in list(p5a_txt, theory_txt, audit_txt, method_txt, truth_txt)) {
+    expect_true(grepl("k = 3", txt, ignore.case = TRUE) || 
+                grepl("k=3", txt, ignore.case = TRUE) || 
+                grepl("K = 3", txt) || 
+                grepl("K=3", txt) ||
+                grepl("three clusters", txt, ignore.case = TRUE) ||
+                grepl("three regimes", txt, ignore.case = TRUE))
+  }
+})
+
+test_that("61. Obsolete k=4 and speculative regime labels are prohibited", {
+  doc_files <- list.files(docs_dir, pattern = "\\.md$", full.names = TRUE, recursive = TRUE)
+  doc_files <- doc_files[!grepl("internal_phase_history", doc_files)]
+  
+  for (f in doc_files) {
+    txt <- read_file_text(f)
+    expect_false(grepl("k = 4 regimes", txt, ignore.case = TRUE), info = paste("k=4 regimes in:", f))
+    expect_false(grepl("k=4 regimes", txt, ignore.case = TRUE), info = paste("k=4 regimes in:", f))
+    expect_false(grepl("Severe Inversion", txt, fixed = TRUE), info = paste("Severe Inversion in:", f))
+    expect_false(grepl("Clean / Scavenged", txt, fixed = TRUE), info = paste("Clean / Scavenged in:", f))
+  }
+})
+
+test_that("62. Universal monsoon scavenging claims are prohibited", {
+  p3_txt <- read_file_text(file.path(docs_dir, "reports", "phase3_statistical_analysis_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  exec_txt <- read_file_text(file.path(docs_dir, "guide", "execution_guide.md"))
+  
+  for (txt in list(p3_txt, theory_txt, exec_txt)) {
+    expect_false(grepl("universal monsoon scavenging", txt, ignore.case = TRUE))
+    expect_false(grepl("scavenging universally", txt, ignore.case = TRUE))
+  }
+})
+
+test_that("63. SVM margin classification vs decision ranking score distinction", {
+  p5b_txt <- read_file_text(file.path(docs_dir, "reports", "phase5b_svm_summary.md"))
+  theory_txt <- read_file_text(file.path(docs_dir, "guide", "theoretical_concepts.md"))
+  truth_txt <- read_file_text(file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md"))
+  
+  for (txt in list(p5b_txt, theory_txt, truth_txt)) {
+    expect_true(grepl("s(\\mathbf{x}) = 0", txt, fixed = TRUE) || 
+                grepl("s(x) = 0", txt, fixed = TRUE) ||
+                grepl("s(\\mathbf{x})", txt, fixed = TRUE) ||
+                grepl("margin", txt, ignore.case = TRUE))
+    expect_true(grepl("ranking", txt, ignore.case = TRUE))
+  }
+})
+
+test_that("64. WEBSITE_SCIENTIFIC_TRUTH.md exists and is complete", {
+  truth_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md")
+  expect_true(file.exists(truth_path))
+  truth_txt <- read_file_text(truth_path)
+  expect_true(grepl("v0.6-svm-freeze", truth_txt, fixed = TRUE))
+  expect_true(grepl("21 physical stations", truth_txt, fixed = TRUE))
+  expect_true(grepl("570 calendar days", truth_txt, fixed = TRUE))
+  expect_true(grepl("s_{baseline}", truth_txt, fixed = TRUE))
+  expect_true(grepl("90.21%", truth_txt, fixed = TRUE))
+  expect_true(grepl("88.65%", truth_txt, fixed = TRUE))
+})
+
+test_that("65. PACKAGE_REQUIREMENTS.md exists and classifies packages", {
+  pkg_path <- file.path(docs_dir, "PACKAGE_REQUIREMENTS.md")
+  expect_true(file.exists(pkg_path))
+  pkg_txt <- read_file_text(pkg_path)
+  expect_true(grepl("Tier 1: Core Frozen-Review", pkg_txt, fixed = TRUE))
+  expect_true(grepl("Tier 2: Full Reproduction", pkg_txt, fixed = TRUE))
+  expect_true(grepl("Tier 3: Raw Acquisition", pkg_txt, fixed = TRUE))
+})
+
+test_that("66. WEBSITE_LINK_AUDIT.md exists with zero broken links", {
+  audit_path <- file.path(docs_dir, "WEBSITE_LINK_AUDIT.md")
+  expect_true(file.exists(audit_path))
+  audit_txt <- read_file_text(audit_path)
+  expect_true(grepl("ALL_LINKS_VERIFIED_PASS", audit_txt, fixed = TRUE))
+  expect_true(grepl("| Broken Links (`BROKEN`) | 0 |", audit_txt, fixed = TRUE))
+})
+

@@ -154,22 +154,59 @@
           return;
         }
 
-        // Intercept markdown document links within the documentation viewer
-        if (href.endsWith(".md")) {
-          let resolved = href;
-          if (docDir && href.startsWith("../")) {
-            resolved = href.replace(/^\.\.\//, "");
-          } else if (docDir && !href.startsWith(docDir) && !href.startsWith("http")) {
-            resolved = docDir + href;
+        // Handle relative links
+        if (!href.match(/^https?:\/\//) && !href.startsWith("#") && !href.startsWith("mailto:")) {
+          // Normalize path relative to repository root (docs/<docDir>)
+          const currentDocDir = docDir ? "docs/" + docDir.replace(/\/$/, "") : "docs";
+          const normalizedRepoPath = MarkdownRenderer.normalizeRepoPath(currentDocDir, href);
+
+          // If the path resolves outside docs/, convert to canonical GitHub repository URL
+          if (!normalizedRepoPath.startsWith("docs/") && normalizedRepoPath !== "docs") {
+            const githubUrl = "https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis/blob/main/" + normalizedRepoPath;
+            a.setAttribute("href", githubUrl);
+            a.setAttribute("target", "_blank");
+            a.setAttribute("rel", "noopener noreferrer");
+            a.classList.add("repo-outside-link");
+            return;
           }
-          // Attach data-doc-target for single-page documentation navigation
-          a.setAttribute("data-doc-source", resolved);
-          a.setAttribute("href", "#doc=" + encodeURIComponent(resolved));
-          a.classList.add("doc-internal-link");
+
+          // Path is inside docs/
+          const pathInsideDocs = normalizedRepoPath.replace(/^docs\//, "");
+
+          // Intercept markdown document links within the documentation viewer
+          if (pathInsideDocs.endsWith(".md")) {
+            a.setAttribute("data-doc-source", pathInsideDocs);
+            a.setAttribute("href", "#doc=" + encodeURIComponent(pathInsideDocs));
+            a.classList.add("doc-internal-link");
+          } else {
+            a.setAttribute("href", pathInsideDocs);
+          }
         }
       });
 
       return container.innerHTML;
+    },
+
+    /**
+     * Resolves a relative path against a base directory relative to the repository root.
+     */
+    normalizeRepoPath: function (baseDir, relativePath) {
+      const cleanRelative = relativePath.split("#")[0].split("?")[0];
+      const stack = baseDir ? baseDir.split("/").filter(Boolean) : [];
+      const parts = cleanRelative.split("/");
+
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        if (part === "." || part === "") continue;
+        if (part === "..") {
+          if (stack.length > 0) {
+            stack.pop();
+          }
+        } else {
+          stack.push(part);
+        }
+      }
+      return stack.join("/");
     },
 
     /**

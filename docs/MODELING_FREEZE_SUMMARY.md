@@ -34,14 +34,14 @@ This document summarizes the final accepted modeling artifacts developed across 
 ### Principal Component Analysis (PCA)
 - **Purpose:** Orthogonal feature compression of 6 core environmental variables (PM2.5, PM10, O3, temperature, humidity, wind speed) to assess underlying atmospheric dimensionality.
 - **Frozen Tag:** `v0.5-unsupervised-freeze`
-- **Main Finding:** The first 4 principal components captured $> 83\%$ of total multi-sensor variance, establishing clear separation between particulate-dominated, photochemical, and meteorological dispersion axes.
+- **Main Finding:** The first 4 principal components captured 90.21% (Hyderabad) and 88.65% (India) of total multi-sensor variance, establishing clear separation between particulate-dominated, photochemical, and meteorological dispersion axes.
 - **Important Limitation:** Linear projections do not represent nonlinear manifold structures or temporal lag dynamics.
 
 ### $K$-Means Clustering
 - **Purpose:** Unsupervised identification of discrete urban air pollution regimes across multi-station monitoring networks.
 - **Frozen Tag:** `v0.5-unsupervised-freeze`
-- **Main Finding:** Robust identification of $k=4$ distinct environmental regimes (Clean/Scavenged, Photochemical Moderate, Particulate High, Severe Inversion/Stagnation) with high silhouette consistency across geographical scopes.
-- **Important Limitation:** Partitional centroid-based clustering forces spherical cluster geometries in normalized feature space.
+- **Main Finding:** Robust identification of $K=3$ distinct environmental regimes per panel based on cluster viability and silhouette optimization, represented by table-derived descriptive profiles.
+- **Important Limitation:** Partitional centroid-based clustering forces spherical cluster geometries in normalized feature space; cluster labels summarize descriptive contrasts without asserting causal emissions sources.
 
 ---
 

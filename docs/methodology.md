@@ -43,7 +43,7 @@ flowchart TD
     end
 
     subgraph Phase5 ["Phase 5: Unsupervised & SVM (FROZEN: v0.5 & v0.6)"]
-        P5_Unsup["PCA (4 PCs) & K-Means (k=4 Regimes)"]
+        P5_Unsup["PCA (4 PCs) & K-Means (k=3 Regimes)"]
         P5_SVM["RBF Kernel SVM Classification"]
     end
 
@@ -100,17 +100,17 @@ flowchart TD
 
 ### Phase 3: Descriptive Statistics & Pollutant Drift Analysis (FROZEN)
 - Summary statistics: mean, median, standard deviation, interquartile range (IQR), skewness.
-- Statistical hypothesis testing and confidence intervals using moving-block bootstrap inference accounting for environmental autocorrelation.
-- Dynamic drift metrics: standardized mean shift ($D_z$), relative percentage drift, and distribution shifts across seasonal boundaries.
+- Statistical hypothesis testing and confidence intervals using moving-block bootstrap inference ($B = 2{,}000$, primary block length = 7 days) accounting for serial autocorrelation, with global Benjamini–Hochberg FDR correction.
+- Dynamic drift metrics: standardized mean shift ($D_z = \frac{\bar{x}_{\text{recent}} - \bar{x}_{\text{baseline}}}{s_{\text{baseline}}}$ over rolling 30-day recent vs. preceding 90-day baseline; strictly baseline standard deviation $s_{\text{baseline}}$, rather than pooled dispersion). Exact magnitude classes: Minimal ($<0.5$), Mild ($0.5 \le |D_z| < 1.0$), Moderate ($1.0 \le |D_z| < 2.0$), Strong ($\ge 2.0$).
 
 ### Phase 4: Supervised Statistical Machine Learning (FROZEN: v0.4)
-- **Multiple Linear Regression (MLR):** Predicting continuous next-day AQI ($\widehat{\text{AQI}}_{t+1}$) from meteorological variables, temporal harmonics, and autoregressive persistence. Model B selected.
-- **Logistic Regression:** Probabilistic binary classification of next-day adverse air quality episodes ($\text{AQI}_{t+1} > 100$). Model B selected.
+- **Multiple Linear Regression (MLR):** Predicting continuous next-day AQI ($\widehat{\text{AQI}}_{t+1}$) from meteorological variables, temporal harmonics, and autoregressive persistence. Model B selected; single-day persistence retained lower MAE on frozen test data.
+- **Logistic Regression:** Probabilistic binary classification of next-day adverse air quality episodes ($\text{AQI}_{t+1} > 100$). Model B selected with validation-tuned thresholds ($p^* \approx 0.311268$ for Hyderabad, $p^* \approx 0.713448$ for India; not default $0.50$).
 
 ### Phase 5: Unsupervised Discovery & Nonlinear SVM (FROZEN: v0.5 & v0.6)
-- **Principal Component Analysis (PCA):** Orthogonal dimensionality reduction of multi-sensor features; 4 PCs retain $>83\%$ total variance (`v0.5-unsupervised-freeze`).
-- **K-Means Clustering:** Identification of $k=4$ discrete urban pollution regimes (Clean/Scavenged, Photochemical Moderate, Particulate High, Severe Stagnation) (`v0.5-unsupervised-freeze`).
-- **Radial Basis Function (RBF) Kernel SVM:** Nonlinear margin classifier for next-day adverse AQI classification evaluated against Logistic Model B and persistence (`v0.6-svm-freeze`).
+- **Principal Component Analysis (PCA):** Orthogonal dimensionality reduction of 6 multi-sensor features; 4 PCs retain $90.21\%$ (Hyderabad) and $88.65\%$ (India) cumulative variance (`v0.5-unsupervised-freeze`).
+- **K-Means Clustering:** Identification of $k=3$ discrete urban pollution regimes per panel (`v0.5-unsupervised-freeze`) based on cluster feasibility and silhouette optimization. Cluster labels are descriptive regime summaries.
+- **Radial Basis Function (RBF) Kernel SVM:** Nonlinear margin classifier for next-day adverse AQI classification evaluated against Logistic Model B and persistence (`v0.6-svm-freeze`). Raw decision scores evaluated via PR-AUC event ranking.
 
 ### Phase 6: Static Project Website Presentation Layer (IN DEVELOPMENT)
 - Lightweight static website (HTML5, CSS3, Vanilla JavaScript) hosted on GitHub Pages. Consumes frozen R analytical outputs with zero runtime dependencies.

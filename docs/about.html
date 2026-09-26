@@ -6,6 +6,7 @@
   <title>About &amp; Team | Urban Air Quality Index &amp; Pollutant Drift Analysis</title>
   <meta name="description" content="Project background, academic context, study scope, team members, and methodological limitations.">
   
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -115,7 +116,7 @@
               <strong>Standardized Drift ($D_z$):</strong> Drift scores quantify observational mean shifts between temporal windows. They are descriptive indicators and do not establish causal atmospheric emission attribution.
             </li>
             <li style="margin-bottom: 0.5rem;">
-              <strong>Seasonal Prevalence Collapse:</strong> Fixed probability threshold models ($p^* = 0.50$) experience severe sensitivity drops during seasonal transitions where adverse event frequency plummets (e.g. Hyderabad monsoon clearing to $2.3\%$ prevalence).
+              <strong>Seasonal Prevalence Shift:</strong> Fixed-threshold models experience sensitivity drops when seasonal background rates shift drastically; models rely on validation-selected operating thresholds ($p^* \approx 0.311268$ for Hyderabad, $p^* \approx 0.713448$ for India) rather than naive $0.50$.
             </li>
             <li>
               <strong>Static Presentation Model:</strong> The website presentation layer visualizes precomputed R artifacts and does not support on-the-fly model re-training in JavaScript.
@@ -166,7 +167,7 @@
       <div class="footer-col">
         <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
         <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          An academic study in Statistical Machine Learning using authentic Central and State Pollution Control Board continuous monitoring data.
+          Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations accessed through OpenAQ, with historical meteorology from Open-Meteo.
         </p>
         <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
           Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>

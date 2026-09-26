@@ -79,6 +79,41 @@ body {
   min-height: 100vh;
 }
 
+/* Base Links adhering to Jade × Champagne palette */
+a {
+  color: var(--jade-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--champagne-dark);
+}
+
+.site-nav a,
+.btn,
+.doc-section-btn,
+.doc-sub-link,
+.toc-link,
+.footer-links a {
+  text-decoration: none;
+}
+
+/* Data Table Link Styling */
+.data-table a {
+  color: var(--jade-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.data-table a:hover,
+.data-table a:focus {
+  color: var(--champagne-dark);
+}
+
 /* ==========================================================================
    Header & Top Navigation
    ========================================================================== */
@@ -385,26 +420,30 @@ body {
 }
 
 .pipeline-flow {
-  display: flex;
-  align-items: stretch;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.85rem;
+  overflow-x: visible;
+  padding-bottom: 0.5rem;
 }
 
 .pipeline-step {
-  flex: 1;
-  min-width: 130px;
   background: linear-gradient(180deg, #FFFFFF 0%, var(--surface-subtle) 100%);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 0.85rem 0.75rem;
+  border-radius: 8px;
+  padding: 0.95rem 0.75rem;
   text-align: center;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pipeline-step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .pipeline-step.frozen {
@@ -440,13 +479,28 @@ body {
 }
 
 .step-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-weight: 700;
-  font-size: 0.95rem;
-  user-select: none;
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .pipeline-flow {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+  }
+  .pipeline-step {
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+  .step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 0.95rem;
+    user-select: none;
+  }
 }
 
 /* ==========================================================================
@@ -521,11 +575,16 @@ body {
 }
 
 .doc-sub-list {
+  display: none;
   list-style: none;
   margin-top: 0.35rem;
   margin-left: 0.65rem;
   padding-left: 0.65rem;
   border-left: 2px solid var(--border-light);
+}
+
+.doc-nav-item.active .doc-sub-list {
+  display: block;
 }
 
 .doc-sub-item {

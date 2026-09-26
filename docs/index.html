@@ -6,7 +6,8 @@
   <title>Urban Air Quality Index &amp; Pollutant Drift Analysis | SML PBL</title>
   <meta name="description" content="A multi-station statistical machine learning study of Hyderabad and national representative urban air quality using real-world CAAQMS observations.">
   
-  <!-- Local Stylesheets (Zero CDN dependencies) -->
+  <!-- Favicon & Local Stylesheets (Zero CDN dependencies) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -68,7 +69,7 @@
       <div class="metric-card">
         <div class="metric-label">Study Days</div>
         <div class="metric-value" id="stat-days">570</div>
-        <div class="metric-desc">Complete daily time series: 2025-03-01 to 2026-09-21.</div>
+        <div class="metric-desc">570-day study window: 2025-03-01 to 2026-09-21 (missingness preserved).</div>
       </div>
 
       <div class="metric-card champagne">
@@ -174,8 +175,8 @@
           The website acts strictly as a lightweight, zero-dependency presentation layer that consumes serialized results produced by the R computational engine.
         </p>
         <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.92rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>CPCB-Aligned Verified-Subset AQI:</strong> Calculated strictly across PM2.5, PM10, and O3 to guarantee 100% verifiable source units.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Temporal Leakage Prevention:</strong> Models fit on historical data (through Dec 2025), validated on Jan–Apr 2026, tested on locked May–Aug 2026, and evaluated on out-of-sample September holdout.</li>
+          <li style="margin-bottom: 0.4rem;"><strong>CPCB-Aligned Verified-Subset AQI:</strong> Uses only AQI inputs whose source units were directly verified (PM2.5, PM10, and O3).</li>
+          <li style="margin-bottom: 0.4rem;"><strong>Chronological Model Selection:</strong> Model hyperparameters were selected across Train (through Dec 2025) and Validation (Jan–Apr 2026); for locked holdout evaluation, selected specifications were subsequently refitted on permitted history according to frozen protocols.</li>
           <li><strong>Reproducibility:</strong> All seeds, hyperparameter grids, and split indices are permanently archived and audited.</li>
         </ul>
       </div>
@@ -202,7 +203,7 @@
       <div class="footer-col">
         <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
         <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          An academic study in Statistical Machine Learning using authentic Central and State Pollution Control Board continuous monitoring data.
+          Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations accessed through OpenAQ, with historical meteorology from Open-Meteo.
         </p>
         <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
           Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>

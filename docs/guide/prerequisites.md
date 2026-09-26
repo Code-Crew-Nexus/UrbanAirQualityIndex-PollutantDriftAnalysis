@@ -3,73 +3,71 @@
 **Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
 **Course:** Statistics for Machine Learning (SML) — Project Based Learning (PBL)  
 **Organization:** `Code-Crew-Nexus`  
-**Reference Document:** [`docs/ENVIRONMENT.md`](../ENVIRONMENT.md)
+**Reference Document:** [`docs/ENVIRONMENT.md`](../ENVIRONMENT.md), [`docs/PACKAGE_REQUIREMENTS.md`](../PACKAGE_REQUIREMENTS.md)
 
 ---
 
-## 1. Operating Environment & Runtime Foundations
+## 1. Operating Environment Specifications
 
-This project is built and audited on an official, verified scientific computational environment.
+To ensure strict scientific reproducibility, the repository distinguishes between the **authoritative tested development environment** and **general operational requirements**.
 
-| Component | Baseline Specification | Notes |
-| :--- | :--- | :--- |
-| **Operating System** | Windows 11 x64 (build 26200+) | Tested with native PowerShell 7 / Windows Terminal. Compatible with Linux / macOS. |
-| **Statistical Engine (R)** | **R version 4.6.1** (2026-06-24 ucrt) | Platform: `x86_64-w64-mingw32/x64`. LAPACK version `3.12.1`. |
-| **Interactive IDE** | RStudio Desktop (optional / recommended) | Recommended for inspecting `.Rproj` and visualization output. |
-| **Version Control** | Git 2.40+ | Required for branch switching and tag inspection. |
-| **Preview Server (Python)** | Python 3.9+ (`py -m http.server`) | Lightweight standard library HTTP server for static website preview. |
-| **Web Browser** | Modern standards-compliant browser | Chrome 120+, Edge 120+, Firefox 120+, Safari 17+ with MathML and ES6 support. |
+### A. Tested Development Environment (Authoritative)
+The computational pipeline, frozen RDS model artifacts, and test suites were executed and verified on the following hardware/software configuration:
+- **Operating System:** Microsoft Windows 11 Home / Pro (x64 architecture).
+- **Primary Shell:** PowerShell `7.6.6` (also verified in Windows PowerShell `5.1`).
+- **Statistical Engine:** **R version 4.6.1** (`2026-06-24 ucrt`, Platform: `x86_64-w64-mingw32/x64`).
+- **C/C++ Toolchain:** Rtools44 (required for compiling native package extensions if building from source).
+- **Linear Algebra Acceleration:** Standard BLAS / LAPACK `3.12.1`.
+
+### B. General Recommendations & Cross-Platform Notes
+- **POSIX Shell / Linux / macOS:** The R scripts and static website architecture adhere to standard portable paths (forward slashes `/`). However, formal continuous integration testing was completed specifically on Windows 11; cross-platform users should run R test suites to verify local path and environment compatibility.
+- **Local HTTP Preview Server:** Python standard library `http.server` (`python -m http.server 8000 --directory docs`) or any lightweight static file server (e.g. Node `http-server`, Caddy, Nginx).
+- **Web Browser:** Any modern web browser supporting ECMAScript 6 (ES6 Modules) and MathML / SVG rendering (Google Chrome, Microsoft Edge, Mozilla Firefox, Apple Safari).
 
 ---
 
 ## 2. Required R Packages
 
-All statistical computing, feature engineering, and model training are implemented natively in R. Dependencies are categorized by their role in the project lifecycle:
+Dependencies are derived strictly from static code analysis of the repository codebase (`R/`, `scripts/`, `tests/`). For comprehensive details and counts, refer to [`docs/PACKAGE_REQUIREMENTS.md`](../PACKAGE_REQUIREMENTS.md).
 
-### A. Production & Data Engineering Packages
-- **`yaml`**: Reads pipeline configurations (`config/project_config.yml`, `config/final_aqi_input_policy.yml`).
-- **`readr`**: High-performance, reproducible CSV parsing and strict typed column ingestion.
-- **`jsonlite`**: Generates and parses serialized metadata assets (`docs/web-data/*.json`).
-- **`httr2`**: Handles authenticated REST requests to OpenAQ v3 and Open-Meteo APIs (used in Phase 2 ingestion).
-- **`digest`**: Cryptographic SHA-256 hash auditing for data immutability and provenance tracking.
-- **`dplyr` & `tidyr`**: Data manipulation, aggregation, and panel reshaping.
-- **`stringr` & `purrr`**: String sanitization and functional iterations across stations.
-- **`zoo`**: Rolling window calculations (e.g., trailing 8-hour ozone evaluation).
+### A. Core Frozen-Review Packages
+Required for running unit tests, inspecting frozen CSV tables, verifying JSON metadata, and checking cryptographic SHA-256 signatures:
+```r
+install.packages(c("readr", "dplyr", "testthat", "jsonlite", "yaml", "digest"))
+```
 
-### B. Statistical Modeling & Unsupervised Learning Packages
-- **`broom`**: Tidy model summaries for Multiple Linear Regression and Logistic Regression coefficients.
-- **`car`**: Variance Inflation Factor (VIF) collinearity diagnostics.
-- **`cluster`**: Silhouette width computation and PAM clustering validation for K-Means.
-- **`e1071`**: Support Vector Machine (SVM) implementation with libsvm backend.
-- **`ggplot2`**: Diagnostic residual plots, PR curves, and PCA projection figures.
-
-### C. Testing & Verification Packages
-- **`testthat`**: Automated unit testing and structural verification framework (`tests/testthat/`).
-
-To install all required packages in an interactive R session:
+### B. Full Modeling & Reproduction Packages
+Required if re-executing statistical regressions, PCA, K-Means clustering, SVM training, and figure generation:
 ```r
 install.packages(c(
-  "yaml", "readr", "jsonlite", "httr2", "digest",
-  "dplyr", "tidyr", "stringr", "purrr", "zoo",
-  "broom", "car", "cluster", "e1071", "ggplot2",
-  "testthat"
+  "readr", "dplyr", "testthat", "jsonlite", "yaml", "digest",
+  "tidyr", "tibble", "broom", "scales", "purrr", "zoo",
+  "cluster", "e1071", "car", "ggplot2"
 ))
+```
+
+### C. Live API Data Harvesting Packages
+Required only for re-querying external OpenAQ v3 and Open-Meteo weather APIs from scratch:
+```r
+install.packages(c("httr2", "stringr"))
 ```
 
 ---
 
-## 3. Execution Modes & API Credential Policies
+## 3. Execution Modes & Credential Requirements
 
-The repository supports two distinct operational modes:
+The project enforces strict separation between evaluation review and raw data acquisition:
 
 ### Mode A: Frozen Project Review (Recommended for Viva / Evaluation)
-- **API Key Required:** **NO**.
-- **Internet Access Required:** **NO** (all vendor libraries and datasets are vendored locally).
-- **Data Ingestion Required:** **NO** (consumes canonical processed datasets in `data/processed/` and precomputed tables in `analysis/`).
-- **Use Case:** Faculty evaluation, viva demonstration, static website browsing, test suite execution, and model performance verification.
+- **API Key Required:** **NO** (Zero external network requests).
+- **Data Ingestion Required:** **NO** (Consumes frozen Level-1 datasets in `data/processed/` and precomputed tables in `analysis/`).
+- **Use Case:** Faculty grading, viva presentation, offline website navigation, test execution, and model benchmark verification.
 
-### Mode B: Full Historical Re-Ingestion (Raw Harvest)
+### Mode B: Full Pipeline Reproduction (Local Cached Data)
+- **API Key Required:** **NO** (Executes feature engineering, model fitting, and export starting from local interim data).
+- **Use Case:** Validating algorithm implementations, testing hyperparameter grids, and verifying metric tables.
+
+### Mode C: Full API Re-Acquisition (Raw Harvest)
 - **API Key Required:** **YES** (`OPENAQ_API_KEY`).
-- **Configuration:** Copy `.Renviron.example` to `.Renviron` and supply a valid OpenAQ API token.
-- **Security Rule:** Never commit `.Renviron` or expose private API keys in Git history.
-- **Note on Open-Meteo:** Open-Meteo historical weather queries operate without API keys for non-commercial academic research.
+- **Configuration:** Copy `.Renviron.example` to `.Renviron` and configure a private OpenAQ API token.
+- **Security Invariant:** Never commit `.Renviron` or expose private tokens to version control.

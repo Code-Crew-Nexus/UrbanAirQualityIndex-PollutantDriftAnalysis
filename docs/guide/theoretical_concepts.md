@@ -1,25 +1,15 @@
 # Theoretical Concepts & Statistical Foundations
 
-**Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
-**Course:** Statistics for Machine Learning (SML) — Project Based Learning (PBL)  
-**Organization:** `Code-Crew-Nexus`  
-**Baseline Status:** `v0.6-svm-freeze`
-
----
+**Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis` | **Course:** Statistics for Machine Learning (SML) PBL | **Organization:** `Code-Crew-Nexus` | **Baseline Status:** `v0.6-svm-freeze`
 
 ## 1. Overview of Theoretical Framework
 
-This reference outlines the core mathematical and statistical formulations implemented across the analytical pipeline. Each topic highlights **what** the method represents, **why** this study deployed it, its **mathematical specification**, **interpretation guidelines**, and **project-specific methodological cautions**.
-
----
+This reference outlines core mathematical formulations across the pipeline: method representation, justification, mathematical specification, interpretation, and methodological cautions.
 
 ## 2. Regulatory Subindex Interpolation (Verified-Subset AQI)
 
-### What It Is
-The Indian National Air Quality Index (NAQI) defined by the Central Pollution Control Board (CPCB) converts heterogeneous pollutant mass concentrations into a unified, dimensionless scale ($0$ to $500$) categorized into six health bands (Good, Satisfactory, Moderate, Poor, Very Poor, Severe).
-
-### Why This Project Used It
-To establish a rigorous, objective benchmark for urban atmospheric quality without relying on opaque third-party proprietary scores.
+### What It Is & Why Used
+The Indian National Air Quality Index (NAQI) defined by the Central Pollution Control Board (CPCB) converts heterogeneous pollutant mass concentrations into a unified, dimensionless scale ($0$ to $500$) across six health bands (Good to Severe), establishing an objective benchmark without opaque third-party proprietary scores.
 
 ### Key Formula
 For a given pollutant concentration $C_p$, the subindex $I_p$ is computed via segmented piecewise linear interpolation:
@@ -46,31 +36,35 @@ A higher subindex indicates greater acute health hazard. The overall index is de
 ## 3. Pollutant Drift Quantification (Standardized Mean Shift)
 
 ### What It Is
-A dimensionless standardization used to measure shifts in pollutant concentration distributions between distinct seasonal or temporal observation windows.
+A dimensionless standardization used to measure shifts in pollutant concentration distributions between distinct temporal observation windows.
 
 ### Why This Project Used It
-To detect and quantify environmental distribution shifts across seasons (e.g., pre-monsoon vs. monsoon) across multi-station monitoring networks.
+To detect and quantify environmental distribution shifts over time across multi-station monitoring networks. The primary drift analysis evaluates a **rolling 30-day recent window ($t-29$ to $t$) versus a preceding non-overlapping 90-day baseline window ($t-119$ to $t-30$)**. Seasonal designations serve strictly as descriptive context.
 
 ### Key Formula
-The drift score $D_z$ is formulated as a standardized mean difference:
+The drift score $D_z$ is formulated as a standardized mean difference standardized by the **baseline standard deviation**:
 
 $$
 D_z = \frac{\bar{x}_{recent}-\bar{x}_{baseline}}{s_{baseline}}
 $$
 
 Where:
-- $\bar{x}_{recent}$: Sample mean of pollutant concentrations during the recent observation period.
-- $\bar{x}_{baseline}$: Sample mean during the reference baseline period.
-- $s_{baseline}$: Sample standard deviation during the baseline period.
+- $\bar{x}_{recent}$: Sample mean of pollutant concentrations during the recent 30-day window ($\ge 21/30$ valid days required).
+- $\bar{x}_{baseline}$: Sample mean during the preceding 90-day baseline window ($\ge 63/90$ valid days required).
+- $s_{baseline}$: Sample standard deviation during the baseline period (requires $s_{baseline} > 0$; strictly uses baseline standard deviation $s_{baseline}$, rather than pooled dispersion).
 
 ### How to Interpret It
-- $D_z > 0$: Recent concentrations have shifted above baseline averages (worsening pollution).
-- $D_z < 0$: Recent concentrations have decreased below baseline averages (atmospheric clearing / scavenging).
-- Magnitudes $|D_z| > 0.5$ indicate moderate distribution shifts; $|D_z| > 1.0$ indicate major regime transitions.
+- $D_z > 0$: Recent concentrations have shifted above baseline averages.
+- $D_z < 0$: Recent concentrations have decreased below baseline averages.
+- **Exact Project Magnitude Classes**:
+  - **Minimal**: $|D_z| < 0.5$
+  - **Mild**: $0.5 \le |D_z| < 1.0$
+  - **Moderate**: $1.0 \le |D_z| < 2.0$
+  - **Strong**: $|D_z| \ge 2.0$
 
 ### Project-Specific Caution
 > [!NOTE]
-> $D_z$ is strictly a **descriptive standardized mean-shift measure**, NOT a parametric hypothesis-test $z$-statistic. It does not assume Gaussian errors or temporal independence. Formal inferential significance is assessed separately using moving-block bootstrap procedures.
+> $D_z$ is strictly a **descriptive standardized mean-shift measure**, NOT a parametric hypothesis-test $z$-statistic. It does not assume Gaussian errors or temporal independence. Formal station-level inferential tests show a heterogeneous mixture of supported increases, supported decreases, unsupported shifts, and non-eligible series; universal single-direction claims (e.g. universal scavenging) are unsupported.
 
 ---
 
@@ -80,19 +74,22 @@ Where:
 A non-parametric resampling technique that samples continuous temporal blocks of observations rather than individual points.
 
 ### Why This Project Used It
-Urban air quality time series exhibit pronounced serial autocorrelation and diurnal/seasonal cyclicity. Standard independent identically distributed (i.i.d.) bootstrap resampling destroys temporal dependencies, causing severe downward bias in standard error estimation.
+Urban air quality time series exhibit pronounced serial autocorrelation and diurnal/cyclical structure. Standard independent identically distributed (i.i.d.) bootstrap resampling destroys temporal dependencies, causing downward bias in standard error estimation.
 
 ### Methodology
-Given a daily time series of length $N$, the sequence is partitioned into overlapping blocks of length $b$. Random blocks are drawn with replacement to assemble synthetic bootstrap trajectories:
+Given a daily time series of length $N$, the sequence is partitioned into overlapping blocks of length $l$. Random blocks are drawn with replacement to assemble synthetic bootstrap trajectories:
 
 $$
-\mathbf{B}_k = \{x_{\tau}, x_{\tau+1}, \dots, x_{\tau+b-1}\}
+\mathbf{B}_k = \{x_{\tau}, x_{\tau+1}, \dots, x_{\tau+l-1}\}
 $$
 
-Confidence intervals ($95\%$) for drift metrics and parameter estimates are computed from $B = 1{,}000$ block resamples.
+- **Primary Block Length:** $l = 7$ days (captures weekly cyclical persistence).
+- **Sensitivity Block Lengths:** $l = 3$ days and $l = 14$ days.
+- **Bootstrap Repetitions:** $B = 2000$ ($2{,}000$) resamples for Phase-3C primary inference.
+- **Multiple Testing:** Global Benjamini–Hochberg False Discovery Rate (BH-FDR, $\alpha = 0.05$) correction.
 
 ### Project-Specific Caution
-Resampling preserves serial correlation within blocks, but does not prove causal mechanisms or isolate non-meteorological emission interventions.
+Resampling preserves serial correlation within blocks, but does not prove causal mechanisms or isolate non-meteorological emission interventions. Statistical significance of temporal shift does not equal atmospheric causation.
 
 ---
 
@@ -120,19 +117,19 @@ $$
 Each coefficient $\beta_j$ represents the estimated marginal change in next-day AQI for a one-unit increase in predictor $x_j$, holding all other predictors fixed.
 
 ### Key Project Findings & Caution
-- **Model B (Persistence-Aware)** incorporates day-$t$ verified AQI as an autoregressive predictor, achieving $R^2 \approx 0.65$–$0.72$.
-- **Inertia Baseline:** In periods of stagnant weather, a naive single-day persistence heuristic ($\widehat{\text{AQI}}_{t+1} = \text{AQI}_t$) frequently achieves lower Mean Absolute Error (MAE) than fitted linear models, underscoring high baseline environmental inertia.
-- **Caution:** Linear models cannot represent nonlinear atmospheric chemistry or abrupt meteorological inversions.
+- **Model B (Persistence-Aware)** incorporates day-$t$ verified AQI as an autoregressive predictor and was selected on validation MAE across both scopes.
+- **Persistence Benchmark:** On frozen out-of-sample TEST and holdout evaluations, simple single-day persistence ($\widehat{\text{AQI}}_{t+1} = \text{AQI}_t$) retained lower primary Mean Absolute Error (MAE) than fitted linear models. The persistence benchmark was strong, reflecting high continuous temporal correlation.
+- **Caution:** Linear models cannot represent nonlinear boundaries or multi-pollutant interactions.
 
 ---
 
 ## 6. Logistic Regression (Probabilistic Adverse Event Classification)
 
 ### What It Is
-A generalized linear model for binary classification that estimates the posterior probability of next-day adverse air quality episodes via the logistic sigmoid function.
+A generalized linear model for binary classification that estimates the **conditional probability of the adverse class** for next-day air quality episodes via the logistic sigmoid function.
 
 ### Why This Project Used It
-Stakeholders and public health advisories often require probabilistic alerts for whether tomorrow's air will cross regulatory thresholds rather than exact continuous concentrations.
+Stakeholders and public health advisories benefit from probabilistic alerts indicating whether tomorrow's air will cross regulatory thresholds rather than uncalibrated point estimates.
 
 ### Key Formula
 
@@ -143,8 +140,10 @@ $$
 The log-odds (logit) transformation is linear:
 
 $$
-\ln\left(\frac{p}{1-p}\right) = \beta_0 + \sum_{j=1}^{p}\beta_j x_j
+\ln\left(\frac{\pi}{1-\pi}\right) = \beta_0 + \sum_{j=1}^{p}\beta_j x_j
 $$
+
+Where $\pi = P(Y=1\mid\mathbf{x})$ denotes the estimated conditional adverse-event probability.
 
 ### Target Definition
 The frozen supervised adverse event target is:
@@ -158,8 +157,12 @@ Where $\text{AQI}_{t+1} > 100$ designates Moderate, Poor, Very Poor, or Severe a
 ### How to Interpret It
 Exponentials of coefficients $\exp(\beta_j)$ correspond to multiplicative odds ratios. If $\exp(\beta_j) = 1.25$, a one-unit increase in $x_j$ multiplies the odds of an adverse event tomorrow by $1.25$.
 
-### Project-Specific Caution
-Under severe seasonal prevalence shifts (e.g., monsoon clearing where adverse prevalence drops to $2.3\%$), fixed threshold classification ($p^* = 0.50$) experiences a drastic drop in sensitivity. Model performance must be evaluated using threshold-independent Precision-Recall AUC (PR-AUC).
+### Decision Threshold Selection & Caution
+Logistic classification does **not** assume a universal default $p^* = 0.50$. Instead, operating decision thresholds were selected strictly on the **VALIDATION** split to maximize Balanced Accuracy and frozen prior to out-of-sample testing:
+- **Hyderabad Selected Threshold:** $p^* \approx \mathbf{0.311268}$ (`0.3112681`)
+- **India Selected Threshold:** $p^* \approx \mathbf{0.713448}$ (`0.713448`)
+
+Model performance is evaluated using threshold-independent Precision-Recall AUC (PR-AUC) alongside thresholded metrics.
 
 ---
 
@@ -169,64 +172,76 @@ Under severe seasonal prevalence shifts (e.g., monsoon clearing where adverse pr
 An unsupervised linear dimensionality reduction technique that projects correlated multi-sensor features onto an orthogonal set of principal axes maximizing explained variance.
 
 ### Why This Project Used It
-To evaluate the intrinsic dimensionality of urban air quality sensor arrays (PM2.5, PM10, O3, temperature, humidity, wind speed) and eliminate multicollinearity.
+To evaluate the intrinsic dimensionality of urban air quality sensor arrays and eliminate multicollinearity prior to clustering.
+- **Input Features ($p = 6$):** $\text{PM}_{2.5}$, $\text{PM}_{10}$, $\text{O}_3$, temperature, relative humidity, wind speed (standardized $z$-scores).
+- **Explicit Exclusions:** Composite AQI is excluded from input (avoids derivation circularity); unresolved gases ($\text{CO}, \text{NO}_2, \text{SO}_2$) are excluded.
 
 ### Key Formula
-Given the sample covariance or correlation matrix $S$, principal directions $\mathbf{v}_j$ and variance eigenvalues $\lambda_j$ satisfy the eigenvalue relation:
+Given the sample correlation matrix $S$, principal directions $\mathbf{v}_j$ and variance eigenvalues $\lambda_j$ satisfy:
 
 $$
-S\mathbf{v}_j = \lambda_j\mathbf{v}_j
+S\mathbf{v}_j = \lambda_j\mathbf{v}_j, \quad \text{subject to } \mathbf{v}_j^T \mathbf{v}_k = \delta_{jk}
 $$
 
-Subject to the orthogonality constraint:
+### Scope Independence & Retained Dimensions
+PCA was fitted independently for the two geographic panels:
+- **Hyderabad Panel:** Exactly **4 Principal Components** retained, explaining **$90.21\%$** cumulative variance ($\lambda_1=2.32, \lambda_2=1.41, \lambda_3=1.00, \lambda_4=0.69$).
+- **India Representative Panel:** Exactly **4 Principal Components** retained, explaining **$88.65\%$** cumulative variance ($\lambda_1=2.25, \lambda_2=1.47, \lambda_3=0.83, \lambda_4=0.76$).
 
-$$
-\mathbf{v}_j^T \mathbf{v}_k = \begin{cases} 1 & \text{if } j = k \\ 0 & \text{if } j \neq k \end{cases}
-$$
-
-### How to Interpret It
-- **PC1 (Particulate Axis):** Strong positive loadings on PM2.5 and PM10; tracks overall atmospheric particulate burden.
-- **PC2 (Photochemical / Thermal Axis):** Strong positive loadings on ozone and temperature with negative humidity; tracks secondary photochemical smog.
-- **Cumulative Variance:** The first 4 principal components account for $>83\%$ of total multi-sensor variance across both Hyderabad and India panels.
+### Latent Axis Descriptions
+Loadings differ between panels and are described by empirical data table contrasts:
+- **Particulate / Ventilation Contrast:** Particulate concentrations opposing wind speed and moisture.
+- **Thermal-Moisture Contrast:** Opposition between high temperature and relative humidity.
+- **Ozone-Dominated Axis:** Distinct variance contribution from $\text{O}_3$.
+- **Wind / Environmental Contrast:** Localized dispersion dynamics.
+*(Universal labels such as "Photochemical Smog Axis" are avoided).*
 
 ---
 
 ## 8. $K$-Means Clustering (Urban Pollution Regime Discovery)
 
 ### What It Is
-An iterative partitional clustering algorithm that partitions $N$ multi-sensor observations into $k$ discrete clusters, minimizing within-cluster sum of squares.
+An iterative partitional clustering algorithm that partitions observations in the 4-dimensional retained PCA space into $k$ discrete clusters, minimizing within-cluster sum of squares.
 
 ### Why This Project Used It
-To discover whether multi-station urban air quality organizes into discrete, reproducible environmental "regimes" across seasons and geography.
+To discover whether multi-station urban air quality organizes into discrete, reproducible environmental regimes across seasons and geography.
+
+### Methodology & Selection Rule
+- **Candidate Regimes:** $k \in \{2, 3, 4, 5, 6, 7, 8\}$ ($nstart=50$, deterministic seed).
+- **Selection Decision:** Disqualified candidate $k$ with small clusters ($< 2\%$ of history or $< 30$ observations) and maximized average silhouette width, subject to a within-0.01 parsimony tie rule. Within-cluster sum of squares (WSS) served as supportive context.
+- **Deterministic Outcome:** **$k = 3$ was selected for Hyderabad** and **$k = 3$ was selected for India**.
 
 ### Key Formula
 
 $$
-\underset{C_1,\ldots,C_k}{\operatorname{minimize}} \sum_{r=1}^{k} \sum_{\mathbf{x}_i\in C_r} \|\mathbf{x}_i-\boldsymbol{\mu}_r\|^2
+\underset{C_1,\ldots,C_k}{\operatorname{minimize}} \sum_{r=1}^{k} \sum_{\mathbf{z}_i\in C_r} \|\mathbf{z}_i-\boldsymbol{\mu}_r\|^2
 $$
 
-Where:
-- $\boldsymbol{\mu}_r = \frac{1}{|C_r|}\sum_{\mathbf{x}_i\in C_r}\mathbf{x}_i$ is the centroid of cluster $C_r$.
-- $\|\cdot\|$ denotes Euclidean distance in standardized feature space.
+Where $\mathbf{z}_i$ is the 4-dimensional PCA coordinate vector and $\boldsymbol{\mu}_r$ is the cluster centroid.
 
-### Regimes Discovered ($k=4$)
-1. **Cluster 1 — Clean / Scavenged:** Low particulates, moderate humidity, active dispersion.
-2. **Cluster 2 — Photochemical Moderate:** High ozone, elevated temperatures, moderate particulates.
-3. **Cluster 3 — Particulate High:** Elevated PM2.5 and PM10, stable nocturnal atmosphere.
-4. **Cluster 4 — Severe Inversion / Stagnation:** Extreme particulate concentrations, calm winds, low boundary layer.
+### Authoritative Table-Derived Cluster Regimes ($k=3$)
+- **Hyderabad Urban Regimes ($k=3$):**
+  1. `warm-dry-moderate-pollution`: Elevated temperature ($30.3^\circ\text{C}$), low humidity ($42.8\%$), moderate particulates.
+  2. `humid-windy-lower-pollution`: High humidity ($75.6\%$), elevated wind ($3.87\text{ m/s}$), low particulates.
+  3. `cool-low-wind-particulate-elevated`: Cooler temperature ($23.9^\circ\text{C}$), calm wind ($2.02\text{ m/s}$), elevated particulates.
+- **India Representative Regimes ($k=3$):**
+  1. `cool-low-wind-particulate-elevated`: Low temperature ($21.5^\circ\text{C}$), low wind ($1.80\text{ m/s}$), elevated particulate concentrations.
+  2. `hot-dry-ozone-pm10-elevated`: High temperature ($30.7^\circ\text{C}$), low humidity ($40.9\%$), elevated $\text{O}_3$ and $\text{PM}_{10}$.
+  3. `humid-windy-lower-pollution`: High humidity ($77.2\%$), active wind ($2.77\text{ m/s}$), lower overall pollution.
 
 ### Project-Specific Caution
-$K$-Means assumes isotropic (spherical) cluster geometries in normalized feature space and is sensitive to initialization. Deterministic seed locking is required for strict reproducibility.
+> [!CAUTION]
+> Cluster labels are **descriptive regime summaries**. They summarize empirical multi-sensor states and do not identify specific emission sources or atmospheric chemical mechanisms. Historical exploratory 4-cluster draft labels are completely superseded and retired in favor of table-derived empirical profiles.
 
 ---
 
 ## 9. Nonlinear Support Vector Machine (RBF Kernel Margin Classifier)
 
 ### What It Is
-A maximum-margin classifier that maps input predictor vectors into an infinite-dimensional feature space using the Radial Basis Function (RBF) kernel to construct an optimal separating hyperplane.
+A maximum-margin classifier that maps input predictor vectors into an implicit feature space using the Radial Basis Function (RBF) kernel to construct an optimal separating hyperplane.
 
 ### Why This Project Used It
-To test whether nonlinear decision boundaries provide superior discrimination for next-day adverse AQI boundary crossings compared to linear Logistic Model B and simple persistence.
+To test whether nonlinear decision boundaries provide superior ranking for next-day adverse AQI events compared to linear Logistic Model B and persistence.
 
 ### Key Formulas
 
@@ -236,28 +251,23 @@ $$
 K(\mathbf{x},\mathbf{x}') = \exp\left(-\gamma \|\mathbf{x}-\mathbf{x}'\|^2\right)
 $$
 
-**Continuous SVM Decision Function:**
-
-$$
-f(\mathbf{x}) = \operatorname{sgn}\left(\sum_{i=1}^{N_{sv}} \alpha_i y_i K(\mathbf{x}_i,\mathbf{x}) + b\right)
-$$
-
-Continuous margin score:
+**Continuous Margin Decision Score:**
 
 $$
 s(\mathbf{x}) = \sum_{i=1}^{N_{sv}} \alpha_i y_i K(\mathbf{x}_i,\mathbf{x}) + b
 $$
 
-Where:
-- $\mathbf{x}_i$: Support vectors with dual coefficients $\alpha_i > 0$.
-- $y_i \in \{-1, +1\}$: Ground truth adverse event indicators.
-- $\gamma$: RBF kernel bandwidth parameter ($\gamma > 0$).
-- $C$: Cost parameter penalizing margin slack violations.
+Hard classification uses the native decision boundary: $f(\mathbf{x}) = \operatorname{sgn}(s(\mathbf{x}))$.
+
+### Hyperparameter Selection
+Selected on **VALIDATION** split by PR-AUC:
+- **Hyderabad Panel:** Cost $C = 16.0$, Gamma $\gamma = 0.0100$
+- **India Panel:** Cost $C = 4.0$, Gamma $\gamma \approx 0.007575758$ (`0.0075758`)
 
 ### Key Project Findings & Limitation
-- On the heterogeneous 15-station India Representative Panel, RBF SVM ($C=4.0, \gamma=0.007576$) achieved **superior ranking on the locked TEST set** (PR-AUC $= 0.8335$ vs. Logistic Model B $= 0.8255$).
-- On native uncalibrated hard classification ($s(\mathbf{x}) \ge 0$), SVM achieved $F_1 = 0.7218$, substantially higher than Logistic Model B ($0.5794$) and comparable to persistence ($0.7267$).
-- **Caution:** In low-prevalence regimes (Hyderabad TEST with $2.3\%$ adverse events), the uncalibrated zero-threshold margin produced zero true positives ($F_1 = \text{NA}$), illustrating that flexible kernel boundaries require careful decision-threshold calibration under severe class imbalance.
+- On the India Representative Panel, RBF SVM achieved **superior PR-AUC ranking on the locked TEST set** ($0.8335$ vs. Logistic Model B $0.8255$).
+- Raw SVM decision scores $s(\mathbf{x})$ represent **uncalibrated event/classification rankings** (evaluated via PR-AUC), NOT calibrated posterior probabilities.
+- On native uncalibrated hard classification ($s(\mathbf{x}) \ge 0$), SVM achieved $F_1 = 0.7218$ on India TEST. In low-prevalence regimes (Hyderabad TEST with $2.3\%$ adverse rate), the native zero boundary yielded zero true positive predictions ($F_1 = \text{NA}$). Alternative operating thresholds or calibration could be evaluated as future extensions.
 
 ---
 
@@ -268,8 +278,8 @@ Where:
 | **MAE** | $\frac{1}{N}\sum \|y_i - \hat{y}_i\|$ | Continuous regression error | Evaluates average AQI point forecast deviation |
 | **RMSE** | $\sqrt{\frac{1}{N}\sum (y_i - \hat{y}_i)^2}$ | Continuous regression error | Penalizes large acute forecast misses |
 | **$R^2$** | $1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$ | Explained variance fraction | Assesses explanatory power of MLR specifications |
-| **PR-AUC** | $\int_0^1 p(r) \, dr$ | Probability ranking under imbalance | Primary model-selection metric for Logistic and SVM |
+| **PR-AUC** | $\int_0^1 p(r) \, dr$ | Classification / event ranking | Primary selection metric under class imbalance (evaluated tie-safely) |
 | **ROC-AUC** | $\int_0^1 \text{TPR}(\text{FPR}) \, d\text{FPR}$ | Diagnostic discrimination | Evaluates true positive vs. false positive tradeoff |
-| **Brier Score** | $\frac{1}{N}\sum (p_i - y_i)^2$ | Probability calibration | Evaluates accuracy and sharpness of probabilities |
-| **Native $F_1$** | $\frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$ | Hard classification balance | Harmonic mean of precision and recall at $p^*=0.5$ or $s(\mathbf{x})=0$ |
-| **Balanced Accuracy** | $\frac{\text{Sensitivity} + \text{Specificity}}{2}$ | Class-normalized accuracy | Prevents majority-class dominance in evaluation |
+| **Brier Score** | $\frac{1}{N}\sum (p_i - y_i)^2$ | Probabilistic scoring rule | Probability-error metric evaluating accuracy and sharpness of estimated probabilities |
+| **$F_1$ Score** | $\frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$ | Hard classification balance | Evaluated at frozen validation thresholds ($p^*$) for Logistic; at native margin boundary $s(\mathbf{x})=0$ for SVM |
+| **Balanced Accuracy** | $\frac{\text{Sensitivity} + \text{Specificity}}{2}$ | Class-normalized accuracy | Arithmetic mean of sensitivity and specificity, preventing majority-class dominance |

@@ -93,7 +93,8 @@
    * Routes the URL hash to the appropriate Markdown document.
    */
   function routeHash(manifest, contentPane) {
-    let hash = window.location.hash.replace(/^#/, "");
+    const urlParams = new URLSearchParams(window.location.search);
+    let hash = window.location.hash.replace(/^#/, "") || urlParams.get("section") || urlParams.get("doc");
     if (!hash) {
       hash = manifest.defaultSection;
     }
@@ -103,6 +104,13 @@
       const docPath = decodeURIComponent(hash.substring(4));
       loadDocument(docPath, contentPane);
       highlightActiveNav(null, docPath);
+      return;
+    }
+
+    // Special alias or direct anchor for theory
+    if (hash === "theory-eq") {
+      loadDocument("guide/theoretical_concepts.md", contentPane);
+      highlightActiveNav("theory", "guide/theoretical_concepts.md");
       return;
     }
 
@@ -136,7 +144,7 @@
   /**
    * Calls MarkdownRenderer to load and typeset the file.
    */
-  function loadDocument(sourcePath, contentPane) {
+  function loadDocument(sourcePath, contentPane, onDone) {
     if (window.MarkdownRenderer && window.MarkdownRenderer.loadDocument) {
       window.MarkdownRenderer.loadDocument(sourcePath, contentPane, function () {
         // Intercept internal markdown links rendered within the document
@@ -150,6 +158,9 @@
             }
           });
         });
+        if (typeof onDone === "function") {
+          onDone();
+        }
       });
     }
   }
@@ -163,6 +174,11 @@
       btn.classList.remove("active");
     });
 
+    const navItems = document.querySelectorAll(".doc-nav-item");
+    navItems.forEach(function (item) {
+      item.classList.remove("active");
+    });
+
     const subLinks = document.querySelectorAll(".doc-sub-link");
     subLinks.forEach(function (link) {
       link.classList.remove("active");
@@ -172,14 +188,17 @@
       const targetBtn = document.querySelector(`.doc-nav-item[data-section-id="${activeId}"] .doc-section-btn`);
       if (targetBtn) {
         targetBtn.classList.add("active");
+        const parentItem = targetBtn.closest(".doc-nav-item");
+        if (parentItem) parentItem.classList.add("active");
       }
 
       const targetSub = document.querySelector(`.doc-sub-link[data-sub-id="${activeId}"]`);
       if (targetSub) {
         targetSub.classList.add("active");
-        // Also highlight parent section button
+        // Also highlight parent section button and expand parent item
         const parentItem = targetSub.closest(".doc-nav-item");
         if (parentItem) {
+          parentItem.classList.add("active");
           const parentBtn = parentItem.querySelector(".doc-section-btn");
           if (parentBtn) parentBtn.classList.add("active");
         }

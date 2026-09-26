@@ -1,14 +1,17 @@
 # scripts/31_phase6A_build_archive.R
-# Phase 6A.1: Assembles and audits review_archive_phase6A1_light.zip
+# Phase 6A.2: Assembles and audits review_archive_phase6A2_light.zip
 
 cat("============================================================\n")
-cat("Phase 6A.1: Review Archive Builder & Membership Auditor\n")
+cat("Phase 6A.2: Review Archive Builder & Membership Auditor\n")
 cat("============================================================\n\n")
 
-archive_file <- "review_archive_phase6A1_light.zip"
-if (file.exists(archive_file)) {
-  cat("Removing existing archive:", archive_file, "\n")
-  unlink(archive_file)
+archive_file <- "review_archive_phase6A2_light.zip"
+old_archives <- c("review_archive_phase6A_light.zip", "review_archive_phase6A1_light.zip", archive_file)
+for (oa in old_archives) {
+  if (file.exists(oa)) {
+    cat("Removing existing archive:", oa, "\n")
+    unlink(oa)
+  }
 }
 
 # 1. Gather all files to include
@@ -36,6 +39,7 @@ canonical_docs <- c(
   "README.md",
   "docs/TEAM.md",
   "docs/WEBSITE_SCIENTIFIC_TRUTH.md",
+  "docs/WEBSITE_SCIENTIFIC_SOURCE_AUDIT.md",
   "docs/PACKAGE_REQUIREMENTS.md",
   "docs/WEBSITE_DOCUMENTATION_AUDIT.md",
   "docs/WEBSITE_LINK_AUDIT.md",
@@ -78,7 +82,8 @@ files_to_pack <- c(files_to_pack, test_files)
 # Phase reports
 reports_to_pack <- c(
   "phase_6A_static_website_foundation_report.md",
-  "phase_6A1_website_scientific_integrity_report.md"
+  "phase_6A1_website_scientific_integrity_report.md",
+  "phase_6A2_final_website_foundation_freeze_report.md"
 )
 files_to_pack <- c(files_to_pack, reports_to_pack[file.exists(reports_to_pack)])
 
@@ -117,9 +122,6 @@ if (!file.exists(archive_file)) {
 archive_bytes <- file.size(archive_file)
 cat(sprintf("Archive successfully created: %s (%.2f MB)\n\n", archive_file, archive_bytes / (1024 * 1024)))
 
-# Also create backwards-compatible review_archive_phase6A_light.zip copy
-file.copy(archive_file, "review_archive_phase6A_light.zip", overwrite = TRUE)
-
 # Perform Archive Membership Audit
 cat("--- Auditing Archive Membership ---\n")
 zip_contents <- utils::unzip(archive_file, list = TRUE)
@@ -144,6 +146,6 @@ if (any(audit_df$status != "PASS")) {
 }
 
 cat("\n============================================================\n")
-cat("SUCCESS: review_archive_phase6A1_light.zip is 100% self-contained!\n")
+cat(sprintf("SUCCESS: %s is 100%% self-contained!\n", archive_file))
 cat(sprintf("Total audited members: %d | All PASS\n", nrow(audit_df)))
 cat("============================================================\n")

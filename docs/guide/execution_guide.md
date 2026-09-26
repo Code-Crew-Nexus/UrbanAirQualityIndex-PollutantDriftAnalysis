@@ -50,7 +50,7 @@ This document outlines the structured execution history of the project from init
   - `data/processed/UAQI_Hyderabad_Daily.csv` (3,990 station-days)
   - `data/processed/UAQI_India_Daily.csv` (8,550 station-days)
   - `docs/reports/phase2_data_aqi_summary.md`
-- **Key Result:** Generated complete-case, authoritative daily panel datasets from **2025-03-01 through 2026-09-21** applying the verified-subset policy (`VERIFIED_SUBSET_PM25_PM10_O3`).
+- **Key Result:** Generated canonical daily panel datasets with missingness preserved and verified-subset AQI computed where sufficiency requirements were met from **2025-03-01 through 2026-09-21** applying the verified-subset policy (`VERIFIED_SUBSET_PM25_PM10_O3`).
 - **Important Limitation:** OpenAQ dual-unit tracking ended in 2022; because modern mass concentrations for CO, NO2, and SO2 cannot be independently cross-verified against official CPCB portals without scraping, those three gases were excluded from the sub-index to preserve absolute scientific authenticity.
 - **Related Figure / Screenshot:** CPCB breakpoint schedule and verified-subset policy detailed in [`docs/cpcb_aqi_methodology_verified.md`](../cpcb_aqi_methodology_verified.md).
 
@@ -139,7 +139,6 @@ This document outlines the structured execution history of the project from init
   - `docs/figures/phase5b_20_overall_svm_comparison_summary.png`
 - **Key Result:** On the India Representative Panel, RBF SVM ($C=4.0, \gamma=0.007576$) achieved **superior PR-AUC ranking on the locked TEST set ($0.8335$)** compared to Logistic Model B ($0.8255$) and elevated native hard-classification $F_1$ from $0.5794$ to $0.7218$.
 - **Important Limitation:** Raw SVM decision scores $s(\mathbf{x})$ are uncalibrated event rankings rather than probabilities. In low-prevalence regimes (Hyderabad TEST with $2.3\%$ adverse events), the native uncalibrated zero boundary produced zero true positives ($F_1 = \text{NA}$). Alternative operating thresholds or calibration could be evaluated as future extensions.
-- **Related Figure / Screenshot:** [`docs/figures/phase5b_20_overall_svm_comparison_summary.png`](../figures/phase5b_20_overall_svm_comparison_summary.png) and [`docs/figures/phase5b_10_test_prauc_comparison.png`](../figures/phase5b_10_test_prauc_comparison.png).
 - **Related Figure / Screenshot:** [`docs/figures/phase5b_20_overall_svm_comparison_summary.png`](../figures/phase5b_20_overall_svm_comparison_summary.png) and [`docs/figures/phase5b_10_test_prauc_comparison.png`](../figures/phase5b_10_test_prauc_comparison.png).
 
 ---

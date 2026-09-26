@@ -44,7 +44,7 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 
 ## 9. Key Supervised-Learning Findings
 - **Selected MLR family**: Model B (Persistence-Aware).
-- **Persistence benchmark**: Demonstrated a lower primary Mean Absolute Error (MAE) than MLR on frozen TEST and holdout evaluations, highlighting severe baseline inertia.
+- **Persistence benchmark**: Demonstrated a lower primary Mean Absolute Error (MAE) than MLR on frozen TEST and holdout evaluations, showing that persistence remained a strong benchmark.
 - **Selected Logistic family**: Model B (Persistence-Aware).
 - **Logistic Model B**: Achieved improved probability ranking and Brier scoring in several out-of-sample evaluations, especially the India subset.
 - **Hard threshold performance**: The fixed-threshold F1 classification remained highly sensitive to the temporal prevalence shifts observed during season transitions.
@@ -62,6 +62,8 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 The codebase uses strict functional decoupling and seed-locked statistical sampling to ensure deterministic execution for PCA, clustering, and bootstrap inference.
 
 ## 12. Running the Project
+
+The listed analytical scripts provide a concise phase-level execution guide. For full environment setup and step-by-step reproduction modes (Mode A: frozen review and Mode B: full reproduction), consult [`docs/guide/setup.md`](docs/guide/setup.md).
 
 ### A. R Analytical & Modeling Pipeline
 The scientific computation, statistical inference, and machine learning models remain strictly implemented in R.

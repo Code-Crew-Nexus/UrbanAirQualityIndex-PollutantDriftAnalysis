@@ -654,3 +654,165 @@ test_that("66. WEBSITE_LINK_AUDIT.md exists with zero broken links", {
   expect_true(grepl("| Broken Links (`BROKEN`) | 0 |", audit_txt, fixed = TRUE))
 })
 
+test_that("67. WEBSITE_SCIENTIFIC_TRUTH authority paths exist and match Level-1 assets", {
+  truth_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md")
+  expect_true(file.exists(truth_path))
+  truth_txt <- read_file_text(truth_path)
+  
+  # A) Must reference actual repository paths
+  expect_true(grepl("config/aqi_breakpoints_india.csv", truth_txt, fixed = TRUE))
+  expect_true(grepl("config/final_aqi_input_policy.yml", truth_txt, fixed = TRUE))
+  expect_true(grepl("scripts/09_phase2E_generate_final_aqi.R", truth_txt, fixed = TRUE))
+  expect_true(grepl("scripts/11_phase3B_pollutant_drift.R", truth_txt, fixed = TRUE))
+  expect_true(grepl("scripts/12_phase3C_statistical_inference.R", truth_txt, fixed = TRUE))
+  expect_true(grepl("config/modeling_specification.yml", truth_txt, fixed = TRUE))
+  
+  # B) Must NOT reference obsolete paths
+  expect_false(grepl("scripts/08_drift_analysis.R", truth_txt, fixed = TRUE))
+  expect_false(grepl("scripts/09_statistical_inference.R", truth_txt, fixed = TRUE))
+  expect_false(grepl("config/cpcb_breakpoints.csv", truth_txt, fixed = TRUE))
+  expect_false(grepl("scripts/06_calculate_aqi.R", truth_txt, fixed = TRUE))
+})
+
+test_that("68. Model B feature contract is exact (Model A + aqi_verified, zero rolling stats)", {
+  truth_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md")
+  truth_txt <- read_file_text(truth_path)
+  
+  # C & D) Exact feature contract
+  expect_true(grepl("Model B = Model A + aqi_verified", truth_txt, fixed = TRUE) ||
+              grepl("Model B} = \\text{Model A} + \\text{aqi\\_verified}", truth_txt, fixed = TRUE))
+  expect_true(grepl("Zero Rolling Statistics", truth_txt, fixed = TRUE) ||
+              grepl("no extra rolling-statistic predictors", truth_txt, fixed = TRUE))
+  expect_false(grepl("including lag-1 AQI and rolling statistics", truth_txt, fixed = TRUE))
+})
+
+test_that("69. MODELING_FREEZE_SUMMARY does not contain obsolete p*=0.50 threshold", {
+  freeze_path <- file.path(docs_dir, "MODELING_FREEZE_SUMMARY.md")
+  expect_true(file.exists(freeze_path))
+  freeze_txt <- read_file_text(freeze_path)
+  
+  # E & F) Validation thresholds vs 0.50
+  expect_false(grepl("p* = 0.50", freeze_txt, fixed = TRUE))
+  expect_false(grepl("p\\* = 0.50", freeze_txt, fixed = TRUE))
+  expect_true(grepl("0.311268", freeze_txt, fixed = TRUE))
+  expect_true(grepl("0.713448", freeze_txt, fixed = TRUE))
+})
+
+test_that("70. MODELING_FREEZE_SUMMARY is free of manufactured R2, monsoon clearing, and speculative PCA/KMeans claims", {
+  freeze_path <- file.path(docs_dir, "MODELING_FREEZE_SUMMARY.md")
+  freeze_txt <- read_file_text(freeze_path)
+  
+  # G) Cleaned language
+  expect_false(grepl("monsoon clearing", freeze_txt, ignore.case = TRUE))
+  expect_false(grepl("0.65–0.72", freeze_txt, fixed = TRUE))
+  expect_false(grepl("0.65-0.72", freeze_txt, fixed = TRUE))
+  expect_false(grepl("photochemical axis", freeze_txt, ignore.case = TRUE))
+  expect_false(grepl("clear separation", freeze_txt, ignore.case = TRUE))
+  expect_false(grepl("periods of high environmental inertia", freeze_txt, ignore.case = TRUE))
+  
+  # Required positive neutral language
+  expect_true(grepl("90.21%", freeze_txt, fixed = TRUE))
+  expect_true(grepl("88.65%", freeze_txt, fixed = TRUE))
+  expect_true(grepl("three-regime partition", freeze_txt, fixed = TRUE) ||
+              grepl("K=3", freeze_txt, fixed = TRUE))
+})
+
+test_that("71. Execution guide does not claim complete-case daily panel datasets", {
+  exec_path <- file.path(docs_dir, "guide", "execution_guide.md")
+  expect_true(file.exists(exec_path))
+  exec_txt <- read_file_text(exec_path)
+  
+  # H) Missingness preserved in daily panels
+  expect_false(grepl("complete-case, authoritative daily panel datasets", exec_txt, fixed = TRUE))
+  expect_true(grepl("missingness preserved", exec_txt, ignore.case = TRUE))
+})
+
+test_that("72. Phase 5B Related Figure link in execution guide is deduplicated", {
+  exec_path <- file.path(docs_dir, "guide", "execution_guide.md")
+  exec_lines <- readLines(exec_path, warn = FALSE)
+  phase5b_start <- grep("Phase 5B — Nonlinear Support Vector Machine", exec_lines)
+  expect_true(length(phase5b_start) > 0)
+  
+  phase6_start <- grep("Phase 6 — Static Project Website", exec_lines)
+  phase5b_lines <- exec_lines[phase5b_start:phase6_start]
+  related_fig_count <- sum(grepl("Related Figure / Screenshot", phase5b_lines))
+  expect_equal(related_fig_count, 1)
+})
+
+test_that("73. Phase-6A.1 report vendor versions match VENDOR_MANIFEST.md", {
+  p6a1_path <- file.path(repo_root, "phase_6A1_website_scientific_integrity_report.md")
+  expect_true(file.exists(p6a1_path))
+  p6a1_txt <- read_file_text(p6a1_path)
+  
+  # I) Vendor versions
+  expect_true(grepl("12.0.2", p6a1_txt, fixed = TRUE))
+  expect_true(grepl("5.0.1", p6a1_txt, fixed = TRUE))
+  expect_true(grepl("0.16.11", p6a1_txt, fixed = TRUE))
+  expect_true(grepl("4.4.3", p6a1_txt, fixed = TRUE))
+  expect_false(grepl("15.0.7", p6a1_txt, fixed = TRUE))
+  expect_false(grepl("0.16.21", p6a1_txt, fixed = TRUE))
+  expect_false(grepl("4.4.8", p6a1_txt, fixed = TRUE))
+  expect_false(grepl("O3 (8-hr max / daily avg)", p6a1_txt, fixed = TRUE))
+})
+
+test_that("74. Panel counts remain exactly 21 unique, 7 Hyderabad, 15 India, 1 overlap", {
+  truth_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md")
+  truth_txt <- read_file_text(truth_path)
+  
+  # J) Panel counts
+  expect_true(grepl("21 physical stations", truth_txt, fixed = TRUE))
+  expect_true(grepl("7 stations", truth_txt, fixed = TRUE))
+  expect_true(grepl("15 stations", truth_txt, fixed = TRUE))
+  expect_true(grepl("Zoo Park", truth_txt, fixed = TRUE) && grepl("both", truth_txt, fixed = TRUE))
+})
+
+test_that("75. Drift magnitude cutoff thresholds are strictly 0.5, 1.0, 2.0", {
+  truth_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_TRUTH.md")
+  truth_txt <- read_file_text(truth_path)
+  
+  # K) Exact numeric cutoffs
+  expect_true(grepl("0.5", truth_txt, fixed = TRUE))
+  expect_true(grepl("1.0", truth_txt, fixed = TRUE))
+  expect_true(grepl("2.0", truth_txt, fixed = TRUE))
+  expect_false(grepl("0.20", truth_txt, fixed = TRUE))
+  expect_false(grepl("0.80", truth_txt, fixed = TRUE))
+})
+
+test_that("76. WEBSITE_SCIENTIFIC_SOURCE_AUDIT.md exists and validates all 11 authority paths", {
+  audit_path <- file.path(docs_dir, "WEBSITE_SCIENTIFIC_SOURCE_AUDIT.md")
+  expect_true(file.exists(audit_path))
+  audit_txt <- read_file_text(audit_path)
+  
+  expect_true(grepl("AUDIT_COMPLETE_100_PERCENT_PASS", audit_txt, fixed = TRUE))
+  expect_true(grepl("Missing Authority Paths:** **0 (ZERO)**", audit_txt, fixed = TRUE))
+  
+  # Verify every cited authority path actually exists on the filesystem
+  cited_paths <- c(
+    "data/processed/UAQI_Master_Daily.csv",
+    "config/selected_stations.csv",
+    "config/aqi_breakpoints_india.csv",
+    "config/final_aqi_input_policy.yml",
+    "scripts/09_phase2E_generate_final_aqi.R",
+    "scripts/11_phase3B_pollutant_drift.R",
+    "scripts/12_phase3C_statistical_inference.R",
+    "config/modeling_specification.yml",
+    "config/phase4B_selected_models.yml",
+    "config/phase4C_selected_models.yml",
+    "config/phase5B_selected_svm.yml"
+  )
+  for (cp in cited_paths) {
+    expect_true(file.exists(file.path(repo_root, cp)))
+  }
+})
+
+test_that("77. README.md uses restrained persistence phrasing and references setup.md", {
+  readme_path <- file.path(repo_root, "README.md")
+  expect_true(file.exists(readme_path))
+  readme_txt <- read_file_text(readme_path)
+  
+  expect_false(grepl("highlighting severe baseline inertia", readme_txt, ignore.case = TRUE))
+  expect_true(grepl("showing that persistence remained a strong benchmark", readme_txt, fixed = TRUE))
+  expect_true(grepl("docs/guide/setup.md", readme_txt, fixed = TRUE))
+})
+
+

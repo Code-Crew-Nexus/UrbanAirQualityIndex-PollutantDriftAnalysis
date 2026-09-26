@@ -105,7 +105,7 @@ project_summary <- list(
     included_pollutants = list("PM2.5", "PM10", "O3"),
     excluded_pollutants = list("CO", "NO2", "SO2"),
     adverse_threshold = "AQI_(t+1) > 100",
-    description = "Applies official CPCB linear sub-index interpolation using verified PM2.5, PM10, and trailing 8-hour O3. CO, NO2, and SO2 remain excluded due to unresolved unit semantics in modern OpenAQ streams."
+    description = "Applies official CPCB linear sub-index interpolation using verified PM2.5, PM10, and daily maximum rolling 8-hour ozone (o3_8h_max). CO, NO2, and SO2 remain excluded due to unresolved unit semantics in modern OpenAQ streams."
   ),
   team = list(
     list(name = "Mangali Sai Krishna", roll_number = "24R11A6669", github = "@Saikrishna-dev-oss"),

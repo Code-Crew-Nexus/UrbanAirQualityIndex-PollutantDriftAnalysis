@@ -19,7 +19,7 @@ I_p = \frac{I_{high}-I_{low}}{BP_{high}-BP_{low}}(C_p-BP_{low}) + I_{low}
 $$
 
 Where:
-- $C_p$: 24-hour truncated average concentration (or trailing 8-hour maximum for $\text{O}_3$).
+- $C_p$: 24-hour truncated average concentration (or daily maximum rolling 8-hour ozone (`o3_8h_max`) for $\text{O}_3$).
 - $[BP_{low}, BP_{high}]$: Regulatory breakpoint interval enclosing $C_p$.
 - $[I_{low}, I_{high}]$: Sub-index category range corresponding to the breakpoint interval.
 - Final composite index: $I = \max(I_1, I_2, \dots, I_m)$.

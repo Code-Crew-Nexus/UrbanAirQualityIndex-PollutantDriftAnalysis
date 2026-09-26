@@ -31,6 +31,10 @@ RBF SVM classification comparison
 SVM integration + final modeling freeze  
 **COMPLETE: `v0.6-svm-freeze`**
 
-### Phase 6
-Static Project Website (HTML5/CSS3/Vanilla JS for GitHub Pages)  
-**IN DEVELOPMENT**
+### Phase 6A
+Static Project Website Foundation, Markdown Engine & Mathematical Rendering  
+**FOUNDATION FROZEN**
+
+### Phase 6B
+Interactive Scientific Integration (Explore Data + Statistical Analysis + Machine Learning)  
+**INTERACTIVE SCIENTIFIC INTEGRATION — READY FOR REVIEW**

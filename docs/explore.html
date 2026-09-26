@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore Data | Urban Air Quality Index &amp; Pollutant Drift Analysis</title>
-  <meta name="description" content="Explore Data placeholder for the Urban Air Quality Index and Pollutant Drift Analysis project.">
+  <meta name="description" content="Interactive time-series explorer for verified air quality and meteorology across 21 Indian CAAQMS stations.">
   
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
@@ -38,22 +38,137 @@
 
   <!-- Main Content Container -->
   <main class="main-content">
-    <div class="placeholder-container">
-      <span class="placeholder-badge">Phase 6B Scope</span>
-      <h1 class="placeholder-title">Explore Multi-Station Sensor Data</h1>
-      <p class="placeholder-text">
-        Scientific integration is being added in Phase 6B.
-      </p>
-
-      <div class="placeholder-notice">
-        <strong>Strict Data Policy Notice:</strong> This project does not render synthetic data, mock time series, or fabricated chart visualizations.
-        In Phase 6B, this view will provide interactive temporal exploration of the 11,970 verified daily observations across the 21 physical monitoring stations using Chart.js powered by exported canonical JSON summaries.
+    <div class="dashboard-container">
+      
+      <!-- Page Header -->
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Explore Multi-Station Sensor Observations</h1>
+        <p class="dashboard-subtitle">
+          Interactive temporal visualization of 11,970 scheduled station-day observations across 21 physical CAAQMS stations spanning 570 calendar days (March 1, 2025 to September 21, 2026).
+        </p>
       </div>
 
-      <div class="action-group" style="justify-content: center;">
-        <a href="documentation.html#theory-schema" class="btn btn-primary">View Dataset Schema</a>
-        <a href="documentation.html#exec-phase2" class="btn btn-secondary">Read Phase 2 Report</a>
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar" role="region" aria-label="Data filter controls">
+        <div class="filter-group">
+          
+          <div class="filter-item">
+            <label for="filter-scope">Study Scope</label>
+            <select id="filter-scope" class="filter-control">
+              <option value="Hyderabad" selected>Hyderabad</option>
+              <option value="India Representative Panel">India Representative Panel</option>
+            </select>
+          </div>
+
+          <div class="filter-item" style="flex: 2 1 260px;">
+            <label for="filter-station">Monitoring Station</label>
+            <select id="filter-station" class="filter-control">
+              <!-- Dynamically populated from stations.json -->
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-variable">Variable</label>
+            <select id="filter-variable" class="filter-control">
+              <option value="AQI" selected>AQI</option>
+              <option value="PM2.5">PM2.5</option>
+              <option value="PM10">PM10</option>
+              <option value="O3">O3</option>
+              <option value="Temperature">Temperature</option>
+              <option value="Humidity">Humidity</option>
+              <option value="Wind Speed">Wind Speed</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-start-date">Start Date</label>
+            <input type="date" id="filter-start-date" class="filter-control" min="2025-03-01" max="2026-09-21" value="2026-06-24">
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-end-date">End Date</label>
+            <input type="date" id="filter-end-date" class="filter-control" min="2025-03-01" max="2026-09-21" value="2026-09-21">
+          </div>
+
+          <div class="filter-actions">
+            <button id="btn-preset-90d" class="btn-filter active" title="Show latest 90 calendar days">Latest 90 Days</button>
+            <button id="btn-preset-full" class="btn-filter" title="Show full 570-day study period">Full Study Period</button>
+          </div>
+
+        </div>
       </div>
+
+      <!-- Empty State Notice (hidden by default) -->
+      <div id="explore-empty-state" class="empty-state-notice" style="display: none;">
+        <div class="empty-state-icon">⚠️</div>
+        <div class="empty-state-text">No valid observations are available for this selection.</div>
+        <p style="font-size: 0.875rem; margin-top: 0.5rem; color: var(--graphite-muted);">
+          The selected station does not possess valid sensor records within the chosen temporal window. Try expanding the date range.
+        </p>
+      </div>
+
+      <!-- Main Chart Card -->
+      <div id="explore-chart-card" class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <h2 id="chart-title" class="chart-card-title">Verified CPCB AQI</h2>
+            <div id="chart-subtitle" class="chart-card-subtitle">Loading station observations...</div>
+          </div>
+        </div>
+
+        <div class="chart-canvas-wrapper">
+          <canvas id="exploreChart" aria-label="Interactive time-series line chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Summary Statistics KPI Cards (Max 4 per row) -->
+      <div class="metric-card-grid">
+        <div class="metric-card">
+          <span class="metric-card-label">Valid Observations</span>
+          <span id="metric-valid-obs" class="metric-card-value">—</span>
+          <span class="metric-card-sub">In selected window</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Arithmetic Mean</span>
+          <span id="metric-mean" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Descriptive central tendency</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Median (50th %ile)</span>
+          <span id="metric-median" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Robust non-parametric measure</span>
+        </div>
+
+        <div class="metric-card">
+          <span id="metric-latest-label" class="metric-card-label">Latest Valid AQI</span>
+          <span id="metric-latest-val" class="metric-card-value">—</span>
+          <span id="metric-latest-date" class="metric-card-sub">Latest observation date</span>
+        </div>
+      </div>
+
+      <!-- Secondary Range Cards (Min and Max) -->
+      <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 2rem;">
+        <div class="metric-card">
+          <span class="metric-card-label">Minimum Observed</span>
+          <span id="metric-min" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Lowest valid observation</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Maximum Observed</span>
+          <span id="metric-max" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Peak valid observation</span>
+        </div>
+      </div>
+
+      <!-- Scientific Methodological Notice -->
+      <div class="notice-card">
+        <strong>CPCB Methodology &amp; Missingness Policy:</strong>
+        AQI is calculated via the verified 3-pollutant subset (PM<sub>2.5</sub>, PM<sub>10</sub>, and daily maximum rolling 8-hour ozone `o3_8h_max`). Under project sufficiency rules, if any of these three pollutants lacks valid daily coverage, the composite AQI is recorded as missing (<code>null</code>) and omitted from descriptive averages. Unverified gases (CO, NO<sub>2</sub>, SO<sub>2</sub>) are strictly excluded from composite AQI due to upstream unit ambiguities. All metrics reflect frozen historical study data; no real-time or live monitoring is implied.
+      </div>
+
     </div>
   </main>
 
@@ -99,6 +214,9 @@
     </div>
   </footer>
 
-  <script src="assets/js/common.js"></script>
+  <!-- Scripts: Local Vendored Chart.js + Common Data Utils + Explore Logic -->
+  <script src="assets/vendor/chart.umd.min.js"></script>
+  <script src="assets/js/data-utils.js"></script>
+  <script src="assets/js/explore.js"></script>
 </body>
 </html>

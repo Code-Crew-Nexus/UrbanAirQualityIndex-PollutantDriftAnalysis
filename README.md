@@ -40,7 +40,7 @@ The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, re
 7. Logistic Regression
 8. PCA / K-Means — COMPLETE
 9. RBF SVM — COMPLETE
-10. Static Project Website — IN DEVELOPMENT
+10. Static Project Website — INTERACTIVE SCIENTIFIC INTEGRATION — READY FOR REVIEW
 
 ## 9. Key Supervised-Learning Findings
 - **Selected MLR family**: Model B (Persistence-Aware).
@@ -145,8 +145,8 @@ Frozen modeling milestones:
 - `v0.5-unsupervised-freeze` — COMPLETE (Unsupervised learning: PCA & K-Means)
 - `v0.6-svm-freeze` — COMPLETE (Nonlinear classification: RBF SVM)
 
-Next / In Progress:
-**PHASE 6 — STATIC HTML/CSS/JS PROJECT WEBSITE (IN DEVELOPMENT)**  
+Next / Current Phase:
+**PHASE 6 — STATIC HTML/CSS/JS PROJECT WEBSITE: INTERACTIVE SCIENTIFIC INTEGRATION — READY FOR REVIEW**  
 Target deployment: GitHub Pages.
 
 ## 17. License

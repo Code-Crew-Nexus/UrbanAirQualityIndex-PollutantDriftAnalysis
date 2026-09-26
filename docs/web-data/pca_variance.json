@@ -1,0 +1,86 @@
+[
+  {
+    "scope": "Hyderabad",
+    "PC": "PC1",
+    "eigenvalue": 2.3198,
+    "variance_explained": 0.3866,
+    "cumulative_variance": 0.3866
+  },
+  {
+    "scope": "Hyderabad",
+    "PC": "PC2",
+    "eigenvalue": 1.4067,
+    "variance_explained": 0.2345,
+    "cumulative_variance": 0.6211
+  },
+  {
+    "scope": "Hyderabad",
+    "PC": "PC3",
+    "eigenvalue": 0.9953,
+    "variance_explained": 0.1659,
+    "cumulative_variance": 0.787
+  },
+  {
+    "scope": "Hyderabad",
+    "PC": "PC4",
+    "eigenvalue": 0.6909,
+    "variance_explained": 0.1151,
+    "cumulative_variance": 0.9021
+  },
+  {
+    "scope": "Hyderabad",
+    "PC": "PC5",
+    "eigenvalue": 0.3786,
+    "variance_explained": 0.0631,
+    "cumulative_variance": 0.9652
+  },
+  {
+    "scope": "Hyderabad",
+    "PC": "PC6",
+    "eigenvalue": 0.2086,
+    "variance_explained": 0.0348,
+    "cumulative_variance": 1
+  },
+  {
+    "scope": "India",
+    "PC": "PC1",
+    "eigenvalue": 2.2517,
+    "variance_explained": 0.3753,
+    "cumulative_variance": 0.3753
+  },
+  {
+    "scope": "India",
+    "PC": "PC2",
+    "eigenvalue": 1.4682,
+    "variance_explained": 0.2447,
+    "cumulative_variance": 0.62
+  },
+  {
+    "scope": "India",
+    "PC": "PC3",
+    "eigenvalue": 0.835,
+    "variance_explained": 0.1392,
+    "cumulative_variance": 0.7592
+  },
+  {
+    "scope": "India",
+    "PC": "PC4",
+    "eigenvalue": 0.7638,
+    "variance_explained": 0.1273,
+    "cumulative_variance": 0.8865
+  },
+  {
+    "scope": "India",
+    "PC": "PC5",
+    "eigenvalue": 0.4254,
+    "variance_explained": 0.0709,
+    "cumulative_variance": 0.9574
+  },
+  {
+    "scope": "India",
+    "PC": "PC6",
+    "eigenvalue": 0.2558,
+    "variance_explained": 0.0426,
+    "cumulative_variance": 1
+  }
+]

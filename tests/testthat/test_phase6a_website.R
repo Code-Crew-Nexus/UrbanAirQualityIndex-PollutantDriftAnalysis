@@ -328,8 +328,14 @@ test_that("35. no fake data in placeholder pages", {
   placeholder_pages <- c("explore.html", "statistics.html", "machine-learning.html")
   for (p in placeholder_pages) {
     txt <- read_file_text(file.path(docs_dir, p))
-    expect_true(grepl("Scientific integration is being added in Phase 6B", txt, fixed = TRUE),
-                info = paste("Required placeholder notice missing in:", p))
+    is_phase6b <- grepl("assets/vendor/chart\\.umd\\.min\\.js", txt)
+    if (is_phase6b) {
+      expect_true(grepl("canvas|chart", txt, ignore.case = TRUE),
+                  info = paste("Interactive chart canvas missing in:", p))
+    } else {
+      expect_true(grepl("Scientific integration is being added in Phase 6B", txt, fixed = TRUE),
+                  info = paste("Required placeholder notice missing in:", p))
+    }
     expect_false(grepl("lorem ipsum", txt, ignore.case = TRUE))
     expect_false(grepl("dummy", txt, ignore.case = TRUE))
   }

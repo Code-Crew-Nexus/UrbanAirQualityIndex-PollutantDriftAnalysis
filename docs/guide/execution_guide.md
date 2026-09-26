@@ -39,7 +39,7 @@ This document outlines the structured execution history of the project from init
   - OpenAQ v3 API hourly concentrations
   - Open-Meteo Historical Weather API hourly surface weather
   - `config/final_aqi_input_policy.yml`
-- **Method:** Strict chronological chunked acquisition, SHA-256 raw data hashing, UTC to Indian Standard Time (`Asia/Kolkata`) conversion, trailing 8-hour ozone rolling evaluation, and segmented linear interpolation based on verified CPCB breakpoint tables.
+- **Method:** Strict chronological chunked acquisition, SHA-256 raw data hashing, UTC to Indian Standard Time (`Asia/Kolkata`) conversion, daily maximum rolling 8-hour ozone (`o3_8h_max`) evaluation, and segmented linear interpolation based on verified CPCB breakpoint tables.
 - **Key Script(s):**
   - `scripts/03_build_datasets.R`
   - `scripts/04b_phase2B_full_acquisition.R`

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Statistical Analysis | Urban Air Quality Index &amp; Pollutant Drift Analysis</title>
-  <meta name="description" content="Statistical Analysis placeholder for the Urban Air Quality Index and Pollutant Drift Analysis project.">
+  <meta name="description" content="Standardized pollutant drift (Dz) and moving-block bootstrap statistical inference across 21 CAAQMS monitoring stations.">
   
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
@@ -38,22 +38,225 @@
 
   <!-- Main Content Container -->
   <main class="main-content">
-    <div class="placeholder-container">
-      <span class="placeholder-badge">Phase 6B Scope</span>
-      <h1 class="placeholder-title">EDA, Pollutant Drift &amp; Statistical Inference</h1>
-      <p class="placeholder-text">
-        Scientific integration is being added in Phase 6B.
-      </p>
-
-      <div class="placeholder-notice">
-        <strong>Strict Data Policy Notice:</strong> This project does not render synthetic data, mock time series, or fabricated chart visualizations.
-        In Phase 6B, this view will feature interactive station drift tables ($D_z$), seasonal distribution shifts, and moving-block bootstrap confidence intervals derived directly from frozen Phase 3 artifacts.
+    <div class="dashboard-container">
+      
+      <!-- Page Header -->
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Statistical Analysis &amp; Pollutant Drift</h1>
+        <p class="dashboard-subtitle">
+          Rigorous temporal drift quantification (<i>D<sub>z</sub></i>) and block-bootstrapped statistical hypothesis testing (<i>B</i> = 2000, <i>l</i> = 7) with global Benjamini–Hochberg False Discovery Rate control.
+        </p>
       </div>
 
-      <div class="action-group" style="justify-content: center;">
-        <a href="documentation.html#theory-core" class="btn btn-primary">Read Drift Theory</a>
-        <a href="documentation.html#exec-phase3" class="btn btn-secondary">Read Phase 3 Report</a>
+      <!-- Filter Controls Toolbar -->
+      <div class="filter-toolbar" role="region" aria-label="Statistical filter controls">
+        <div class="filter-group">
+          
+          <div class="filter-item">
+            <label for="stat-filter-scope">Study Scope</label>
+            <select id="stat-filter-scope" class="filter-control">
+              <option value="Hyderabad" selected>Hyderabad</option>
+              <option value="India Representative Panel">India Representative Panel</option>
+            </select>
+          </div>
+
+          <div class="filter-item" style="flex: 2 1 260px;">
+            <label for="stat-filter-station">Monitoring Station</label>
+            <select id="stat-filter-station" class="filter-control">
+              <!-- Dynamically populated from stations.json -->
+            </select>
+          </div>
+
+          <div class="filter-item" style="flex: 1.5 1 220px;">
+            <label for="stat-filter-variable">Pollutant / Variable</label>
+            <select id="stat-filter-variable" class="filter-control">
+              <option value="aqi_verified" selected>AQI (Verified Composite)</option>
+              <option value="pm2_5_aqi_input">PM2.5 (24-hr avg)</option>
+              <option value="pm10_aqi_input">PM10 (24-hr avg)</option>
+              <option value="o3_8h_max">O3 (daily max 8h)</option>
+              <option value="co_source_mean">CO (Source-Scale)</option>
+              <option value="no2_source_mean">NO2 (Source-Scale)</option>
+              <option value="so2_source_mean">SO2 (Source-Scale)</option>
+            </select>
+          </div>
+
+        </div>
       </div>
+
+      <!-- Two Internal Tabs -->
+      <div class="tab-group" role="tablist" aria-label="Statistical Analysis Views">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-drift" id="tab-btn-drift">
+          Pollutant Drift (<i>D<sub>z</sub></i>)
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-inference" id="tab-btn-inference">
+          Statistical Inference (MBB &amp; BH-FDR)
+        </button>
+      </div>
+
+      <!-- TAB 1: Pollutant Drift -->
+      <div id="tab-drift" class="tab-pane active" role="tabpanel" aria-labelledby="tab-btn-drift">
+        
+        <!-- 4 Principal Metric Cards (Max 4 per row) -->
+        <div class="metric-card-grid">
+          <div class="metric-card">
+            <span class="metric-card-label">Standardized Shift (<i>D<sub>z</sub></i>)</span>
+            <span id="drift-dz" class="metric-card-value">—</span>
+            <span class="metric-card-sub"><span id="drift-direction">Direction</span> vs baseline standard deviation</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Drift Magnitude Class</span>
+            <span id="drift-magnitude" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Classification: Minimal / Mild / Mod / Strong</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Recent Window Mean</span>
+            <span id="drift-recent-mean" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Rolling 30-day window mean</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Baseline Window Mean</span>
+            <span id="drift-baseline-mean" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Preceding non-overlapping 90-day mean</span>
+          </div>
+        </div>
+
+        <!-- Metadata Info Grid -->
+        <div class="metric-card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Recent Coverage</span>
+            <span id="drift-recent-days" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">—</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Baseline Coverage</span>
+            <span id="drift-baseline-days" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">—</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Evaluation As-Of Date</span>
+            <span id="drift-as-of" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">2026-09-21</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Eligibility Status</span>
+            <span id="drift-status" style="font-size: 0.85rem; font-weight: 700;">—</span>
+          </div>
+        </div>
+
+        <!-- Supporting Comparison Chart -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Recent vs. Baseline Mean Concentration</h2>
+              <div class="chart-card-subtitle">Comparison between rolling 30-day evaluation window and preceding 90-day baseline</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" style="height: 320px;">
+            <canvas id="driftComparisonChart" aria-label="Recent vs baseline mean bar chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Interpretive Mathematical Caution -->
+        <div class="notice-card">
+          <strong>Drift Metric Interpretation Caution:</strong>
+          The standardized mean shift <i>D<sub>z</sub></i> = (<i>x̄</i><sub>recent</sub> &minus; <i>x̄</i><sub>baseline</sub>) / <i>s</i><sub>baseline</sub> divides the observed window difference by the <em>baseline standard deviation</em> (<i>s</i><sub>baseline</sub>), not pooled variance. <i>D<sub>z</sub></i> serves as a descriptive measure of magnitude and is <strong>not</strong> a hypothesis-test <i>z</i>-statistic. Magnitude thresholds strictly adhere to frozen empirical cutoffs: Minimal (|<i>D<sub>z</sub></i>| &lt; 0.5), Mild (0.5 &le; |<i>D<sub>z</sub></i>| &lt; 1.0), Moderate (1.0 &le; |<i>D<sub>z</sub></i>| &lt; 2.0), and Strong (|<i>D<sub>z</sub></i>| &ge; 2.0).
+        </div>
+
+      </div>
+
+      <!-- TAB 2: Statistical Inference -->
+      <div id="tab-inference" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-inference">
+        
+        <!-- Inference Evidence KPI Cards (Max 4 per row) -->
+        <div class="metric-card-grid">
+          <div class="metric-card">
+            <span class="metric-card-label">Inference Status</span>
+            <span id="inf-tested" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Eligibility requirement (≥21 / ≥63 days)</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Support Direction</span>
+            <span id="inf-support" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Directional significance</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Global BH-FDR (<i>q</i>-value)</span>
+            <span id="inf-bh-q" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Benjamini–Hochberg adjusted (&alpha; = 0.05)</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Block-7 Bootstrap 95% CI</span>
+            <span id="inf-ci" class="metric-card-value" style="font-size: 1.25rem;">—</span>
+            <span class="metric-card-sub">Moving-block bootstrap (<i>B</i> = 2000, <i>l</i> = 7)</span>
+          </div>
+        </div>
+
+        <!-- Secondary Effect Sizes (3 cards) -->
+        <div class="metric-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 1.5rem;">
+          <div class="metric-card">
+            <span class="metric-card-label">Hedges' <i>g</i> (Bias-Corrected)</span>
+            <span id="inf-hedges" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Parametric standardized mean difference</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Cliff's <i>&delta;</i> (Non-Parametric)</span>
+            <span id="inf-cliffs" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Dominance effect size</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Block Length Robustness</span>
+            <span id="inf-robust" class="metric-card-value" style="font-size: 1.15rem;">—</span>
+            <span class="metric-card-sub">Agreement across <i>l</i> = 3, 7, 14 days</span>
+          </div>
+        </div>
+
+        <!-- Explanatory Finding Notice -->
+        <div id="inf-notice" class="notice-card" style="margin-bottom: 1.75rem;">
+          Loading inferential evaluation...
+        </div>
+
+        <!-- Station-Wide All-Variable Table -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Station Pollutant Drift &amp; Inference Profile</h2>
+              <div class="chart-card-subtitle">Summary of all 7 variables evaluated at the chosen station as of September 21, 2026</div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="scientific-table" aria-label="Station inference overview table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Drift <i>D<sub>z</sub></i></th>
+                  <th>Magnitude</th>
+                  <th>Tested</th>
+                  <th>Support Direction</th>
+                  <th>BH-FDR <i>q</i>-value</th>
+                  <th>Bootstrap 95% CI</th>
+                </tr>
+              </thead>
+              <tbody id="station-inference-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Methodological Standards Notice -->
+      <div class="notice-card" style="margin-top: 1.5rem;">
+        <strong>Scientific Distinction Policy:</strong>
+        Particulate variables (PM<sub>2.5</sub>, PM<sub>10</sub>), daily maximum rolling 8-hour ozone (`o3_8h_max`), and composite AQI represent verified physical units. Gaseous pollutants (CO, NO<sub>2</sub>, SO<sub>2</sub>) are evaluated strictly as within-series source-scale quantities to detect temporal shifts without converting to regulatory concentrations or applying CPCB AQI breakpoints. Findings indicate statistical associations within observed time-series and do not infer atmospheric causality.
+      </div>
+
     </div>
   </main>
 
@@ -99,6 +302,9 @@
     </div>
   </footer>
 
-  <script src="assets/js/common.js"></script>
+  <!-- Scripts: Local Vendored Chart.js + Common Data Utils + Statistics Logic -->
+  <script src="assets/vendor/chart.umd.min.js"></script>
+  <script src="assets/js/data-utils.js"></script>
+  <script src="assets/js/statistics.js"></script>
 </body>
 </html>

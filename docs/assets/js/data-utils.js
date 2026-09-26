@@ -107,7 +107,7 @@
     } else if (val <= 100) {
       return { category: 'Satisfactory', color: '#689F38', textClass: 'aqi-satisfactory' };
     } else if (val <= 200) {
-      return { category: 'Moderate', color: '#FBC02D', textClass: 'aqi-moderate' };
+      return { category: 'Moderately Polluted', color: '#FBC02D', textClass: 'aqi-moderate' };
     } else if (val <= 300) {
       return { category: 'Poor', color: '#F57C00', textClass: 'aqi-poor' };
     } else if (val <= 400) {
@@ -124,7 +124,7 @@
     'AQI': {
       key: 'aqi_verified',
       label: 'AQI',
-      fullLabel: 'Verified CPCB AQI (PM2.5, PM10, O3)',
+      fullLabel: 'Verified-Subset AQI (PM2.5, PM10, O3)',
       unit: 'Index units',
       decimals: 1,
       isAQI: true
@@ -148,7 +148,7 @@
     'O3': {
       key: 'o3_8h_max',
       label: 'O3',
-      fullLabel: 'daily maximum rolling 8-hour ozone (o3_8h_max)',
+      fullLabel: 'Daily maximum rolling 8-hour ozone (o3_8h_max)',
       unit: 'µg/m³',
       decimals: 2,
       isAQI: false

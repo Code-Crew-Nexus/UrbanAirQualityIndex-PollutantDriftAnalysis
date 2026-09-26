@@ -71,7 +71,7 @@
               <label for="reg-filter-scope">Study Scope</label>
               <select id="reg-filter-scope" class="filter-control">
                 <option value="Hyderabad" selected>Hyderabad</option>
-                <option value="India">India</option>
+                <option value="India">India Representative Panel</option>
               </select>
             </div>
 
@@ -142,7 +142,7 @@
               <label for="cls-filter-scope">Study Scope</label>
               <select id="cls-filter-scope" class="filter-control">
                 <option value="Hyderabad">Hyderabad</option>
-                <option value="India" selected>India</option>
+                <option value="India" selected>India Representative Panel</option>
               </select>
             </div>
 
@@ -164,7 +164,7 @@
           <div class="chart-card-header">
             <div>
               <h2 class="chart-card-title">Adverse Event Discrimination Metrics</h2>
-              <div class="chart-card-subtitle">Comparison of Precision-Recall Area (PR-AUC) and F1 Score at validation-tuned decision thresholds</div>
+              <div class="chart-card-subtitle">Comparison of ranking performance and hard-classification F1 under each model's frozen operating rule.</div>
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 350px;">
@@ -208,9 +208,11 @@
         <!-- Model Type Distinction Notice -->
         <div class="notice-card">
           <strong>Decision Threshold &amp; Margin Semantics:</strong>
-          Operating probability thresholds (<i>p</i>* &approx; 0.3113 Hyderabad, <i>p</i>* &approx; 0.7134 India) were tuned exclusively on the Validation split to maximize Balanced Accuracy under temporal prevalence shifts.
-          Logistic Regression outputs a calibrated posterior probability; RBF SVM outputs an uncalibrated signed decision distance to the hyperplane <i>s</i>(<b>x</b>), where <i>s</i>(<b>x</b>) = 0 is the native margin boundary.
-          Brier Score is defined and reported strictly for probabilistic models (Logistic Model B, Persistence) and is <strong>not</strong> calculated for uncalibrated SVM margins.
+          Operating rules differ across model paradigms:
+          Logistic Model B evaluates an estimated adverse-event probability (estimated conditional probability of AQI(<i>t</i>+1) &gt; 100) against a validation-selected threshold (<i>p</i>* &approx; 0.311268 in Hyderabad, <i>p</i>* &approx; 0.713448 in India).
+          RBF SVM evaluates an uncalibrated signed decision score <i>s</i>(<b>x</b>), where <i>s</i>(<b>x</b>) = 0 is the native classification boundary.
+          Persistence serves as a deterministic current-day adverse-state benchmark: AQI(<i>t</i>) &gt; 100.
+          Brier score is reported for Logistic probability predictions and the binary 0/1 persistence benchmark (SVM decision scores are non-probabilistic, so SVM Brier score remains null).
         </div>
 
       </div>
@@ -225,7 +227,7 @@
               <label for="regime-filter-scope">Study Scope</label>
               <select id="regime-filter-scope" class="filter-control">
                 <option value="Hyderabad" selected>Hyderabad</option>
-                <option value="India">India</option>
+                <option value="India">India Representative Panel</option>
               </select>
             </div>
           </div>
@@ -251,7 +253,7 @@
           <div class="chart-card-header">
             <div>
               <h2 class="chart-card-title">Environmental Feature Space (PC1 × PC2 Projection)</h2>
-              <div class="chart-card-subtitle">Station-day observations projected onto the first two principal axes, colored by <i>K</i> = 3 cluster partition</div>
+              <div class="chart-card-subtitle">Station-day observations projected onto the first two principal axes, colored by <i>K</i> = 3 cluster partition. Note: Component loadings differ by geographic panel; interpretations are reported separately in the PCA documentation.</div>
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 480px;">

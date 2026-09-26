@@ -552,3 +552,165 @@ test_that("60: All relative script and stylesheet assets in scientific pages res
     }
   }
 })
+
+# ------------------------------------------------------------------------------
+# PHASE 6B.1 HARDENING & AUDIT CONTRACT TESTS (61 - 77)
+# ------------------------------------------------------------------------------
+
+test_that("61: Prohibit 'Verified CPCB AQI' in interactive website templates and scripts", {
+  check_files <- c(
+    file.path(repo_root, "docs", "explore.html"),
+    file.path(repo_root, "docs", "assets", "js", "data-utils.js"),
+    file.path(repo_root, "docs", "assets", "js", "documentation-manifest.js"),
+    file.path(repo_root, "docs", "assets", "js", "statistics.js")
+  )
+  for (cf in check_files) {
+    txt <- readLines(cf, warn = FALSE)
+    content <- paste(txt, collapse = " ")
+    expect_false(grepl("Verified CPCB AQI", content), info = paste("Outdated 'Verified CPCB AQI' found in:", cf))
+    expect_true(grepl("Verified-Subset AQI", content), info = paste("Missing 'Verified-Subset AQI' in:", cf))
+  }
+})
+
+test_that("62: AQI category 101-200 maps to 'Moderately Polluted' in data-utils.js", {
+  du_txt <- readLines(file.path(repo_root, "docs", "assets", "js", "data-utils.js"), warn = FALSE)
+  content <- paste(du_txt, collapse = " ")
+  expect_true(grepl("category:\\s*'Moderately Polluted'", content))
+  expect_false(grepl("category:\\s*'Moderate'", content))
+})
+
+test_that("63: Ozone label in data-utils.js and statistics.js is capitalized", {
+  for (f in c("data-utils.js", "statistics.js")) {
+    txt <- readLines(file.path(repo_root, "docs", "assets", "js", f), warn = FALSE)
+    content <- paste(txt, collapse = " ")
+    expect_true(grepl("Daily maximum rolling 8-hour ozone \\(o3_8h_max\\)", content), info = paste("Missing capitalized ozone in:", f))
+    expect_false(grepl("daily maximum rolling 8-hour ozone \\(o3_8h_max\\)", content), info = paste("Found uncapitalized ozone in:", f))
+  }
+})
+
+test_that("64: Classification operating-rule semantics in machine-learning.html", {
+  ml_html <- readLines(file.path(repo_root, "docs", "machine-learning.html"), warn = FALSE)
+  content <- paste(ml_html, collapse = " ")
+  expect_true(grepl("Comparison of ranking performance and hard-classification F1 under each model's frozen operating rule", content, fixed = TRUE))
+  expect_false(grepl("calibrated posterior probability", content, ignore.case = TRUE))
+  expect_true(grepl("estimated adverse-event probability", content))
+  expect_true(grepl("uncalibrated signed decision score", content))
+  expect_true(grepl("<i>s</i>(<b>x</b>) = 0 is the native classification boundary", content, fixed = TRUE))
+  expect_true(grepl("AQI(<i>t</i>) &gt; 100", content, fixed = TRUE))
+  expect_true(grepl("Brier score is reported for Logistic probability predictions", content, fixed = TRUE))
+})
+
+test_that("65: Classification chart legend in machine-learning.js reflects frozen operating rule", {
+  ml_js <- readLines(file.path(repo_root, "docs", "assets", "js", "machine-learning.js"), warn = FALSE)
+  content <- paste(ml_js, collapse = " ")
+  expect_true(grepl("F1 Score \\(Frozen Operating Rule\\)", content))
+  expect_false(grepl("F1 Score \\(Validation-Tuned Operating Threshold\\)", content))
+})
+
+test_that("66: Regression interpretation in machine-learning.js avoids overstatement", {
+  ml_js <- readLines(file.path(repo_root, "docs", "assets", "js", "machine-learning.js"), warn = FALSE)
+  content <- paste(ml_js, collapse = " ")
+  expect_true(grepl("the persistence benchmark remains competitive / stronger on the primary MAE comparison", content, fixed = TRUE))
+  expect_false(grepl("atmospheric persistence remains a competitive baseline on holdout evaluations", content, fixed = TRUE))
+})
+
+test_that("67: PCA scatter axes in machine-learning.js use neutral PC1 and PC2 titles", {
+  ml_js <- readLines(file.path(repo_root, "docs", "assets", "js", "machine-learning.js"), warn = FALSE)
+  content <- paste(ml_js, collapse = " ")
+  expect_true(grepl("text:\\s*'Principal Component 1 \\(PC1\\)'", content))
+  expect_true(grepl("text:\\s*'Principal Component 2 \\(PC2\\)'", content))
+  expect_false(grepl("Particulate & Sensor Magnitude", content))
+  expect_false(grepl("Photochemical & Thermal Gradient", content))
+})
+
+test_that("68: PCA card in machine-learning.html includes geographic panel loadings note", {
+  ml_html <- readLines(file.path(repo_root, "docs", "machine-learning.html"), warn = FALSE)
+  content <- paste(ml_html, collapse = " ")
+  expect_true(grepl("Component loadings differ by geographic panel; interpretations are reported separately in the PCA documentation", content, fixed = TRUE))
+})
+
+test_that("69: Drift direction mapping in statistics.js uses exported drift_direction and avoids Near baseline", {
+  stat_js <- readLines(file.path(repo_root, "docs", "assets", "js", "statistics.js"), warn = FALSE)
+  content <- paste(stat_js, collapse = " ")
+  expect_true(grepl("dRow\\.drift_direction === 'upward'", content))
+  expect_true(grepl("dRow\\.drift_direction === 'downward'", content))
+  expect_false(grepl("Near baseline", content))
+})
+
+test_that("70: Statistical Analysis station defaults to first eligible station for AQI drift", {
+  stat_js <- readLines(file.path(repo_root, "docs", "assets", "js", "statistics.js"), warn = FALSE)
+  content <- paste(stat_js, collapse = " ")
+  expect_true(grepl("d.variable === 'aqi_verified' && d.eligible === true", content, fixed = TRUE))
+})
+
+test_that("71: Scope labels consistently display 'India Representative Panel' across pages", {
+  pages <- c("explore.html", "statistics.html", "machine-learning.html")
+  for (pg in pages) {
+    txt <- readLines(file.path(repo_root, "docs", pg), warn = FALSE)
+    content <- paste(txt, collapse = " ")
+    expect_true(grepl("India Representative Panel", content), info = paste("Missing 'India Representative Panel' in:", pg))
+    # Ensure options with value="India" display "India Representative Panel"
+    expect_true(grepl("<option value=\"India\"[^>]*>India Representative Panel</option>", content), info = paste("Malformed India option in:", pg))
+  }
+})
+
+test_that("72: Deep-linking normalizers in JS files handle scope and variable aliases", {
+  for (f in c("explore.js", "statistics.js", "machine-learning.js")) {
+    txt <- readLines(file.path(repo_root, "docs", "assets", "js", f), warn = FALSE)
+    content <- paste(txt, collapse = " ")
+    expect_true(grepl("normalizeScope", content), info = paste("Missing normalizeScope in:", f))
+  }
+  # explore.js handles variable aliases
+  exp_js <- readLines(file.path(repo_root, "docs", "assets", "js", "explore.js"), warn = FALSE)
+  exp_content <- paste(exp_js, collapse = " ")
+  expect_true(grepl("normalizeVariable", exp_content))
+})
+
+test_that("73: Classification chart in machine-learning.js preserves null metrics without coercing to 0", {
+  ml_js <- readLines(file.path(repo_root, "docs", "assets", "js", "machine-learning.js"), warn = FALSE)
+  content <- paste(ml_js, collapse = " ")
+  expect_true(grepl("r\\.PR_AUC !== null \\? r\\.PR_AUC : null", content))
+  expect_true(grepl("r\\.F1 !== null \\? r\\.F1 : null", content))
+})
+
+test_that("74: Single-class holdout policy in machine-learning.js hides chart and shows notice", {
+  ml_js <- readLines(file.path(repo_root, "docs", "assets", "js", "machine-learning.js"), warn = FALSE)
+  content <- paste(ml_js, collapse = " ")
+  expect_true(grepl("isSingleClass", content))
+  expect_true(grepl("clsChartWrapper\\.style\\.display = 'none'", content))
+  expect_true(grepl("clsNoticeCard\\.style\\.display = 'block'", content))
+})
+
+test_that("75: Archive dependency audit table exists and is 100% PASS", {
+  audit_path <- file.path(repo_root, "analysis", "phase6B", "tables", "phase6B_archive_dependency_audit.csv")
+  expect_true(file.exists(audit_path))
+  audit_df <- read.csv(audit_path, stringsAsFactors = FALSE)
+  expect_equal(nrow(audit_df), 19)
+  expect_true(all(audit_df$status == "PASS"))
+  expect_true(all(audit_df$in_project == TRUE))
+})
+
+test_that("76: All 9 review screenshots exist and exceed 10 KB", {
+  expected_screens <- c(
+    "01_explore_aqi_1440x900.png",
+    "02_explore_pm25_1440x900.png",
+    "03_stat_drift_eligible_1440x900.png",
+    "04_stat_inference_tested_1440x900.png",
+    "05_ml_regression_1440x900.png",
+    "06_ml_classification_india_test_1440x900.png",
+    "07_ml_classification_hyd_holdout_1440x900.png",
+    "08_ml_regimes_hyderabad_1440x900.png",
+    "09_ml_regimes_india_1440x900.png"
+  )
+  for (scr in expected_screens) {
+    p <- file.path(repo_root, "analysis", "phase6B", "ui_review", scr)
+    expect_true(file.exists(p), info = paste("Missing screenshot:", scr))
+    expect_gt(file.size(p), 10000, label = paste("Screenshot too small:", scr))
+  }
+})
+
+test_that("77: review_archive_phase6B1_light.zip exists and exceeds 2 MB", {
+  arch_path <- file.path(repo_root, "review_archive_phase6B1_light.zip")
+  expect_true(file.exists(arch_path))
+  expect_gt(file.size(arch_path), 2000000)
+})

@@ -41,7 +41,7 @@ const DOCUMENTATION_MANIFEST = {
       badge: "Mathematics",
       subItems: [
         { id: "theory-core", title: "Theoretical Foundations & Cautions", source: "guide/theoretical_concepts.md" },
-        { id: "theory-cpcb", title: "Verified CPCB AQI Methodology", source: "cpcb_aqi_methodology_verified.md" },
+        { id: "theory-cpcb", title: "Verified-Subset AQI Methodology", source: "cpcb_aqi_methodology_verified.md" },
         { id: "theory-sources", title: "Data Sources & Provenance", source: "data_sources.md" },
         { id: "theory-schema", title: "Canonical Dataset Schema", source: "dataset_schema.md" }
       ]

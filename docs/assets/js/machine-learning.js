@@ -116,7 +116,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  function normalizeScope(scopeStr) {
+    if (!scopeStr) return null;
+    const s = decodeURIComponent(scopeStr).trim().toLowerCase();
+    if (s === 'hyderabad') return 'Hyderabad';
+    if (s === 'india' || s === 'india representative panel') return 'India';
+    return null;
+  }
+
   function initControls() {
+    // Deep-linking URL params for scope and split
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('scope')) {
+      const normScope = normalizeScope(urlParams.get('scope'));
+      if (normScope) {
+        regScopeSelect.value = normScope;
+        clsScopeSelect.value = normScope;
+        regimeScopeSelect.value = normScope;
+      }
+    }
+    if (urlParams.has('split')) {
+      const splitParam = urlParams.get('split');
+      if (splitParam === 'TEST' || splitParam === 'Recent Holdout') {
+        regSplitSelect.value = splitParam;
+        clsSplitSelect.value = splitParam;
+      }
+    }
+
     regScopeSelect.addEventListener('change', updateRegressionView);
     regSplitSelect.addEventListener('change', updateRegressionView);
 
@@ -240,7 +266,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <strong>Empirical Evaluation Summary (${scope} Panel — ${split}):</strong>
       Model B (${split} MAE: ${modelB.MAE.toFixed(2)}, RMSE: ${modelB.RMSE.toFixed(2)}) incorporates verified environmental variables and same-day AQI.
       ${comparisonText}
-      Findings indicate that while linear features capture broad seasonal tendencies, atmospheric persistence remains a competitive baseline on holdout evaluations.
+      Findings indicate that while linear features capture broad seasonal tendencies, the persistence benchmark remains competitive / stronger on the primary MAE comparison.
     `;
   }
 
@@ -277,8 +303,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (clsChart) clsChart.destroy();
 
     const modelLabels = rows.map(r => r.model);
-    const praucValues = rows.map(r => r.PR_AUC !== null ? r.PR_AUC : 0);
-    const f1Values = rows.map(r => r.F1 !== null ? r.F1 : 0);
+    const praucValues = rows.map(r => r.PR_AUC !== null ? r.PR_AUC : null);
+    const f1Values = rows.map(r => r.F1 !== null ? r.F1 : null);
 
     const ctx = clsChartCanvas.getContext('2d');
     clsChart = new Chart(ctx, {
@@ -295,7 +321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             borderRadius: 4
           },
           {
-            label: 'F1 Score (Validation-Tuned Operating Threshold)',
+            label: 'F1 Score (Frozen Operating Rule)',
             data: f1Values,
             backgroundColor: 'rgba(196, 154, 88, 0.85)',
             borderColor: '#C49A58',
@@ -316,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             callbacks: {
               label: function (ctx) {
                 const val = ctx.parsed.y;
-                return `${ctx.dataset.label}: ${val > 0 ? val.toFixed(4) : 'Undefined'}`;
+                return `${ctx.dataset.label}: ${val !== null && val !== undefined ? val.toFixed(4) : 'Undefined'}`;
               }
             }
           }
@@ -460,7 +486,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           x: {
             title: {
               display: true,
-              text: 'Principal Component 1 (Particulate & Sensor Magnitude)',
+              text: 'Principal Component 1 (PC1)',
               color: DataUtils.THEME.graphiteDark,
               font: { family: 'inherit', size: 12, weight: 600 }
             },
@@ -469,7 +495,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           y: {
             title: {
               display: true,
-              text: 'Principal Component 2 (Photochemical & Thermal Gradient)',
+              text: 'Principal Component 2 (PC2)',
               color: DataUtils.THEME.graphiteDark,
               font: { family: 'inherit', size: 12, weight: 600 }
             },

@@ -35,6 +35,6 @@ SVM integration + final modeling freeze
 Static Project Website Foundation, Markdown Engine & Mathematical Rendering  
 **FOUNDATION FROZEN**
 
-### Phase 6B
-Interactive Scientific Integration (Explore Data + Statistical Analysis + Machine Learning)  
-**INTERACTIVE SCIENTIFIC INTEGRATION — READY FOR REVIEW**
+### Phase 6B / 6B.1
+Interactive Scientific Integration & Semantic Integrity Hardening  
+**INTERACTIVE SCIENTIFIC WEBSITE FROZEN — BROWSER QA VERIFIED — READY FOR PHASE 6C**

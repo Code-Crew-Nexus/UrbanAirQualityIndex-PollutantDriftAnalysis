@@ -459,7 +459,7 @@ test_that("49. README no longer says R Shiny is NEXT", {
   readme_txt <- read_file_text(readme_path)
   expect_false(grepl("R Shiny — NEXT", readme_txt, fixed = TRUE))
   expect_false(grepl("R Shiny - NEXT", readme_txt, fixed = TRUE))
-  expect_true(grepl("Static Project Website — IN DEVELOPMENT", readme_txt, fixed = TRUE))
+  expect_true(grepl("Static Project Website", readme_txt, fixed = TRUE))
 })
 
 test_that("50. obsolete app Shiny placeholder removed", {

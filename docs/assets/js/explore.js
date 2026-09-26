@@ -71,6 +71,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  function normalizeScope(scopeStr) {
+    if (!scopeStr) return null;
+    const s = decodeURIComponent(scopeStr).trim().toLowerCase();
+    if (s === 'hyderabad') return 'Hyderabad';
+    if (s === 'india' || s === 'india representative panel') return 'India';
+    return null;
+  }
+
+  function normalizeVariable(varStr) {
+    if (!varStr) return null;
+    const clean = decodeURIComponent(varStr).trim().toLowerCase().replace(/[-_\s.]/g, '');
+    if (clean === 'aqi' || clean === 'aqiverified') return 'AQI';
+    if (clean === 'pm25' || clean === 'pm25aqiinput') return 'PM2.5';
+    if (clean === 'pm10' || clean === 'pm10aqiinput') return 'PM10';
+    if (clean === 'o3' || clean === 'ozone' || clean === 'o38hmax') return 'O3';
+    if (clean === 'temperature' || clean === 'temp') return 'Temperature';
+    if (clean === 'humidity' || clean === 'rh') return 'Humidity';
+    if (clean === 'windspeed' || clean === 'wind') return 'Wind Speed';
+    return null;
+  }
+
   function initFilters() {
     // Set date defaults
     startDateInput.min = STUDY_MIN_DATE;
@@ -113,17 +134,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     // URL parameters for deep-linking
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('scope')) {
-      const s = urlParams.get('scope');
-      if (s === 'Hyderabad' || s === 'India') {
+      const s = normalizeScope(urlParams.get('scope'));
+      if (s) {
         scopeSelect.value = s;
         populateStations(s);
       }
     }
     if (urlParams.has('station')) {
-      stationSelect.value = urlParams.get('station');
+      const stParam = urlParams.get('station');
+      const optExists = Array.from(stationSelect.options).some(o => o.value === stParam);
+      if (optExists) {
+        stationSelect.value = stParam;
+      }
     }
     if (urlParams.has('variable')) {
-      variableSelect.value = urlParams.get('variable');
+      const v = normalizeVariable(urlParams.get('variable'));
+      if (v) {
+        variableSelect.value = v;
+      }
     }
     if (urlParams.has('start')) {
       startDateInput.value = urlParams.get('start');

@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Variable Display Configuration
   const STAT_VARIABLES = [
-    { key: 'aqi_verified', label: 'AQI', full: 'Verified CPCB AQI', unit: 'Index units', verified: true },
+    { key: 'aqi_verified', label: 'AQI', full: 'Verified-Subset AQI', unit: 'Index units', verified: true },
     { key: 'pm2_5_aqi_input', label: 'PM2.5', full: 'Fine Particulate Matter (PM2.5)', unit: 'µg/m³', verified: true },
     { key: 'pm10_aqi_input', label: 'PM10', full: 'Coarse Particulate Matter (PM10)', unit: 'µg/m³', verified: true },
-    { key: 'o3_8h_max', label: 'O3', full: 'daily maximum rolling 8-hour ozone (o3_8h_max)', unit: 'µg/m³', verified: true },
+    { key: 'o3_8h_max', label: 'O3', full: 'Daily maximum rolling 8-hour ozone (o3_8h_max)', unit: 'µg/m³', verified: true },
     { key: 'co_source_mean', label: 'CO (Source)', full: 'Carbon Monoxide (Source Scale)', unit: 'raw units', verified: false },
     { key: 'no2_source_mean', label: 'NO2 (Source)', full: 'Nitrogen Dioxide (Source Scale)', unit: 'raw units', verified: false },
     { key: 'so2_source_mean', label: 'SO2 (Source)', full: 'Sulphur Dioxide (Source Scale)', unit: 'raw units', verified: false }
@@ -115,23 +115,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  function initControls() {
-    populateStations('Hyderabad');
+  function normalizeScope(scopeStr) {
+    if (!scopeStr) return null;
+    const s = decodeURIComponent(scopeStr).trim().toLowerCase();
+    if (s === 'hyderabad') return 'Hyderabad';
+    if (s === 'india' || s === 'india representative panel') return 'India';
+    return null;
+  }
 
-    // Deep link filters
+  function initControls() {
+    // Check URL parameters for deep-linking before initial station population
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('scope')) {
-      const s = urlParams.get('scope');
-      if (s === 'Hyderabad' || s === 'India') {
-        scopeSelect.value = s;
-        populateStations(s);
+    const scopeParam = urlParams.get('scope');
+    const normScope = normalizeScope(scopeParam) || 'Hyderabad';
+    scopeSelect.value = normScope;
+    
+    populateStations(normScope);
+
+    if (urlParams.has('station')) {
+      const stParam = urlParams.get('station');
+      const exists = Array.from(stationSelect.options).some(o => o.value === stParam);
+      if (exists) {
+        stationSelect.value = stParam;
       }
     }
-    if (urlParams.has('station')) {
-      stationSelect.value = urlParams.get('station');
-    }
     if (urlParams.has('variable')) {
-      variableSelect.value = urlParams.get('variable');
+      const v = urlParams.get('variable');
+      const match = STAT_VARIABLES.find(sv => sv.key === v || sv.label.toLowerCase() === v.toLowerCase());
+      if (match) {
+        variableSelect.value = match.key;
+      } else if (Array.from(variableSelect.options).some(o => o.value === v)) {
+        variableSelect.value = v;
+      }
     }
 
     scopeSelect.addEventListener('change', () => {
@@ -163,8 +178,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const exists = Array.from(stationSelect.options).some(o => o.value === prevStation);
     if (exists && prevStation) {
       stationSelect.value = prevStation;
-    } else if (stationSelect.options.length > 0) {
-      stationSelect.selectedIndex = 0;
+    } else {
+      // Deterministically default to first configured station in scope where variable == 'aqi_verified' and eligible == TRUE
+      const eligibleStation = filteredStations.find(st => {
+        return driftData.some(d => d.project_station_id === st.project_station_id && d.variable === 'aqi_verified' && d.eligible === true);
+      });
+      if (eligibleStation) {
+        stationSelect.value = eligibleStation.project_station_id;
+      } else if (stationSelect.options.length > 0) {
+        stationSelect.selectedIndex = 0;
+      }
     }
   }
 
@@ -218,13 +241,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       driftRecentMeanElem.textContent = `${dRow.recent_mean.toFixed(2)} ${varMeta.unit}`;
       driftBaselineMeanElem.textContent = `${dRow.baseline_mean.toFixed(2)} ${varMeta.unit}`;
 
-      // Signed direction
-      if (Math.abs(dzVal) < 0.1) {
-        driftDirectionElem.textContent = 'Near baseline';
-      } else if (dzVal > 0) {
+      // Signed direction directly from exported drift_direction
+      if (dRow.drift_direction === 'upward' || (!dRow.drift_direction && dzVal > 0)) {
         driftDirectionElem.textContent = 'Increase';
-      } else {
+      } else if (dRow.drift_direction === 'downward' || (!dRow.drift_direction && dzVal < 0)) {
         driftDirectionElem.textContent = 'Decrease';
+      } else {
+        driftDirectionElem.textContent = 'Undefined';
       }
 
       driftStatusElem.innerHTML = `<span class="badge-evidence badge-decrease">Eligible for Drift Evaluation</span>`;

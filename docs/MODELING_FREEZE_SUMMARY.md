@@ -3,7 +3,7 @@
 **Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
 **Organization:** `Code-Crew-Nexus`  
 **Academic Context:** Statistics for Machine Learning (SML) Project Based Learning (PBL)  
-**Status:** Frozen Pre-Shiny Baseline
+**Status:** Frozen Modeling Baseline (v0.6-svm-freeze)
 
 ---
 
@@ -57,4 +57,4 @@ This document summarizes the final accepted modeling artifacts developed across 
 
 ## Conclusion & Milestone Transition
 
-The statistical / machine-learning model-development stage is frozen. Phase 6 integrates these accepted artifacts into R Shiny without silently retraining models.
+The statistical / machine-learning model-development stage is frozen. Phase 6 integrates these accepted artifacts into a static project website (HTML5/CSS3/Vanilla JS hosted on GitHub Pages) that consumes frozen results produced by R, without retraining models.

@@ -32,5 +32,5 @@ SVM integration + final modeling freeze
 **COMPLETE: `v0.6-svm-freeze`**
 
 ### Phase 6
-R Shiny integration  
-**NEXT**
+Static Project Website (HTML5/CSS3/Vanilla JS for GitHub Pages)  
+**IN DEVELOPMENT**

@@ -1,0 +1,67 @@
+{
+  "project_name": "UrbanAirQualityIndex-PollutantDriftAnalysis",
+  "course": "Statistics for Machine Learning (SML)",
+  "framework": "Project Based Learning (PBL)",
+  "organization": "Code-Crew-Nexus",
+  "study_scope": {
+    "geographic_coverage": "Hyderabad Metropolitan & India Representative National Network",
+    "total_physical_stations": 21,
+    "hyderabad_stations": 7,
+    "india_representative_stations": 15,
+    "overlap_stations": 1
+  },
+  "study_period": {
+    "start_date": "2025-03-01",
+    "end_date": "2026-09-21",
+    "total_study_days": 570,
+    "total_station_days": 11970
+  },
+  "modeling_baseline": {
+    "latest_tag": "v0.6-svm-freeze",
+    "previous_tags": [
+      "v0.4-supervised-freeze",
+      "v0.5-unsupervised-freeze"
+    ],
+    "status": "FROZEN",
+    "description": "Nonlinear RBF SVM classification, PCA/K-Means unsupervised regimes, and MLR/Logistic regression baselines permanently locked."
+  },
+  "aqi_policy": {
+    "policy_name": "VERIFIED_SUBSET_PM25_PM10_O3",
+    "label": "CPCB-Methodology-Aligned Verified-Subset AQI",
+    "included_pollutants": [
+      "PM2.5",
+      "PM10",
+      "O3"
+    ],
+    "excluded_pollutants": [
+      "CO",
+      "NO2",
+      "SO2"
+    ],
+    "adverse_threshold": "AQI_(t+1) > 100",
+    "description": "Applies official CPCB linear sub-index interpolation using verified PM2.5, PM10, and trailing 8-hour O3. CO, NO2, and SO2 remain excluded due to unresolved unit semantics in modern OpenAQ streams."
+  },
+  "team": [
+    {
+      "name": "Mangali Sai Krishna",
+      "roll_number": "24R11A6669",
+      "github": "@Saikrishna-dev-oss"
+    },
+    {
+      "name": "Md. Abdul Rayain",
+      "roll_number": "24R11A6673",
+      "github": "@rayainwarrior-dev"
+    },
+    {
+      "name": "RISHIT GHOSH",
+      "roll_number": "24R11A6685",
+      "github": "@rajghosh06-dev"
+    },
+    {
+      "name": "Yaram Karthik",
+      "roll_number": "24R11A66A1",
+      "github": "@karthik10-dev"
+    }
+  ],
+  "generated_at": "2026-09-26T13:38:39Z"
+}

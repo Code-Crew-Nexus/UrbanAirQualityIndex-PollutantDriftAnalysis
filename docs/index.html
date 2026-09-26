@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Air Quality Index &amp; Pollutant Drift Analysis | SML PBL</title>
+  <meta name="description" content="A multi-station statistical machine learning study of Hyderabad and national representative urban air quality using real-world CAAQMS observations.">
+  
+  <!-- Local Stylesheets (Zero CDN dependencies) -->
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Sticky Top Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-wrapper">
+        <span class="brand-badge">SML PBL</span>
+        <span class="brand-title">Urban Air Quality</span>
+        <span class="brand-context">• Code-Crew-Nexus</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        Menu
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="explore.html" class="nav-link">Explore Data</a>
+        <a href="statistics.html" class="nav-link">Statistical Analysis</a>
+        <a href="machine-learning.html" class="nav-link">Machine Learning</a>
+        <a href="documentation.html" class="nav-link">Documentation</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Presentation Container -->
+  <main class="main-content">
+    
+    <!-- Hero / Intro Section -->
+    <section class="page-intro">
+      <div class="intro-badge">
+        <span class="pulse-dot"></span>
+        <span>Frozen Modeling Baseline • v0.6-svm-freeze</span>
+      </div>
+      <h1 class="page-title">Urban Air Quality Index &amp; Pollutant Drift Analysis</h1>
+      <p class="page-subtitle">
+        Statistical Machine Learning PBL • Hyderabad &amp; India Representative Monitoring Network.
+        A systematic study of temporal pollutant drift, regulatory verified AQI calculations, and predictive boundary-crossing classification.
+      </p>
+
+      <div class="action-group">
+        <a href="documentation.html" class="btn btn-primary">Explore Project</a>
+        <a href="documentation.html#execution" class="btn btn-secondary">Faculty Review Walkthrough</a>
+      </div>
+    </section>
+
+    <!-- Key Study Summary Cards (Max 4) -->
+    <section class="card-grid" aria-label="Study Metrics Overview">
+      <div class="metric-card">
+        <div class="metric-label">Physical Stations</div>
+        <div class="metric-value" id="stat-stations">21</div>
+        <div class="metric-desc">Continuous ambient CAAQMS stations audited across India.</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Study Days</div>
+        <div class="metric-value" id="stat-days">570</div>
+        <div class="metric-desc">Complete daily time series: 2025-03-01 to 2026-09-21.</div>
+      </div>
+
+      <div class="metric-card champagne">
+        <div class="metric-label">Monitoring Network</div>
+        <div class="metric-value" id="stat-panels">7 + 15</div>
+        <div class="metric-desc">Hyderabad Metropolitan &amp; India Representative Panels.</div>
+      </div>
+
+      <div class="metric-card champagne">
+        <div class="metric-label">Modeling Milestone</div>
+        <div class="metric-value" id="stat-baseline">v0.6</div>
+        <div class="metric-desc">Frozen RBF SVM, PCA/K-Means, and MLR/Logistic core.</div>
+      </div>
+    </section>
+
+    <!-- Analytical Workflow Pipeline (HTML/CSS, No Mermaid runtime) -->
+    <section class="workflow-section" id="workflow">
+      <h2 class="section-heading">
+        <span>Scientific &amp; Analytical Workflow</span>
+      </h2>
+      <p class="section-desc">
+        Complete end-to-end progression from authentic sensor harvest to statistical inference, machine learning, and static presentation.
+      </p>
+
+      <div class="pipeline-flow" role="region" aria-label="Pipeline workflow diagram">
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 1</span>
+          <span class="step-title">Real Data</span>
+          <span class="step-meta">OpenAQ &amp; Open-Meteo</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 2A</span>
+          <span class="step-title">Data Validation</span>
+          <span class="step-meta">Audit &amp; Harmonization</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 2E</span>
+          <span class="step-title">Verified AQI</span>
+          <span class="step-meta">CPCB Breakpoints</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 3A</span>
+          <span class="step-title">Statistical Exploration</span>
+          <span class="step-meta">EDA &amp; Normality</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 3B</span>
+          <span class="step-title">Pollutant Drift</span>
+          <span class="step-meta">Mean Shift (D<sub>z</sub>)</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 3C</span>
+          <span class="step-title">Statistical Inference</span>
+          <span class="step-meta">Block Bootstrap</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 4</span>
+          <span class="step-title">MLR / Logistic</span>
+          <span class="step-meta">Supervised Baselines</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 5A</span>
+          <span class="step-title">PCA / K-Means</span>
+          <span class="step-meta">Regime Discovery</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step frozen">
+          <span class="step-phase">Phase 5B</span>
+          <span class="step-title">RBF SVM</span>
+          <span class="step-meta">Nonlinear Margin</span>
+        </div>
+        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+
+        <div class="pipeline-step in-progress">
+          <span class="step-phase">Phase 6</span>
+          <span class="step-title">Project Website</span>
+          <span class="step-meta">Static Presentation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Study Architecture Details -->
+    <section class="about-grid">
+      <div class="about-card">
+        <h3 style="margin-bottom: 0.75rem; color: var(--jade-dark);">Methodological Integrity &amp; Scientific Freeze</h3>
+        <p style="margin-bottom: 1rem; color: var(--text-muted);">
+          All statistical and machine learning model development is permanently frozen at tag <code>v0.6-svm-freeze</code>.
+          The website acts strictly as a lightweight, zero-dependency presentation layer that consumes serialized results produced by the R computational engine.
+        </p>
+        <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.92rem;">
+          <li style="margin-bottom: 0.4rem;"><strong>CPCB-Aligned Verified-Subset AQI:</strong> Calculated strictly across PM2.5, PM10, and O3 to guarantee 100% verifiable source units.</li>
+          <li style="margin-bottom: 0.4rem;"><strong>Temporal Leakage Prevention:</strong> Models fit on historical data (through Dec 2025), validated on Jan–Apr 2026, tested on locked May–Aug 2026, and evaluated on out-of-sample September holdout.</li>
+          <li><strong>Reproducibility:</strong> All seeds, hyperparameter grids, and split indices are permanently archived and audited.</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3 style="margin-bottom: 0.75rem; color: var(--champagne-dark);">Academic Attribution</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          <strong>Course:</strong> Statistics for Machine Learning (SML)<br>
+          <strong>Curriculum:</strong> Project Based Learning (PBL)<br>
+          <strong>Class:</strong> B.Tech CSE (AI &amp; ML) III Year / I Sem<br>
+          <strong>Organization:</strong> Code-Crew-Nexus
+        </p>
+        <div style="margin-top: 1rem;">
+          <a href="about.html" class="btn btn-secondary" style="width: 100%;">View Team &amp; Details</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
+          An academic study in Statistical Machine Learning using authentic Central and State Pollution Control Board continuous monitoring data.
+        </p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
+          Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Project Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore Data</a></li>
+          <li><a href="statistics.html">Statistical Analysis</a></li>
+          <li><a href="machine-learning.html">Machine Learning</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Repository &amp; Standards</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href="documentation.html#prerequisites">Environment (R 4.6.1)</a></li>
+          <li><a href="documentation.html#theory">Theoretical Concepts</a></li>
+          <li><a href="documentation.html#execution">Detailed Execution</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Code-Crew-Nexus. Statistics for Machine Learning (SML) PBL.</span>
+      <span>Baseline Tag: <code>v0.6-svm-freeze</code> • Target Deployment: GitHub Pages</span>
+    </div>
+  </footer>
+
+  <!-- Local Scripts (Zero CDN dependencies) -->
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

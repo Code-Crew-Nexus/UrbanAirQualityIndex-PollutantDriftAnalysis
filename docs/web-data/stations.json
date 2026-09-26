@@ -1,0 +1,233 @@
+[
+  {
+    "project_station_id": "PROJ_002",
+    "station_name": "R K Puram, Delhi - DPCC",
+    "city": "Delhi",
+    "state": "Delhi",
+    "latitude": 28.5633,
+    "longitude": 77.1869,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_007",
+    "station_name": "Zoo Park, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.3497,
+    "longitude": 78.4514,
+    "use_hyderabad": true,
+    "use_india": true,
+    "panel_role": "Both Panels (Hyderabad & India Overlap)"
+  },
+  {
+    "project_station_id": "PROJ_019",
+    "station_name": "Manali, Chennai - CPCB",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "latitude": 13.1645,
+    "longitude": 80.2629,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_036",
+    "station_name": "Bollaram Industrial Area, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.5409,
+    "longitude": 78.3585,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_042",
+    "station_name": "Opp GPO Civil Lines, Nagpur - MPCB",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.1529,
+    "longitude": 79.0518,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_044",
+    "station_name": "Central University, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.4601,
+    "longitude": 78.3344,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_048",
+    "station_name": "GVM Corporation, Visakhapatnam - APPCB",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "latitude": 17.7227,
+    "longitude": 83.3082,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_050",
+    "station_name": "Maninagar, Ahmedabad - GPCB",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "latitude": 23.0027,
+    "longitude": 72.5919,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_051",
+    "station_name": "Police Commissionerate, Jaipur - RSPCB",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "latitude": 26.9164,
+    "longitude": 75.7995,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_063",
+    "station_name": "Lalbagh, Lucknow - CPCB",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "latitude": 26.8459,
+    "longitude": 80.9366,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_092",
+    "station_name": "Kurla, Mumbai - MPCB",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "latitude": 19.0863,
+    "longitude": 72.8888,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_101",
+    "station_name": "Jayanagar 5th Block, Bengaluru - KSPCB",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "latitude": 12.921,
+    "longitude": 77.5849,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_133",
+    "station_name": "Rajbansi Nagar, Patna - BSPCB",
+    "city": "Patna",
+    "state": "Bihar",
+    "latitude": 25.5995,
+    "longitude": 85.1137,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_142",
+    "station_name": "Railway Colony, Guwahati - APCB",
+    "city": "Guwahati",
+    "state": "Assam",
+    "latitude": 26.1817,
+    "longitude": 91.7806,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_144",
+    "station_name": "T T Nagar, Bhopal - MPPCB",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "latitude": 23.2336,
+    "longitude": 77.4006,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_158",
+    "station_name": "Revenue Colony-Shivajinagar, Pune - IITM",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5301,
+    "longitude": 73.8496,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  },
+  {
+    "project_station_id": "PROJ_179",
+    "station_name": "ECIL Kapra, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.4704,
+    "longitude": 78.567,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_180",
+    "station_name": "Kompally Municipal Office, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.5449,
+    "longitude": 78.4869,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_181",
+    "station_name": "Somajiguda, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.4171,
+    "longitude": 78.4574,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_186",
+    "station_name": "New Malakpet, Hyderabad - TSPCB",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.3721,
+    "longitude": 78.5086,
+    "use_hyderabad": true,
+    "use_india": false,
+    "panel_role": "Hyderabad Panel"
+  },
+  {
+    "project_station_id": "PROJ_094",
+    "station_name": "Jadavpur, Kolkata - WBPCB",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "latitude": 22.4993,
+    "longitude": 88.3692,
+    "use_hyderabad": false,
+    "use_india": true,
+    "panel_role": "India Representative Panel"
+  }
+]

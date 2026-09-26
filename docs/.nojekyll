@@ -1,0 +1,2 @@
+# GitHub Pages .nojekyll flag
+# Bypasses Jekyll processing so that files and directories are served directly.

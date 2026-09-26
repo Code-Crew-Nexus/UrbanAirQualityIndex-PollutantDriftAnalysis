@@ -43,3 +43,6 @@ Interactive Scientific Integration & Semantic Integrity Hardening
 Responsive, Accessibility, Deployment & Final Website Release Freeze  
 **COMPLETE: `v0.7-website-freeze`**
 
+### Checkpoint G4
+Website release integration + public GitHub Pages deployment  
+**COMPLETE**

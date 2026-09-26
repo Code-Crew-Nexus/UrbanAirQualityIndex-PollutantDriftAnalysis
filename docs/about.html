@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &amp; Team | Urban Air Quality Index &amp; Pollutant Drift Analysis</title>
+  <meta name="description" content="Project background, academic context, study scope, team members, and methodological limitations.">
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sticky Top Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-wrapper">
+        <span class="brand-badge">SML PBL</span>
+        <span class="brand-title">Urban Air Quality</span>
+        <span class="brand-context">• Code-Crew-Nexus</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        Menu
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="explore.html" class="nav-link">Explore Data</a>
+        <a href="statistics.html" class="nav-link">Statistical Analysis</a>
+        <a href="machine-learning.html" class="nav-link">Machine Learning</a>
+        <a href="documentation.html" class="nav-link">Documentation</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content" id="main-content">
+    <section class="page-intro">
+      <div class="intro-badge">
+        <span>Academic Context &amp; Governance</span>
+      </div>
+      <h1 class="page-title">Project Overview &amp; Research Team</h1>
+      <p class="page-subtitle">
+        Undergraduate Statistics for Machine Learning (SML) Project Based Learning (PBL) conducted by Code-Crew-Nexus.
+      </p>
+    </section>
+
+    <div class="about-grid">
+      <!-- Left Column: Scope, Provenance & Team -->
+      <div>
+        <div class="about-card">
+          <h2 class="section-heading" style="margin-bottom: 0.85rem;">Project Team</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+            This repository is maintained and researched collaboratively by the following undergraduate students. Direct external pull requests are not accepted.
+          </p>
+
+          <table class="team-table" aria-label="Project Team Roster">
+            <thead>
+              <tr>
+                <th scope="col">Student Name</th>
+                <th scope="col">Roll Number</th>
+                <th scope="col">GitHub Profile</th>
+              </tr>
+            </thead>
+            <tbody id="team-roster-body">
+              <tr>
+                <td><strong>Mangali Sai Krishna</strong></td>
+                <td><code>24R11A6669</code></td>
+                <td><a href="https://github.com/Saikrishna-dev-oss" target="_blank" rel="noopener noreferrer">@Saikrishna-dev-oss</a></td>
+              </tr>
+              <tr>
+                <td><strong>Md. Abdul Rayain</strong></td>
+                <td><code>24R11A6673</code></td>
+                <td><a href="https://github.com/rayainwarrior-dev" target="_blank" rel="noopener noreferrer">@rayainwarrior-dev</a></td>
+              </tr>
+              <tr>
+                <td><strong>RISHIT GHOSH</strong></td>
+                <td><code>24R11A6685</code></td>
+                <td><a href="https://github.com/rajghosh06-dev" target="_blank" rel="noopener noreferrer">@rajghosh06-dev</a></td>
+              </tr>
+              <tr>
+                <td><strong>Yaram Karthik</strong></td>
+                <td><code>24R11A66A1</code></td>
+                <td><a href="https://github.com/karthik10-dev" target="_blank" rel="noopener noreferrer">@karthik10-dev</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="about-card">
+          <h2 class="section-heading" style="margin-bottom: 0.85rem;">Academic Context &amp; Scope</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.85rem;">
+            <strong>Course:</strong> Statistics for Machine Learning (SML)<br>
+            <strong>Curriculum Framework:</strong> Project Based Learning (PBL)<br>
+            <strong>Department:</strong> B.Tech Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning)<br>
+            <strong>Organization:</strong> Code-Crew-Nexus
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.85rem;">
+            <strong>Geographic Scope:</strong> 21 unique physical CAAQMS stations partitioned into a 7-station Hyderabad Metropolitan Panel and a 15-station India Representative National Panel (with 1 overlapping station: <code>PROJ_007 Zoo Park, Hyderabad</code>).
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.92rem;">
+            <strong>Temporal Study Window:</strong> 570 continuous calendar days from <strong>2025-03-01 through 2026-09-21</strong>, capturing multiple pre-monsoon, monsoon, and post-monsoon seasonal transitions.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h2 class="section-heading" style="margin-bottom: 0.85rem;">Scientific Limitations</h2>
+          <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.92rem;">
+            <li style="margin-bottom: 0.5rem;">
+              <strong>Verified-Subset AQI:</strong> The Indian AQI computed here represents a conservative verified-subset index derived from PM2.5, PM10, and O3. Gaseous pollutants (CO, NO2, SO2) were excluded because modern OpenAQ API feeds lack dual-unit mass tracking after 2022, preventing independent regulatory verification.
+            </li>
+            <li style="margin-bottom: 0.5rem;">
+              <strong>Standardized Drift ($D_z$):</strong> Drift scores quantify observational mean shifts between temporal windows. They are descriptive indicators and do not establish causal atmospheric emission attribution.
+            </li>
+            <li style="margin-bottom: 0.5rem;">
+              <strong>Seasonal Prevalence Shift:</strong> Fixed-threshold models experience sensitivity drops when seasonal background rates shift drastically; models rely on validation-selected operating thresholds ($p^* \approx 0.311268$ for Hyderabad, $p^* \approx 0.713448$ for India) rather than naive $0.50$.
+            </li>
+            <li>
+              <strong>Static Presentation Model:</strong> The website presentation layer visualizes precomputed R artifacts and does not support on-the-fly model re-training in JavaScript.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column: Metadata, Sources & Tags -->
+      <div>
+        <div class="about-card">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--jade-dark); margin-bottom: 0.75rem;">Data Sources</h3>
+          <ul style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+            <li><strong>Air Quality:</strong> OpenAQ v3 REST API (Continuous Ambient Air Quality Monitoring Stations)</li>
+            <li><strong>Meteorology:</strong> Open-Meteo Historical Weather API (hourly temperature, humidity, wind speed, wind direction)</li>
+            <li><strong>Regulatory Reference:</strong> Central Pollution Control Board (CPCB) National Air Quality Index standards</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--champagne-dark); margin-bottom: 0.75rem;">Frozen Milestone Tags</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Model training and statistical results are permanently frozen under version control:
+          </p>
+          <div id="frozen-tags-container">
+            <span class="intro-badge" style="margin-bottom: 0.35rem;">v0.6-svm-freeze</span>
+            <span class="intro-badge" style="margin-bottom: 0.35rem;">v0.5-unsupervised-freeze</span>
+            <span class="intro-badge" style="margin-bottom: 0.35rem;">v0.4-supervised-freeze</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-graphite); margin-bottom: 0.75rem;">Code Repository</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+            Public GitHub repository maintained by Code-Crew-Nexus:
+          </p>
+          <a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; font-size: 0.85rem;">
+            GitHub: UrbanAirQualityIndex
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
+          Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations accessed through OpenAQ, with historical meteorology from Open-Meteo.
+        </p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
+          Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Project Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore Data</a></li>
+          <li><a href="statistics.html">Statistical Analysis</a></li>
+          <li><a href="machine-learning.html">Machine Learning</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Repository &amp; Standards</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href="documentation.html#prerequisites">Environment (R 4.6.1)</a></li>
+          <li><a href="documentation.html#theory">Theoretical Concepts</a></li>
+          <li><a href="documentation.html#execution">Detailed Execution</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Code-Crew-Nexus. Statistics for Machine Learning (SML) PBL.</span>
+      <span>Baseline Tag: <code>v0.6-svm-freeze</code> • Target Deployment: GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/about.js"></script>
+</body>
+</html>

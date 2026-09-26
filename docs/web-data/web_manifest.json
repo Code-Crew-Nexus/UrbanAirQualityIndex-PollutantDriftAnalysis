@@ -1,0 +1,23 @@
+{
+  "manifest_version": "1.0.0",
+  "phase": "6A",
+  "phase_description": "Static Project Website Foundation",
+  "exported_files": [
+    {
+      "file": "project_summary.json",
+      "purpose": "Site-wide project metadata, cards, and frozen milestone status",
+      "records": 1
+    },
+    {
+      "file": "stations.json",
+      "purpose": "Clean physical station directory with geographic coordinates and panel assignments",
+      "records": 21
+    }
+  ],
+  "frozen_data_sources": {
+    "master_dataset": "data/processed/UAQI_Master_Daily.csv",
+    "station_config": "config/selected_stations.csv",
+    "policy_config": "config/final_aqi_input_policy.yml"
+  },
+  "generated_at": "2026-09-26T13:38:39Z"
+}

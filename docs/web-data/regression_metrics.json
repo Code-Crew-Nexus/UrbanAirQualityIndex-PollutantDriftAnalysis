@@ -1,0 +1,82 @@
+[
+  {
+    "scope": "Hyderabad",
+    "evaluation_period": "TEST",
+    "model": "Selected MLR Model B",
+    "MAE": 10.0765,
+    "RMSE": 18.6991,
+    "bias": 3.6764,
+    "median_absolute_error": 6.4561,
+    "R2": 0.6239
+  },
+  {
+    "scope": "Hyderabad",
+    "evaluation_period": "TEST",
+    "model": "Persistence",
+    "MAE": 7.8931,
+    "RMSE": 17.8664,
+    "bias": -0.8868,
+    "median_absolute_error": 4,
+    "R2": 0.6566
+  },
+  {
+    "scope": "India",
+    "evaluation_period": "TEST",
+    "model": "Selected MLR Model B",
+    "MAE": 16.038,
+    "RMSE": 33.73,
+    "bias": -0.245,
+    "median_absolute_error": 10.1367,
+    "R2": 0.4632
+  },
+  {
+    "scope": "India",
+    "evaluation_period": "TEST",
+    "model": "Persistence",
+    "MAE": 15.915,
+    "RMSE": 34.876,
+    "bias": 0.1685,
+    "median_absolute_error": 9,
+    "R2": 0.4261
+  },
+  {
+    "scope": "Hyderabad",
+    "evaluation_period": "Recent Holdout",
+    "model": "Selected MLR Model B",
+    "MAE": 7.3164,
+    "RMSE": 9.7012,
+    "bias": 4.2231,
+    "median_absolute_error": 5.9583,
+    "R2": 0.6952
+  },
+  {
+    "scope": "Hyderabad",
+    "evaluation_period": "Recent Holdout",
+    "model": "Persistence",
+    "MAE": 5.7658,
+    "RMSE": 8.9302,
+    "bias": -0.6847,
+    "median_absolute_error": 3,
+    "R2": 0.7417
+  },
+  {
+    "scope": "India",
+    "evaluation_period": "Recent Holdout",
+    "model": "Selected MLR Model B",
+    "MAE": 12.9248,
+    "RMSE": 17.2121,
+    "bias": 5.0795,
+    "median_absolute_error": 10.1714,
+    "R2": 0.5578
+  },
+  {
+    "scope": "India",
+    "evaluation_period": "Recent Holdout",
+    "model": "Persistence",
+    "MAE": 12.2311,
+    "RMSE": 16.968,
+    "bias": -0.2899,
+    "median_absolute_error": 9,
+    "R2": 0.5703
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "file": "daily_observations.json",
+    "relative_path": "docs/web-data/daily_observations.json",
+    "purpose": "Daily station observations for Explore Data time-series and summary cards",
+    "source_artifacts": [
+      "data/processed/UAQI_Master_Daily.csv"
+    ],
+    "source_rows": 11970,
+    "exported_rows": 11970,
+    "file_bytes": 2873079,
+    "sha256": "6250212f8d0f6974877508c1e50f2e2f83f1326b578c2afe694fc5a1c826319a",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:22Z",
+    "scientific_phase": "Phase 2E"
+  },
+  {
+    "file": "drift_summary.json",
+    "relative_path": "docs/web-data/drift_summary.json",
+    "purpose": "Latest frozen station-variable standardized pollutant drift metrics (Dz)",
+    "source_artifacts": [
+      "data/analysis/phase3B/phase3B_current_drift_snapshot.csv",
+      "config/selected_stations.csv"
+    ],
+    "source_rows": 147,
+    "exported_rows": 147,
+    "file_bytes": 76850,
+    "sha256": "a50f64c4895d2c4532165133450c621ee21a89d43e83aad54e8f72613902026f",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:22Z",
+    "scientific_phase": "Phase 3B"
+  },
+  {
+    "file": "inference_summary.json",
+    "relative_path": "docs/web-data/inference_summary.json",
+    "purpose": "Statistical inference results: moving-block bootstrap (B=2000, l=7), BH-FDR, and effect sizes",
+    "source_artifacts": [
+      "data/analysis/phase3C/phase3C_current_drift_inference_results.csv",
+      "config/selected_stations.csv"
+    ],
+    "source_rows": 147,
+    "exported_rows": 147,
+    "file_bytes": 96406,
+    "sha256": "0f35fec6c669f1cf1af984fd87e37e71aa97082c31a818f5314b0128f00b4321",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:22Z",
+    "scientific_phase": "Phase 3C"
+  },
+  {
+    "file": "regression_metrics.json",
+    "relative_path": "docs/web-data/regression_metrics.json",
+    "purpose": "Supervised regression evaluation metrics comparing Selected MLR Model B and Persistence benchmark",
+    "source_artifacts": [
+      "analysis/phase4B/tables/phase4B_test_metrics.csv",
+      "analysis/phase4B/tables/phase4B_holdout_metrics.csv"
+    ],
+    "source_rows": 12,
+    "exported_rows": 8,
+    "file_bytes": 1807,
+    "sha256": "98b7283679fdbec1aeae37405233ffe8fe80fb7945a601d7c53b5d869882bc29",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:23Z",
+    "scientific_phase": "Phase 4B"
+  },
+  {
+    "file": "classification_metrics.json",
+    "relative_path": "docs/web-data/classification_metrics.json",
+    "purpose": "Adverse event classification metrics comparing Logistic Model B, RBF SVM, and Persistence benchmark",
+    "source_artifacts": [
+      "analysis/phase4C/tables/phase4C_test_metrics.csv",
+      "analysis/phase4C/tables/phase4C_holdout_metrics.csv",
+      "analysis/phase5B/tables/phase5B_test_metrics.csv",
+      "analysis/phase5B/tables/phase5B_holdout_metrics.csv"
+    ],
+    "source_rows": 16,
+    "exported_rows": 12,
+    "file_bytes": 5956,
+    "sha256": "9aebb74c2bf78789a6bd61f09f4cf9c06c689501635b94a7dfa37137d1d03481",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:23Z",
+    "scientific_phase": "Phase 4C / 5B"
+  },
+  {
+    "file": "pca_variance.json",
+    "relative_path": "docs/web-data/pca_variance.json",
+    "purpose": "PCA eigenvalues, variance explained, and cumulative variance for 6 standardized sensor components",
+    "source_artifacts": [
+      "analysis/phase5A/tables/phase5A_pca_variance_explained.csv"
+    ],
+    "source_rows": 12,
+    "exported_rows": 12,
+    "file_bytes": 1803,
+    "sha256": "3c7431313a234f1691250a7d5114b4530a2222de4b10246f12c209c3c9ff51c2",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:23Z",
+    "scientific_phase": "Phase 5A"
+  },
+  {
+    "file": "cluster_profiles.json",
+    "relative_path": "docs/web-data/cluster_profiles.json",
+    "purpose": "K-Means (k=3) descriptive cluster regime labels, centroids, and sensor feature profiles",
+    "source_artifacts": [
+      "analysis/phase5A/tables/phase5A_cluster_labels.csv",
+      "analysis/phase5A/tables/phase5A_cluster_profiles.csv",
+      "analysis/phase5A/tables/phase5A_cluster_centroids_pca.csv"
+    ],
+    "source_rows": 54,
+    "exported_rows": 6,
+    "file_bytes": 13067,
+    "sha256": "8693ca7de416bb6b7afe1c9a9216d738c30dabfa64585a979c60e80b90dc972a",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:23Z",
+    "scientific_phase": "Phase 5A"
+  },
+  {
+    "file": "pca_scores.json",
+    "relative_path": "docs/web-data/pca_scores.json",
+    "purpose": "PC1 and PC2 coordinates with K=3 cluster assignments for history and recent evaluation periods",
+    "source_artifacts": [
+      "data/analysis/phase5A/Hyderabad_PCA_History.csv",
+      "data/analysis/phase5A/Hyderabad_Recent_Cluster_Assignments.csv",
+      "data/analysis/phase5A/India_PCA_History.csv",
+      "data/analysis/phase5A/India_Recent_Cluster_Assignments.csv"
+    ],
+    "source_rows": 9928,
+    "exported_rows": 9928,
+    "file_bytes": 1990135,
+    "sha256": "14f143afd5611977c2a8c04c01dadcf92d69b357c63d59dc4326a73611555976",
+    "schema_version": "1.0.0",
+    "generated_at": "2026-09-26T16:18:23Z",
+    "scientific_phase": "Phase 5A"
+  }
+]

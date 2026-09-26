@@ -1,0 +1,560 @@
+{
+  "labels": [
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "descriptive_label": "warm-dry-moderate-pollution",
+      "profile_basis": "High temperature (mean 30.3 C), low humidity (mean 42.8%), moderate particulate and ozone levels; observed predominantly in summer / pre-monsoon",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "descriptive_label": "humid-windy-lower-pollution",
+      "profile_basis": "High humidity (mean 75.6%), elevated wind speed (mean 3.87 m/s), low PM2.5 and PM10 levels; observed predominantly in monsoon",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "descriptive_label": "cool-low-wind-particulate-elevated",
+      "profile_basis": "Lower temperature (mean 23.9 C), low wind speed (mean 2.02 m/s), elevated PM2.5 and PM10 levels; observed predominantly in winter",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "descriptive_label": "cool-low-wind-particulate-elevated",
+      "profile_basis": "Low temperature (mean 21.5 C), low wind speed (mean 1.80 m/s), elevated PM2.5 (mean 100.4 ug/m3) and PM10 (mean 186.2 ug/m3); observed predominantly in winter",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "descriptive_label": "hot-dry-ozone-pm10-elevated",
+      "profile_basis": "High temperature (mean 30.7 C), low humidity (mean 40.9%), elevated O3 (mean 68.3 ug/m3) and PM10 (mean 115.8 ug/m3); observed predominantly in summer / pre-monsoon",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "descriptive_label": "humid-windy-lower-pollution",
+      "profile_basis": "High humidity (mean 77.2%), active wind (mean 2.77 m/s), lower particulate and ozone concentrations; observed predominantly in monsoon",
+      "caution": "Descriptive unsupervised regime; mechanism/source attribution is not identified by PCA/K-Means."
+    }
+  ],
+  "centroids": [
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "PC1": -0.797,
+      "PC2": 1.358,
+      "PC3": -0.112,
+      "PC4": -0.104
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "PC1": 1.641,
+      "PC2": -0.279,
+      "PC3": 0.033,
+      "PC4": -0.264
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "PC1": -0.965,
+      "PC2": -0.985,
+      "PC3": 0.071,
+      "PC4": 0.373
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "PC1": -2.047,
+      "PC2": -1.106,
+      "PC3": -0.135,
+      "PC4": -0.233
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "PC1": -0.717,
+      "PC2": 1.472,
+      "PC3": 0.08,
+      "PC4": 0.081
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "PC1": 1.02,
+      "PC2": -0.319,
+      "PC3": 0.007,
+      "PC4": 0.04
+    }
+  ],
+  "feature_profiles": [
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "pm2_5_aqi_input",
+      "n": 866,
+      "mean": 32.827,
+      "sd": 12.532,
+      "median": 32,
+      "q1": 26,
+      "q3": 38
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "pm10_aqi_input",
+      "n": 866,
+      "mean": 78.61,
+      "sd": 20.649,
+      "median": 80,
+      "q1": 70,
+      "q3": 87
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "o3_8h_max",
+      "n": 866,
+      "mean": 35.095,
+      "sd": 18.254,
+      "median": 32,
+      "q1": 24,
+      "q3": 41
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "temperature",
+      "n": 866,
+      "mean": 30.329,
+      "sd": 1.987,
+      "median": 30.39,
+      "q1": 28.877,
+      "q3": 31.877
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "humidity",
+      "n": 866,
+      "mean": 42.783,
+      "sd": 9.883,
+      "median": 41.979,
+      "q1": 35.729,
+      "q3": 49.5
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "wind_speed",
+      "n": 866,
+      "mean": 2.205,
+      "sd": 0.596,
+      "median": 2.1,
+      "q1": 1.799,
+      "q3": 2.506
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 1",
+      "variable": "aqi_verified",
+      "n": 866,
+      "mean": 80.52,
+      "sd": 23.587,
+      "median": 81,
+      "q1": 71,
+      "q3": 89
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "pm2_5_aqi_input",
+      "n": 962,
+      "mean": 22.9,
+      "sd": 10.809,
+      "median": 23,
+      "q1": 14,
+      "q3": 30
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "pm10_aqi_input",
+      "n": 962,
+      "mean": 54.702,
+      "sd": 21.03,
+      "median": 57,
+      "q1": 41,
+      "q3": 69
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "o3_8h_max",
+      "n": 962,
+      "mean": 29.2,
+      "sd": 14.44,
+      "median": 26,
+      "q1": 21,
+      "q3": 36
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "temperature",
+      "n": 962,
+      "mean": 25.844,
+      "sd": 1.553,
+      "median": 25.777,
+      "q1": 24.826,
+      "q3": 26.706
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "humidity",
+      "n": 962,
+      "mean": 75.575,
+      "sd": 9.2,
+      "median": 75.833,
+      "q1": 70.458,
+      "q3": 82.542
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "wind_speed",
+      "n": 962,
+      "mean": 3.872,
+      "sd": 1.085,
+      "median": 3.878,
+      "q1": 3.186,
+      "q3": 4.58
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 2",
+      "variable": "aqi_verified",
+      "n": 962,
+      "mean": 56.54,
+      "sd": 19.378,
+      "median": 57,
+      "q1": 48,
+      "q3": 69
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "pm2_5_aqi_input",
+      "n": 921,
+      "mean": 45.66,
+      "sd": 17.633,
+      "median": 39,
+      "q1": 32,
+      "q3": 58
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "pm10_aqi_input",
+      "n": 921,
+      "mean": 96.52,
+      "sd": 26.297,
+      "median": 90,
+      "q1": 80,
+      "q3": 106
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "o3_8h_max",
+      "n": 921,
+      "mean": 32.511,
+      "sd": 12.47,
+      "median": 30,
+      "q1": 24,
+      "q3": 39
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "temperature",
+      "n": 921,
+      "mean": 23.921,
+      "sd": 2.27,
+      "median": 23.812,
+      "q1": 22.163,
+      "q3": 25.617
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "humidity",
+      "n": 921,
+      "mean": 59.89,
+      "sd": 13.799,
+      "median": 57.667,
+      "q1": 50.583,
+      "q3": 69.5
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "wind_speed",
+      "n": 921,
+      "mean": 2.018,
+      "sd": 0.572,
+      "median": 1.954,
+      "q1": 1.653,
+      "q3": 2.312
+    },
+    {
+      "scope": "Hyderabad",
+      "cluster": "Cluster 3",
+      "variable": "aqi_verified",
+      "n": 921,
+      "mean": 99.794,
+      "sd": 31.453,
+      "median": 91,
+      "q1": 81,
+      "q3": 112
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "pm2_5_aqi_input",
+      "n": 1261,
+      "mean": 100.412,
+      "sd": 66.408,
+      "median": 83,
+      "q1": 64,
+      "q3": 112
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "pm10_aqi_input",
+      "n": 1261,
+      "mean": 186.167,
+      "sd": 81.391,
+      "median": 166,
+      "q1": 133,
+      "q3": 221
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "o3_8h_max",
+      "n": 1261,
+      "mean": 54.769,
+      "sd": 38.978,
+      "median": 46,
+      "q1": 26,
+      "q3": 75
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "temperature",
+      "n": 1261,
+      "mean": 21.525,
+      "sd": 3.904,
+      "median": 21.608,
+      "q1": 19,
+      "q3": 23.925
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "humidity",
+      "n": 1261,
+      "mean": 61.022,
+      "sd": 13.498,
+      "median": 60.417,
+      "q1": 50.958,
+      "q3": 70.625
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "wind_speed",
+      "n": 1261,
+      "mean": 1.803,
+      "sd": 0.615,
+      "median": 1.707,
+      "q1": 1.365,
+      "q3": 2.148
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 1",
+      "variable": "aqi_verified",
+      "n": 1260,
+      "mean": 211.383,
+      "sd": 92.705,
+      "median": 187,
+      "q1": 134,
+      "q3": 276
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "pm2_5_aqi_input",
+      "n": 1764,
+      "mean": 47.741,
+      "sd": 19.604,
+      "median": 46,
+      "q1": 34,
+      "q3": 59
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "pm10_aqi_input",
+      "n": 1764,
+      "mean": 115.756,
+      "sd": 45.984,
+      "median": 109,
+      "q1": 87,
+      "q3": 138
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "o3_8h_max",
+      "n": 1764,
+      "mean": 68.327,
+      "sd": 40.129,
+      "median": 61,
+      "q1": 40,
+      "q3": 86
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "temperature",
+      "n": 1764,
+      "mean": 30.65,
+      "sd": 3.435,
+      "median": 30.779,
+      "q1": 28.2,
+      "q3": 33.19
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "humidity",
+      "n": 1764,
+      "mean": 40.892,
+      "sd": 15.215,
+      "median": 40.354,
+      "q1": 28.583,
+      "q3": 50.542
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "wind_speed",
+      "n": 1764,
+      "mean": 2.397,
+      "sd": 0.687,
+      "median": 2.326,
+      "q1": 1.877,
+      "q3": 2.812
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 2",
+      "variable": "aqi_verified",
+      "n": 1742,
+      "mean": 120.87,
+      "sd": 41.093,
+      "median": 112.5,
+      "q1": 97,
+      "q3": 138
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "pm2_5_aqi_input",
+      "n": 3771,
+      "mean": 29.24,
+      "sd": 14.659,
+      "median": 27,
+      "q1": 19,
+      "q3": 37
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "pm10_aqi_input",
+      "n": 3771,
+      "mean": 62.863,
+      "sd": 30.446,
+      "median": 59,
+      "q1": 41,
+      "q3": 81
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "o3_8h_max",
+      "n": 3771,
+      "mean": 27.823,
+      "sd": 17.748,
+      "median": 26,
+      "q1": 16,
+      "q3": 35
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "temperature",
+      "n": 3771,
+      "mean": 27.313,
+      "sd": 2.745,
+      "median": 27.637,
+      "q1": 25.727,
+      "q3": 29.198
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "humidity",
+      "n": 3771,
+      "mean": 77.227,
+      "sd": 10.2,
+      "median": 79.083,
+      "q1": 71.542,
+      "q3": 85.125
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "wind_speed",
+      "n": 3771,
+      "mean": 2.773,
+      "sd": 1.141,
+      "median": 2.619,
+      "q1": 1.886,
+      "q3": 3.491
+    },
+    {
+      "scope": "India",
+      "cluster": "Cluster 3",
+      "variable": "aqi_verified",
+      "n": 3771,
+      "mean": 66.476,
+      "sd": 30.557,
+      "median": 62,
+      "q1": 45,
+      "q3": 85
+    }
+  ]
+}

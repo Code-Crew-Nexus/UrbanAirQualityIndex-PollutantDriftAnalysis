@@ -31,6 +31,15 @@ RBF SVM classification comparison
 SVM integration + final modeling freeze  
 **COMPLETE: `v0.6-svm-freeze`**
 
-### Phase 6
-R Shiny integration  
-**NEXT**
+### Phase 6A
+Static Project Website Foundation, Markdown Engine & Mathematical Rendering  
+**FOUNDATION FROZEN**
+
+### Phase 6B / 6B.1
+Interactive Scientific Integration & Semantic Integrity Hardening  
+**INTERACTIVE SCIENTIFIC WEBSITE FROZEN — BROWSER QA VERIFIED**
+
+### Phase 6C
+Responsive, Accessibility, Deployment & Final Website Release Freeze  
+**COMPLETE: `v0.7-website-freeze`**
+

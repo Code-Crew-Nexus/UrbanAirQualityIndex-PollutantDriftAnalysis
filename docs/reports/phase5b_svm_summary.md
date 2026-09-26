@@ -32,7 +32,7 @@ All splits are defined strictly by target calendar date ($t+1$), matching the fr
 | **TEST** | 2026-05-01 to 2026-08-31 | 477 ($11$, $2.3\%$) | 1,389 ($294$, $21.2\%$) | May–August 2026 test period |
 | **FINAL HOLDOUT** | 2026-09-01 to 2026-09-21 | 111 ($0$, $0.0\%$) | 238 ($22$, $9.2\%$) | September 2026 recent holdout |
 
-The sample sizes and adverse-event counts derived deterministically from [UAQI_Master_Daily.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/data/processed/UAQI_Master_Daily.csv) match the project's frozen complete-case population to the exact integer.
+The sample sizes and adverse-event counts derived deterministically from [UAQI_Master_Daily.csv](../../data/processed/UAQI_Master_Daily.csv) match the project's frozen complete-case population to the exact integer.
 
 ---
 
@@ -73,7 +73,7 @@ A predeclared grid of 20 candidate combinations was evaluated on the **VALIDATIO
 Following validation selection, hyperparameters were permanently locked. Models were refit on **$\text{TRAIN} + \text{VALIDATION}$** with relearned preprocessing parameters and evaluated **once** on the locked **TEST** set ($N=477$ Hyderabad, $N=1,389$ India).
 
 ### Comparative Metric Performance (TEST Split):
-*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
+*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](../../analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
 
 | Scope | Model Family | Positive $n$ | PR-AUC | ROC-AUC | Average Precision | Sensitivity | Specificity | Precision | Native $F_1$ Score | Balanced Accuracy | Overall Accuracy |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -100,7 +100,7 @@ $^*$*Note: In Hyderabad TEST, adverse prevalence was $2.3\%$. The native margin 
 Models were refit across **all available history** through August 31, 2026 ($\text{TRAIN} + \text{VALIDATION} + \text{TEST}$) and evaluated on the out-of-sample September Holdout (2026-09-01 to 2026-09-21):
 
 ### Comparative Metric Performance (September Holdout):
-*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](file:///d:/RAJ/GITHUB_REPOSITORY/COLLEGE/COLLEGE_PROJECTS/SML/SML-PBL/UrbanAirQualityIndex-PollutantDriftAnalysis/analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
+*Source: [analysis/phase5B/tables/phase5B_final_report_metric_table.csv](../../analysis/phase5B/tables/phase5B_final_report_metric_table.csv)*
 
 | Scope | Model Family | Positive $n$ | PR-AUC | ROC-AUC | Average Precision | Native $F_1$ Score | Sensitivity | Specificity | Precision | Accuracy |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |

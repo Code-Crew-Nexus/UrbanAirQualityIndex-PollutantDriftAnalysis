@@ -709,8 +709,12 @@ test_that("76: All 9 review screenshots exist and exceed 10 KB", {
   }
 })
 
-test_that("77: review_archive_phase6B1_light.zip exists and exceeds 2 MB", {
-  arch_path <- file.path(repo_root, "review_archive_phase6B1_light.zip")
+test_that("77: review archive exists and exceeds 2 MB", {
+  arch_path <- if (file.exists(file.path(repo_root, "review_archive_phase6C_light.zip"))) {
+    file.path(repo_root, "review_archive_phase6C_light.zip")
+  } else {
+    file.path(repo_root, "review_archive_phase6B1_light.zip")
+  }
   expect_true(file.exists(arch_path))
   expect_gt(file.size(arch_path), 2000000)
 })

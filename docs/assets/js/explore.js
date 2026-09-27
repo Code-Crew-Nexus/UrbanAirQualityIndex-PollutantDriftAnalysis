@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   const metricLatestDate = document.getElementById('metric-latest-date');
   const metricLatestLabel = document.getElementById('metric-latest-label');
 
+  // Dataset Inspector Elements (Add-On A)
+  const datasetInspectorCard = document.getElementById('dataset-inspector-card');
+  const datasetTableWrapper = document.querySelector('.dataset-table-wrapper');
+  const datasetTable = document.getElementById('dataset-inspector-table');
+  const datasetTableBody = document.getElementById('dataset-table-body');
+  const datasetEmptyState = document.getElementById('dataset-empty-state');
+  const statusScheduledCount = document.getElementById('status-scheduled-count');
+  const statusValidCount = document.getElementById('status-valid-count');
+  const statusStationInfo = document.getElementById('status-station-info');
+  const btnDownloadCsv = document.getElementById('btn-download-csv');
+
   // Chart instance
   let exploreChart = null;
 
@@ -226,53 +237,55 @@ document.addEventListener('DOMContentLoaded', async () => {
       metricLatestLabel.textContent = 'Latest Valid Value';
     }
 
-    // Check empty state
+    // Check empty state for chart
     if (validValues.length === 0) {
       chartCard.style.display = 'none';
       emptyStateCard.style.display = 'block';
       renderEmptyMetrics(varConfig);
-      return;
-    }
-
-    // Show Chart, Hide Empty State
-    emptyStateCard.style.display = 'none';
-    chartCard.style.display = 'block';
-
-    // Compute Client-Side Summary Metrics
-    const meanVal = DataUtils.calculateMean(validValues);
-    const medianVal = DataUtils.calculateMedian(validValues);
-    const minVal = DataUtils.calculateMin(validValues);
-    const maxVal = DataUtils.calculateMax(validValues);
-
-    // Latest valid observation
-    let latestVal = null;
-    let latestDate = null;
-    for (let i = filtered.length - 1; i >= 0; i--) {
-      const v = filtered[i][varConfig.key];
-      if (v !== null && v !== undefined && !isNaN(v)) {
-        latestVal = v;
-        latestDate = filtered[i].date;
-        break;
-      }
-    }
-
-    // Render Metrics
-    metricValidObs.textContent = `${validValues.length} / ${filtered.length} days`;
-    metricMean.textContent = `${DataUtils.formatNumber(meanVal, varConfig.decimals)} ${varConfig.unit}`;
-    metricMedian.textContent = `${DataUtils.formatNumber(medianVal, varConfig.decimals)} ${varConfig.unit}`;
-    metricMin.textContent = `${DataUtils.formatNumber(minVal, varConfig.decimals)} ${varConfig.unit}`;
-    metricMax.textContent = `${DataUtils.formatNumber(maxVal, varConfig.decimals)} ${varConfig.unit}`;
-    
-    if (latestVal !== null) {
-      metricLatestVal.textContent = `${DataUtils.formatNumber(latestVal, varConfig.decimals)} ${varConfig.unit}`;
-      metricLatestDate.textContent = `Observed on ${latestDate}`;
     } else {
-      metricLatestVal.textContent = '—';
-      metricLatestDate.textContent = 'No valid observation';
+      // Show Chart, Hide Empty State
+      emptyStateCard.style.display = 'none';
+      chartCard.style.display = 'block';
+
+      // Compute Client-Side Summary Metrics
+      const meanVal = DataUtils.calculateMean(validValues);
+      const medianVal = DataUtils.calculateMedian(validValues);
+      const minVal = DataUtils.calculateMin(validValues);
+      const maxVal = DataUtils.calculateMax(validValues);
+
+      // Latest valid observation
+      let latestVal = null;
+      let latestDate = null;
+      for (let i = filtered.length - 1; i >= 0; i--) {
+        const v = filtered[i][varConfig.key];
+        if (v !== null && v !== undefined && !isNaN(v)) {
+          latestVal = v;
+          latestDate = filtered[i].date;
+          break;
+        }
+      }
+
+      // Render Metrics
+      metricValidObs.textContent = `${validValues.length} / ${filtered.length} days`;
+      metricMean.textContent = `${DataUtils.formatNumber(meanVal, varConfig.decimals)} ${varConfig.unit}`;
+      metricMedian.textContent = `${DataUtils.formatNumber(medianVal, varConfig.decimals)} ${varConfig.unit}`;
+      metricMin.textContent = `${DataUtils.formatNumber(minVal, varConfig.decimals)} ${varConfig.unit}`;
+      metricMax.textContent = `${DataUtils.formatNumber(maxVal, varConfig.decimals)} ${varConfig.unit}`;
+      
+      if (latestVal !== null) {
+        metricLatestVal.textContent = `${DataUtils.formatNumber(latestVal, varConfig.decimals)} ${varConfig.unit}`;
+        metricLatestDate.textContent = `Observed on ${latestDate}`;
+      } else {
+        metricLatestVal.textContent = '—';
+        metricLatestDate.textContent = 'No valid observation';
+      }
+
+      // Render Chart
+      renderChart(filtered, varConfig);
     }
 
-    // Render Chart
-    renderChart(filtered, varConfig);
+    // Always update Dataset Inspector for the current filtered observations
+    renderDatasetInspector(filtered, stationObj, varConfig, startDate, endDate);
   }
 
   function renderEmptyMetrics(varConfig) {
@@ -386,6 +399,277 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
           }
         }
+      }
+    });
+  }
+
+  // =========================================================================
+  // G5 Add-On A: Dataset Inspector Implementation
+  // =========================================================================
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function formatVal(val, decimals) {
+    if (val === null || val === undefined || isNaN(val) || val === '') {
+      return '<span class="val-missing" title="Missing / unavailable" aria-label="Missing / unavailable">—</span>';
+    }
+    return Number(val).toFixed(decimals);
+  }
+
+  function formatValRaw(val, decimals, unit) {
+    if (val === null || val === undefined || isNaN(val) || val === '') {
+      return '<span class="val-missing" title="Missing / unavailable" aria-label="Missing / unavailable">—</span>';
+    }
+    const numStr = Number(val).toFixed(decimals);
+    return unit ? `${numStr} ${unit}` : numStr;
+  }
+
+  function getCategoryBadge(category) {
+    if (!category) {
+      return '<span class="val-missing" title="Missing / unavailable" aria-label="Missing / unavailable">—</span>';
+    }
+    const catLower = String(category).toLowerCase().replace(/[^a-z]/g, '-');
+    let badgeClass = 'aqi-badge--moderate';
+    if (catLower.includes('good')) badgeClass = 'aqi-badge--good';
+    else if (catLower.includes('satisfactory')) badgeClass = 'aqi-badge--satisfactory';
+    else if (catLower.includes('very-poor')) badgeClass = 'aqi-badge--very-poor';
+    else if (catLower.includes('poor')) badgeClass = 'aqi-badge--poor';
+    else if (catLower.includes('severe')) badgeClass = 'aqi-badge--severe';
+
+    return `<span class="aqi-badge ${badgeClass}">${escapeHtml(category)}</span>`;
+  }
+
+  function formatDateLabel(dateStr) {
+    if (!dateStr) return '';
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr;
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const m = parseInt(parts[1], 10) - 1;
+    return `${parseInt(parts[2], 10)} ${months[m] || parts[1]} ${parts[0]}`;
+  }
+
+  function renderDatasetInspector(filteredRows, stationObj, varConfig, startDate, endDate) {
+    if (!datasetTableBody || !datasetTable) return;
+
+    if (!filteredRows || filteredRows.length === 0) {
+      if (datasetEmptyState) datasetEmptyState.style.display = 'block';
+      datasetTable.style.display = 'none';
+      if (statusScheduledCount) statusScheduledCount.textContent = '0 scheduled records';
+      if (statusValidCount) statusValidCount.textContent = '0 valid observations';
+      if (statusStationInfo) statusStationInfo.textContent = stationObj ? `${stationObj.station_name} (${stationObj.project_station_id})` : 'Selected station';
+      if (btnDownloadCsv) btnDownloadCsv.disabled = true;
+      datasetTableBody.innerHTML = '';
+      return;
+    }
+
+    if (datasetEmptyState) datasetEmptyState.style.display = 'none';
+    datasetTable.style.display = '';
+    if (btnDownloadCsv) btnDownloadCsv.disabled = false;
+
+    // Count valid observations
+    const validVarCount = filteredRows.filter(r => r[varConfig.key] !== null && r[varConfig.key] !== undefined && !isNaN(r[varConfig.key])).length;
+    const validAqiCount = filteredRows.filter(r => r.aqi_verified !== null && r.aqi_verified !== undefined && !isNaN(r.aqi_verified)).length;
+
+    if (statusScheduledCount) statusScheduledCount.textContent = `${filteredRows.length} scheduled station-days`;
+    if (statusValidCount) {
+      statusValidCount.textContent = varConfig.isAQI 
+        ? `${validAqiCount} valid AQI observations` 
+        : `${validVarCount} valid ${varConfig.label} observations`;
+    }
+    if (statusStationInfo) statusStationInfo.textContent = `${stationObj.station_name} (${stationObj.project_station_id})`;
+
+    // Efficient DOM rendering with DocumentFragment
+    const fragment = document.createDocumentFragment();
+
+    filteredRows.forEach((r) => {
+      const rowId = `dataset-detail-${r.project_station_id}-${r.date}`;
+      const dateLabel = formatDateLabel(r.date);
+
+      // Main observation row
+      const tr = document.createElement('tr');
+      tr.className = 'dataset-row';
+      tr.id = `dataset-row-${r.date}`;
+
+      tr.innerHTML = `
+        <td class="sticky-col">
+          <button type="button" class="row-expand-btn" aria-expanded="false" aria-controls="${rowId}" aria-label="View complete record for ${dateLabel}">
+            <span class="expand-icon" aria-hidden="true">▸</span>
+          </button>
+          <span class="row-date">${r.date}</span>
+        </td>
+        <td>${formatVal(r.aqi_verified, 1)}</td>
+        <td>${getCategoryBadge(r.aqi_category)}</td>
+        <td>${r.dominant_pollutant ? `<code style="font-size:0.78rem; text-transform:uppercase;">${escapeHtml(r.dominant_pollutant)}</code>` : '<span class="val-missing" title="Missing / unavailable" aria-label="Missing / unavailable">—</span>'}</td>
+        <td>${formatVal(r.pm2_5_aqi_input, 1)}</td>
+        <td>${formatVal(r.pm10_aqi_input, 1)}</td>
+        <td>${formatVal(r.o3_8h_max, 1)}</td>
+        <td>${formatVal(r.temperature, 1)}</td>
+        <td>${formatVal(r.humidity, 1)}</td>
+        <td>${formatVal(r.wind_speed, 2)}</td>
+      `;
+
+      // Expandable detail row
+      const detailTr = document.createElement('tr');
+      detailTr.id = rowId;
+      detailTr.className = 'dataset-detail-row';
+      detailTr.style.display = 'none';
+      detailTr.hidden = true;
+
+      detailTr.innerHTML = `
+        <td colspan="10" class="dataset-detail-cell">
+          <div class="record-detail-card" role="region" aria-label="Observation details for ${dateLabel}">
+            <div class="record-detail-grid">
+              <!-- Identification -->
+              <div class="detail-section">
+                <div class="detail-section-title">Identification</div>
+                <div class="detail-item"><span class="detail-label">Station ID:</span><span class="detail-value">${escapeHtml(stationObj.project_station_id)}</span></div>
+                <div class="detail-item"><span class="detail-label">Station:</span><span class="detail-value" style="font-family:inherit; font-size:0.75rem;">${escapeHtml(stationObj.station_name)}</span></div>
+                <div class="detail-item"><span class="detail-label">City, State:</span><span class="detail-value" style="font-family:inherit;">${escapeHtml(stationObj.city)}, ${escapeHtml(stationObj.state)}</span></div>
+                <div class="detail-item"><span class="detail-label">Date:</span><span class="detail-value">${escapeHtml(r.date)}</span></div>
+                <div class="detail-item"><span class="detail-label">Panel Role:</span><span class="detail-value" style="font-family:inherit; font-size:0.72rem;">${escapeHtml(stationObj.panel_role || (stationObj.use_hyderabad ? 'Hyderabad Panel' : 'India Panel'))}</span></div>
+              </div>
+
+              <!-- AQI Composite -->
+              <div class="detail-section">
+                <div class="detail-section-title">AQI Composite</div>
+                <div class="detail-item"><span class="detail-label">Verified-Subset AQI:</span><span class="detail-value">${formatValRaw(r.aqi_verified, 1, 'Index units')}</span></div>
+                <div class="detail-item"><span class="detail-label">CPCB Category:</span><span class="detail-value">${r.aqi_category ? escapeHtml(r.aqi_category) : '<span class="val-missing">—</span>'}</span></div>
+                <div class="detail-item"><span class="detail-label">Dominant Pollutant:</span><span class="detail-value">${r.dominant_pollutant ? escapeHtml(r.dominant_pollutant.toUpperCase()) : '<span class="val-missing">—</span>'}</span></div>
+                <div class="detail-item"><span class="detail-label">Sufficiency Status:</span><span class="detail-value" style="font-family:inherit; font-size:0.75rem;">${r.aqi_verified !== null ? 'Validated (3 pollutants)' : 'Incomplete coverage'}</span></div>
+              </div>
+
+              <!-- Pollutant Inputs -->
+              <div class="detail-section">
+                <div class="detail-section-title">Pollutant Inputs</div>
+                <div class="detail-item"><span class="detail-label">PM2.5 (24-hr avg):</span><span class="detail-value">${formatValRaw(r.pm2_5_aqi_input, 1, 'µg/m³')}</span></div>
+                <div class="detail-item"><span class="detail-label">PM10 (24-hr avg):</span><span class="detail-value">${formatValRaw(r.pm10_aqi_input, 1, 'µg/m³')}</span></div>
+                <div class="detail-item"><span class="detail-label">O3 (8h daily max):</span><span class="detail-value">${formatValRaw(r.o3_8h_max, 1, 'µg/m³')}</span></div>
+              </div>
+
+              <!-- Meteorology -->
+              <div class="detail-section">
+                <div class="detail-section-title">Meteorology</div>
+                <div class="detail-item"><span class="detail-label">Temperature:</span><span class="detail-value">${formatValRaw(r.temperature, 1, '°C')}</span></div>
+                <div class="detail-item"><span class="detail-label">Relative Humidity:</span><span class="detail-value">${formatValRaw(r.humidity, 1, '%')}</span></div>
+                <div class="detail-item"><span class="detail-label">Wind Speed:</span><span class="detail-value">${formatValRaw(r.wind_speed, 2, 'm/s')}</span></div>
+              </div>
+            </div>
+          </div>
+        </td>
+      `;
+
+      fragment.appendChild(tr);
+      fragment.appendChild(detailTr);
+    });
+
+    datasetTableBody.innerHTML = '';
+    datasetTableBody.appendChild(fragment);
+
+    // Setup CSV Download handler with current filtered observations
+    setupCsvDownload(filteredRows, stationObj, startDate, endDate);
+  }
+
+  function setupCsvDownload(filteredRows, stationObj, startDate, endDate) {
+    if (!btnDownloadCsv) return;
+
+    btnDownloadCsv.onclick = function() {
+      if (!filteredRows || filteredRows.length === 0) return;
+
+      const headers = [
+        'project_station_id',
+        'station_name',
+        'city',
+        'state',
+        'date',
+        'aqi_verified',
+        'aqi_category',
+        'dominant_pollutant',
+        'pm2_5_aqi_input',
+        'pm10_aqi_input',
+        'o3_8h_max',
+        'temperature',
+        'humidity',
+        'wind_speed'
+      ];
+
+      const escapeCsvCell = (val) => {
+        if (val === null || val === undefined) return '';
+        const str = String(val);
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+          return '"' + str.replace(/"/g, '""') + '"';
+        }
+        return str;
+      };
+
+      const lines = [headers.join(',')];
+
+      filteredRows.forEach(row => {
+        const cells = [
+          escapeCsvCell(stationObj.project_station_id),
+          escapeCsvCell(stationObj.station_name),
+          escapeCsvCell(stationObj.city),
+          escapeCsvCell(stationObj.state),
+          escapeCsvCell(row.date),
+          escapeCsvCell(row.aqi_verified),
+          escapeCsvCell(row.aqi_category),
+          escapeCsvCell(row.dominant_pollutant),
+          escapeCsvCell(row.pm2_5_aqi_input),
+          escapeCsvCell(row.pm10_aqi_input),
+          escapeCsvCell(row.o3_8h_max),
+          escapeCsvCell(row.temperature),
+          escapeCsvCell(row.humidity),
+          escapeCsvCell(row.wind_speed)
+        ];
+        lines.push(cells.join(','));
+      });
+
+      const csvContent = '\uFEFF' + lines.join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const filename = `UAQI_${stationObj.project_station_id}_${startDate}_${endDate}.csv`;
+      link.setAttribute('href', url);
+      link.setAttribute('download', filename);
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+  }
+
+  // Row expansion delegation
+  if (datasetTableBody) {
+    datasetTableBody.addEventListener('click', (e) => {
+      const btn = e.target.closest('.row-expand-btn');
+      if (!btn) return;
+      const targetId = btn.getAttribute('aria-controls');
+      const detailRow = document.getElementById(targetId);
+      const parentRow = btn.closest('tr');
+      const icon = btn.querySelector('.expand-icon');
+      if (!detailRow) return;
+
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        if (icon) icon.textContent = '▸';
+        detailRow.style.display = 'none';
+        detailRow.hidden = true;
+        if (parentRow) parentRow.classList.remove('expanded');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        if (icon) icon.textContent = '▾';
+        detailRow.style.display = '';
+        detailRow.hidden = false;
+        if (parentRow) parentRow.classList.add('expanded');
       }
     });
   }

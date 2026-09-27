@@ -112,9 +112,26 @@
       const container = document.createElement("div");
       container.innerHTML = html;
 
-      // Rewrite Images
+      // Rewrite Picture Sources if present
+      const sources = container.querySelectorAll("source");
+      sources.forEach(function (source) {
+        let srcset = source.getAttribute("srcset");
+        if (!srcset) return;
+        if (!srcset.match(/^https?:\/\//) && !srcset.startsWith("/")) {
+          if (docDir) {
+            if (srcset.startsWith("../")) {
+              srcset = srcset.replace(/^\.\.\//, "");
+            } else if (!srcset.startsWith(docDir)) {
+              srcset = docDir + srcset;
+            }
+          }
+          source.setAttribute("srcset", srcset);
+        }
+      });
+
+      // Rewrite Images with lazy loading and async decoding
       const images = container.querySelectorAll("img");
-      images.forEach(function (img) {
+      images.forEach(function (img, idx) {
         let src = img.getAttribute("src");
         if (!src) return;
 
@@ -137,6 +154,16 @@
             }
           }
           img.setAttribute("src", src);
+        }
+
+        // Performance & lazy loading: first image loads eagerly, subsequent images lazy
+        if (!img.hasAttribute("loading")) {
+          if (idx > 0) {
+            img.setAttribute("loading", "lazy");
+          }
+        }
+        if (!img.hasAttribute("decoding")) {
+          img.setAttribute("decoding", "async");
         }
       });
 

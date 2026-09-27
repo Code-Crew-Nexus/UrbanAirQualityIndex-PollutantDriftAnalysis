@@ -1,7 +1,7 @@
 # System Prerequisites & Environment Specifications
 
 **Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
-**Course:** Statistics for Machine Learning (SML) — Project Based Learning (PBL)  
+**Course:** Statistics for Machine Learning — Project Based Learning  
 **Organization:** `Code-Crew-Nexus`  
 **Reference Document:** [`docs/ENVIRONMENT.md`](../ENVIRONMENT.md), [`docs/PACKAGE_REQUIREMENTS.md`](../PACKAGE_REQUIREMENTS.md)
 

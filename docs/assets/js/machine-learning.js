@@ -72,7 +72,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error('Error loading Machine Learning assets:', err);
     const errRegion = document.getElementById('ml-load-error');
-    if (errRegion) errRegion.textContent = 'Error: Machine Learning data could not be loaded. Please refresh the page.';
+    if (errRegion) {
+      errRegion.classList.remove('visually-hidden');
+      if (window.location.protocol === 'file:') {
+        errRegion.innerHTML = '<div class="load-error-card local-preview-card" style="margin-bottom: 1.5rem;"><div class="load-error-header"><span class="load-error-badge">LOCAL PREVIEW REQUIRED</span><h3 class="load-error-title">Interactive Datasets Require Local HTTP Server</h3></div><p class="load-error-desc">Datasets cannot be loaded when opening this page directly from disk (<code>file://</code>). Start the local server with <code>py scripts/serve_website_local.py</code> or <code>py -m http.server 8000 --directory docs</code> and open <a href="http://localhost:8000/machine-learning.html" class="preview-direct-link">http://localhost:8000/machine-learning.html</a>.</p></div>';
+      } else {
+        errRegion.textContent = 'Error: Machine Learning data could not be loaded. Please refresh the page.';
+      }
+    }
   }
 
   function initTabs() {

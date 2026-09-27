@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const chartCard = document.getElementById('explore-chart-card');
   const emptyStateCard = document.getElementById('explore-empty-state');
+  const loadErrorCard = document.getElementById('explore-load-error');
   const chartCanvas = document.getElementById('exploreChart');
   const chartTitle = document.getElementById('chart-title');
   const chartSubtitle = document.getElementById('chart-subtitle');
@@ -56,6 +57,76 @@ document.addEventListener('DOMContentLoaded', async () => {
   const STUDY_MAX_DATE = '2026-09-21';
   const DEFAULT_START_DATE = '2026-06-24'; // Exactly 90 calendar days prior to max date
 
+  function showLoadError(isProtocolError) {
+    if (chartCard) chartCard.style.display = 'none';
+    if (emptyStateCard) emptyStateCard.style.display = 'none';
+    if (datasetInspectorCard) datasetInspectorCard.style.display = 'none';
+    const metricGrid = document.querySelector('.metric-card-grid');
+    if (metricGrid) metricGrid.style.display = 'none';
+
+    if (!loadErrorCard) return;
+
+    if (isProtocolError || window.location.protocol === 'file:') {
+      loadErrorCard.innerHTML = `
+        <div class="load-error-card local-preview-card">
+          <div class="load-error-header">
+            <span class="load-error-badge">LOCAL PREVIEW REQUIRED</span>
+            <h3 class="load-error-title">Interactive Datasets Require Local HTTP Server</h3>
+          </div>
+          <p class="load-error-desc">
+            Interactive datasets cannot be loaded when this page is opened directly from disk (<code>file://</code>) because modern browser security policies restrict <code>fetch()</code> requests from reading local JSON files.
+          </p>
+          <div class="load-error-action-box">
+            <p class="action-box-label">Start the project's local web server from your terminal:</p>
+            <div class="command-copy-wrapper">
+              <code id="cmd-local-server">py scripts/serve_website_local.py</code>
+              <button type="button" class="btn btn-copy-cmd" id="btn-copy-preview-cmd" aria-label="Copy server command to clipboard">Copy</button>
+            </div>
+            <p class="action-box-alt">Or using standard Python: <code>py -m http.server 8000 --directory docs</code></p>
+            <p class="action-box-sub">Then reopen the page at: <a href="http://localhost:8000/explore.html" class="preview-direct-link">http://localhost:8000/explore.html</a></p>
+          </div>
+        </div>
+      `;
+      loadErrorCard.style.display = 'block';
+
+      const copyBtn = document.getElementById('btn-copy-preview-cmd');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const cmd = document.getElementById('cmd-local-server')?.innerText || 'py scripts/serve_website_local.py';
+          navigator.clipboard.writeText(cmd).then(() => {
+            copyBtn.textContent = 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+              copyBtn.textContent = 'Copy';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }).catch(() => {
+            copyBtn.textContent = 'Copied!';
+          });
+        });
+      }
+    } else {
+      loadErrorCard.innerHTML = `
+        <div class="load-error-card network-error-card">
+          <div class="load-error-header">
+            <span class="load-error-badge badge-danger">DATA LOAD ERROR</span>
+            <h3 class="load-error-title">Unable to Load the Frozen Scientific Dataset</h3>
+          </div>
+          <p class="load-error-desc">
+            A network or resource error occurred while loading scientific data assets. Please refresh the page or verify network connectivity.
+          </p>
+        </div>
+      `;
+      loadErrorCard.style.display = 'block';
+    }
+  }
+
+  // Pre-flight file:// protocol check
+  if (window.location.protocol === 'file:') {
+    showLoadError(true);
+    return;
+  }
+
   try {
     // 1. Fetch JSON datasets concurrently (cached in page memory)
     const [stations, observations] = await Promise.all([
@@ -74,12 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   } catch (err) {
     console.error('Error loading Explore Data assets:', err);
-    if (chartCard) chartCard.style.display = 'none';
-    if (emptyStateCard) {
-      emptyStateCard.style.display = 'block';
-      const textElem = emptyStateCard.querySelector('.empty-state-text');
-      if (textElem) textElem.textContent = 'Failed to load scientific observations dataset.';
-    }
+    showLoadError(window.location.protocol === 'file:');
   }
 
   function normalizeScope(scopeStr) {

@@ -2,8 +2,8 @@
 **A Multi-Station Study of Hyderabad Using Real-World Air Quality and Meteorological Data**
 
 ## 1. Academic Context
-- **Course**: Statistics for Machine Learning (SML)
-- **Framework**: Project Based Learning (PBL)
+- **Course**: Statistics for Machine Learning
+- **Framework**: Project Based Learning
 
 ## 2. Project Overview
 This project systematically analyzes the temporal drift of air quality pollutants and develops predictive models to forecast next-day Air Quality Index (AQI) boundary crossings using historical sensor arrays and localized meteorological data.
@@ -107,26 +107,34 @@ The scientific computation, statistical inference, and machine learning models r
 
 ### B. Static Project Website (Presentation Layer)
 The presentation layer is a lightweight static website built with HTML5, CSS3, and Vanilla JavaScript, targeted for GitHub Pages hosting. It consumes frozen results exported from the R pipeline.
+
+#### Local Website Preview
+The interactive website loads frozen JSON datasets and Markdown assets using `fetch()`, which requires an HTTP/HTTPS origin in modern browsers. Opening HTML files directly from disk via `file://` causes browser security policies (CORS) to block data loading.
+
 To serve and preview the website locally from the project root:
 ```powershell
+py scripts/serve_website_local.py
+```
+*(Alternatively using standard Python or the PowerShell convenience launcher)*:
+```powershell
 py -m http.server 8000 --directory docs
+# Or: .\scripts\start_website_preview.ps1
 ```
 Then navigate in a browser to:
 ```
 http://localhost:8000/
 ```
-*(Note: Do not open `index.html` directly via the `file://` protocol because browser security policies restrict fetch-based Markdown document loading).*
 
 ## 13. Team
 | Name | Roll Number | GitHub |
 |---|---|---|
 | Mangali Sai Krishna | 24R11A6669 | @Saikrishna-dev-oss |
 | Md. Abdul Rayain | 24R11A6673 | @rayainwarrior-dev |
-| RISHIT GHOSH | 24R11A6685 | @rajghosh06-dev |
+| Rishit Ghosh | 24R11A6685 | @rajghosh06-dev |
 | Yaram Karthik | 24R11A66A1 | @karthik10-dev |
 
 ## 14. Suggestions & Feedback
-This repository is maintained as an academic SML PBL by the listed project team.
+This repository is maintained as an academic Statistics for Machine Learning · Project Based Learning project by the listed project team.
 
 External Pull Requests and direct code contributions are not accepted.
 

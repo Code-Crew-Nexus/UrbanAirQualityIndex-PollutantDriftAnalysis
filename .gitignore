@@ -12,6 +12,7 @@
 # Runtime
 logs/
 scratch/
+reports/
 
 # Internal audit history
 docs/internal_phase_history/

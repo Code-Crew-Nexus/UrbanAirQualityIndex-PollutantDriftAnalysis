@@ -52,6 +52,15 @@
 
   --max-width: 1240px;
   --header-height: 64px;
+
+  /* G5: Missing token aliases — resolved from canonical palette */
+  --graphite-dark: #202421;          /* alias for --text-graphite */
+  --graphite-muted: #69706B;         /* alias for --text-muted */
+  --jade-medium: rgba(40,95,73,0.35);/* mid-tone jade border */
+  --champagne: #B38A52;              /* alias for --champagne-brass */
+  --champagne-light: #F0E7D8;        /* alias for --champagne-soft */
+  --table-header: #F5F5F2;           /* light neutral table header bg */
+  --transition-fast: 0.12s ease;    /* standard fast micro-transition */
 }
 
 /* Base & Reset */
@@ -1043,6 +1052,200 @@ a:focus {
 }
 
 /* ==========================================================================
+   G5: Academic Light Header
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  color: var(--text-graphite);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 1px 4px rgba(32, 36, 33, 0.07);
+  height: var(--header-height);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-graphite);
+}
+
+.brand-badge {
+  background-color: var(--jade-deep);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(40, 95, 73, 0.2);
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-graphite);
+  white-space: nowrap;
+}
+
+.brand-context {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+  display: inline-block;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--jade-deep);
+  background-color: var(--jade-soft);
+}
+
+.nav-link.active {
+  color: var(--jade-deep);
+  background-color: var(--jade-soft);
+  border-color: rgba(40, 95, 73, 0.18);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-graphite);
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  min-height: 40px;
+}
+
+/* ==========================================================================
+   G5 Add-On C: Compact Dark Authoritative Footer
+   ========================================================================== */
+.site-footer {
+  background-color: #1B2721;
+  color: rgba(255, 255, 255, 0.72);
+  padding: 2rem 1.5rem 1.25rem 1.5rem;
+  border-top: 2px solid var(--jade-deep);
+  font-size: 0.86rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-col p {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.65rem;
+}
+
+.footer-release-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.release-chip {
+  display: inline-block;
+  background-color: rgba(40, 95, 73, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid rgba(40, 95, 73, 0.5);
+  letter-spacing: 0.03em;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-size: 0.84rem;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid var(--champagne-brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.footer-bottom code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+/* Fix D: Station filter item wider CSS class */
+.filter-item--station {
+  flex: 2 1 260px;
+}
+
+/* ==========================================================================
    Responsive Adaptations (Section 47)
    ========================================================================== */
 @media (max-width: 992px) {
@@ -1076,11 +1279,11 @@ a:focus {
     top: var(--header-height);
     left: 0;
     right: 0;
-    background-color: var(--header-dark);
+    background-color: #FFFFFF;
     flex-direction: column;
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(32, 36, 33, 0.10);
   }
   
   .main-nav.open {
@@ -1102,6 +1305,12 @@ a:focus {
   
   .footer-container {
     grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
   }
 }
 

@@ -80,7 +80,7 @@
                 <td><a href="https://github.com/rayainwarrior-dev" target="_blank" rel="noopener noreferrer">@rayainwarrior-dev</a></td>
               </tr>
               <tr>
-                <td><strong>RISHIT GHOSH</strong></td>
+                <td><strong>Rishit Ghosh</strong></td>
                 <td><code>24R11A6685</code></td>
                 <td><a href="https://github.com/rajghosh06-dev" target="_blank" rel="noopener noreferrer">@rajghosh06-dev</a></td>
               </tr>
@@ -116,10 +116,11 @@
               <strong>Verified-Subset AQI:</strong> The Indian AQI computed here represents a conservative verified-subset index derived from PM2.5, PM10, and O3. Gaseous pollutants (CO, NO2, SO2) were excluded because modern OpenAQ API feeds lack dual-unit mass tracking after 2022, preventing independent regulatory verification.
             </li>
             <li style="margin-bottom: 0.5rem;">
-              <strong>Standardized Drift ($D_z$):</strong> Drift scores quantify observational mean shifts between temporal windows. They are descriptive indicators and do not establish causal atmospheric emission attribution.
+              <strong>Standardized Drift (<i>D</i><sub>z</sub>):</strong> Drift scores quantify observational mean shifts between temporal windows. They are descriptive indicators and do not establish causal atmospheric emission attribution.
             </li>
             <li style="margin-bottom: 0.5rem;">
-              <strong>Seasonal Prevalence Shift:</strong> Fixed-threshold models experience sensitivity drops when seasonal background rates shift drastically; models rely on validation-selected operating thresholds ($p^* \approx 0.311268$ for Hyderabad, $p^* \approx 0.713448$ for India) rather than naive $0.50$.
+              <strong>Seasonal Prevalence Shift:</strong> Fixed-threshold models experience sensitivity drops when seasonal background rates shift drastically; models rely on validation-selected operating thresholds
+              (<i>p</i><sup>*</sup>&nbsp;&asymp;&nbsp;0.311268 for Hyderabad, <i>p</i><sup>*</sup>&nbsp;&asymp;&nbsp;0.713448 for India) rather than a na&iuml;ve 0.50 default.
             </li>
             <li>
               <strong>Static Presentation Model:</strong> The website presentation layer visualizes precomputed R artifacts and does not support on-the-fly model re-training in JavaScript.
@@ -169,12 +170,11 @@
     <div class="footer-container">
       <div class="footer-col">
         <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
-        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations accessed through OpenAQ, with historical meteorology from Open-Meteo.
-        </p>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
-          Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>
-        </p>
+        <p>Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations via OpenAQ, with historical meteorology from Open-Meteo.</p>
+        <div class="footer-release-chips">
+          <span class="release-chip">Scientific v0.6</span>
+          <span class="release-chip">Website v0.7</span>
+        </div>
       </div>
 
       <div class="footer-col">
@@ -202,7 +202,7 @@
 
     <div class="footer-bottom">
       <span>&copy; 2026 Code-Crew-Nexus. Statistics for Machine Learning (SML) PBL.</span>
-      <span>Baseline Tag: <code>v0.6-svm-freeze</code> • Target Deployment: GitHub Pages</span>
+      <span>Scientific Baseline: <code>v0.6-svm-freeze</code> • Website Release: <code>v0.7-website-freeze</code> • Deployed on GitHub Pages</span>
     </div>
   </footer>
 

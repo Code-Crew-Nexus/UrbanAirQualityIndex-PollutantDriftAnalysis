@@ -28,6 +28,9 @@ data/raw/
 data/interim/
 data/quarantine/
 data/modeling/
+data/live/staging/
+data/live/raw/
+data/live/quarantine/
 
 # Temporary/cache
 tmp/

@@ -59,14 +59,34 @@
       <div class="dashboard-header">
         <h1 class="dashboard-title">Explore Multi-Station Sensor Observations</h1>
         <p class="dashboard-subtitle">
-          Interactive temporal visualization of 11,970 scheduled station-day observations across 21 physical CAAQMS stations spanning 570 calendar days (March 1, 2025 to September 21, 2026).
+          Interactive temporal visualization of scheduled station-day observations across 21 physical CAAQMS stations spanning the frozen academic baseline and extended operational observations.
         </p>
+      </div>
+
+      <!-- Academic Baseline & Live Extension Notice -->
+      <div class="data-mode-callout" id="data-mode-callout" role="note">
+        <div class="data-mode-callout-icon" aria-hidden="true">&#x1F3DB;</div>
+        <div class="data-mode-callout-content">
+          <strong id="data-mode-callout-title">Academic Review Mode (v0.6-svm-freeze)</strong>
+          <p id="data-mode-callout-text">
+            Displaying the frozen scientific evaluation baseline spanning 570 calendar days (March 1, 2025 to September 21, 2026). All values, KPIs, and distributions strictly match the submitted PBL report. Switch to <em>Extended / Live</em> to inspect operational observations from September 22, 2026 onward.
+          </p>
+        </div>
       </div>
 
       <!-- Filter Toolbar -->
       <div class="filter-toolbar" role="region" aria-label="Data filter controls">
         <div class="filter-group">
           
+          <div class="filter-item filter-item--mode">
+            <label for="filter-data-mode">Data Mode</label>
+            <select id="filter-data-mode" class="filter-control">
+              <option value="frozen" selected>Frozen Study (through Sep 21, 2026)</option>
+              <option value="live">Extended / Live (Sep 22, 2026 onward)</option>
+              <option value="combined">Complete Continuity (Frozen + Live)</option>
+            </select>
+          </div>
+
           <div class="filter-item">
             <label for="filter-scope">Study Scope</label>
             <select id="filter-scope" class="filter-control">
@@ -107,9 +127,8 @@
 
           <div class="filter-actions">
             <button id="btn-preset-90d" class="btn-filter active" title="Show latest 90 calendar days">Latest 90 Days</button>
-            <button id="btn-preset-full" class="btn-filter" title="Show full 570-day study period">Full Study Period</button>
+            <button id="btn-preset-full" class="btn-filter" title="Show full study period">Full Period</button>
           </div>
-
         </div>
       </div>
 
@@ -216,6 +235,7 @@
             <thead>
               <tr>
                 <th scope="col" class="sticky-col">Date</th>
+                <th scope="col">Stream</th>
                 <th scope="col">AQI</th>
                 <th scope="col">Category</th>
                 <th scope="col">Dominant</th>

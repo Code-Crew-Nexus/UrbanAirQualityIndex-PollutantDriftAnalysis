@@ -131,15 +131,107 @@
           }
           return response.json();
         });
+    },
+
+    /**
+     * Injects a compact operational status banner immediately below the global header,
+     * driven by docs/web-data/live_pipeline_status.json.
+     */
+    initLiveStatusBanner: function () {
+      const header = document.querySelector(".site-header");
+      if (!header) return;
+      if (document.querySelector(".live-status-banner")) return;
+
+      AppCommon.fetchJson("web-data/live_pipeline_status.json")
+        .then(function (status) {
+          if (!status || !status.status) return;
+
+          const banner = document.createElement("aside");
+          banner.className = "live-status-banner";
+
+          const dt = status.data_through || "2026-09-26";
+          let dateFormatted = dt;
+          try {
+            const parts = dt.split("-");
+            if (parts.length === 3) {
+              const d = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)));
+              dateFormatted = d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+            }
+          } catch (e) {}
+
+          if (status.status === "ok") {
+            banner.classList.add("live-status-ok");
+            banner.setAttribute("role", "status");
+            banner.setAttribute("aria-label", "Live extension operational status");
+            banner.innerHTML = `
+              <div class="container live-status-container">
+                <div class="live-status-left">
+                  <span class="live-status-dot" aria-hidden="true"></span>
+                  <span class="live-status-label">Operational Extension Active</span>
+                  <span class="live-status-sep" aria-hidden="true">•</span>
+                  <span class="live-status-text">Validated observations through <strong>${dateFormatted}</strong></span>
+                </div>
+                <div class="live-status-right">
+                  <a href="explore.html?mode=live" class="live-status-cta">Explore Live Data &rarr;</a>
+                </div>
+              </div>
+            `;
+          } else if (status.status === "stale" || status.status === "partial") {
+            banner.classList.add("live-status-warning");
+            banner.setAttribute("role", "alert");
+            banner.setAttribute("aria-label", "Live extension update notice");
+            banner.innerHTML = `
+              <div class="container live-status-container">
+                <div class="live-status-left">
+                  <span class="live-status-icon" aria-hidden="true">⚠️</span>
+                  <span class="live-status-label">Update Notice</span>
+                  <span class="live-status-sep" aria-hidden="true">•</span>
+                  <span class="live-status-text">${status.message || "Live data refresh is delayed."} Last validated observations through <strong>${dateFormatted}</strong> remain available.</span>
+                </div>
+                <div class="live-status-right">
+                  <a href="explore.html" class="live-status-cta">Explore Data &rarr;</a>
+                </div>
+              </div>
+            `;
+          } else {
+            // Critical / Maintenance / Schema drift / Auth error
+            banner.classList.add("live-status-danger");
+            banner.setAttribute("role", "alert");
+            banner.setAttribute("aria-label", "Live extension maintenance notice");
+            banner.innerHTML = `
+              <div class="container live-status-container">
+                <div class="live-status-left">
+                  <span class="live-status-icon" aria-hidden="true">ℹ️</span>
+                  <span class="live-status-label">Maintenance Notice</span>
+                  <span class="live-status-sep" aria-hidden="true">•</span>
+                  <span class="live-status-text">${status.message || "Live data updates paused."} The frozen academic baseline (v0.6-svm-freeze) remains fully accessible.</span>
+                </div>
+                <div class="live-status-right">
+                  <a href="explore.html" class="live-status-cta">View Study &rarr;</a>
+                </div>
+              </div>
+            `;
+          }
+
+          header.parentNode.insertBefore(banner, header.nextSibling);
+        })
+        .catch(function () {
+          // If status JSON is missing or inaccessible, fail gracefully without breaking the page
+        });
     }
   };
 
   // Export to window
   window.AppCommon = AppCommon;
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", AppCommon.initNavigation);
-  } else {
+  function initApp() {
     AppCommon.initNavigation();
+    AppCommon.initLiveStatusBanner();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initApp);
+  } else {
+    initApp();
   }
 })(typeof window !== "undefined" ? window : this);

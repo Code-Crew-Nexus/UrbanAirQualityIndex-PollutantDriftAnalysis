@@ -63,7 +63,7 @@
             </select>
           </div>
 
-          <div class="filter-item" style="flex: 2 1 260px;">
+          <div class="filter-item filter-item--station">
             <label for="filter-station">Monitoring Station</label>
             <select id="filter-station" class="filter-control">
               <!-- Dynamically populated from stations.json -->
@@ -120,7 +120,7 @@
         </div>
 
         <div class="chart-canvas-wrapper">
-          <canvas id="exploreChart" aria-label="Interactive time-series line chart"></canvas>
+          <canvas role="img" id="exploreChart" aria-label="Interactive time-series line chart"></canvas>
         </div>
       </div>
 
@@ -180,12 +180,11 @@
     <div class="footer-container">
       <div class="footer-col">
         <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
-        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations accessed through OpenAQ, with historical meteorology from Open-Meteo.
-        </p>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.45);">
-          Frozen Modeling Milestone: <code>v0.6-svm-freeze</code>
-        </p>
+        <p>Real-world air-quality observations from selected CPCB/SPCB CAAQMS stations via OpenAQ, with historical meteorology from Open-Meteo.</p>
+        <div class="footer-release-chips">
+          <span class="release-chip">Scientific v0.6</span>
+          <span class="release-chip">Website v0.7</span>
+        </div>
       </div>
 
       <div class="footer-col">
@@ -213,7 +212,7 @@
 
     <div class="footer-bottom">
       <span>&copy; 2026 Code-Crew-Nexus. Statistics for Machine Learning (SML) PBL.</span>
-      <span>Baseline Tag: <code>v0.6-svm-freeze</code> • Target Deployment: GitHub Pages</span>
+      <span>Scientific Baseline: <code>v0.6-svm-freeze</code> • Website Release: <code>v0.7-website-freeze</code> • Deployed on GitHub Pages</span>
     </div>
   </footer>
 

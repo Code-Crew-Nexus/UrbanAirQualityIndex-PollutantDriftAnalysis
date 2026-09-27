@@ -286,9 +286,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       clsChartWrapper.style.display = 'none';
       clsNoticeCard.style.display = 'block';
       clsNoticeCard.innerHTML = `
-        <strong>Single-Class Evaluation Period (${scope} — ${split}):</strong>
-        Two-class discrimination metrics (PR-AUC, ROC-AUC, F1, Sensitivity) are undefined because the evaluation set contains <strong>zero positive adverse-class observations</strong> ($Y_{t+1}=1, \\text{AQI}_{t+1} > 100$) among 111 eligible station-days.
-        Single-class descriptive quantities such as Specificity ($1.0000$) and True Negatives ($111$) are reported in the table below.
+        <strong>Single-Class Evaluation Period (${scope} \u2014 ${split}):</strong>
+        Two-class discrimination metrics (PR-AUC, ROC-AUC, F1, Sensitivity) are undefined because the evaluation set contains <strong>zero positive adverse-class observations</strong>
+        (<i>Y</i><sub>t+1</sub>&nbsp;=&nbsp;1, AQI<sub>t+1</sub>&nbsp;&gt;&nbsp;100) among 111 eligible station-days.
+        Single-class descriptive quantities such as Specificity (1.0000) and True Negatives (111) are reported in the table below.
       `;
     } else {
       clsNoticeCard.style.display = 'none';

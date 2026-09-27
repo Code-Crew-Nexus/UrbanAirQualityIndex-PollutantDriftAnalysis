@@ -391,7 +391,7 @@ test_that("41. exact team members and roll numbers present", {
   expect_true(grepl("24R11A6669", about_txt, fixed = TRUE))
   expect_true(grepl("Md. Abdul Rayain", about_txt, fixed = TRUE))
   expect_true(grepl("24R11A6673", about_txt, fixed = TRUE))
-  expect_true(grepl("RISHIT GHOSH", about_txt, fixed = TRUE))
+  expect_true(grepl("Rishit Ghosh", about_txt, fixed = TRUE))  # G5: corrected from ALL-CAPS RISHIT GHOSH
   expect_true(grepl("24R11A6685", about_txt, fixed = TRUE))
   expect_true(grepl("Yaram Karthik", about_txt, fixed = TRUE))
   expect_true(grepl("24R11A66A1", about_txt, fixed = TRUE))

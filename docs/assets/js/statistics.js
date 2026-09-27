@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (iRow.tested && iRow.eligible) {
-      infTestedElem.innerHTML = `<span class="badge-evidence badge-decrease">Tested (B=2000, l=7)</span>`;
+      infTestedElem.innerHTML = `<span class="badge-evidence badge-decrease">Tested (B\u202f=\u202f2000, l\u202f=\u202f7)</span>`;
       
       // Support Direction
       let badgeClass = 'badge-unsupported';
@@ -365,9 +365,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Interpretive phrasing
       if (iRow.support_direction === 'Unsupported') {
-        infNoticeElem.innerHTML = `<strong>Inferential Finding:</strong> No statistically supported temporal shift under the frozen inference criteria (moving-block bootstrap $B=2000$, block length $l=7$, global Benjamini–Hochberg FDR $\\alpha = 0.05$).`;
+        infNoticeElem.innerHTML = `<strong>Inferential Finding:</strong> No statistically supported temporal shift under the frozen inference criteria (moving-block bootstrap B\u202f=\u202f2000, block length l\u202f=\u202f7, global Benjamini\u2013Hochberg FDR &alpha;\u202f=\u202f0.05).`;
       } else {
-        infNoticeElem.innerHTML = `<strong>Inferential Finding:</strong> Statistically supported temporal shift in the ${iRow.support_direction.toLowerCase()} direction (BH-FDR $q = ${iRow.bh_q_value !== null ? iRow.bh_q_value.toFixed(4) : '—'}$, CI excludes zero).`;
+        infNoticeElem.innerHTML = `<strong>Inferential Finding:</strong> Statistically supported temporal shift in the ${iRow.support_direction.toLowerCase()} direction (BH-FDR <i>q</i>\u202f=\u202f${iRow.bh_q_value !== null ? iRow.bh_q_value.toFixed(4) : '\u2014'}, CI excludes zero).`;
       }
     } else {
       infTestedElem.innerHTML = `<span class="badge-evidence badge-not-tested">Not Tested</span>`;

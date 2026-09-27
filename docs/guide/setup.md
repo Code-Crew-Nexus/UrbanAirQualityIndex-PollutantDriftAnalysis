@@ -46,11 +46,15 @@ The canonical processed datasets are precomputed and version-controlled:
 ### Step 3: Run the Local Website Preview
 The website presentation layer is completely static (HTML5, CSS3, Vanilla JS). It requires no Node.js runtime, no npm build steps, and no R Shiny server.
 
-Start the standard Python HTTP server from the **project root**:
+Start the local web server from the **project root**:
 ```powershell
-python -m http.server 8000 --directory docs
+py scripts/serve_website_local.py
 ```
-*(Alternatively in PowerShell 7: `Start-Process "http://localhost:8000"`)*
+*(Alternatively using standard Python or PowerShell)*:
+```powershell
+py -m http.server 8000 --directory docs
+# Or: .\scripts\start_website_preview.ps1
+```
 
 Open your browser and navigate to:
 ```
@@ -58,8 +62,8 @@ http://localhost:8000/
 ```
 
 > [!WARNING]
-> **Do not open `index.html` directly via the `file://` protocol.**  
-> Modern browser security policies (CORS) restrict JavaScript `fetch()` calls from reading local Markdown files over `file://`. Always preview through a local HTTP server such as `python -m http.server 8000 --directory docs`.
+> **Do not open HTML files directly via the `file://` protocol.**  
+> Modern browser security policies (CORS) restrict JavaScript `fetch()` calls from reading local JSON and Markdown files over `file://`. Always preview through a local HTTP server such as `py scripts/serve_website_local.py` or `py -m http.server 8000 --directory docs`.
 
 ### Step 4: Execute the Project Test Suite
 Verify that all Phase 6A structural checks, mathematical rendering rules, and baseline invariants pass:

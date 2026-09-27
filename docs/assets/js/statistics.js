@@ -78,7 +78,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Error loading Statistical Analysis assets:', err);
     if (driftStatusElem) driftStatusElem.textContent = 'Error loading frozen data.';
     const errRegion = document.getElementById('stat-load-error');
-    if (errRegion) errRegion.textContent = 'Error: Statistical Analysis data could not be loaded. Please refresh the page.';
+    if (errRegion) {
+      errRegion.classList.remove('visually-hidden');
+      if (window.location.protocol === 'file:') {
+        errRegion.innerHTML = '<div class="load-error-card local-preview-card" style="margin-bottom: 1.5rem;"><div class="load-error-header"><span class="load-error-badge">LOCAL PREVIEW REQUIRED</span><h3 class="load-error-title">Interactive Datasets Require Local HTTP Server</h3></div><p class="load-error-desc">Datasets cannot be loaded when opening this page directly from disk (<code>file://</code>). Start the local server with <code>py scripts/serve_website_local.py</code> or <code>py -m http.server 8000 --directory docs</code> and open <a href="http://localhost:8000/statistics.html" class="preview-direct-link">http://localhost:8000/statistics.html</a>.</p></div>';
+      } else {
+        errRegion.textContent = 'Error: Statistical Analysis data could not be loaded. Please refresh the page.';
+      }
+    }
   }
 
   function initTabs() {

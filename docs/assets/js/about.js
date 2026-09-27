@@ -20,8 +20,9 @@
             rosterTableBody.innerHTML = "";
             data.team.forEach(function (member) {
               const tr = document.createElement("tr");
+              const memberName = member.name === "RISHIT GHOSH" ? "Rishit Ghosh" : member.name;
               tr.innerHTML = `
-                <td><strong>${member.name}</strong></td>
+                <td><strong>${memberName}</strong></td>
                 <td><code>${member.roll_number}</code></td>
                 <td><a href="https://github.com/${member.github.replace('@', '')}" target="_blank" rel="noopener noreferrer">${member.github}</a></td>
               `;

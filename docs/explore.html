@@ -24,9 +24,13 @@
   <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="brand-wrapper" aria-label="Urban Air Quality Home">
-        <span class="brand-badge">SML PBL</span>
-        <span class="brand-title">Urban Air Quality</span>
-        <span class="brand-context">· Code-Crew-Nexus</span>
+        <span class="brand-mark">
+          <span class="brand-badge">COURSE PROJECT</span>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">Urban Air Quality</span>
+          <span class="brand-descriptor">Statistics for Machine Learning · Project Based Learning <span class="brand-org">· Code-Crew-Nexus</span></span>
+        </div>
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
@@ -109,12 +113,15 @@
         </div>
       </div>
 
-      <!-- Empty State Notice (hidden by default) -->
+      <!-- Data Load Error Notice (Protocol / Fetch Failures) -->
+      <div id="explore-load-error" class="load-error-notice" role="alert" style="display: none;"></div>
+
+      <!-- Valid Empty Selection Notice (0 valid observations for chosen filter) -->
       <div id="explore-empty-state" class="empty-state-notice" style="display: none;">
-        <div class="empty-state-icon">⚠️</div>
+        <div class="empty-state-icon">ℹ️</div>
         <div class="empty-state-text">No valid observations are available for this selection.</div>
         <p style="font-size: 0.875rem; margin-top: 0.5rem; color: var(--graphite-muted);">
-          The selected station does not possess valid sensor records within the chosen temporal window. Try expanding the date range.
+          Try another station, variable, or date range.
         </p>
       </div>
 
@@ -274,7 +281,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 Code-Crew-Nexus &middot; Statistics for Machine Learning PBL</span>
+      <span>&copy; 2026 Code-Crew-Nexus &middot; Statistics for Machine Learning &middot; Project Based Learning</span>
       <span>Scientific Baseline: <code>v0.6-svm-freeze</code> &bull; Website Release: <code>v0.7.1-website-polish</code> &bull; Deployed on GitHub Pages</span>
     </div>
   </footer>

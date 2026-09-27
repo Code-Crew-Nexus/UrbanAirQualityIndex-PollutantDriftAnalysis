@@ -1,0 +1,140 @@
+{
+  "contract_name": "Upstream Data Ingestion Contract for Live Extension",
+  "version": "1.0",
+  "effective_date": "2026-09-27",
+  "authoritative_baseline": "v0.6-svm-freeze",
+  "sources": {
+    "openaq": {
+      "api_version": "v3",
+      "base_url": "https://api.openaq.org/v3",
+      "endpoint_template": "/sensors/{sensor_id}/hours?datetime_from={start_datetime}&datetime_to={end_datetime}&limit={limit}&page={page}",
+      "expected_http_method": "GET",
+      "required_headers": [
+        "X-API-Key",
+        "Accept"
+      ],
+      "payload_root": {
+        "required_fields": [
+          "results",
+          "meta"
+        ],
+        "meta_fields": [
+          "name",
+          "page",
+          "limit",
+          "found"
+        ]
+      },
+      "result_item_contract": {
+        "required_fields": [
+          "value",
+          "period",
+          "parameter"
+        ],
+        "period_contract": {
+          "required_fields": [
+            "datetimeFrom",
+            "datetimeTo"
+          ],
+          "datetime_structure": [
+            "utc",
+            "local"
+          ]
+        },
+        "parameter_contract": {
+          "required_fields": [
+            "id",
+            "name",
+            "units"
+          ]
+        }
+      },
+      "supported_pollutants": [
+        "pm2_5",
+        "pm10",
+        "o3"
+      ],
+      "accepted_units": {
+        "pm2_5": [
+          "µg/m³",
+          "ug/m3"
+        ],
+        "pm10": [
+          "µg/m³",
+          "ug/m3"
+        ],
+        "o3": [
+          "µg/m³",
+          "ug/m3"
+        ]
+      },
+      "plausible_value_ranges": {
+        "pm2_5": {
+          "min": 0.0,
+          "max": 1000.0
+        },
+        "pm10": {
+          "min": 0.0,
+          "max": 1500.0
+        },
+        "o3": {
+          "min": 0.0,
+          "max": 800.0
+        }
+      },
+      "schema_drift_policy": {
+        "action": "HALT_PUBLICATION",
+        "error_code": "UPSTREAM_SCHEMA_CHANGE",
+        "fallback": "RETAIN_LAST_VALIDATED_DATASET"
+      }
+    },
+    "openmeteo": {
+      "api_version": "v1",
+      "base_url": "https://archive-api.open-meteo.com/v1/archive",
+      "fallback_url": "https://api.open-meteo.com/v1/forecast",
+      "endpoint_template": "?latitude={lat}&longitude={lon}&start_date={start_date}&end_date={end_date}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&wind_speed_unit=ms&timezone=Asia%2FKolkata",
+      "payload_root": {
+        "required_fields": [
+          "latitude",
+          "longitude",
+          "hourly"
+        ]
+      },
+      "hourly_contract": {
+        "required_fields": [
+          "time",
+          "temperature_2m",
+          "relative_humidity_2m",
+          "wind_speed_10m",
+          "wind_direction_10m"
+        ]
+      },
+      "plausible_value_ranges": {
+        "temperature_2m": {
+          "min": -15.0,
+          "max": 60.0
+        },
+        "relative_humidity_2m": {
+          "min": 0.0,
+          "max": 100.0
+        },
+        "wind_speed_10m": {
+          "min": 0.0,
+          "max": 60.0
+        }
+      }
+    }
+  },
+  "aggregation_rules": {
+    "hourly_sufficiency_threshold": 16,
+    "hours_per_day": 24,
+    "o3_rolling_window_hours": 8,
+    "o3_rolling_window_min_hours": 6,
+    "subindex_algorithm": "CPCB_LINEAR_INTERPOLATION",
+    "verified_subset_pollutants": [
+      "pm2_5",
+      "pm10",
+      "o3_8h_max"
+    ]
+  }
+}

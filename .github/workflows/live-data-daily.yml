@@ -1,0 +1,107 @@
+name: Live Data Daily Refresh (Temporary)
+
+on:
+  schedule:
+    # 02:17 UTC daily (07:47 IST) - away from top-of-hour congestion
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Start Date (YYYY-MM-DD, minimum 2026-09-22)'
+        required: false
+        default: '2026-09-22'
+      end_date:
+        description: 'End Date (YYYY-MM-DD)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry Run (validate schema & probes without writing/committing)'
+        required: false
+        type: boolean
+        default: false
+
+# Enforce strict single execution per runner; avoid concurrent runs
+concurrency:
+  group: live-data-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-live-data:
+    name: Ingest and Validate Daily Extension
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify Daily Schedule Window Gate
+        id: gate
+        run: |
+          CURRENT_DATE=$(date -u +'%Y-%m-%d')
+          echo "Current Date (UTC): ${CURRENT_DATE}"
+          # Daily refresh operates only through 2026-10-31
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${CURRENT_DATE}" \> "2026-10-31" ]; then
+            echo "Daily refresh window has expired (cutoff: 2026-10-31). Please transition to monthly refresh."
+            exit 0
+          fi
+
+      - name: Install R & System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            r-base \
+            r-cran-dplyr \
+            r-cran-tidyr \
+            r-cran-readr \
+            r-cran-jsonlite \
+            r-cran-httr2 \
+            r-cran-zoo \
+            r-cran-digest \
+            r-cran-yaml \
+            r-cran-purrr \
+            r-cran-e1071
+
+      - name: Execute Live Data Ingestion
+        env:
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+        run: |
+          CMD="Rscript scripts/44_live_data_ingestion.R"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -n "${{ inputs.start_date }}" ]; then
+              CMD="$CMD --start-date ${{ inputs.start_date }}"
+            fi
+            if [ -n "${{ inputs.end_date }}" ]; then
+              CMD="$CMD --end-date ${{ inputs.end_date }}"
+            fi
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              CMD="$CMD --dry-run"
+            fi
+          fi
+          echo "Running: $CMD"
+          eval $CMD
+
+      - name: Execute Deterministic Frozen-Model Scoring
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          Rscript scripts/45_live_model_inference.R
+
+      - name: Commit and Push Updated Live Data
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          git status
+          if git diff --quiet data/live/ docs/web-data/; then
+            echo "No validated live-data changes; no commit required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/live/processed/ data/live/metadata/ docs/web-data/live_daily_observations.json docs/web-data/live_pipeline_status.json docs/web-data/live_predictions.json
+          DATA_DATE=$(date -u +'%Y-%m-%d')
+          git commit -m "data(live): refresh validated observations through ${DATA_DATE} [skip ci]"
+          git push origin main

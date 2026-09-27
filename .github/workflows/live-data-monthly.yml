@@ -1,0 +1,110 @@
+name: Live Data Monthly Refresh (Long-Term)
+
+on:
+  schedule:
+    # 02:47 UTC on the 1st of every month (runs on new month to ingest previous complete calendar month)
+    - cron: '47 2 1 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry Run (validate schema & probes without writing/committing)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: live-data-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  monthly-refresh:
+    name: Monthly Observation Refresh & Deployment Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify Monthly Schedule Window Gate
+        id: gate
+        run: |
+          CURRENT_DATE=$(date -u +'%Y-%m-%d')
+          echo "Current Date (UTC): ${CURRENT_DATE}"
+          # Monthly refresh activates 2026-11-01 onward
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${CURRENT_DATE}" \< "2026-11-01" ]; then
+            echo "Monthly refresh is scheduled to begin on 2026-11-01. Skipping."
+            exit 0
+          fi
+
+      - name: Compute Previous Complete Month Date Range
+        id: date_range
+        run: |
+          # First day of current month
+          FIRST_OF_MONTH=$(date -u +'%Y-%m-01')
+          # Last day of previous month
+          END_DATE=$(date -u -d "${FIRST_OF_MONTH} - 1 day" +'%Y-%m-%d')
+          # First day of previous month
+          START_DATE=$(date -u -d "${END_DATE}" +'%Y-%m-01')
+          echo "Target Month Start: ${START_DATE}"
+          echo "Target Month End: ${END_DATE}"
+          echo "start_date=${START_DATE}" >> $GITHUB_OUTPUT
+          echo "end_date=${END_DATE}" >> $GITHUB_OUTPUT
+
+      - name: Install R & System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            r-base \
+            r-cran-dplyr \
+            r-cran-tidyr \
+            r-cran-readr \
+            r-cran-jsonlite \
+            r-cran-httr2 \
+            r-cran-zoo \
+            r-cran-digest \
+            r-cran-yaml \
+            r-cran-purrr \
+            r-cran-e1071
+
+      - name: Execute Monthly Live Data Ingestion
+        env:
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+        run: |
+          CMD="Rscript scripts/44_live_data_ingestion.R --start-date ${{ steps.date_range.outputs.start_date }} --end-date ${{ steps.date_range.outputs.end_date }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          echo "Running: $CMD"
+          eval $CMD
+
+      - name: Execute Deterministic Frozen-Model Scoring
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          Rscript scripts/45_live_model_inference.R
+
+      - name: Audit & Declutter Inactive Deployments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/43_declutter_deployments.py || true
+
+      - name: Commit and Push Updated Live Data
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          git status
+          if git diff --quiet data/live/ docs/web-data/; then
+            echo "No validated live-data changes; no commit required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/live/processed/ data/live/metadata/ docs/web-data/live_daily_observations.json docs/web-data/live_pipeline_status.json docs/web-data/live_predictions.json
+          DATA_DATE=$(date -u +'%Y-%m-%d')
+          git commit -m "data(live): monthly refresh through ${DATA_DATE} [skip ci]"
+          git push origin main

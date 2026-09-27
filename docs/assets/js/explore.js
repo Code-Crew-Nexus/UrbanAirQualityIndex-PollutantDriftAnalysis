@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   'use strict';
 
   // DOM Elements
+  const dataModeSelect = document.getElementById('filter-data-mode');
+  const dataModeCalloutTitle = document.getElementById('data-mode-callout-title');
+  const dataModeCalloutText = document.getElementById('data-mode-callout-text');
   const scopeSelect = document.getElementById('filter-scope');
   const stationSelect = document.getElementById('filter-station');
   const variableSelect = document.getElementById('filter-variable');
@@ -51,6 +54,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   // In-memory data
   let stationsData = [];
   let dailyObservations = [];
+  let frozenObservations = [];
+  let liveObservations = [];
+  let liveLoaded = false;
+  let latestLiveDate = '2026-09-26';
+  let currentDataMode = 'frozen';
 
   // Default Study Boundaries
   const STUDY_MIN_DATE = '2025-03-01';
@@ -135,10 +143,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     ]);
 
     stationsData = stations;
-    dailyObservations = observations;
+    frozenObservations = observations;
+    dailyObservations = frozenObservations;
 
     // 2. Initialize Filter Controls
-    initFilters();
+    await initFilters();
 
     // 3. Render Initial State
     updateView();
@@ -146,6 +155,80 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error('Error loading Explore Data assets:', err);
     showLoadError(window.location.protocol === 'file:');
+  }
+
+  async function ensureLiveObservationsLoaded() {
+    if (liveLoaded) return;
+    try {
+      const liveData = await DataUtils.fetchJSON('web-data/live_daily_observations.json');
+      if (Array.isArray(liveData) && liveData.length > 0) {
+        liveObservations = liveData;
+        latestLiveDate = liveData.reduce((max, r) => r.date > max ? r.date : max, '2026-09-26');
+        liveLoaded = true;
+      }
+    } catch (e) {
+      console.warn('Could not load live_daily_observations.json:', e);
+    }
+  }
+
+  async function applyDataMode(mode) {
+    currentDataMode = mode;
+    if (dataModeSelect && dataModeSelect.value !== mode) {
+      dataModeSelect.value = mode;
+    }
+
+    if (mode === 'live') {
+      await ensureLiveObservationsLoaded();
+      dailyObservations = liveObservations;
+      startDateInput.min = '2026-09-22';
+      startDateInput.max = latestLiveDate;
+      endDateInput.min = '2026-09-22';
+      endDateInput.max = latestLiveDate;
+      startDateInput.value = '2026-09-22';
+      endDateInput.value = latestLiveDate;
+
+      if (dataModeCalloutTitle) dataModeCalloutTitle.textContent = 'Extended / Live Mode (Operational Extension)';
+      if (dataModeCalloutText) {
+        dataModeCalloutText.innerHTML = `Displaying operational observations from September 22, 2026 through <strong>${latestLiveDate}</strong> refreshed periodically from OpenAQ v3 and Open-Meteo. These records extend the monitoring timeline but do not alter the frozen v0.6 baseline.`;
+      }
+      if (preset90DaysBtn) preset90DaysBtn.textContent = 'Full Live Window';
+      if (presetFullBtn) presetFullBtn.textContent = 'Full Live Window';
+    } else if (mode === 'combined') {
+      await ensureLiveObservationsLoaded();
+      dailyObservations = [...frozenObservations, ...liveObservations];
+      startDateInput.min = STUDY_MIN_DATE;
+      startDateInput.max = latestLiveDate;
+      endDateInput.min = STUDY_MIN_DATE;
+      endDateInput.max = latestLiveDate;
+      startDateInput.value = DEFAULT_START_DATE;
+      endDateInput.value = latestLiveDate;
+
+      if (dataModeCalloutTitle) dataModeCalloutTitle.textContent = 'Complete Continuity Mode (Frozen Study + Live Extension)';
+      if (dataModeCalloutText) {
+        dataModeCalloutText.innerHTML = `Displaying the continuous combination of the frozen academic baseline (through September 21, 2026) and operational extension observations (September 22, 2026 onward through <strong>${latestLiveDate}</strong>).`;
+      }
+      if (preset90DaysBtn) preset90DaysBtn.textContent = 'Latest 90 Days';
+      if (presetFullBtn) presetFullBtn.textContent = 'Complete Period';
+    } else {
+      // 'frozen'
+      dailyObservations = frozenObservations;
+      startDateInput.min = STUDY_MIN_DATE;
+      startDateInput.max = STUDY_MAX_DATE;
+      endDateInput.min = STUDY_MIN_DATE;
+      endDateInput.max = STUDY_MAX_DATE;
+      startDateInput.value = DEFAULT_START_DATE;
+      endDateInput.value = STUDY_MAX_DATE;
+
+      if (dataModeCalloutTitle) dataModeCalloutTitle.textContent = 'Academic Review Mode (v0.6-svm-freeze)';
+      if (dataModeCalloutText) {
+        dataModeCalloutText.innerHTML = `Displaying the frozen scientific evaluation baseline spanning 570 calendar days (March 1, 2025 to September 21, 2026). All values, KPIs, and distributions strictly match the submitted PBL report. Switch to <em>Extended / Live</em> to inspect operational observations from September 22, 2026 onward.`;
+      }
+      if (preset90DaysBtn) preset90DaysBtn.textContent = 'Latest 90 Days';
+      if (presetFullBtn) presetFullBtn.textContent = 'Full Study Period';
+    }
+
+    preset90DaysBtn.classList.add('active');
+    presetFullBtn.classList.remove('active');
   }
 
   function normalizeScope(scopeStr) {
@@ -169,7 +252,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return null;
   }
 
-  function initFilters() {
+  async function initFilters() {
     // Set date defaults
     startDateInput.min = STUDY_MIN_DATE;
     startDateInput.max = STUDY_MAX_DATE;
@@ -183,6 +266,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     populateStations('Hyderabad');
 
     // Event listeners
+    if (dataModeSelect) {
+      dataModeSelect.addEventListener('change', async () => {
+        await applyDataMode(dataModeSelect.value);
+        updateView();
+      });
+    }
+
     scopeSelect.addEventListener('change', () => {
       populateStations(scopeSelect.value);
       updateView();
@@ -201,15 +291,45 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Preset Buttons
     preset90DaysBtn.addEventListener('click', () => {
-      startDateInput.value = DEFAULT_START_DATE;
-      endDateInput.value = STUDY_MAX_DATE;
+      if (currentDataMode === 'live') {
+        startDateInput.value = '2026-09-22';
+        endDateInput.value = latestLiveDate;
+      } else if (currentDataMode === 'combined') {
+        startDateInput.value = DEFAULT_START_DATE;
+        endDateInput.value = latestLiveDate;
+      } else {
+        startDateInput.value = DEFAULT_START_DATE;
+        endDateInput.value = STUDY_MAX_DATE;
+      }
       preset90DaysBtn.classList.add('active');
       presetFullBtn.classList.remove('active');
       updateView();
     });
 
+    presetFullBtn.addEventListener('click', () => {
+      if (currentDataMode === 'live') {
+        startDateInput.value = '2026-09-22';
+        endDateInput.value = latestLiveDate;
+      } else if (currentDataMode === 'combined') {
+        startDateInput.value = STUDY_MIN_DATE;
+        endDateInput.value = latestLiveDate;
+      } else {
+        startDateInput.value = STUDY_MIN_DATE;
+        endDateInput.value = STUDY_MAX_DATE;
+      }
+      presetFullBtn.classList.add('active');
+      preset90DaysBtn.classList.remove('active');
+      updateView();
+    });
+
     // URL parameters for deep-linking
     const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('mode')) {
+      const m = urlParams.get('mode').toLowerCase();
+      if (m === 'live' || m === 'combined' || m === 'frozen') {
+        await applyDataMode(m);
+      }
+    }
     if (urlParams.has('scope')) {
       const s = normalizeScope(urlParams.get('scope'));
       if (s) {
@@ -558,6 +678,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     filteredRows.forEach((r) => {
       const rowId = `dataset-detail-${r.project_station_id}-${r.date}`;
       const dateLabel = formatDateLabel(r.date);
+      const isFrozen = r.date <= '2026-09-21';
+      const streamBadge = isFrozen
+        ? '<span class="stream-badge stream-badge--frozen">Frozen Study</span>'
+        : '<span class="stream-badge stream-badge--live">Live Extension</span>';
 
       // Main observation row
       const tr = document.createElement('tr');
@@ -571,6 +695,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           </button>
           <span class="row-date">${r.date}</span>
         </td>
+        <td>${streamBadge}</td>
         <td>${formatVal(r.aqi_verified, 1)}</td>
         <td>${getCategoryBadge(r.aqi_category)}</td>
         <td>${r.dominant_pollutant ? `<code style="font-size:0.78rem; text-transform:uppercase;">${escapeHtml(r.dominant_pollutant)}</code>` : '<span class="val-missing" title="Missing / unavailable" aria-label="Missing / unavailable">—</span>'}</td>
@@ -590,7 +715,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       detailTr.hidden = true;
 
       detailTr.innerHTML = `
-        <td colspan="10" class="dataset-detail-cell">
+        <td colspan="11" class="dataset-detail-cell">
           <div class="record-detail-card" role="region" aria-label="Observation details for ${dateLabel}">
             <div class="record-detail-grid">
               <!-- Identification -->
@@ -600,6 +725,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="detail-item"><span class="detail-label">Station:</span><span class="detail-value" style="font-family:inherit; font-size:0.75rem;">${escapeHtml(stationObj.station_name)}</span></div>
                 <div class="detail-item"><span class="detail-label">City, State:</span><span class="detail-value" style="font-family:inherit;">${escapeHtml(stationObj.city)}, ${escapeHtml(stationObj.state)}</span></div>
                 <div class="detail-item"><span class="detail-label">Date:</span><span class="detail-value">${escapeHtml(r.date)}</span></div>
+                <div class="detail-item"><span class="detail-label">Data Stream:</span><span class="detail-value" style="font-family:inherit; font-size:0.75rem;">${isFrozen ? 'Frozen Academic Baseline (v0.6-svm-freeze)' : 'Live Extension (Operational Update)'}</span></div>
                 <div class="detail-item"><span class="detail-label">Panel Role:</span><span class="detail-value" style="font-family:inherit; font-size:0.72rem;">${escapeHtml(stationObj.panel_role || (stationObj.use_hyderabad ? 'Hyderabad Panel' : 'India Panel'))}</span></div>
               </div>
 
@@ -655,6 +781,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         'city',
         'state',
         'date',
+        'data_stream',
         'aqi_verified',
         'aqi_category',
         'dominant_pollutant',
@@ -678,12 +805,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       const lines = [headers.join(',')];
 
       filteredRows.forEach(row => {
+        const isFrozen = row.date <= '2026-09-21';
         const cells = [
           escapeCsvCell(stationObj.project_station_id),
           escapeCsvCell(stationObj.station_name),
           escapeCsvCell(stationObj.city),
           escapeCsvCell(stationObj.state),
           escapeCsvCell(row.date),
+          escapeCsvCell(isFrozen ? 'Frozen Study' : 'Live Extension'),
           escapeCsvCell(row.aqi_verified),
           escapeCsvCell(row.aqi_category),
           escapeCsvCell(row.dominant_pollutant),

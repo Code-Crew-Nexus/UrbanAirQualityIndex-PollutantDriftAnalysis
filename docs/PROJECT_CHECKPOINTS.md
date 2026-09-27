@@ -46,3 +46,9 @@ Responsive, Accessibility, Deployment & Final Website Release Freeze
 ### Checkpoint G4
 Website release integration + public GitHub Pages deployment  
 **COMPLETE**
+
+### Checkpoint G5
+Post-deployment UI/UX, mathematical rendering, accessibility & QA-integrity hardening  
+Raw LaTeX eliminated · Light academic header · Compact dark footer · Keyboard ARIA tablist · `role="alert"` error regions · `aria-describedby` chart summaries · Inline styles → BEM CSS classes · Team name casing corrected  
+**COMPLETE: `v0.7.1-website-polish` (commit `6ad8127`)** — Live-verified on GitHub Pages  
+Report: [`checkpoint_G5_post_deployment_ui_integrity_report.md`](./internal_phase_history/checkpoint_G5_post_deployment_ui_integrity_report.md)

@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   } catch (err) {
     console.error('Error loading Machine Learning assets:', err);
+    const errRegion = document.getElementById('ml-load-error');
+    if (errRegion) errRegion.textContent = 'Error: Machine Learning data could not be loaded. Please refresh the page.';
   }
 
   function initTabs() {

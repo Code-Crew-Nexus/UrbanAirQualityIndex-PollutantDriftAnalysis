@@ -1245,6 +1245,11 @@ a:focus {
   flex: 2 1 260px;
 }
 
+/* Fix D: Variable/pollutant filter item CSS class */
+.filter-item--variable {
+  flex: 1.5 1 220px;
+}
+
 /* ==========================================================================
    Responsive Adaptations (Section 47)
    ========================================================================== */

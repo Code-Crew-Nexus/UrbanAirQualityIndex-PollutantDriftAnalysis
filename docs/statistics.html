@@ -50,8 +50,10 @@
           Rigorous temporal drift quantification (<i>D<sub>z</sub></i>) and block-bootstrapped statistical hypothesis testing (<i>B</i> = 2000, <i>l</i> = 7) with global Benjamini–Hochberg False Discovery Rate control.
         </p>
       </div>
+      <!-- Accessibility: load-failure live region -->
+      <div id="stat-load-error" role="alert" aria-live="assertive" class="visually-hidden"></div>
 
-      <!-- Filter Controls Toolbar -->
+
       <div class="filter-toolbar" role="region" aria-label="Statistical filter controls">
         <div class="filter-group">
           
@@ -63,14 +65,14 @@
             </select>
           </div>
 
-          <div class="filter-item" style="flex: 2 1 260px;">
+          <div class="filter-item filter-item--station">
             <label for="stat-filter-station">Monitoring Station</label>
             <select id="stat-filter-station" class="filter-control">
               <!-- Dynamically populated from stations.json -->
             </select>
           </div>
 
-          <div class="filter-item" style="flex: 1.5 1 220px;">
+          <div class="filter-item filter-item--variable">
             <label for="stat-filter-variable">Pollutant / Variable</label>
             <select id="stat-filter-variable" class="filter-control">
               <option value="aqi_verified" selected>AQI (Verified Composite)</option>
@@ -155,7 +157,8 @@
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 320px;">
-            <canvas role="img" id="driftComparisonChart" aria-label="Recent vs baseline mean bar chart"></canvas>
+            <canvas role="img" id="driftComparisonChart" aria-label="Recent vs baseline mean bar chart" aria-describedby="driftComparisonChart-desc"></canvas>
+            <p id="driftComparisonChart-desc" class="visually-hidden">Bar chart comparing the rolling 30-day recent window mean pollutant concentration against the preceding 90-day baseline mean, filtered by station and pollutant variable. Used to assess magnitude of concentration shift for drift classification.</p>
           </div>
         </div>
 

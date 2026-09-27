@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error('Error loading Statistical Analysis assets:', err);
     if (driftStatusElem) driftStatusElem.textContent = 'Error loading frozen data.';
+    const errRegion = document.getElementById('stat-load-error');
+    if (errRegion) errRegion.textContent = 'Error: Statistical Analysis data could not be loaded. Please refresh the page.';
   }
 
   function initTabs() {

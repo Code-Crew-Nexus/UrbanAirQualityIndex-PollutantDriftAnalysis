@@ -51,6 +51,9 @@
         </p>
       </div>
 
+      <!-- Accessibility: load-failure live region -->
+      <div id="ml-load-error" role="alert" aria-live="assertive" class="visually-hidden"></div>
+
       <!-- Three Internal Tabs -->
       <div class="tab-group" role="tablist" aria-label="Machine Learning Modules">
         <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-regression" id="tab-btn-regression" aria-controls="tab-regression" tabindex="0">
@@ -97,7 +100,8 @@
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 350px;">
-            <canvas role="img" id="regressionComparisonChart" aria-label="Regression error bar chart"></canvas>
+            <canvas role="img" id="regressionComparisonChart" aria-label="Regression error bar chart" aria-describedby="regressionComparisonChart-desc"></canvas>
+            <p id="regressionComparisonChart-desc" class="visually-hidden">Grouped bar chart comparing MAE and RMSE for Multiple Linear Regression models across train, validation, test, and holdout splits. Lower values indicate better predictive accuracy for next-day AQI.</p>
           </div>
         </div>
 
@@ -171,7 +175,8 @@
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 350px;">
-            <canvas role="img" id="classificationComparisonChart" aria-label="Classification metrics comparison chart"></canvas>
+            <canvas role="img" id="classificationComparisonChart" aria-label="Classification metrics comparison chart" aria-describedby="classificationComparisonChart-desc"></canvas>
+            <p id="classificationComparisonChart-desc" class="visually-hidden">Grouped bar chart comparing precision, recall, F1-score, and accuracy for Logistic Regression and RBF SVM classifiers predicting adverse air quality events (AQI &gt; 100). Higher values indicate stronger classifier performance.</p>
           </div>
         </div>
 
@@ -260,7 +265,8 @@
             </div>
           </div>
           <div class="chart-canvas-wrapper" style="height: 480px;">
-            <canvas role="img" id="pcaScatterChart" aria-label="PCA PC1 vs PC2 scatter plot"></canvas>
+            <canvas role="img" id="pcaScatterChart" aria-label="PCA PC1 vs PC2 scatter plot" aria-describedby="pcaScatterChart-desc"></canvas>
+            <p id="pcaScatterChart-desc" class="visually-hidden">Scatter plot of PCA Principal Component 1 vs Principal Component 2 scores, coloured by K-Means cluster assignment (K=3). Points represent monitoring station-day observations. Used to visualise environmental regime separation in reduced-dimensionality space.</p>
           </div>
         </div>
 

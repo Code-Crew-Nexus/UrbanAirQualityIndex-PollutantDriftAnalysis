@@ -99,6 +99,23 @@
       hash = manifest.defaultSection;
     }
 
+    // If hash matches an element already in the rendered content pane (e.g. #slide-3), scroll to it
+    const existingTarget = document.getElementById(hash);
+    if (existingTarget && contentPane.contains(existingTarget)) {
+      existingTarget.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    // Direct slide deep-link when not yet loaded: #slide-1 through #slide-12
+    if (hash.startsWith("slide-")) {
+      loadDocument("guide/presentation_walkthrough.md", contentPane, function () {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+      highlightActiveNav("exec-presentation", "guide/presentation_walkthrough.md");
+      return;
+    }
+
     // Direct doc parameter: #doc=path/to/doc.md
     if (hash.startsWith("doc=")) {
       const docPath = decodeURIComponent(hash.substring(4));
@@ -111,6 +128,23 @@
     if (hash === "theory-eq") {
       loadDocument("guide/theoretical_concepts.md", contentPane);
       highlightActiveNav("theory", "guide/theoretical_concepts.md");
+      return;
+    }
+
+    // Historical sub-item aliases to maintain backward-compatibility
+    const HISTORICAL_ALIASES = {
+      "exec-phase1": "phase1_station_selection_decision.md",
+      "exec-phase2": "reports/phase2_data_aqi_summary.md",
+      "exec-phase3": "reports/phase3_statistical_analysis_summary.md",
+      "exec-phase4": "reports/phase4_supervised_learning_summary.md",
+      "exec-phase5a": "reports/phase5_pca_kmeans_summary.md",
+      "exec-phase5b": "reports/phase5b_svm_summary.md",
+      "exec-freeze": "MODELING_FREEZE_SUMMARY.md",
+      "exec-checkpoints": "PROJECT_CHECKPOINTS.md"
+    };
+    if (HISTORICAL_ALIASES[hash]) {
+      loadDocument(HISTORICAL_ALIASES[hash], contentPane);
+      highlightActiveNav("execution", HISTORICAL_ALIASES[hash]);
       return;
     }
 
@@ -158,6 +192,23 @@
             }
           });
         });
+
+        // Intercept in-page anchor links (e.g. #slide-3) for smooth scrolling
+        const inPageAnchors = contentPane.querySelectorAll('a[href^="#"]');
+        inPageAnchors.forEach(function (anchor) {
+          const targetId = anchor.getAttribute("href").replace(/^#/, "");
+          if (targetId && !targetId.startsWith("doc=")) {
+            anchor.addEventListener("click", function (e) {
+              const targetEl = document.getElementById(targetId);
+              if (targetEl && contentPane.contains(targetEl)) {
+                e.preventDefault();
+                targetEl.scrollIntoView({ behavior: "smooth" });
+                history.replaceState(null, "", window.location.pathname + window.location.search + "#" + targetId);
+              }
+            });
+          }
+        });
+
         if (typeof onDone === "function") {
           onDone();
         }

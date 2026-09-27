@@ -1,7 +1,7 @@
 # Scientific Figures & Artifact Samples
 
 **Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
-**Course:** Statistics for Machine Learning (SML) — Project Based Learning (PBL)  
+**Course:** Statistics for Machine Learning — Project Based Learning  
 **Organization:** `Code-Crew-Nexus`  
 **Curated Source:** `docs/figures/`
 
@@ -13,7 +13,7 @@ This indexed gallery showcases key graphical artifacts produced across the scien
 
 ---
 
-## 2. Nonlinear Support Vector Machine (Phase 5B)
+## 2. Nonlinear Support Vector Machine Classification
 
 ### Overall SVM vs. Logistic vs. Persistence Benchmarking
 Comprehensive metric summary comparing RBF SVM against frozen Logistic Model B and simple persistence on the locked out-of-sample TEST split.
@@ -45,7 +45,7 @@ Native hard-classification $F_1$ performance across model families.
 
 ---
 
-## 3. Unsupervised Dimensionality & Regime Discovery (Phase 5A)
+## 3. Unsupervised Dimensionality & Atmospheric Regime Discovery
 
 ### Cumulative Variance Explained by Principal Components
 Comparison of eigenvalues and cumulative variance explained by the 6 orthogonal principal axes across Hyderabad and India monitoring panels.
@@ -67,7 +67,7 @@ Two-dimensional projection of multi-station observations onto the particulate/ve
 
 ---
 
-## 4. Supervised Linear & Logistic Baselines (Phase 4)
+## 4. Supervised Linear Regression & Adverse Event Logistic Baselines
 
 ### Locked Test Mean Absolute Error (MAE) Comparison
 Continuous next-day AQI prediction error comparing MLR Model A (persistence-free), MLR Model B (persistence-aware), and naive single-day persistence.

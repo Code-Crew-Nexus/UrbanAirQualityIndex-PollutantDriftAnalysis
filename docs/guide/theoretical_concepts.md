@@ -1,6 +1,6 @@
 # Theoretical Concepts & Statistical Foundations
 
-**Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis` | **Course:** Statistics for Machine Learning (SML) PBL | **Organization:** `Code-Crew-Nexus` | **Baseline Status:** `v0.6-svm-freeze`
+**Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis` | **Course:** Statistics for Machine Learning — Project Based Learning | **Organization:** `Code-Crew-Nexus` | **Baseline Status:** `v0.6-svm-freeze`
 
 ## 1. Overview of Theoretical Framework
 

@@ -1,7 +1,7 @@
 # Detailed Execution Guide & Phase-by-Phase Walkthrough
 
 **Project:** `UrbanAirQualityIndex-PollutantDriftAnalysis`  
-**Course:** Statistics for Machine Learning (SML) — Project Based Learning (PBL)  
+**Course:** Statistics for Machine Learning — Project Based Learning  
 **Organization:** `Code-Crew-Nexus`  
 **Baseline Status:** `v0.6-svm-freeze`
 

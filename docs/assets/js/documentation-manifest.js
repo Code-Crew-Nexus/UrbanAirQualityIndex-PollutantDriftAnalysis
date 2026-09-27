@@ -49,19 +49,13 @@ const DOCUMENTATION_MANIFEST = {
     {
       id: "execution",
       title: "4. Detailed Execution",
-      description: "Chronological phase-by-phase execution guide covering Phases 1 through 6 with standardized fields.",
+      description: "End-to-end reproducible execution of the project, accompanied by a concise visual presentation walkthrough for review and demonstration.",
       source: "guide/execution_guide.md",
       badge: "Walkthrough",
       subItems: [
-        { id: "exec-walkthrough", title: "Phase 1-6 Execution Guide", source: "guide/execution_guide.md" },
-        { id: "exec-phase1", title: "Phase 1: Station Selection Decision", source: "phase1_station_selection_decision.md" },
-        { id: "exec-phase2", title: "Phase 2: Data Engineering & AQI Summary", source: "reports/phase2_data_aqi_summary.md" },
-        { id: "exec-phase3", title: "Phase 3: Statistical Analysis & Drift", source: "reports/phase3_statistical_analysis_summary.md" },
-        { id: "exec-phase4", title: "Phase 4: Supervised Learning Summary", source: "reports/phase4_supervised_learning_summary.md" },
-        { id: "exec-phase5a", title: "Phase 5A: PCA & K-Means Summary", source: "reports/phase5_pca_kmeans_summary.md" },
-        { id: "exec-phase5b", title: "Phase 5B: RBF SVM Classification Summary", source: "reports/phase5b_svm_summary.md" },
-        { id: "exec-freeze", title: "Modeling Freeze Summary", source: "MODELING_FREEZE_SUMMARY.md" },
-        { id: "exec-checkpoints", title: "Project Milestones & Checkpoints", source: "PROJECT_CHECKPOINTS.md" }
+        { id: "exec-walkthrough", title: "End-to-End Execution Guide", source: "guide/execution_guide.md" },
+        { id: "exec-presentation", title: "Presentation Walkthrough", source: "guide/presentation_walkthrough.md" },
+        { id: "exec-modeling", title: "Modeling & Reproducibility Reference", source: "MODELING_FREEZE_SUMMARY.md" }
       ]
     },
     {

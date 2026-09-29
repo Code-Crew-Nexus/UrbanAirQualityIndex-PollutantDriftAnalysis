@@ -51,11 +51,22 @@ has_flag <- function(flag) {
   any(args == flag)
 }
 
-start_date_arg <- get_arg("--start-date", "2026-09-22")
-# Default end-date is yesterday's date in IST
+start_date_arg <- get_arg("--start-date", NA)
+if (is.na(start_date_arg)) {
+  last_good <- "2026-09-21"
+  if (file.exists("data/live/processed/live_daily_observations.csv")) {
+    df_live <- read.csv("data/live/processed/live_daily_observations.csv", stringsAsFactors = FALSE)
+    if (nrow(df_live) > 0) {
+      last_good <- max(df_live$date, na.rm = TRUE)
+    }
+  }
+  auto_start <- as.character(as.Date(last_good) - 2)
+  start_date_arg <- max("2026-09-22", auto_start)
+}
+
+# Default end-date is latest complete day (yesterday in Asia/Kolkata)
 yesterday_ist <- as.character(as.Date(format(Sys.time(), tz = "Asia/Kolkata")) - 1)
-# Cap default end date at 2026-09-26 for initial backfill if run before tomorrow
-end_date_arg <- get_arg("--end-date", min(yesterday_ist, "2026-09-26"))
+end_date_arg <- get_arg("--end-date", yesterday_ist)
 dry_run <- has_flag("--dry-run")
 
 cat(sprintf("Configured Window: %s to %s (dry_run = %s)\n", start_date_arg, end_date_arg, dry_run))
@@ -592,7 +603,7 @@ if (file.exists(processed_csv_path)) {
   
   # Remove overlapping records that are being updated
   combined_live <- prev_live %>%
-    filter(!(paste(project_station_id, date) %in% paste(live_master$project_station_id, live_master$date))) %>%
+    anti_join(live_master, by = c("project_station_id", "date")) %>%
     bind_rows(live_master) %>%
     arrange(date, project_station_id)
 } else {

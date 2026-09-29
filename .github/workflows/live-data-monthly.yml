@@ -27,9 +27,20 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
+
+      - name: Verify API Secret Availability
+        id: secret_gate
+        env:
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+        run: |
+          if [ -z "$OPENAQ_API_KEY" ]; then
+            echo "::error::OPENAQ_API_KEY is not configured in the repository secrets."
+            echo "auth_missing=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
 
       - name: Verify Monthly Schedule Window Gate
         id: gate
@@ -39,11 +50,14 @@ jobs:
           # Monthly refresh activates 2026-11-01 onward
           if [ "${{ github.event_name }}" = "schedule" ] && [ "${CURRENT_DATE}" \< "2026-11-01" ]; then
             echo "Monthly refresh is scheduled to begin on 2026-11-01. Skipping."
-            exit 0
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Compute Previous Complete Month Date Range
         id: date_range
+        if: steps.gate.outputs.skip != 'true'
         run: |
           # First day of current month
           FIRST_OF_MONTH=$(date -u +'%Y-%m-01')
@@ -57,6 +71,7 @@ jobs:
           echo "end_date=${END_DATE}" >> $GITHUB_OUTPUT
 
       - name: Install R & System Dependencies
+        if: steps.gate.outputs.skip != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
@@ -73,6 +88,7 @@ jobs:
             r-cran-e1071
 
       - name: Execute Monthly Live Data Ingestion
+        if: steps.gate.outputs.skip != 'true'
         env:
           OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
         run: |
@@ -84,27 +100,49 @@ jobs:
           eval $CMD
 
       - name: Execute Deterministic Frozen-Model Scoring
-        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        if: ${{ steps.gate.outputs.skip != 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         run: |
           Rscript scripts/45_live_model_inference.R
 
       - name: Audit & Declutter Inactive Deployments
+        if: steps.gate.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/43_declutter_deployments.py || true
 
       - name: Commit and Push Updated Live Data
-        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        if: ${{ always() && steps.gate.outputs.skip != 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         run: |
           git status
-          if git diff --quiet data/live/ docs/web-data/; then
+
+          # Check if live_pipeline_status.json changed
+          if ! git diff --quiet docs/web-data/live_pipeline_status.json; then
+            # If changed, check if the change is ONLY the timestamp
+            jq 'del(.last_attempt_utc)' docs/web-data/live_pipeline_status.json > new_status.json
+            git show HEAD:docs/web-data/live_pipeline_status.json | jq 'del(.last_attempt_utc)' > old_status.json || echo "{}" > old_status.json
+            if cmp -s new_status.json old_status.json; then
+              # Only timestamp changed, revert it
+              git checkout -- docs/web-data/live_pipeline_status.json
+            fi
+            rm -f new_status.json old_status.json
+          fi
+
+          if git diff --quiet data/live/processed/ docs/web-data/; then
             echo "No validated live-data changes; no commit required."
             exit 0
           fi
+          
+          # If only live_pipeline_status.json changed, it's a status update (maybe failure)
+          if git diff --quiet data/live/processed/ docs/web-data/live_daily_observations.json; then
+            COMMIT_MSG="chore(live): pipeline status update [skip ci]"
+          else
+            DATA_DATE=$(date -u +'%Y-%m-%d')
+            COMMIT_MSG="data(live): monthly refresh through ${DATA_DATE} [skip ci]"
+          fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/live/processed/ data/live/metadata/ docs/web-data/live_daily_observations.json docs/web-data/live_pipeline_status.json docs/web-data/live_predictions.json
-          DATA_DATE=$(date -u +'%Y-%m-%d')
-          git commit -m "data(live): monthly refresh through ${DATA_DATE} [skip ci]"
+          git add data/live/processed/ data/live/metadata/ docs/web-data/live_daily_observations.json docs/web-data/live_pipeline_status.json docs/web-data/live_predictions.json || true
+          git commit -m "$COMMIT_MSG"
           git push origin main

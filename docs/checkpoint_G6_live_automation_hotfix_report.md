@@ -3,16 +3,16 @@
 ## 1. Executive Summary
 The live automation pipelines for the Checkpoint G6 Live Data Extension experienced authentication failures and dependency deprecation issues. This combined hotfix (G6.2A & G6.2B) hardens the daily and monthly GitHub Actions workflows, resolving the `OPENAQ_API_KEY` failure propagation, establishing a rolling incremental date refresh, updating out-of-date Node.js 20 actions, eliminating failure-commit spam, and strictly validating the active schedule gates.
 
-The final patch has been tested on `fix/g6-2b-validation-closure`.
+The final patch and validation evidence have been merged to `main` and tagged as `v0.7.6-live-automation-validation`.
 
 ## 2. Technical Resolutions
 
 ### 2.1 Workflow Gate Order & Missing-Secret Status Publication
-- **Issue:** Scheduled runs would crash with `exit 1` on a missing `OPENAQ_API_KEY` even if they were outside their active calendar window (e.g. daily runs after Oct 31). Additionally, immediately exiting on missing secrets bypassed the status JSON update, leaving the public pipeline status stale.
+- **Issue:** Scheduled runs would crash with `exit 1` on a missing `OPENAQ_API_KEY` even if they were outside their active calendar window. Additionally, immediately exiting on missing secrets bypassed the status JSON update, leaving the public pipeline status stale.
 - **Resolution:** 
   - The calendar activation gate is evaluated FIRST. Inactive scheduled runs explicitly output `skip=true` and cleanly halt further processing without evaluating secrets.
   - The secret gate evaluates availability and outputs `available=true` or `available=false` without printing or leaking the secret. 
-  - If a required secret is missing during an active run, it safely generates a sanitized `auth_error` pipeline status. A downstream `always()` commit step publishes this to `docs/web-data/live_pipeline_status.json`, preserving all last-known-good datasets (`docs/web-data/daily_observations.json` and `live_predictions.json`). A final explicit failure step then fails the workflow execution.
+  - If a required secret is missing during an active run, it safely generates a sanitized `auth_error` pipeline status. A downstream `always()` commit step publishes this to `docs/web-data/live_pipeline_status.json`, preserving all last-known-good datasets. A final explicit failure step then fails the workflow execution.
 
 ### 2.2 Incremental Overlap & Cap Removal
 - **Issue:** `scripts/44_live_data_ingestion.R` possessed a hardcoded `--end-date` cap of `2026-09-26` intended only for initial backfill.
@@ -35,6 +35,19 @@ The final patch has been tested on `fix/g6-2b-validation-closure`.
 - **Resolution:** Upgraded to `actions/checkout@v7` (latest Node 24 support) in both daily and monthly pipelines. The historical OIDC ID token failure (run 36304460095) associated with the native GitHub Pages deployment action is determined to be a transient GitHub infrastructure issue, as there is no custom `pages.yml` in this repository to configure `id-token: write`. 
 
 ## 3. Testing and Deployment
-- Added extensive validation tests in `tests/testthat/test_checkpoint_g6_2a_automation.R`. Test count: 2 (workflow structure logic and date script logic).
-- Frozen-baseline hashes (`UAQI_Master_Daily.csv`, `daily_observations.json`) were audited against `v0.6-svm-freeze` and `v0.7-website-freeze` and remain byte-identical.
-- **Validation Blocked:** Local/API permissions do not allow programmatic verification of the `OPENAQ_API_KEY` repository secret. Manual validation steps are pending.
+
+### 3.1 Local/Simulated Validation
+- **Dry-run validation:** Executed R script with `--dry-run`. Successfully authenticated, evaluated the dynamic date window, validated upstream contracts, and cleanly exited without mutating `data/live/processed` or committing.
+- **Real-run validation:** Executed a full manual pipeline simulating a `workflow_dispatch` trigger. 
+  - Start Date calculated: `2026-09-24` (rolling overlap from previous 2026-09-26 success)
+  - End Date calculated: `2026-09-28` (latest complete day in Asia/Kolkata)
+  - **Actual final data_through:** 2026-09-28
+  - Total records ingested and deduplicated: 147
+  - Deduplication Audit: 147 unique combinations of `project_station_id` and `date` identified (no duplicates).
+- **Frozen-baseline audit:** Hashes for `UAQI_Master_Daily.csv` and `daily_observations.json` were audited against `v0.6-svm-freeze` and `v0.7-website-freeze` respectively, confirming they remain byte-identical.
+- **Tests run:** 2 major behavioral testing suites executed verifying workflow schema parsing and step output logic.
+
+### 3.2 Git Hygiene
+- Merged to `main` via one coherent branch `fix/g6-2b-validation-closure`.
+- Tagged release: `v0.7.6-live-automation-validation`.
+- Pushed to remote successfully.

@@ -40,17 +40,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify API Secret Availability
-        id: secret_gate
-        env:
-          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
-        run: |
-          if [ -z "$OPENAQ_API_KEY" ]; then
-            echo "::error::OPENAQ_API_KEY is not configured in the repository secrets."
-            echo "auth_missing=true" >> $GITHUB_OUTPUT
-            exit 1
-          fi
-
       - name: Verify Daily Schedule Window Gate
         id: gate
         run: |
@@ -64,8 +53,27 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Install R & System Dependencies
+      - name: Verify API Secret Availability
+        id: secret_gate
         if: steps.gate.outputs.skip != 'true'
+        env:
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+        run: |
+          if [ -z "$OPENAQ_API_KEY" ]; then
+            echo "available=false" >> $GITHUB_OUTPUT
+            mkdir -p docs/web-data
+            if [ -f docs/web-data/live_pipeline_status.json ]; then
+              jq '.status = "auth_error" | .severity = "critical" | .code = "AUTH_ERROR" | .message = "Live data refresh paused because upstream authentication is not configured. Last validated observations remain available." | .last_attempt_utc = "'$(date -u +'%Y-%m-%dT%H:%M:%SZ')'"' docs/web-data/live_pipeline_status.json > tmp_status.json
+              mv tmp_status.json docs/web-data/live_pipeline_status.json
+            else
+              echo '{"status":"auth_error","severity":"critical","code":"AUTH_ERROR","message":"Live data refresh paused because upstream authentication is not configured. Last validated observations remain available.","last_attempt_utc":"'$(date -u +'%Y-%m-%dT%H:%M:%SZ')'"}' > docs/web-data/live_pipeline_status.json
+            fi
+          else
+            echo "available=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install R & System Dependencies
+        if: steps.gate.outputs.skip != 'true' && steps.secret_gate.outputs.available == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
@@ -82,7 +90,7 @@ jobs:
             r-cran-e1071
 
       - name: Execute Live Data Ingestion
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.gate.outputs.skip != 'true' && steps.secret_gate.outputs.available == 'true'
         env:
           OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
         run: |
@@ -102,7 +110,7 @@ jobs:
           eval $CMD
 
       - name: Execute Deterministic Frozen-Model Scoring
-        if: ${{ steps.gate.outputs.skip != 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        if: ${{ steps.gate.outputs.skip != 'true' && steps.secret_gate.outputs.available == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         run: |
           Rscript scripts/45_live_model_inference.R
 
@@ -141,3 +149,9 @@ jobs:
           git add data/live/processed/ data/live/metadata/ docs/web-data/live_daily_observations.json docs/web-data/live_pipeline_status.json docs/web-data/live_predictions.json || true
           git commit -m "$COMMIT_MSG"
           git push origin main
+
+      - name: Finalize Failure Status
+        if: always() && steps.gate.outputs.skip != 'true' && steps.secret_gate.outputs.available == 'false'
+        run: |
+          echo "::error::Live data refresh paused because upstream authentication is not configured."
+          exit 1

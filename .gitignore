@@ -72,3 +72,4 @@ Thumbs.db
 !/data/analysis/phase5A/*.csv
 !/data/analysis/phase5B/
 !/data/analysis/phase5B/*.csv
+release_artifacts/

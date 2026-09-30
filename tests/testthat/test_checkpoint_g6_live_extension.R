@@ -192,9 +192,9 @@ test_that("G6-13: styles.css contains live status banner and mode styling", {
   expect_true(grepl(".stream-badge--live", content, fixed = TRUE))
 })
 
-test_that("G6-14: explore.html includes data mode selector and callout", {
-  explore_path <- file.path(repo_root, "docs", "explore.html")
-  content <- readChar(explore_path, file.info(explore_path)$size)
+test_that("G6-14: index.html includes data mode selector and callout", {
+  explore_path <- file.path(repo_root, "docs", "index.html")
+  content <- paste(readLines(explore_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
   expect_true(grepl("filter-data-mode", content))
   expect_true(grepl("data-mode-callout", content))
   expect_true(grepl("<th scope=\"col\">Stream</th>", content, fixed = TRUE))
@@ -202,19 +202,19 @@ test_that("G6-14: explore.html includes data mode selector and callout", {
 
 test_that("G6-15: explore.js supports Data Mode switching and stream badges", {
   explore_js_path <- file.path(repo_root, "docs", "assets", "js", "explore.js")
-  content <- readChar(explore_js_path, file.info(explore_js_path)$size)
+  content <- paste(readLines(explore_js_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
   expect_true(grepl("applyDataMode", content))
   expect_true(grepl("ensureLiveObservationsLoaded", content))
   expect_true(grepl("live_daily_observations.json", content))
   expect_true(grepl("stream-badge", content))
 })
 
-test_that("G6-16: statistics.html and machine-learning.html include frozen baseline notice", {
-  stat_path <- file.path(repo_root, "docs", "statistics.html")
-  ml_path <- file.path(repo_root, "docs", "machine-learning.html")
+test_that("G6-16: index.html includes frozen baseline notice", {
+  stat_path <- file.path(repo_root, "docs", "index.html")
+  ml_path <- file.path(repo_root, "docs", "index.html")
   
-  stat_content <- readChar(stat_path, file.info(stat_path)$size)
-  ml_content <- readChar(ml_path, file.info(ml_path)$size)
+  stat_content <- paste(readLines(stat_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
+  ml_content <- paste(readLines(ml_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
   
   expect_true(grepl("frozen-baseline-notice", stat_content))
   expect_true(grepl("v0.6-svm-freeze", stat_content))
@@ -227,8 +227,16 @@ test_that("G6-16: statistics.html and machine-learning.html include frozen basel
 # ------------------------------------------------------------------------------
 
 test_that("G6-17: Deployment inventories and declutter script exist", {
-  before_path <- file.path(repo_root, "checkpoint_G6_deployment_inventory_before.csv")
-  after_path <- file.path(repo_root, "checkpoint_G6_deployment_inventory_after.csv")
+  before_path <- if (file.exists(file.path(repo_root, "local_archive", "checkpoint_history", "checkpoint_G6_deployment_inventory_before.csv"))) {
+    file.path(repo_root, "local_archive", "checkpoint_history", "checkpoint_G6_deployment_inventory_before.csv")
+  } else {
+    file.path(repo_root, "checkpoint_G6_deployment_inventory_before.csv")
+  }
+  after_path <- if (file.exists(file.path(repo_root, "local_archive", "checkpoint_history", "checkpoint_G6_deployment_inventory_after.csv"))) {
+    file.path(repo_root, "local_archive", "checkpoint_history", "checkpoint_G6_deployment_inventory_after.csv")
+  } else {
+    file.path(repo_root, "checkpoint_G6_deployment_inventory_after.csv")
+  }
   script_path <- file.path(repo_root, "scripts", "43_declutter_deployments.py")
   
   expect_true(file.exists(before_path))

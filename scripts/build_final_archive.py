@@ -26,7 +26,7 @@ def create_archive():
     ]
 
     # Exclusions
-    excludes = ['.git', '.Renviron', '__pycache__', 'release_artifacts', '.pytest_cache']
+    excludes = ['.git', '.Renviron', '__pycache__', 'release_artifacts', '.pytest_cache', 'local_archive', 'internal_phase_history']
 
     def should_include(path):
         for ex in excludes:

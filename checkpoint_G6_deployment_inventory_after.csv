@@ -1,4 +1,0 @@
-deployment_id,commit_sha,commit_sha_short,ref,environment,created_at,most_recent_status,active_state,associated_tag
-6689624566,2d1a5e031090d1b1c3a149f4cfbefbbb954c5eff,2d1a5e03,main,github-pages,2026-09-27T07:53:01Z,failure,active,none
-6689616895,9e36f20d32e2fbd63a6fc86943e97c4a92c4a72d,9e36f20d,main,github-pages,2026-09-27T07:52:04Z,success,inactive,v0.7.2-header-refinement
-6689397562,92531e5f7cb46ecc05edee54cfd1a95444f66d75,92531e5f,main,github-pages,2026-09-27T07:26:24Z,success,inactive,v0.7.1-website-polish

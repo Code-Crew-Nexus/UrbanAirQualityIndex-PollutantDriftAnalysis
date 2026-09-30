@@ -51,10 +51,10 @@ Website release integration + public GitHub Pages deployment
 Post-deployment UI/UX, mathematical rendering, accessibility & QA-integrity hardening  
 Raw LaTeX eliminated · Light academic header · Compact dark footer · Keyboard ARIA tablist · `role="alert"` error regions · `aria-describedby` chart summaries · Inline styles → BEM CSS classes · Team name casing corrected  
 **COMPLETE: `v0.7.1-website-polish`** — Live-verified on GitHub Pages  
-Report: [`checkpoint_G5_post_deployment_ui_integrity_report.md`](./internal_phase_history/checkpoint_G5_post_deployment_ui_integrity_report.md)
+Report: `checkpoint_G5_post_deployment_ui_integrity_report.md` (preserved in tag `v0.7.1-website-polish`)
 
 ### Checkpoint G5 Add-Ons
 Explore Dataset Inspector & Row-Level Drill-Down · Refined Warm Pearl Header · Compact Dark Footer with 3-Column Architecture & Release Chips · Standalone AQ Favicon Multi-Asset Suite (SVG, PNG, ICO)  
 **COMPLETE: `v0.7.1-website-polish`** — Browser QA Verified (41/41 PASS), Testthat (188/188 PASS)  
-Report: [`checkpoint_G5_addons_report.md`](./internal_phase_history/checkpoint_G5_addons_report.md)
+Report: `checkpoint_G5_addons_report.md` (preserved in tag `v0.7.1-website-polish`)
 

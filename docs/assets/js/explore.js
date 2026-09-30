@@ -5,7 +5,11 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
+let isExploreSectionInitialized = false;
+window.initExploreSection = async function() {
+  if (isExploreSectionInitialized) return;
+  isExploreSectionInitialized = true;
+
   'use strict';
 
   // DOM Elements
@@ -39,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Dataset Inspector Elements (Add-On A)
   const datasetInspectorCard = document.getElementById('dataset-inspector-card');
+  const datasetInspectorSubtitle = document.getElementById('dataset-inspector-subtitle');
   const datasetTableWrapper = document.querySelector('.dataset-table-wrapper');
   const datasetTable = document.getElementById('dataset-inspector-table');
   const datasetTableBody = document.getElementById('dataset-table-body');
@@ -414,7 +419,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Update Header
     chartTitle.textContent = `${varConfig.fullLabel} — ${stationName}`;
-    chartSubtitle.textContent = `Date Range: ${startDate} to ${endDate} (${validValues.length} valid / ${filtered.length} scheduled days)`;
+    
+    // Missingness logic
+    const totalDays = filtered.length;
+    const validDays = filtered.filter(r => r[varConfig.key] !== null && r[varConfig.key] !== undefined && !isNaN(r[varConfig.key])).length;
+    
+    if (validDays < totalDays && varConfig.key === 'aqi_verified') {
+        chartSubtitle.innerHTML = `${stationObj.station_name} | ${startDate} to ${endDate}<br><span style="color:#d9534f; font-weight:bold;">Valid AQI available for ${validDays} of ${totalDays} scheduled station-days. Missing AQI dates are intentionally not interpolated because required verified-pollutant coverage was insufficient.</span>`;
+    } else {
+        chartSubtitle.textContent = `${stationObj.station_name} | ${startDate} to ${endDate}`;
+    }
+
 
     // Update Latest Label (Strict wording: "Latest Valid AQI" vs "Latest Valid Value", never "Current AQI")
     if (varConfig.isAQI) {
@@ -643,6 +658,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function renderDatasetInspector(filteredRows, stationObj, varConfig, startDate, endDate) {
+    if (datasetInspectorSubtitle) {
+      if (currentMode === 'frozen') {
+        datasetInspectorSubtitle.textContent = 'Filtered frozen study observations used by the visualization above.';
+      } else if (currentMode === 'live') {
+        datasetInspectorSubtitle.textContent = 'Filtered operational-extension observations used by the visualization above.';
+      } else {
+        datasetInspectorSubtitle.textContent = 'Filtered frozen + operational-extension observations used by the visualization above.';
+      }
+    }
+
     if (!datasetTableBody || !datasetTable) return;
 
     if (!filteredRows || filteredRows.length === 0) {
@@ -868,4 +893,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
   }
-});
+};

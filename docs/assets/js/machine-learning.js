@@ -5,7 +5,11 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
+let isMachineLearningSectionInitialized = false;
+window.initMachineLearningSection = async function() {
+  if (isMachineLearningSectionInitialized) return;
+  isMachineLearningSectionInitialized = true;
+
   'use strict';
 
   // DOM Elements - Tabs
@@ -546,4 +550,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       regimeCardsContainer.appendChild(card);
     });
   }
-});
+};

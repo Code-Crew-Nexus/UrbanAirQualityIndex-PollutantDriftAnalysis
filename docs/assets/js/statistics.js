@@ -5,7 +5,11 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
+let isStatisticsSectionInitialized = false;
+window.initStatisticsSection = async function() {
+  if (isStatisticsSectionInitialized) return;
+  isStatisticsSectionInitialized = true;
+
   'use strict';
 
   // DOM Elements - Controls
@@ -447,4 +451,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       stationInferenceTbody.appendChild(tr);
     });
   }
-});
+};

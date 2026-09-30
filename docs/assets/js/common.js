@@ -172,7 +172,7 @@
                   <span class="live-status-text">Validated observations through <strong>${dateFormatted}</strong></span>
                 </div>
                 <div class="live-status-right">
-                  <a href="explore.html?mode=live" class="live-status-cta">Explore Live Data &rarr;</a>
+                  <a href="?mode=live#explore" class="live-status-cta">Explore Live Data &rarr;</a>
                 </div>
               </div>
             `;
@@ -189,7 +189,7 @@
                   <span class="live-status-text">${status.message || "Live data refresh is delayed."} Last validated observations through <strong>${dateFormatted}</strong> remain available.</span>
                 </div>
                 <div class="live-status-right">
-                  <a href="explore.html" class="live-status-cta">Explore Data &rarr;</a>
+                  <a href="#explore" class="live-status-cta">Explore Data &rarr;</a>
                 </div>
               </div>
             `;
@@ -207,7 +207,7 @@
                   <span class="live-status-text">${status.message || "Live data updates paused."} The frozen academic baseline (v0.6-svm-freeze) remains fully accessible.</span>
                 </div>
                 <div class="live-status-right">
-                  <a href="explore.html" class="live-status-cta">View Study &rarr;</a>
+                  <a href="#explore" class="live-status-cta">View Study &rarr;</a>
                 </div>
               </div>
             `;

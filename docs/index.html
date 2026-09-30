@@ -40,216 +40,1087 @@
         <span class="nav-toggle-text">Menu</span>
       </button>
 
+      
       <nav class="main-nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="explore.html" class="nav-link">Explore Data</a>
-        <a href="statistics.html" class="nav-link">Statistical Analysis</a>
-        <a href="machine-learning.html" class="nav-link">Machine Learning</a>
-        <a href="documentation.html" class="nav-link">Documentation</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#explore" class="nav-link">Explore Data</a>
+        <a href="#statistics" class="nav-link">Statistical Analysis</a>
+        <a href="#machine-learning" class="nav-link">Machine Learning</a>
       </nav>
+
     </div>
   </header>
 
   <!-- Main Presentation Container -->
-  <main class="main-content" id="main-content">
-    
-    <!-- Hero / Intro Section -->
-    <section class="page-intro">
-      <div class="intro-badge">
-        <span class="pulse-dot"></span>
-        <span>Frozen Modeling Baseline • v0.6-svm-freeze</span>
-      </div>
-      <h1 class="page-title">Urban Air Quality Index &amp; Pollutant Drift Analysis</h1>
-      <p class="page-subtitle">
-        Statistics for Machine Learning · Project Based Learning — Hyderabad Metropolitan &amp; India Representative Monitoring Network.
-        A systematic study of temporal pollutant drift, CPCB-aligned verified-subset AQI computation, and next-day adverse-class boundary-crossing classification across 21 unique physical CAAQMS stations.
-      </p>
+  
+    <main class="main-content" id="main-content">
 
-      <div class="action-group">
-        <a href="explore.html" class="btn btn-primary">Explore Data</a>
-        <a href="documentation.html#execution" class="btn btn-secondary">Faculty Review Walkthrough</a>
-      </div>
-    </section>
-
-    <!-- Key Study Summary Cards (Max 4) -->
-    <section class="card-grid" aria-label="Study Metrics Overview">
-      <div class="metric-card">
-        <div class="metric-label">Physical Stations</div>
-        <div class="metric-value" id="stat-stations">21</div>
-        <div class="metric-desc">Continuous ambient CAAQMS stations audited across India.</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-label">Study Days</div>
-        <div class="metric-value" id="stat-days">570</div>
-        <div class="metric-desc">570-day study window: 2025-03-01 to 2026-09-21 (missingness preserved).</div>
-      </div>
-
-      <div class="metric-card champagne">
-        <div class="metric-label">Monitoring Network</div>
-        <div class="metric-value" id="stat-panels">7 + 15</div>
-        <div class="metric-desc">7 Hyderabad + 15 India panel memberships • 1 shared station • 21 unique physical stations.</div>
-      </div>
-
-      <div class="metric-card champagne">
-        <div class="metric-label">Modeling Milestone</div>
-        <div class="metric-value" id="stat-baseline">v0.6</div>
-        <div class="metric-desc">Frozen RBF SVM, PCA/K-Means, and MLR/Logistic core.</div>
-      </div>
-    </section>
-
-    <!-- Analytical Workflow Pipeline (HTML/CSS, No Mermaid runtime) -->
-    <section class="workflow-section" id="workflow">
-      <h2 class="section-heading">
-        <span>Scientific &amp; Analytical Workflow</span>
-      </h2>
-      <p class="section-desc">
-        Complete end-to-end progression from authentic sensor harvest to statistical inference, machine learning, and static presentation.
-      </p>
-
-      <div class="pipeline-flow" role="region" aria-label="Pipeline workflow diagram">
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 1</span>
-          <span class="step-title">Real Data</span>
-          <span class="step-meta">OpenAQ &amp; Open-Meteo</span>
+      <section id="home" class="presentation-section">
+        <div class="page-intro">
+          <div class="intro-badge">
+            <span class="pulse-dot"></span>
+            <span>Frozen Modeling Baseline   v0.6-svm-freeze</span>
+          </div>
+          <h1 class="page-title">Urban Air Quality Index &amp; Pollutant Drift Analysis</h1>
+          <p class="page-subtitle">
+            Statistics for Machine Learning · Project Based Learning
+          </p>
+          <p class="hero-summary" style="max-width: 800px; margin: 1rem auto; font-size: 1.1rem; line-height: 1.6;">
+            This project combines authentic air-quality observations, meteorological observations, verified-subset AQI computation, pollutant drift analysis, statistical inference, supervised machine learning, unsupervised regime discovery, and periodically refreshed operational observations.
+          </p>
+          
+          <div class="action-group">
+            <a href="#explore" class="btn btn-primary">Explore the Project</a>
+            <a href="documentation.html#exec-presentation" class="btn btn-secondary">Faculty Presentation</a>
+          </div>
+          <div style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; font-size: 0.9rem;">
+            <a href="documentation.html" class="inline-link">Documentation</a>
+            <a href="about.html" class="inline-link">About &amp; Team</a>
+            <a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener" class="inline-link">GitHub Repository</a>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
-
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 2A</span>
-          <span class="step-title">Data Validation</span>
-          <span class="step-meta">Audit &amp; Harmonization</span>
+        
+        <div class="theory-panel" style="margin-top: 3rem;">
+          <h2 class="section-kicker">PROBLEM STATEMENT</h2>
+          <p>
+            Urban air-quality monitoring produces heterogeneous pollutant observations across stations and time. Reliable interpretation requires validation, missingness-aware daily aggregation, defensible AQI construction, statistical detection of temporal drift, and carefully evaluated prediction of next-day adverse conditions.
+          </p>
+          <div class="three-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+            <article class="concept-card">
+              <h3>State</h3>
+              <p class="question">What is the observed air-quality state?</p>
+            </article>
+            <article class="concept-card">
+              <h3>Drift</h3>
+              <p class="question">Has pollutant behavior shifted relative to its recent baseline?</p>
+            </article>
+            <article class="concept-card">
+              <h3>Prediction</h3>
+              <p class="question">Can next-day adverse air-quality conditions be predicted?</p>
+            </article>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
-
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 2E</span>
-          <span class="step-title">Verified AQI</span>
-          <span class="step-meta">CPCB Breakpoints</span>
+        
+        <div class="theory-panel">
+          <h2 class="section-kicker">PROJECT OBJECTIVES</h2>
+          <ul style="line-height: 1.6; margin-left: 1.5rem;">
+            <li>Ingest authentic environmental observations</li>
+            <li>Calculate verified-subset AQI</li>
+            <li>Quantify pollutant drift</li>
+            <li>Evaluate statistical evidence</li>
+            <li>Build supervised predictive baselines</li>
+            <li>Identify unsupervised environmental regimes</li>
+            <li>Provide a reproducible faculty-facing web interface</li>
+            <li>Extend observations operationally without changing frozen academic results</li>
+          </ul>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
-
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 3A</span>
-          <span class="step-title">Statistical Exploration</span>
-          <span class="step-meta">EDA &amp; Normality</span>
+        
+        <div class="theory-panel">
+          <h2 class="section-kicker">STUDY AT A GLANCE</h2>
+          <div class="metric-card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="metric-card">
+              <span class="metric-card-value">21</span>
+              <span class="metric-card-label">Physical Stations</span>
+              <span class="metric-card-sub">7 Hyderabad + 15 India (1 overlap)</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-card-value">570</span>
+              <span class="metric-card-label">Frozen Study Days</span>
+              <span class="metric-card-sub">2025-03-01 &rarr; 2026-09-21</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-card-value" id="dynamic-live-metric">Active</span>
+              <span class="metric-card-label">Operational Extension</span>
+              <span class="metric-card-sub" id="dynamic-live-dates">Sep 22, 2026 &rarr; Loading...</span>
+            </div>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 3B</span>
-          <span class="step-title">Pollutant Drift</span>
-          <span class="step-meta">Mean Shift (D<sub>z</sub>)</span>
+        <div class="theory-panel split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div>
+            <h2 class="section-kicker">DATA SOURCES</h2>
+            <p><strong>OpenAQ:</strong> upstream air-quality observational source.</p>
+            <p><strong>Open-Meteo:</strong> meteorological observational source.</p>
+            <p><strong>Central Pollution Control Board (CPCB):</strong> regulatory AQI breakpoint/methodology reference.</p>
+          </div>
+          <div>
+            <h2 class="section-kicker">SOFTWARE &amp; TECHNOLOGY</h2>
+            <ul style="line-height: 1.6; margin-left: 1.5rem;">
+              <li><strong>Scientific computation:</strong> R</li>
+              <li><strong>Data acquisition:</strong> OpenAQ API, Open-Meteo API</li>
+              <li><strong>Presentation:</strong> HTML, CSS, Vanilla JavaScript</li>
+              <li><strong>Visualization &amp; Math:</strong> Chart.js, KaTeX</li>
+              <li><strong>Automation:</strong> Git, GitHub, GitHub Actions, GitHub Pages</li>
+            </ul>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 3C</span>
-          <span class="step-title">Statistical Inference</span>
-          <span class="step-meta">Block Bootstrap</span>
+        <div class="theory-panel split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div>
+            <h2 class="section-kicker">STATISTICAL METHODS</h2>
+            <ul style="line-height: 1.6; margin-left: 1.5rem;">
+              <li>Descriptive statistics</li>
+              <li>Standardized pollutant drift</li>
+              <li>Moving-block bootstrap</li>
+              <li>Benjamini–Hochberg False Discovery Rate control</li>
+              <li>Hedges' g</li>
+              <li>Cliff's delta</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="section-kicker">MACHINE LEARNING</h2>
+            <ul style="line-height: 1.6; margin-left: 1.5rem;">
+              <li>Multiple Linear Regression</li>
+              <li>Logistic Regression</li>
+              <li>Principal Component Analysis</li>
+              <li>K-Means Clustering</li>
+              <li>Radial Basis Function Support Vector Machine</li>
+            </ul>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 4</span>
-          <span class="step-title">MLR / Logistic</span>
-          <span class="step-meta">Supervised Baselines</span>
+        <div class="theory-panel">
+          <h2 class="section-kicker">END-TO-END JOURNEY</h2>
+          <div class="journey" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; font-weight: bold; font-size: 0.9rem; color: var(--jade);">
+            <span>Acquire</span> <span>&rarr;</span> 
+            <span>Validate</span> <span>&rarr;</span> 
+            <span>Harmonize</span> <span>&rarr;</span> 
+            <span>Aggregate</span> <span>&rarr;</span> 
+            <span>Compute AQI</span> <span>&rarr;</span> 
+            <span>Analyze Drift</span> <span>&rarr;</span> 
+            <span>Statistical Inference</span> <span>&rarr;</span> 
+            <span>Machine Learning</span> <span>&rarr;</span> 
+            <span>Present</span> <span>&rarr;</span> 
+            <span>Operational Monitoring Extension</span>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 5A</span>
-          <span class="step-title">PCA / K-Means</span>
-          <span class="step-meta">Regime Discovery</span>
+        <div class="theory-panel split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: var(--pearl-dark); padding: 1.5rem; border-radius: 8px;">
+          <div>
+            <h3 style="color: var(--graphite);">Frozen Academic Baseline</h3>
+            <ul style="font-size: 0.9rem;">
+              <li>through Sep 21, 2026</li>
+              <li>statistical/model results locked</li>
+              <li>reproducible at v0.6-svm-freeze</li>
+            </ul>
+          </div>
+          <div style="border-left: 3px solid var(--jade); padding-left: 1.5rem;">
+            <h3 style="color: var(--jade-dark);">Operational Extension</h3>
+            <ul style="font-size: 0.9rem;">
+              <li>begins Sep 22, 2026</li>
+              <li>periodically refreshed</li>
+              <li>supports Explore Data and frozen-model scoring</li>
+              <li>does NOT silently retrain the submitted academic model</li>
+            </ul>
+          </div>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+      </section>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 5B</span>
-          <span class="step-title">RBF SVM</span>
-          <span class="step-meta">Nonlinear Margin</span>
+
+      <section id="explore" class="presentation-section" style="padding-top: 4rem;">
+        <div class="section-header">
+          <h1 class="page-title">Explore Data</h1>
         </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
+        
+        <div class="theory-panel">
+          <h2 class="section-kicker">INTRODUCTION</h2>
+          <p>What is the purpose of this section? Explore Data allows inspection of station-day air-quality and meteorological observations across frozen, live-extension and combined views.</p>
+          
+          <h2 class="section-kicker" style="margin-top: 2rem;">WHAT IS AQI?</h2>
+          <p>This project uses a <strong>research-oriented verified-subset AQI</strong> based only on verified pollutants. It is aligned with CPCB methodology but is <em>not</em> an official operational CPCB AQI.</p>
+          
+          <div class="three-cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+            <div class="concept-card"><strong>PM2.5:</strong> Fine particulate matter</div>
+            <div class="concept-card"><strong>PM10:</strong> Coarse particulate matter</div>
+            <div class="concept-card"><strong>O3:</strong> Ground-level ozone</div>
+          </div>
+          
+          <h2 class="section-kicker" style="margin-top: 2rem;">AQI SUB-INDEX FORMULA</h2>
+          <div style="overflow-x: auto; padding: 1rem; background: #fff; border-radius: 4px; margin-bottom: 1rem;">
+            <div id="katex-aqi-subindex"></div>
+          </div>
+          <p class="katex-def" style="font-size: 0.9rem;">
+            <span id="katex-ip"></span> = Sub-index for pollutant p<br>
+            <span id="katex-cp"></span> = Rounded concentration of pollutant p<br>
+            <span id="katex-bhi"></span>, <span id="katex-blo"></span> = Breakpoint concentrations<br>
+            <span id="katex-ihi"></span>, <span id="katex-ilo"></span> = Corresponding AQI breakpoints
+          </p>
+          
+          <p>The verified-subset composite logic is:</p>
+          <div style="overflow-x: auto; padding: 1rem; background: #fff; border-radius: 4px; margin-bottom: 1rem;">
+            <div id="katex-aqi-max"></div>
+          </div>
+          <p><em>BUT only where required pollutant sufficiency/coverage conditions are met.</em></p>
 
-        <div class="pipeline-step frozen">
-          <span class="step-phase">Phase 6</span>
-          <span class="step-title">Project Website</span>
-          <span class="step-meta">Deployed via GitHub Pages</span>
+          <h2 class="section-kicker" style="margin-top: 2rem;">MISSINGNESS POLICY</h2>
+          <p>Missing AQI is preserved when required verified pollutant coverage is insufficient. <strong>Missing AQI dates are intentionally not interpolated.</strong> We do not interpolate or invent AQI values merely to make a continuous graph.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- Key Study Architecture Details -->
-    <section class="about-grid">
-      <div class="about-card">
-        <h3 style="margin-bottom: 0.75rem; color: var(--jade-dark);">Methodological Integrity &amp; Scientific Freeze</h3>
-        <p style="margin-bottom: 1rem; color: var(--text-muted);">
-          All statistical and machine learning model development is permanently frozen at tag <code>v0.6-svm-freeze</code>.
-          The website acts strictly as a lightweight, zero-dependency presentation layer that consumes serialized results produced by the R computational engine.
+        <div class="interactive-dashboard" style="margin-top: 3rem;">
+          <h2 class="section-kicker">INTERACTIVE DASHBOARD</h2>
+          <div class="dashboard-container">
+      
+      <!-- Page Header -->
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Explore Multi-Station Sensor Observations</h1>
+        <p class="dashboard-subtitle">
+          Interactive temporal visualization of scheduled station-day observations across 21 physical CAAQMS stations spanning the frozen academic baseline and extended operational observations.
         </p>
-        <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.92rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>CPCB-Aligned Verified-Subset AQI:</strong> Uses only AQI inputs whose source units were directly verified (PM2.5, PM10, and O3).</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Chronological Model Selection:</strong> Model hyperparameters were selected across Train (through Dec 2025) and Validation (Jan–Apr 2026); for locked holdout evaluation, selected specifications were subsequently refitted on permitted history according to frozen protocols.</li>
-          <li><strong>Reproducibility:</strong> All seeds, hyperparameter grids, and split indices are permanently archived and audited.</li>
-        </ul>
       </div>
 
-      <div class="about-card">
-        <h3 style="margin-bottom: 0.75rem; color: var(--champagne-dark);">Academic Attribution</h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-          <strong>Course:</strong> Statistics for Machine Learning<br>
-          <strong>Learning Framework:</strong> Project Based Learning<br>
-          <strong>Department:</strong> B.Tech Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning)<br>
-          <strong>Organization:</strong> Code-Crew-Nexus
-        </p>
-        <div style="margin-top: 1rem;">
-          <a href="about.html" class="btn btn-secondary" style="width: 100%;">View Team &amp; Details</a>
+      <!-- Academic Baseline & Live Extension Notice -->
+      <div class="data-mode-callout" id="data-mode-callout" role="note">
+        <div class="data-mode-callout-icon" aria-hidden="true">&#x1F3DB;</div>
+        <div class="data-mode-callout-content">
+          <strong id="data-mode-callout-title">Academic Review Mode (v0.6-svm-freeze)</strong>
+          <p id="data-mode-callout-text">
+            Displaying the frozen scientific evaluation baseline spanning 570 calendar days (March 1, 2025 to September 21, 2026). All values, KPIs, and distributions strictly match the submitted PBL report. Switch to <em>Extended / Live</em> to inspect operational observations from September 22, 2026 onward.
+          </p>
         </div>
       </div>
-    </section>
 
-  </main>
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar" role="region" aria-label="Data filter controls">
+        <div class="filter-group">
+          
+          <div class="filter-item filter-item--mode">
+            <label for="filter-data-mode">Data Mode</label>
+            <select id="filter-data-mode" class="filter-control">
+              <option value="frozen" selected>Frozen Study (through Sep 21, 2026)</option>
+              <option value="live">Extended / Live (Sep 22, 2026 onward)</option>
+              <option value="combined">Complete Continuity (Frozen + Live)</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-scope">Study Scope</label>
+            <select id="filter-scope" class="filter-control">
+              <option value="Hyderabad" selected>Hyderabad</option>
+              <option value="India">India Representative Panel</option>
+            </select>
+          </div>
+
+          <div class="filter-item filter-item--station">
+            <label for="filter-station">Monitoring Station</label>
+            <select id="filter-station" class="filter-control">
+              <!-- Dynamically populated from stations.json -->
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-variable">Variable</label>
+            <select id="filter-variable" class="filter-control">
+              <option value="AQI" selected>AQI</option>
+              <option value="PM2.5">PM2.5</option>
+              <option value="PM10">PM10</option>
+              <option value="O3">O3</option>
+              <option value="Temperature">Temperature</option>
+              <option value="Humidity">Humidity</option>
+              <option value="Wind Speed">Wind Speed</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-start-date">Start Date</label>
+            <input type="date" id="filter-start-date" class="filter-control" min="2025-03-01" max="2026-09-21" value="2026-06-24">
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-end-date">End Date</label>
+            <input type="date" id="filter-end-date" class="filter-control" min="2025-03-01" max="2026-09-21" value="2026-09-21">
+          </div>
+
+          <div class="filter-actions">
+            <button id="btn-preset-90d" class="btn-filter active" title="Show latest 90 calendar days">Latest 90 Days</button>
+            <button id="btn-preset-full" class="btn-filter" title="Show full study period">Full Period</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Load Error Notice (Protocol / Fetch Failures) -->
+      <div id="explore-load-error" class="load-error-notice" role="alert" style="display: none;"></div>
+
+      <!-- Valid Empty Selection Notice (0 valid observations for chosen filter) -->
+      <div id="explore-empty-state" class="empty-state-notice" style="display: none;">
+        <div class="empty-state-icon">ℹ️</div>
+        <div class="empty-state-text">No valid observations are available for this selection.</div>
+        <p style="font-size: 0.875rem; margin-top: 0.5rem; color: var(--graphite-muted);">
+          Try another station, variable, or date range.
+        </p>
+      </div>
+
+      <!-- Main Chart Card -->
+      <div id="explore-chart-card" class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <h2 id="chart-title" class="chart-card-title">Verified-Subset AQI</h2>
+            <div id="chart-subtitle" class="chart-card-subtitle">Loading station observations...</div>
+          </div>
+        </div>
+
+        <div class="chart-canvas-wrapper">
+          <canvas role="img" id="exploreChart" aria-label="Interactive time-series line chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Summary Statistics KPI Cards (Max 4 per row) -->
+      <div class="metric-card-grid">
+        <div class="metric-card">
+          <span class="metric-card-label">Valid Observations</span>
+          <span id="metric-valid-obs" class="metric-card-value">—</span>
+          <span class="metric-card-sub">In selected window</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Arithmetic Mean</span>
+          <span id="metric-mean" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Descriptive central tendency</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Median (50th %ile)</span>
+          <span id="metric-median" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Robust non-parametric measure</span>
+        </div>
+
+        <div class="metric-card">
+          <span id="metric-latest-label" class="metric-card-label">Latest Valid AQI</span>
+          <span id="metric-latest-val" class="metric-card-value">—</span>
+          <span id="metric-latest-date" class="metric-card-sub">Latest observation date</span>
+        </div>
+      </div>
+
+      <!-- Secondary Range Cards (Min and Max) -->
+      <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 2rem;">
+        <div class="metric-card">
+          <span class="metric-card-label">Minimum Observed</span>
+          <span id="metric-min" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Lowest valid observation</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-card-label">Maximum Observed</span>
+          <span id="metric-max" class="metric-card-value">—</span>
+          <span class="metric-card-sub">Peak valid observation</span>
+        </div>
+      </div>
+
+      <!-- Dataset Inspector Card (Add-On A) -->
+      <section class="chart-card dataset-inspector-card" id="dataset-inspector-card" aria-label="Dataset Inspector">
+        <div class="dataset-inspector-header">
+          <div>
+            <h2 class="chart-card-title">Dataset Inspector</h2>
+            <div id="dataset-inspector-subtitle" class="chart-card-subtitle">Filtered frozen daily observations used by the visualization above.</div>
+          </div>
+          <div class="dataset-inspector-actions">
+            <button id="btn-download-csv" class="btn btn-secondary btn-sm" aria-label="Download filtered daily observations as CSV">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="margin-right: 0.35rem; vertical-align: -1px;">
+                <path d="M8 2v8m0 0l-3-3m3 3l3-3M3 14h10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Download Filtered CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Status & Context Bar -->
+        <div class="dataset-inspector-status" id="dataset-status-bar" aria-live="polite">
+          <div class="status-summary">
+            <span class="status-badge" id="status-scheduled-count">0 scheduled records</span>
+            <span class="status-badge status-badge--valid" id="status-valid-count">0 valid observations</span>
+            <span class="status-station-label" id="status-station-info">Selected station</span>
+          </div>
+          <div class="status-hint">
+            <span class="status-hint-text">Select <span class="expand-indicator-inline" aria-hidden="true">▸</span> on any date to inspect the complete station-day observation record.</span>
+          </div>
+        </div>
+
+        <!-- Table Viewport Region with Local Overflow -->
+        <div class="dataset-table-wrapper" tabindex="0" role="region" aria-label="Filtered daily observations table. Scroll horizontally to inspect all 10 columns.">
+          <table class="dataset-table" id="dataset-inspector-table">
+            <thead>
+              <tr>
+                <th scope="col" class="sticky-col">Date</th>
+                <th scope="col">Stream</th>
+                <th scope="col">AQI</th>
+                <th scope="col">Category</th>
+                <th scope="col">Dominant</th>
+                <th scope="col">PM2.5 <span class="unit-label">(µg/m³)</span></th>
+                <th scope="col">PM10 <span class="unit-label">(µg/m³)</span></th>
+                <th scope="col">O3 8h Max <span class="unit-label">(µg/m³)</span></th>
+                <th scope="col">Temperature <span class="unit-label">(°C)</span></th>
+                <th scope="col">Humidity <span class="unit-label">(%)</span></th>
+                <th scope="col">Wind Speed <span class="unit-label">(m/s)</span></th>
+              </tr>
+            </thead>
+            <tbody id="dataset-table-body">
+              <!-- Dynamically populated from filtered dailyObservations -->
+            </tbody>
+          </table>
+          <div id="dataset-empty-state" class="dataset-empty-state" style="display: none;">
+            <p>No station-day records are available for this selected window.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scientific Methodological Notice -->
+      <div class="notice-card">
+        <strong>CPCB Methodology &amp; Missingness Policy:</strong>
+        AQI is calculated via the verified 3-pollutant subset (PM<sub>2.5</sub>, PM<sub>10</sub>, and daily maximum rolling 8-hour ozone `o3_8h_max`). Under project sufficiency rules, if any of these three pollutants lacks valid daily coverage, the composite AQI is recorded as missing (<code>null</code>) and omitted from descriptive averages. Unverified gases (CO, NO<sub>2</sub>, SO<sub>2</sub>) are strictly excluded from composite AQI due to upstream unit ambiguities. All metrics reflect frozen historical study data; no real-time or live monitoring is implied.
+      </div>
+
+    </div>
+        </div>
+      </section>
+
+
+      <section id="statistics" class="presentation-section" style="padding-top: 4rem;">
+        <div class="section-header">
+          <h1 class="page-title">Statistical Analysis</h1>
+        </div>
+        
+        <div class="theory-panel">
+          <h2 class="section-kicker">WHY STATISTICS?</h2>
+          <p>Observed mean changes alone do not establish meaningful temporal drift. The project quantifies magnitude and then evaluates statistical evidence while respecting temporal dependence and multiple testing.</p>
+
+          <h2 class="section-kicker" style="margin-top: 2rem;">ESSENTIAL DESCRIPTIVE THEORY</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="concept-card">
+              <strong>Mean:</strong>
+              <div id="katex-mean" style="margin: 0.5rem 0;"></div>
+              <p style="font-size: 0.85rem;">The arithmetic average of the observations.</p>
+            </div>
+            <div class="concept-card">
+              <strong>Sample standard deviation:</strong>
+              <div id="katex-sd" style="margin: 0.5rem 0;"></div>
+              <p style="font-size: 0.85rem;">Measures the dispersion of observations around the mean.</p>
+            </div>
+          </div>
+
+          <h2 class="section-kicker" style="margin-top: 2rem;">POLLUTANT DRIFT FORMULA</h2>
+          <div style="overflow-x: auto; padding: 1rem; background: #fff; border-radius: 4px; margin-bottom: 0.5rem;">
+            <div id="katex-drift"></div>
+          </div>
+          <p><strong>D<sub>z</sub> is a DESCRIPTIVE standardized mean shift.</strong> It is NOT a hypothesis-test z statistic. Magnitude thresholds: Minimal, Mild, Moderate, Strong.</p>
+
+          <h2 class="section-kicker" style="margin-top: 2rem;">STATISTICAL INFERENCE CONCEPTS</h2>
+          <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 1rem;">
+            <div class="metric-card">
+              <span class="metric-card-label">Moving-Block Bootstrap</span>
+              <span class="metric-card-sub" style="color:var(--text-color);">Accommodates temporal dependence</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-card-label">Benjamini–Hochberg FDR</span>
+              <span class="metric-card-sub" style="color:var(--text-color);">Controls false discoveries across multiple tests</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-card-label">Hedges' g</span>
+              <span class="metric-card-sub" style="color:var(--text-color);">Bias-corrected standardized mean difference</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-card-label">Cliff's delta</span>
+              <span class="metric-card-sub" style="color:var(--text-color);">Non-parametric dominance effect size</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive-dashboard" style="margin-top: 3rem;">
+          <h2 class="section-kicker">INTERACTIVE RESULTS</h2>
+          <div class="dashboard-container">
+      
+      <!-- Page Header -->
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Statistical Analysis &amp; Pollutant Drift</h1>
+        <p class="dashboard-subtitle">
+          Rigorous temporal drift quantification (<i>D<sub>z</sub></i>) and block-bootstrapped statistical hypothesis testing (<i>B</i> = 2000, <i>l</i> = 7) with global Benjamini–Hochberg False Discovery Rate control.
+        </p>
+      </div>
+
+      <!-- Frozen Scientific Baseline Notice -->
+      <div class="frozen-baseline-notice" role="note">
+        <span class="frozen-baseline-badge">FROZEN BASELINE</span>
+        <span class="frozen-baseline-text">
+          Statistical inference, hypothesis testing, and drift metrics shown here remain permanently frozen at <strong>v0.6-svm-freeze</strong> (evaluating observations through September 21, 2026). Updated operational observations are available in <a href="#explore" class="frozen-baseline-link">Explore Data</a>.
+        </span>
+      </div>
+
+      <!-- Accessibility: load-failure live region -->
+      <div id="stat-load-error" role="alert" aria-live="assertive" class="visually-hidden"></div>
+
+
+      <div class="filter-toolbar" role="region" aria-label="Statistical filter controls">
+        <div class="filter-group">
+          
+          <div class="filter-item">
+            <label for="stat-filter-scope">Study Scope</label>
+            <select id="stat-filter-scope" class="filter-control">
+              <option value="Hyderabad" selected>Hyderabad</option>
+              <option value="India">India Representative Panel</option>
+            </select>
+          </div>
+
+          <div class="filter-item filter-item--station">
+            <label for="stat-filter-station">Monitoring Station</label>
+            <select id="stat-filter-station" class="filter-control">
+              <!-- Dynamically populated from stations.json -->
+            </select>
+          </div>
+
+          <div class="filter-item filter-item--variable">
+            <label for="stat-filter-variable">Pollutant / Variable</label>
+            <select id="stat-filter-variable" class="filter-control">
+              <option value="aqi_verified" selected>AQI (Verified Composite)</option>
+              <option value="pm2_5_aqi_input">PM2.5 (24-hr avg)</option>
+              <option value="pm10_aqi_input">PM10 (24-hr avg)</option>
+              <option value="o3_8h_max">O3 (daily max 8h)</option>
+              <option value="co_source_mean">CO (Source-Scale)</option>
+              <option value="no2_source_mean">NO2 (Source-Scale)</option>
+              <option value="so2_source_mean">SO2 (Source-Scale)</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Two Internal Tabs -->
+      <div class="tab-group" role="tablist" aria-label="Statistical Analysis Views">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-drift" id="tab-btn-drift" aria-controls="tab-drift" tabindex="0">
+          Pollutant Drift (<i>D<sub>z</sub></i>)
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-inference" id="tab-btn-inference" aria-controls="tab-inference" tabindex="-1">
+          Statistical Inference (MBB &amp; BH-FDR)
+        </button>
+      </div>
+
+      <!-- TAB 1: Pollutant Drift -->
+      <div id="tab-drift" class="tab-pane active" role="tabpanel" aria-labelledby="tab-btn-drift">
+        
+        <!-- 4 Principal Metric Cards (Max 4 per row) -->
+        <div class="metric-card-grid">
+          <div class="metric-card">
+            <span class="metric-card-label">Standardized Shift (<i>D<sub>z</sub></i>)</span>
+            <span id="drift-dz" class="metric-card-value">—</span>
+            <span class="metric-card-sub"><span id="drift-direction">Direction</span> vs baseline standard deviation</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Drift Magnitude Class</span>
+            <span id="drift-magnitude" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Classification: Minimal / Mild / Mod / Strong</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Recent Window Mean</span>
+            <span id="drift-recent-mean" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Rolling 30-day window mean</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Baseline Window Mean</span>
+            <span id="drift-baseline-mean" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Preceding non-overlapping 90-day mean</span>
+          </div>
+        </div>
+
+        <!-- Metadata Info Grid -->
+        <div class="metric-card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Recent Coverage</span>
+            <span id="drift-recent-days" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">—</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Baseline Coverage</span>
+            <span id="drift-baseline-days" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">—</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Evaluation As-Of Date</span>
+            <span id="drift-as-of" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">2026-09-21</span>
+          </div>
+          <div class="metric-card" style="padding: 0.85rem 1rem;">
+            <span class="metric-card-label">Eligibility Status</span>
+            <span id="drift-status" style="font-size: 0.85rem; font-weight: 700;">—</span>
+          </div>
+        </div>
+
+        <!-- Supporting Comparison Chart -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Recent vs. Baseline Mean Concentration</h2>
+              <div class="chart-card-subtitle">Comparison between rolling 30-day evaluation window and preceding 90-day baseline</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" style="height: 320px;">
+            <canvas role="img" id="driftComparisonChart" aria-label="Recent vs baseline mean bar chart" aria-describedby="driftComparisonChart-desc"></canvas>
+            <p id="driftComparisonChart-desc" class="visually-hidden">Bar chart comparing the rolling 30-day recent window mean pollutant concentration against the preceding 90-day baseline mean, filtered by station and pollutant variable. Used to assess magnitude of concentration shift for drift classification.</p>
+          </div>
+        </div>
+
+        <!-- Interpretive Mathematical Caution -->
+        <div class="notice-card">
+          <strong>Drift Metric Interpretation Caution:</strong>
+          The standardized mean shift <i>D<sub>z</sub></i> = (<i>x̄</i><sub>recent</sub> &minus; <i>x̄</i><sub>baseline</sub>) / <i>s</i><sub>baseline</sub> divides the observed window difference by the <em>baseline standard deviation</em> (<i>s</i><sub>baseline</sub>), not pooled variance. <i>D<sub>z</sub></i> serves as a descriptive measure of magnitude and is <strong>not</strong> a hypothesis-test <i>z</i>-statistic. Magnitude thresholds strictly adhere to frozen empirical cutoffs: Minimal (|<i>D<sub>z</sub></i>| &lt; 0.5), Mild (0.5 &le; |<i>D<sub>z</sub></i>| &lt; 1.0), Moderate (1.0 &le; |<i>D<sub>z</sub></i>| &lt; 2.0), and Strong (|<i>D<sub>z</sub></i>| &ge; 2.0).
+        </div>
+
+      </div>
+
+      <!-- TAB 2: Statistical Inference -->
+      <div id="tab-inference" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-inference">
+        
+        <!-- Inference Evidence KPI Cards (Max 4 per row) -->
+        <div class="metric-card-grid">
+          <div class="metric-card">
+            <span class="metric-card-label">Inference Status</span>
+            <span id="inf-tested" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Eligibility requirement (≥21 / ≥63 days)</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Support Direction</span>
+            <span id="inf-support" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Directional significance</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Global BH-FDR (<i>q</i>-value)</span>
+            <span id="inf-bh-q" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Benjamini–Hochberg adjusted (&alpha; = 0.05)</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Block-7 Bootstrap 95% CI</span>
+            <span id="inf-ci" class="metric-card-value" style="font-size: 1.25rem;">—</span>
+            <span class="metric-card-sub">Moving-block bootstrap (<i>B</i> = 2000, <i>l</i> = 7)</span>
+          </div>
+        </div>
+
+        <!-- Secondary Effect Sizes (3 cards) -->
+        <div class="metric-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 1.5rem;">
+          <div class="metric-card">
+            <span class="metric-card-label">Hedges' <i>g</i> (Bias-Corrected)</span>
+            <span id="inf-hedges" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Parametric standardized mean difference</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Cliff's <i>&delta;</i> (Non-Parametric)</span>
+            <span id="inf-cliffs" class="metric-card-value">—</span>
+            <span class="metric-card-sub">Dominance effect size</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Block Length Robustness</span>
+            <span id="inf-robust" class="metric-card-value" style="font-size: 1.15rem;">—</span>
+            <span class="metric-card-sub">Agreement across <i>l</i> = 3, 7, 14 days</span>
+          </div>
+        </div>
+
+        <!-- Explanatory Finding Notice -->
+        <div id="inf-notice" class="notice-card" style="margin-bottom: 1.75rem;">
+          Loading inferential evaluation...
+        </div>
+
+        <!-- Station-Wide All-Variable Table -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Station Pollutant Drift &amp; Inference Profile</h2>
+              <div class="chart-card-subtitle">Summary of all 7 variables evaluated at the chosen station as of September 21, 2026</div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="scientific-table" aria-label="Station inference overview table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Drift <i>D<sub>z</sub></i></th>
+                  <th>Magnitude</th>
+                  <th>Tested</th>
+                  <th>Support Direction</th>
+                  <th>BH-FDR <i>q</i>-value</th>
+                  <th>Bootstrap 95% CI</th>
+                </tr>
+              </thead>
+              <tbody id="station-inference-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Methodological Standards Notice -->
+      <div class="notice-card" style="margin-top: 1.5rem;">
+        <strong>Scientific Distinction Policy:</strong>
+        Particulate variables (PM<sub>2.5</sub>, PM<sub>10</sub>), daily maximum rolling 8-hour ozone (`o3_8h_max`), and composite AQI represent verified physical units. Gaseous pollutants (CO, NO<sub>2</sub>, SO<sub>2</sub>) are evaluated strictly as within-series source-scale quantities to detect temporal shifts without converting to regulatory concentrations or applying CPCB AQI breakpoints. Findings indicate statistical associations within observed time-series and do not infer atmospheric causality.
+      </div>
+
+    </div>
+        </div>
+      </section>
+
+
+      <section id="machine-learning" class="presentation-section" style="padding-top: 4rem;">
+        <div class="section-header">
+          <h1 class="page-title">Machine Learning</h1>
+        </div>
+        
+        <div class="theory-panel">
+          <h2 class="section-kicker">MACHINE LEARNING TASK OVERVIEW</h2>
+          <div class="three-cards" style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+            <div class="concept-card">
+              <h3>TASK 1 — CONTINUOUS REGRESSION</h3>
+              <p class="question">"What may tomorrow's AQI value be?"</p>
+              <p><strong>Model:</strong> Multiple Linear Regression</p>
+            </div>
+            <div class="concept-card">
+              <h3>TASK 2 — ADVERSE CLASSIFICATION</h3>
+              <p class="question">"Will next-day AQI cross the adverse threshold?"</p>
+              <p><strong>Models:</strong> Logistic Regression, Radial Basis Function Support Vector Machine</p>
+            </div>
+            <div class="concept-card">
+              <h3>TASK 3 — UNSUPERVISED REGIME DISCOVERY</h3>
+              <p class="question">"Are there recurring environmental states without supplying class labels?"</p>
+              <p><strong>Methods:</strong> Principal Component Analysis, K-Means Clustering</p>
+            </div>
+          </div>
+
+          <h2 class="section-kicker" style="margin-top: 2rem;">THEORY &amp; MODELS</h2>
+          <details class="tech-detail">
+            <summary>Multiple Linear Regression</summary>
+            <div id="katex-mlr" style="margin: 1rem 0;"></div>
+            <p>Predicts next-day AQI. Evaluated using MAE, RMSE, and R².</p>
+          </details>
+          <details class="tech-detail">
+            <summary>Logistic Regression</summary>
+            <div id="katex-lr" style="margin: 1rem 0;"></div>
+            <p>Y = 1 corresponds to the project's adverse next-day target. Uses specific selected probability thresholds.</p>
+          </details>
+          <details class="tech-detail">
+            <summary>RBF Support Vector Machine</summary>
+            <div id="katex-rbf" style="margin: 1rem 0;"></div>
+            <p>Nonlinear similarity, margin-based classifier. The native decision score is not a calibrated probability.</p>
+          </details>
+          <details class="tech-detail">
+            <summary>PCA &amp; K-Means</summary>
+            <p><strong>PCA:</strong> Transforms correlated standardized features into orthogonal components ordered by explained variance.</p>
+            <p><strong>K-Means:</strong> Identifies descriptive environmental regimes and does not produce supervised outcome labels.</p>
+            <div id="katex-kmeans" style="margin: 1rem 0;"></div>
+          </details>
+          
+          <h2 class="section-kicker" style="margin-top: 2rem;">CHRONOLOGICAL EVALUATION</h2>
+          <div class="journey" style="display: flex; gap: 1rem; align-items: center; font-weight: bold; font-size: 0.9rem;">
+            <span>TRAIN</span> <span>&rarr;</span> 
+            <span>VALIDATION</span> <span>&rarr;</span> 
+            <span>TEST</span> <span>&rarr;</span> 
+            <span>RECENT HOLDOUT</span>
+          </div>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">Temporal ordering matters to prevent data leakage.</p>
+        </div>
+
+        <div class="interactive-dashboard" style="margin-top: 3rem;">
+          <h2 class="section-kicker">FROZEN ML RESULTS</h2>
+          <div class="dashboard-container">
+      
+      <!-- Page Header -->
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Machine Learning &amp; Regime Discovery</h1>
+        <p class="dashboard-subtitle">
+          Empirical evaluation of frozen supervised learning models (Multiple Linear Regression, Logistic Regression, RBF Support Vector Machines) and unsupervised environmental regimes (PCA &amp; <i>K</i>-Means).
+        </p>
+      </div>
+
+      <!-- Frozen Scientific Baseline Notice -->
+      <div class="frozen-baseline-notice" role="note">
+        <span class="frozen-baseline-badge">FROZEN BASELINE</span>
+        <span class="frozen-baseline-text">
+          Continuous regression, adverse event classification, and regime discovery results shown here remain permanently frozen at <strong>v0.6-svm-freeze</strong> (evaluating observations through September 21, 2026). Updated operational observations and deterministic model scoring are available in <a href="#explore" class="frozen-baseline-link">Explore Data</a>.
+        </span>
+      </div>
+
+      <!-- Accessibility: load-failure live region -->
+      <div id="ml-load-error" role="alert" aria-live="assertive" class="visually-hidden"></div>
+
+      <!-- Three Internal Tabs -->
+      <div class="tab-group" role="tablist" aria-label="Machine Learning Modules">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-regression" id="tab-btn-regression" aria-controls="tab-regression" tabindex="0">
+          Continuous Regression (Next-Day AQI)
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-classification" id="tab-btn-classification" aria-controls="tab-classification" tabindex="-1">
+          Adverse Event Classification (AQI<sub><i>t</i>+1</sub> &gt; 100)
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-regimes" id="tab-btn-regimes" aria-controls="tab-regimes" tabindex="-1">
+          Pollution Regimes (PCA &amp; <i>K</i>-Means)
+        </button>
+      </div>
+
+      <!-- TAB 1: REGRESSION -->
+      <div id="tab-regression" class="tab-pane active" role="tabpanel" aria-labelledby="tab-btn-regression">
+        
+        <!-- Filter Controls -->
+        <div class="filter-toolbar" role="region" aria-label="Regression filter controls">
+          <div class="filter-group">
+            <div class="filter-item">
+              <label for="reg-filter-scope">Study Scope</label>
+              <select id="reg-filter-scope" class="filter-control">
+                <option value="Hyderabad" selected>Hyderabad</option>
+                <option value="India">India Representative Panel</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label for="reg-filter-split">Evaluation Period</label>
+              <select id="reg-filter-split" class="filter-control">
+                <option value="TEST" selected>TEST (May 1 – Aug 31, 2026)</option>
+                <option value="Recent Holdout">Recent Holdout (Sep 1 – Sep 21, 2026)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regression Comparison Chart -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Supervised Regression Error Comparison</h2>
+              <div class="chart-card-subtitle">Comparison between Selected MLR Model B (Model A + aqi_verified) and Single-Day Persistence Benchmark</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" style="height: 350px;">
+            <canvas role="img" id="regressionComparisonChart" aria-label="Regression error bar chart" aria-describedby="regressionComparisonChart-desc"></canvas>
+            <p id="regressionComparisonChart-desc" class="visually-hidden">Grouped bar chart comparing MAE and RMSE for Multiple Linear Regression models across train, validation, test, and holdout splits. Lower values indicate better predictive accuracy for next-day AQI.</p>
+          </div>
+        </div>
+
+        <!-- Empirical Interpretation Notice -->
+        <div id="regression-interpretation" class="notice-card" style="margin-bottom: 1.5rem;">
+          Loading regression metrics...
+        </div>
+
+        <!-- Exact Values Table -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Exact Regression Metric Evaluations</h2>
+              <div class="chart-card-subtitle">Complete Level-1 frozen performance table across evaluation periods</div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="scientific-table" aria-label="Regression metrics table">
+              <thead>
+                <tr>
+                  <th>Model Specification</th>
+                  <th>MAE</th>
+                  <th>RMSE</th>
+                  <th>Mean Bias</th>
+                  <th>Median Absolute Error</th>
+                  <th><i>R</i><sup>2</sup></th>
+                </tr>
+              </thead>
+              <tbody id="regression-table-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: CLASSIFICATION -->
+      <div id="tab-classification" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-classification">
+        
+        <!-- Filter Controls -->
+        <div class="filter-toolbar" role="region" aria-label="Classification filter controls">
+          <div class="filter-group">
+            <div class="filter-item">
+              <label for="cls-filter-scope">Study Scope</label>
+              <select id="cls-filter-scope" class="filter-control">
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="India" selected>India Representative Panel</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label for="cls-filter-split">Evaluation Period</label>
+              <select id="cls-filter-split" class="filter-control">
+                <option value="TEST" selected>TEST (May 1 – Aug 31, 2026)</option>
+                <option value="Recent Holdout">Recent Holdout (Sep 1 – Sep 21, 2026)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single-Class Notice (shown when positive_n == 0) -->
+        <div id="cls-notice-card" class="notice-card" style="display: none;"></div>
+
+        <!-- Classification Comparison Chart -->
+        <div id="cls-chart-wrapper" class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Adverse Event Discrimination Metrics</h2>
+              <div class="chart-card-subtitle">Comparison of ranking performance and hard-classification F1 under each model's frozen operating rule.</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" style="height: 350px;">
+            <canvas role="img" id="classificationComparisonChart" aria-label="Classification metrics comparison chart" aria-describedby="classificationComparisonChart-desc"></canvas>
+            <p id="classificationComparisonChart-desc" class="visually-hidden">Grouped bar chart comparing precision, recall, F1-score, and accuracy for Logistic Regression and RBF SVM classifiers predicting adverse air quality events (AQI &gt; 100). Higher values indicate stronger classifier performance.</p>
+          </div>
+        </div>
+
+        <!-- Exact Classification Metrics Table -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Classification Performance Matrix</h2>
+              <div class="chart-card-subtitle">Evaluated models include probabilistic Logistic Model B, uncalibrated RBF SVM, and Persistence benchmark</div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="scientific-table" aria-label="Classification performance table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>PR-AUC</th>
+                  <th>ROC-AUC</th>
+                  <th>Avg Precision</th>
+                  <th>F1 Score</th>
+                  <th>Sensitivity</th>
+                  <th>Specificity</th>
+                  <th>TP</th>
+                  <th>TN</th>
+                  <th>FP</th>
+                  <th>FN</th>
+                  <th>Brier Score</th>
+                </tr>
+              </thead>
+              <tbody id="classification-table-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Model Type Distinction Notice -->
+        <div class="notice-card">
+          <strong>Decision Threshold &amp; Margin Semantics:</strong>
+          Operating rules differ across model paradigms:
+          Logistic Model B evaluates an estimated adverse-event probability (estimated conditional probability of AQI(<i>t</i>+1) &gt; 100) against a validation-selected threshold (<i>p</i>* &approx; 0.311268 in Hyderabad, <i>p</i>* &approx; 0.713448 in India).
+          RBF SVM evaluates an uncalibrated signed decision score <i>s</i>(<b>x</b>), where <i>s</i>(<b>x</b>) = 0 is the native classification boundary.
+          Persistence serves as a deterministic current-day adverse-state benchmark: AQI(<i>t</i>) &gt; 100.
+          Brier score is reported for Logistic probability predictions and the binary 0/1 persistence benchmark (SVM decision scores are non-probabilistic, so SVM Brier score remains null).
+        </div>
+
+      </div>
+
+      <!-- TAB 3: POLLUTION REGIMES (PCA & K-MEANS) -->
+      <div id="tab-regimes" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-regimes">
+        
+        <!-- Filter Controls -->
+        <div class="filter-toolbar" role="region" aria-label="Pollution regimes filter controls">
+          <div class="filter-group">
+            <div class="filter-item">
+              <label for="regime-filter-scope">Study Scope</label>
+              <select id="regime-filter-scope" class="filter-control">
+                <option value="Hyderabad" selected>Hyderabad</option>
+                <option value="India">India Representative Panel</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regime Summary Metric Cards -->
+        <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 1.5rem;">
+          <div class="metric-card">
+            <span class="metric-card-label">Cumulative Variance Explained</span>
+            <span id="regime-cum-var" class="metric-card-value">90.21%</span>
+            <span class="metric-card-sub">Explained by 4 retained principal components</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-card-label">Dimensionality Reduction</span>
+            <span id="regime-retained-pcs" class="metric-card-value">4 PCs</span>
+            <span class="metric-card-sub">Standardized sensor features (PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, temp, RH, wind)</span>
+          </div>
+        </div>
+
+        <!-- PCA Scatter Plot Card -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Environmental Feature Space (PC1 × PC2 Projection)</h2>
+              <div class="chart-card-subtitle">Station-day observations projected onto the first two principal axes, colored by <i>K</i> = 3 cluster partition. Note: Component loadings differ by geographic panel; interpretations are reported separately in the PCA documentation.</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" style="height: 480px;">
+            <canvas role="img" id="pcaScatterChart" aria-label="PCA PC1 vs PC2 scatter plot" aria-describedby="pcaScatterChart-desc"></canvas>
+            <p id="pcaScatterChart-desc" class="visually-hidden">Scatter plot of PCA Principal Component 1 vs Principal Component 2 scores, coloured by K-Means cluster assignment (K=3). Points represent monitoring station-day observations. Used to visualise environmental regime separation in reduced-dimensionality space.</p>
+          </div>
+        </div>
+
+        <!-- Descriptive Regime Profile Cards -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-card-title">Selected Regime Profiles (<i>K</i> = 3)</h2>
+              <div class="chart-card-subtitle">Empirically derived environmental clusters selected by parsimony and silhouette diagnostics</div>
+            </div>
+          </div>
+          <div id="regime-profile-cards" class="metric-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 0;">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Scientific Caution -->
+        <div class="notice-card" style="margin-top: 1.5rem;">
+          <strong>Regime Characterization Notice:</strong>
+          Cluster labels are descriptive summaries derived directly from sensor centroid values across standardized variables. Clusters represent broad environmental regimes observed within the historical monitoring network and do not imply definitive chemical mechanisms or unobserved atmospheric dynamics.
+        </div>
+
+      </div>
+
+    </div>
+        </div>
+      </section>
+
+    </main>
+
 
   <!-- Shared Global Footer -->
+  
   <footer class="site-footer">
     <div class="footer-container">
-      <div class="footer-col footer-col--project">
-        <h4>Urban Air Quality Index &amp; Pollutant Drift Analysis</h4>
-        <p>Frozen historical analysis of air-quality observations from selected CPCB/SPCB CAAQMS stations with Open-Meteo meteorology.</p>
-        <div class="footer-release-chips">
-          <span class="release-chip">Scientific v0.6</span>
-          <span class="release-chip">Website v0.7.4</span>
-        </div>
+      <div class="footer-brand">
+        <span class="footer-title">Urban Air Quality Project</span>
+        <p class="footer-desc">Statistics for Machine Learning PBL</p>
+        <div class="footer-version">Scientific Release: v0.6-svm-freeze</div>
+        <div class="footer-version">Website Release: v0.8.0-single-page-faculty</div>
       </div>
-
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="explore.html">Explore Data</a></li>
-          <li><a href="statistics.html">Statistical Analysis</a></li>
-          <li><a href="machine-learning.html">Machine Learning</a></li>
+      
+      <div class="footer-links">
+        <h3 class="footer-heading">Presentation</h3>
+        <ul class="footer-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#explore">Explore Data</a></li>
+          <li><a href="#statistics">Statistical Analysis</a></li>
+          <li><a href="#machine-learning">Machine Learning</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul class="footer-links">
+      <div class="footer-links">
+        <h3 class="footer-heading">Resources</h3>
+        <ul class="footer-list">
           <li><a href="documentation.html">Documentation</a></li>
-          <li><a href="documentation.html#theory">Theoretical Concepts</a></li>
+          <li><a href="documentation.html#exec-presentation">Presentation Walkthrough</a></li>
+          <li><a href="documentation.html#theoretical-concepts">Theoretical Concepts</a></li>
           <li><a href="documentation.html#execution">Execution Guide</a></li>
-          <li><a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
+          <li><a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener">GitHub Repository</a></li>
         </ul>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>&copy; 2026 Code-Crew-Nexus &middot; Statistics for Machine Learning &middot; Project Based Learning</span>
-      <span>Scientific Baseline: <code>v0.6-svm-freeze</code> &bull; Website Release: <code>v0.7.4-presentation-walkthrough</code> &bull; Deployed on GitHub Pages</span>
     </div>
   </footer>
+
 
   <!-- Local Scripts (Zero CDN dependencies) -->
   <script src="assets/js/common.js"></script>

@@ -56,154 +56,157 @@
     <main class="main-content" id="main-content">
 
       
-            <section id="home" class="presentation-section">
-        <div class="home-hero">
-          <div class="home-hero__badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Frozen Modeling Baseline
+      <section id="home" class="presentation-section" style="padding-top: 6rem; padding-bottom: 4rem;">
+        <div class="page-intro" style="max-width: 900px; margin: 0 auto; text-align: center;">
+          <div class="intro-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-warm-pearl); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-graphite); margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.05);">
+            <span class="pulse-dot"></span>
+            <span>Frozen Modeling Baseline &nbsp; v0.6-svm-freeze</span>
           </div>
-          <h1 class="home-hero__title">Urban Air Quality Index<br>Pollutant Drift Analysis</h1>
-          <p class="home-hero__subtitle">Statistics for Machine Learning &middot; Project Based Learning</p>
-          <p class="home-hero__summary">
-            A comprehensive pipeline exploring meteorological drivers of air pollution, detecting statistical shifts in pollutant levels, and applying machine learning to model and forecast complex environmental regimes.
+          <h1 class="page-title" style="font-size: 2.75rem; line-height: 1.2; margin-bottom: 1rem; color: var(--jade-dark);">Urban Air Quality Index &amp; Pollutant Drift Analysis</h1>
+          <p class="page-subtitle" style="font-size: 1.25rem; font-weight: 400; color: var(--graphite-muted); margin-bottom: 2rem;">
+            Statistics for Machine Learning &middot; Project Based Learning
           </p>
-          <div class="home-hero__ctas">
-            <a href="#explore" class="btn btn-primary">Explore Data</a>
-            <a href="#statistics" class="btn btn-secondary">Statistical Analysis</a>
+          <p class="hero-summary" style="font-size: 1.1rem; line-height: 1.7; color: var(--text-graphite); margin-bottom: 2.5rem;">
+            This project combines authentic air-quality observations, meteorological observations, verified-subset AQI computation, pollutant drift analysis, statistical inference, supervised machine learning, unsupervised regime discovery, and periodically refreshed operational observations.
+          </p>
+          
+          <div class="action-group" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+            <a href="#explore" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1.1rem;">Explore the Project</a>
+            <a href="documentation.html#exec-presentation" class="btn btn-secondary" style="padding: 0.75rem 2rem; font-size: 1.1rem;">Faculty Presentation</a>
           </div>
-          <div class="home-hero__links">
-            <a href="#machine-learning">Machine Learning Models</a>
-            <a href="about.html">About &amp; Disclaimers</a>
-          </div>
-        </div>
-
-        <div class="presentation-container">
-          <h2 class="section-kicker">PROBLEM STATEMENT</h2>
-          <div class="grid-3">
-            <div class="presentation-card presentation-card--accent-top">
-              <h3 class="presentation-card__title">Observed State</h3>
-              <p class="presentation-card__body">How are meteorological conditions (temperature, humidity, wind) and pollutant concentrations interacting right now across our physical stations?</p>
-            </div>
-            <div class="presentation-card presentation-card--accent-top">
-              <h3 class="presentation-card__title">Pollutant Drift</h3>
-              <p class="presentation-card__body">Has the recent mean concentration of critical pollutants (PM2.5, PM10) significantly shifted compared to historical baselines?</p>
-            </div>
-            <div class="presentation-card presentation-card--accent-top">
-              <h3 class="presentation-card__title">Next-Day Prediction</h3>
-              <p class="presentation-card__body">Can we learn from complex historical regimes to accurately predict tomorrow's Air Quality Index using today's data?</p>
-            </div>
+          <div style="display: flex; gap: 1.5rem; justify-content: center; font-size: 0.95rem;">
+            <a href="documentation.html" class="inline-link" style="color: var(--jade-deep); text-decoration: none; font-weight: 500;">Documentation</a>
+            <a href="about.html" class="inline-link" style="color: var(--jade-deep); text-decoration: none; font-weight: 500;">About &amp; Team</a>
+            <a href="https://github.com/Code-Crew-Nexus/UrbanAirQualityIndex-PollutantDriftAnalysis" target="_blank" rel="noopener" class="inline-link" style="color: var(--jade-deep); text-decoration: none; font-weight: 500;">GitHub Repository</a>
           </div>
         </div>
-
-        <div class="presentation-container">
-          <h2 class="section-kicker">PROJECT OBJECTIVES</h2>
-          <div class="grid-4">
-            <div class="presentation-card presentation-card--accent-left">
-              <h3 class="presentation-card__title">Data Engineering</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.25rem;">
-                <li>Reliable API ingestion</li>
-                <li>Temporal alignment</li>
-                <li>Missingness handling</li>
+        
+        <div class="theory-panel" style="max-width: 1000px; margin: 5rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 1.5rem; letter-spacing: 1.5px;">PROBLEM STATEMENT</h2>
+          <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto; line-height: 1.6; color: var(--graphite-muted);">
+            Urban air-quality monitoring produces heterogeneous pollutant observations across stations and time. Reliable interpretation requires validation, missingness-aware daily aggregation, defensible AQI construction, statistical detection of temporal drift, and carefully evaluated prediction of next-day adverse conditions.
+          </p>
+          <div class="three-cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <article class="concept-card" style="padding: 2rem; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="color: var(--jade-dark); margin-bottom: 1rem; font-size: 1.25rem;">Observed State</h3>
+              <p class="question" style="font-weight: 500; color: var(--text-graphite);">What is the observed air-quality state?</p>
+            </article>
+            <article class="concept-card" style="padding: 2rem; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="color: var(--jade-dark); margin-bottom: 1rem; font-size: 1.25rem;">Pollutant Drift</h3>
+              <p class="question" style="font-weight: 500; color: var(--text-graphite);">Has pollutant behavior shifted relative to its recent baseline?</p>
+            </article>
+            <article class="concept-card" style="padding: 2rem; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="color: var(--jade-dark); margin-bottom: 1rem; font-size: 1.25rem;">Next-Day Prediction</h3>
+              <p class="question" style="font-weight: 500; color: var(--text-graphite);">Can next-day adverse air-quality conditions be predicted?</p>
+            </article>
+          </div>
+        </div>
+        
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 2rem; letter-spacing: 1.5px;">PROJECT OBJECTIVES</h2>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--jade-deep);">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Data Engineering</h3>
+              <ul style="margin-left: 1.25rem; font-size: 0.95rem; color: var(--graphite-muted);">
+                <li>Ingest authentic environmental observations</li>
+                <li>Extend observations operationally without changing frozen academic results</li>
               </ul>
             </div>
-            <div class="presentation-card presentation-card--accent-left">
-              <h3 class="presentation-card__title">Statistical Analysis</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.25rem;">
-                <li>Robust baseline means</li>
-                <li>Bootstrapped intervals</li>
-                <li>FDR-controlled drift detection</li>
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--jade-deep);">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Statistical Analysis</h3>
+              <ul style="margin-left: 1.25rem; font-size: 0.95rem; color: var(--graphite-muted);">
+                <li>Calculate verified-subset AQI</li>
+                <li>Quantify pollutant drift</li>
+                <li>Evaluate statistical evidence</li>
               </ul>
             </div>
-            <div class="presentation-card presentation-card--accent-left">
-              <h3 class="presentation-card__title">Machine Learning</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.25rem;">
-                <li>AQI Regression</li>
-                <li>Adverse event Classification</li>
-                <li>PCA / K-Means Regimes</li>
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--jade-deep);">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Machine Learning</h3>
+              <ul style="margin-left: 1.25rem; font-size: 0.95rem; color: var(--graphite-muted);">
+                <li>Build supervised predictive baselines</li>
+                <li>Identify unsupervised environmental regimes</li>
               </ul>
             </div>
-            <div class="presentation-card presentation-card--accent-left">
-              <h3 class="presentation-card__title">Reproducible Presentation</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.25rem;">
-                <li>Academic frozen baseline</li>
-                <li>Interactive data explorer</li>
-                <li>Automated operational extension</li>
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--jade-deep);">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Reproducible Presentation</h3>
+              <ul style="margin-left: 1.25rem; font-size: 0.95rem; color: var(--graphite-muted);">
+                <li>Provide a reproducible faculty-facing web interface</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <div class="presentation-container">
-          <h2 class="section-kicker">STUDY AT A GLANCE</h2>
-          <div class="grid-4">
-            <div class="presentation-card" style="text-align: center; border-bottom: 4px solid var(--jade-deep);">
-              <div style="font-size: 2.5rem; font-weight: 700; color: var(--jade-dark); margin-bottom: 0.5rem;">21</div>
-              <div class="presentation-card__body">Unique Physical<br>Monitoring Stations</div>
+        
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 2rem; letter-spacing: 1.5px;">STUDY AT A GLANCE</h2>
+          <div class="metric-card-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <div class="metric-card" style="background: #fff; text-align: center; padding: 1.5rem;">
+              <span class="metric-card-value" style="font-size: 2rem; color: var(--jade-dark);">21</span>
+              <span class="metric-card-label" style="font-weight: 600;">Unique Physical Stations</span>
             </div>
-            <div class="presentation-card" style="text-align: center; border-bottom: 4px solid var(--jade-deep);">
-              <div style="font-size: 2.5rem; font-weight: 700; color: var(--jade-dark); margin-bottom: 0.5rem;">570</div>
-              <div class="presentation-card__body">Frozen Study Days<br>(Mar 2025 - Sep 2026)</div>
+            <div class="metric-card" style="background: #fff; text-align: center; padding: 1.5rem;">
+              <span class="metric-card-value" style="font-size: 2rem; color: var(--jade-dark);">570</span>
+              <span class="metric-card-label" style="font-weight: 600;">Frozen Study Days</span>
             </div>
-            <div class="presentation-card" style="text-align: center; border-bottom: 4px solid var(--jade-deep);">
-              <div style="font-size: 2.5rem; font-weight: 700; color: var(--jade-dark); margin-bottom: 0.5rem;">7 + 15</div>
-              <div class="presentation-card__body">Pollutants &amp;<br>Meteorological Features</div>
+            <div class="metric-card" style="background: #fff; text-align: center; padding: 1.5rem;">
+              <span class="metric-card-value" style="font-size: 2rem; color: var(--jade-dark);">7 + 15</span>
+              <span class="metric-card-label" style="font-weight: 600;">Panel Memberships</span>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">7 Hyderabad + 15 India memberships &middot; 1 overlap &middot; 21 unique stations</div>
             </div>
-            <div class="presentation-card" style="text-align: center; border-bottom: 4px solid var(--jade-deep); background: var(--jade-tint);">
-              <div style="font-size: 1.2rem; font-weight: 700; color: var(--jade-dark); margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><span class="live-indicator"></span> Operational</div>
-              <div class="presentation-card__body" id="dynamic-live-dates">Loading...</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="presentation-container">
-          <h2 class="section-kicker">DATA SOURCES &amp; TECHNOLOGY</h2>
-          <div class="grid-2">
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="presentation-card">
-                <strong style="color: var(--jade-dark);">OpenAQ</strong>
-                <span style="font-size: 0.9rem; color: var(--text-muted);">Upstream air-quality observational source</span>
-              </div>
-              <div class="presentation-card">
-                <strong style="color: var(--jade-dark);">Open-Meteo</strong>
-                <span style="font-size: 0.9rem; color: var(--text-muted);">Meteorological observational source</span>
-              </div>
-              <div class="presentation-card">
-                <strong style="color: var(--jade-dark);">Central Pollution Control Board</strong>
-                <span style="font-size: 0.9rem; color: var(--text-muted);">Regulatory AQI breakpoint &amp; methodology reference</span>
-              </div>
-            </div>
-            <div class="presentation-card" style="justify-content: center;">
-              <div class="tech-chip-list">
-                <span class="tech-chip">R</span>
-                <span class="tech-chip">OpenAQ API</span>
-                <span class="tech-chip">Open-Meteo API</span>
-                <span class="tech-chip">HTML / CSS / JS</span>
-                <span class="tech-chip">Chart.js</span>
-                <span class="tech-chip">KaTeX</span>
-                <span class="tech-chip">Git / GitHub Actions</span>
-                <span class="tech-chip">GitHub Pages</span>
-              </div>
+            <div class="metric-card" style="background: #fff; text-align: center; padding: 1.5rem; border: 1px solid var(--jade-deep);">
+              <span class="metric-card-value" id="dynamic-live-metric" style="font-size: 1.25rem; color: var(--jade-dark); margin-bottom: 0.5rem;">Operational Extension</span>
+              <span class="metric-card-sub" id="dynamic-live-dates" style="font-size: 0.85rem;">Through Loading...</span>
             </div>
           </div>
         </div>
 
-        <div class="presentation-container">
-          <h2 class="section-kicker">METHODS USED</h2>
-          <div class="grid-2">
-            <div class="presentation-card">
-              <h3 class="presentation-card__title" style="text-align: center;">Statistical Methods</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.5rem;">
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 2rem; letter-spacing: 1.5px;">DATA SOURCES &amp; TECHNOLOGY</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="concept-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong>OpenAQ</strong><br><span style="font-size: 0.9rem; color: var(--graphite-muted);">Upstream air-quality observational source</span>
+                </div>
+                <div class="concept-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong>Open-Meteo</strong><br><span style="font-size: 0.9rem; color: var(--graphite-muted);">Meteorological observational source</span>
+                </div>
+                <div class="concept-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong>Central Pollution Control Board</strong><br><span style="font-size: 0.9rem; color: var(--graphite-muted);">Regulatory AQI breakpoint &amp; methodology reference</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">R</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">OpenAQ API</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">Open-Meteo API</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">HTML / CSS / JS</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">Chart.js</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">KaTeX</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">Git / GitHub Actions</span>
+                <span style="background: var(--jade-tint); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-graphite);">GitHub Pages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 2rem; letter-spacing: 1.5px;">METHODS USED</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div style="background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <h3 style="color: var(--jade-dark); margin-bottom: 1rem; text-align: center;">Statistical Methods</h3>
+              <ul style="line-height: 1.8; color: var(--text-graphite); padding-left: 1.5rem;">
                 <li>Descriptive statistics</li>
                 <li>Standardized pollutant drift</li>
                 <li>Moving-block bootstrap</li>
-                <li>Benjamini-Hochberg False Discovery Rate control</li>
+                <li>Benjamini–Hochberg False Discovery Rate control</li>
                 <li>Hedges' g</li>
                 <li>Cliff's delta</li>
               </ul>
             </div>
-            <div class="presentation-card">
-              <h3 class="presentation-card__title" style="text-align: center;">Machine Learning Methods</h3>
-              <ul class="presentation-card__body" style="padding-left: 1.5rem;">
+            <div style="background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <h3 style="color: var(--jade-dark); margin-bottom: 1rem; text-align: center;">Machine Learning Methods</h3>
+              <ul style="line-height: 1.8; color: var(--text-graphite); padding-left: 1.5rem;">
                 <li>Multiple Linear Regression</li>
                 <li>Logistic Regression</li>
                 <li>Principal Component Analysis</li>
@@ -214,35 +217,35 @@
           </div>
         </div>
 
-        <div class="presentation-container">
-          <h2 class="section-kicker">END-TO-END JOURNEY</h2>
-          <div class="journey-flow">
-            <div class="journey-node">Acquire</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Validate</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Harmonize</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Aggregate</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">AQI</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Drift</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Inference</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Machine Learning</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">Present</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node journey-node--active">Operational Extension</div>
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 2rem; letter-spacing: 1.5px;">END-TO-END JOURNEY</h2>
+          <div class="journey-flow" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; align-items: center; font-weight: 500; font-size: 0.9rem; color: var(--jade-dark);">
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Acquire</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Validate</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Harmonize</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Aggregate</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">AQI</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Drift</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Inference</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Machine Learning</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--bg-warm-pearl); border-radius: 20px;">Present</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--jade-deep); color: #fff; border-radius: 20px;">Operational Extension</div>
           </div>
         </div>
 
-        <div class="presentation-container" style="margin-bottom: 4rem;">
-          <div class="split-card">
-            <div class="split-card__left">
-              <h3 class="split-card__title">Frozen Academic Baseline</h3>
-              <ul class="split-card__list">
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto;">
+          <div class="split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <div style="background: var(--jade-tint); padding: 2rem;">
+              <h3 style="color: var(--text-graphite); margin-bottom: 1rem; text-align: center;">Frozen Academic Baseline</h3>
+              <ul style="font-size: 0.95rem; line-height: 1.6; color: var(--graphite-muted);">
                 <li>through Sep 21, 2026</li>
                 <li>statistical/model results locked</li>
                 <li>reproducible at v0.6-svm-freeze</li>
               </ul>
             </div>
-            <div class="split-card__right">
-              <h3 class="split-card__title">Operational Extension</h3>
-              <ul class="split-card__list">
+            <div style="background: var(--jade-deep); color: #fff; padding: 2rem;">
+              <h3 style="color: #fff; margin-bottom: 1rem; text-align: center;">Operational Extension</h3>
+              <ul style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
                 <li>begins Sep 22, 2026</li>
                 <li>periodically refreshed</li>
                 <li>supports Explore Data and frozen-model scoring</li>
@@ -257,35 +260,35 @@
 
       
       <section id="explore" class="presentation-section" style="padding-top: 6rem; padding-bottom: 4rem; background: var(--bg-warm-pearl);">
-        <div class="presentation-container--compact" style="margin-bottom: 3rem;">
-          <div class="section-kicker">02 &middot; EXPLORE DATA</div>
-          <h2 class="home-hero__title" style="font-size: 2.25rem;">Interactive Data Explorer</h2>
-          <p class="section-lead">Inspect station-day air-quality and meteorological observations across frozen, live-extension, and combined views.</p>
+        <div class="section-header" style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+          <div class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep); font-weight: 600; margin-bottom: 0.5rem;">02 &middot; EXPLORE DATA</div>
+          <h1 class="page-title" style="font-size: 2.25rem; color: var(--text-graphite);">Interactive Data Explorer</h1>
+          <p style="font-size: 1.1rem; color: var(--graphite-muted); margin-top: 1rem;">Inspect station-day air-quality and meteorological observations across frozen, live-extension, and combined views.</p>
         </div>
 
         
         
-        <div class="presentation-container">
-          <div class="grid-2">
+        <div class="theory-panel" style="max-width: 1000px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
             <div>
               <h2 class="section-kicker" style="margin-bottom: 1rem;">WHAT IS AQI?</h2>
-              <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+              <p style="line-height: 1.6; color: var(--graphite-muted);">
                 This project uses a <strong>research-oriented verified-subset AQI</strong> based only on verified pollutants. 
                 It is aligned with CPCB methodology but is <em>not</em> an official operational CPCB AQI.
               </p>
               <h2 class="section-kicker" style="margin-top: 2rem; margin-bottom: 1rem;">MISSINGNESS POLICY</h2>
-              <p class="formula-card__interpretation" style="border-left: 3px solid var(--jade-deep); background: var(--surface-white);">
+              <p style="line-height: 1.6; color: var(--graphite-muted); background: #fff; padding: 1rem; border-left: 3px solid var(--jade-deep);">
                 Missing AQI is preserved when required verified pollutant coverage is insufficient. <strong>Missing AQI dates are intentionally not interpolated.</strong>
               </p>
             </div>
             <div>
               <div class="three-cards" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-                <div class="presentation-card" style="padding: 0.75rem 1rem;"><strong>PM2.5:</strong> Fine particulate matter</div>
-                <div class="presentation-card" style="padding: 0.75rem 1rem;"><strong>PM10:</strong> Coarse particulate matter</div>
-                <div class="presentation-card" style="padding: 0.75rem 1rem;"><strong>O3:</strong> Ground-level ozone</div>
+                <div class="concept-card" style="background: #fff; padding: 0.75rem 1rem; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><strong>PM2.5:</strong> Fine particulate matter</div>
+                <div class="concept-card" style="background: #fff; padding: 0.75rem 1rem; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><strong>PM10:</strong> Coarse particulate matter</div>
+                <div class="concept-card" style="background: #fff; padding: 0.75rem 1rem; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><strong>O3:</strong> Ground-level ozone</div>
               </div>
               
-              <div class="formula-card">
+              <div style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                 <h3 style="font-size: 0.9rem; letter-spacing: 1px; color: var(--jade-deep); text-transform: uppercase; margin-bottom: 1rem;">AQI Sub-Index Formula</h3>
                 <div id="katex-aqi-subindex" style="margin-bottom: 1rem; text-align: center;"></div>
                 <div id="katex-aqi-max" style="margin-bottom: 1rem; text-align: center;"></div>
@@ -293,7 +296,9 @@
             </div>
           </div>
         </div>
-        <div class="presentation-container--compact" style="margin-top: 3rem;"><h2 class="section-kicker">INTERACTIVE EVIDENCE</h2></div>
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto; text-align: center;">
+          <h2 class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep);">INTERACTIVE EVIDENCE</h2>
+        </div>
 
           <div id="explore-loading" class="loading-state" aria-live="polite" style="padding: 3rem; text-align: center; color: var(--jade-deep);">Loading validated observations...</div>
           <div id="explore-error" class="error-state" style="display: none; padding: 3rem; text-align: center; color: #d9534f; background: #fdf2f2; border: 1px solid #d9534f; border-radius: 4px;">
@@ -306,7 +311,12 @@
           <div class="dashboard-container">
       
       <!-- Page Header -->
-      
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Explore Multi-Station Sensor Observations</h1>
+        <p class="dashboard-subtitle">
+          Interactive temporal visualization of scheduled station-day observations across 21 physical CAAQMS stations spanning the frozen academic baseline and extended operational observations.
+        </p>
+      </div>
 
       <!-- Academic Baseline & Live Extension Notice -->
       <div class="data-mode-callout" id="data-mode-callout" role="note">
@@ -431,7 +441,7 @@
       </div>
 
       <!-- Secondary Range Cards (Min and Max) -->
-      <div class="metric-card-grid" >
+      <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 2rem;">
         <div class="metric-card">
           <span class="metric-card-label">Minimum Observed</span>
           <span id="metric-min" class="metric-card-value">—</span>
@@ -507,7 +517,7 @@
       <!-- Scientific Methodological Notice -->
       <div class="notice-card">
         <strong>CPCB Methodology &amp; Missingness Policy:</strong>
-        AQI is calculated via the verified 3-pollutant subset (PM<sub>2.5</sub>, PM<sub>10</sub>, and daily maximum rolling 8-hour ozone `o3_8h_max`). Under project sufficiency rules, if any of these three pollutants lacks valid daily coverage, the composite AQI is recorded as missing (<code>null</code>) and omitted from descriptive averages. Unverified gases (CO, NO<sub>2</sub>, SO<sub>2</sub>) are strictly excluded from composite AQI due to upstream unit ambiguities. All metrics reflect frozen historical study data; no real-time or live monitoring is implied.
+        AQI is calculated via the verified 3-pollutant subset (PM<sub>2.5</sub>, PM<sub>10</sub>, and daily maximum rolling 8-hour ozone `o3_8h_max`). Under project sufficiency rules, if any of these three pollutants lacks valid daily coverage, the composite AQI is recorded as missing (<code>null</code>) and omitted from descriptive averages. Unverified gases (CO, NO<sub>2</sub>, SO<sub>2</sub>) are strictly excluded from composite AQI due to upstream unit ambiguities. <span id="mode-aware-methodological-notice">All metrics reflect frozen historical study data; no real-time or live monitoring is implied.</span>
       </div>
 
     </div>
@@ -517,55 +527,57 @@
 
       
       <section id="statistics" class="presentation-section" style="padding-top: 6rem; padding-bottom: 4rem;">
-        <div class="presentation-container--compact" style="margin-bottom: 3rem;">
-          <div class="section-kicker">03 &middot; STATISTICAL ANALYSIS</div>
-          <h2 class="home-hero__title" style="font-size: 2.25rem;">Pollutant Drift &amp; Inference</h2>
-          <p class="section-lead">Quantify magnitude and evaluate statistical evidence while respecting temporal dependence and multiple testing.</p>
+        <div class="section-header" style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+          <div class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep); font-weight: 600; margin-bottom: 0.5rem;">03 &middot; STATISTICAL ANALYSIS</div>
+          <h1 class="page-title" style="font-size: 2.25rem; color: var(--text-graphite);">Pollutant Drift &amp; Inference</h1>
+          <p style="font-size: 1.1rem; color: var(--graphite-muted); margin-top: 1rem;">Quantify magnitude and evaluate statistical evidence while respecting temporal dependence and multiple testing.</p>
         </div>
 
         
         
-        <div class="presentation-container">
-          <div class="grid-2">
+        <div class="theory-panel" style="max-width: 1000px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
             <div>
-              <div class="formula-card" style="background: var(--bg-warm-pearl);">
+              <div class="concept-card" style="background: var(--bg-warm-pearl); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
                 <h3 style="font-size: 0.9rem; letter-spacing: 1px; color: var(--jade-deep); text-transform: uppercase; margin-bottom: 1rem;">Standardized Pollutant Drift</h3>
                 <div id="katex-drift" style="text-align: center; margin: 1rem 0;"></div>
-                <p class="formula-card__interpretation"><strong>D<sub>z</sub> is a descriptive standardized mean shift</strong>, not a hypothesis-test z statistic. Thresholds: Minimal, Mild, Moderate, Strong.</p>
+                <p style="font-size: 0.9rem; line-height: 1.5; color: var(--graphite-muted);"><strong>D<sub>z</sub> is a descriptive standardized mean shift</strong>, not a hypothesis-test z statistic. Thresholds: Minimal, Mild, Moderate, Strong.</p>
               </div>
               <div style="display: flex; gap: 1rem;">
-                <div class="presentation-card" style="flex: 1; text-align: center; padding: 1.5rem;">
+                <div class="concept-card" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 1rem; border-radius: 6px; flex: 1; text-align: center;">
                   <strong>Mean</strong><br><div id="katex-mean" style="margin: 0.5rem 0;"></div>
                 </div>
-                <div class="presentation-card" style="flex: 1; text-align: center; padding: 1.5rem;">
+                <div class="concept-card" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 1rem; border-radius: 6px; flex: 1; text-align: center;">
                   <strong>Std Dev</strong><br><div id="katex-sd" style="margin: 0.5rem 0;"></div>
                 </div>
               </div>
             </div>
             <div>
               <h2 class="section-kicker" style="margin-bottom: 1rem;">INFERENCE CONCEPTS</h2>
-              <div class="grid-2">
-                <div class="presentation-card" style="padding: 1.5rem;">
-                  <h3 class="presentation-card__title">MBB</h3>
-                  <p class="presentation-card__body">Accommodates temporal dependence</p>
+              <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                <div class="metric-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong style="display: block; margin-bottom: 0.25rem;">MBB</strong>
+                  <span style="font-size: 0.85rem; color: var(--graphite-muted);">Accommodates temporal dependence</span>
                 </div>
-                <div class="presentation-card" style="padding: 1.5rem;">
-                  <h3 class="presentation-card__title">BH-FDR</h3>
-                  <p class="presentation-card__body">Controls false discoveries</p>
+                <div class="metric-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong style="display: block; margin-bottom: 0.25rem;">BH-FDR</strong>
+                  <span style="font-size: 0.85rem; color: var(--graphite-muted);">Controls false discoveries</span>
                 </div>
-                <div class="presentation-card" style="padding: 1.5rem;">
-                  <h3 class="presentation-card__title">Hedges' g</h3>
-                  <p class="presentation-card__body">Bias-corrected effect size</p>
+                <div class="metric-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong style="display: block; margin-bottom: 0.25rem;">Hedges' g</strong>
+                  <span style="font-size: 0.85rem; color: var(--graphite-muted);">Bias-corrected effect size</span>
                 </div>
-                <div class="presentation-card" style="padding: 1.5rem;">
-                  <h3 class="presentation-card__title">Cliff's delta</h3>
-                  <p class="presentation-card__body">Non-parametric dominance</p>
+                <div class="metric-card" style="background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                  <strong style="display: block; margin-bottom: 0.25rem;">Cliff's delta</strong>
+                  <span style="font-size: 0.85rem; color: var(--graphite-muted);">Non-parametric dominance</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="presentation-container--compact" style="margin-top: 3rem;"><h2 class="section-kicker">INTERACTIVE EVIDENCE</h2></div>
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto; text-align: center;">
+          <h2 class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep);">INTERACTIVE EVIDENCE</h2>
+        </div>
 
           <div id="statistics-loading" class="loading-state" aria-live="polite" style="padding: 3rem; text-align: center; color: var(--jade-deep);">Loading frozen statistical results...</div>
           <div id="statistics-error" class="error-state" style="display: none; padding: 3rem; text-align: center; color: #d9534f; background: #fdf2f2; border: 1px solid #d9534f; border-radius: 4px;">
@@ -578,7 +590,12 @@
           <div class="dashboard-container">
       
       <!-- Page Header -->
-      
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Statistical Analysis &amp; Pollutant Drift</h1>
+        <p class="dashboard-subtitle">
+          Rigorous temporal drift quantification (<i>D<sub>z</sub></i>) and block-bootstrapped statistical hypothesis testing (<i>B</i> = 2000, <i>l</i> = 7) with global Benjamini–Hochberg False Discovery Rate control.
+        </p>
+      </div>
 
       <!-- Frozen Scientific Baseline Notice -->
       <div class="frozen-baseline-notice" role="note">
@@ -667,7 +684,7 @@
         </div>
 
         <!-- Metadata Info Grid -->
-        <div class="metric-card-grid" >
+        <div class="metric-card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
           <div class="metric-card" style="padding: 0.85rem 1rem;">
             <span class="metric-card-label">Recent Coverage</span>
             <span id="drift-recent-days" style="font-size: 0.95rem; font-weight: 700; color: var(--graphite-dark);">—</span>
@@ -739,7 +756,7 @@
         </div>
 
         <!-- Secondary Effect Sizes (3 cards) -->
-        <div class="metric-card-grid" >
+        <div class="metric-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 1.5rem;">
           <div class="metric-card">
             <span class="metric-card-label">Hedges' <i>g</i> (Bias-Corrected)</span>
             <span id="inf-hedges" class="metric-card-value">—</span>
@@ -773,7 +790,7 @@
             </div>
           </div>
 
-          <details style="margin-top: 1rem; border: 1px solid var(--surface-subtle); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View station-wide inference profile</summary>
+          <details style="margin-top: 1rem; border: 1px solid var(--jade-tint); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View station-wide inference profile</summary>
 <div class="table-responsive">
             <table class="scientific-table" aria-label="Station inference overview table">
               <thead>
@@ -812,44 +829,46 @@
 
       
       <section id="machine-learning" class="presentation-section" style="padding-top: 6rem; padding-bottom: 4rem; background: var(--bg-warm-pearl);">
-        <div class="presentation-container--compact" style="margin-bottom: 3rem;">
-          <div class="section-kicker">04 &middot; MACHINE LEARNING</div>
-          <h2 class="home-hero__title" style="font-size: 2.25rem;">Prediction &amp; Regime Discovery</h2>
-          <p class="section-lead">Supervised continuous/classification tasks and unsupervised PCA/K-Means clustering on the verified subsets.</p>
+        <div class="section-header" style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+          <div class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep); font-weight: 600; margin-bottom: 0.5rem;">04 &middot; MACHINE LEARNING</div>
+          <h1 class="page-title" style="font-size: 2.25rem; color: var(--text-graphite);">Prediction &amp; Regime Discovery</h1>
+          <p style="font-size: 1.1rem; color: var(--graphite-muted); margin-top: 1rem;">Supervised continuous/classification tasks and unsupervised PCA/K-Means clustering on the verified subsets.</p>
         </div>
 
         
         
-        <div class="presentation-container">
-          <div class="grid-3" style="margin-bottom: 3rem;">
-            <div class="presentation-card">
-              <h3 class="presentation-card__title">Regression</h3>
-              <p class="presentation-card__body">"What may tomorrow's AQI value be?"</p>
+        <div class="theory-panel" style="max-width: 1000px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <h3 style="color: var(--jade-dark); font-size: 1.1rem; margin-bottom: 1rem;">Regression</h3>
+              <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem;">"What may tomorrow's AQI value be?"</p>
               <div id="katex-mlr" style="text-align: center; margin: 1rem 0;"></div>
             </div>
-            <div class="presentation-card">
-              <h3 class="presentation-card__title">Classification</h3>
-              <p class="presentation-card__body">"Will next-day AQI cross the adverse threshold?"</p>
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <h3 style="color: var(--jade-dark); font-size: 1.1rem; margin-bottom: 1rem;">Classification</h3>
+              <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem;">"Will next-day AQI cross the adverse threshold?"</p>
               <div id="katex-lr" style="text-align: center; margin: 1rem 0; font-size: 0.85rem;"></div>
               <div id="katex-rbf" style="text-align: center; margin: 1rem 0; font-size: 0.85rem;"></div>
             </div>
-            <div class="presentation-card">
-              <h3 class="presentation-card__title">Regime Discovery</h3>
-              <p class="presentation-card__body">"Are there recurring environmental states?"</p>
+            <div class="concept-card" style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <h3 style="color: var(--jade-dark); font-size: 1.1rem; margin-bottom: 1rem;">Regime Discovery</h3>
+              <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem;">"Are there recurring environmental states?"</p>
               <div id="katex-kmeans" style="text-align: center; margin: 1rem 0; font-size: 0.85rem;"></div>
             </div>
           </div>
           
-          <h2 class="section-kicker" style="margin-top: 3rem;">CHRONOLOGICAL EVALUATION</h2>
-          <div class="journey-flow">
-            <div class="journey-node">TRAIN</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">VALIDATION</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node">TEST</div> <div class="journey-arrow">&rarr;</div> 
-            <div class="journey-node journey-node--active">RECENT HOLDOUT</div>
+          <h2 class="section-kicker" style="text-align: center; margin-bottom: 1rem; letter-spacing: 1.5px;">CHRONOLOGICAL EVALUATION</h2>
+          <div class="journey-flow" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: center; font-weight: 500; font-size: 0.9rem; color: var(--jade-dark);">
+            <div style="padding: 0.5rem 1rem; background: var(--jade-tint); border-radius: 20px;">TRAIN</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--jade-tint); border-radius: 20px;">VALIDATION</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--jade-tint); border-radius: 20px;">TEST</div> <span>&rarr;</span> 
+            <div style="padding: 0.5rem 1rem; background: var(--jade-deep); color: #fff; border-radius: 20px;">RECENT HOLDOUT</div>
           </div>
         </div>
         
-        <div class="presentation-container--compact" style="margin-top: 4rem;"><h2 class="section-kicker">FROZEN ML RESULTS</h2></div>
+        <div class="theory-panel" style="max-width: 1000px; margin: 4rem auto 0 auto; text-align: center;">
+          <h2 class="section-kicker" style="letter-spacing: 1.5px; color: var(--jade-deep);">FROZEN ML RESULTS</h2>
+        </div>
 
           <div id="machine-learning-loading" class="loading-state" aria-live="polite" style="padding: 3rem; text-align: center; color: var(--jade-deep);">Loading frozen machine-learning results...</div>
           <div id="machine-learning-error" class="error-state" style="display: none; padding: 3rem; text-align: center; color: #d9534f; background: #fdf2f2; border: 1px solid #d9534f; border-radius: 4px;">
@@ -862,7 +881,12 @@
           <div class="dashboard-container">
       
       <!-- Page Header -->
-      
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Machine Learning &amp; Regime Discovery</h1>
+        <p class="dashboard-subtitle">
+          Empirical evaluation of frozen supervised learning models (Multiple Linear Regression, Logistic Regression, RBF Support Vector Machines) and unsupervised environmental regimes (PCA &amp; <i>K</i>-Means).
+        </p>
+      </div>
 
       <!-- Frozen Scientific Baseline Notice -->
       <div class="frozen-baseline-notice" role="note">
@@ -939,7 +963,7 @@
               <div class="chart-card-subtitle">Complete Level-1 frozen performance table across evaluation periods</div>
             </div>
           </div>
-          <details style="margin-top: 1rem; border: 1px solid var(--surface-subtle); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View complete regression metrics</summary>
+          <details style="margin-top: 1rem; border: 1px solid var(--jade-tint); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View complete regression metrics</summary>
 <div class="table-responsive">
             <table class="scientific-table" aria-label="Regression metrics table">
               <thead>
@@ -1011,7 +1035,7 @@
               <div class="chart-card-subtitle">Evaluated models include probabilistic Logistic Model B, uncalibrated RBF SVM, and Persistence benchmark</div>
             </div>
           </div>
-          <details style="margin-top: 1rem; border: 1px solid var(--surface-subtle); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View complete classification metrics</summary>
+          <details style="margin-top: 1rem; border: 1px solid var(--jade-tint); border-radius: 6px; padding: 0.5rem;"><summary style="cursor: pointer; font-weight: 500; color: var(--jade-dark); padding: 0.5rem;">View complete classification metrics</summary>
 <div class="table-responsive">
             <table class="scientific-table" aria-label="Classification performance table">
               <thead>
@@ -1067,7 +1091,7 @@
         </div>
 
         <!-- Regime Summary Metric Cards -->
-        <div class="metric-card-grid" >
+        <div class="metric-card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 1.5rem;">
           <div class="metric-card">
             <span class="metric-card-label">Cumulative Variance Explained</span>
             <span id="regime-cum-var" class="metric-card-value">90.21%</span>
@@ -1103,7 +1127,7 @@
               <div class="chart-card-subtitle">Empirically derived environmental clusters selected by parsimony and silhouette diagnostics</div>
             </div>
           </div>
-          <div id="regime-profile-cards" class="metric-card-grid" >
+          <div id="regime-profile-cards" class="metric-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 0;">
             <!-- Dynamically populated -->
           </div>
         </div>

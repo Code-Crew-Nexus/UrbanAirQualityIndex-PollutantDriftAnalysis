@@ -251,6 +251,17 @@ window.initExploreSection = async function(force = false) {
       if (presetFullBtn) presetFullBtn.textContent = 'Full Study Period';
     }
 
+    const modeNotice = document.getElementById('mode-aware-methodological-notice');
+    if (modeNotice) {
+      if (mode === 'frozen') {
+        modeNotice.textContent = "Metrics shown for this mode use the frozen academic study baseline.";
+      } else if (mode === 'live') {
+        modeNotice.textContent = "Metrics shown for this mode use periodically refreshed operational extension observations; this is not continuous real-time streaming.";
+      } else if (mode === 'combined') {
+        modeNotice.textContent = "Metrics shown combine the frozen academic baseline with periodically refreshed operational-extension observations.";
+      }
+    }
+
     preset90DaysBtn.classList.add('active');
     presetFullBtn.classList.remove('active');
   }

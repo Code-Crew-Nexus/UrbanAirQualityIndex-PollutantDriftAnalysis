@@ -29,11 +29,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   const sectionObserver = new IntersectionObserver((entries) => {
-    let intersecting = entries.filter(e => e.isIntersecting);
+    const intersecting = entries.filter(e => e.isIntersecting);
     if (intersecting.length > 0) {
+      // Find the one closest to the top of the viewport (Y=0)
       intersecting.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
-      updateNav(intersecting[0].target.id);
-      intersecting.forEach(e => initSection(e.target.id));
+      const activeEntry = intersecting[0];
+      const id = activeEntry.target.id;
+      updateNav(id);
+      initSection(id);
     }
   }, observerOptions);
 

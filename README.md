@@ -30,7 +30,7 @@ This project systematically analyzes the temporal drift of air quality pollutant
 ## 7. Verified AQI Policy
 The composite AQI strictly applies the `VERIFIED_SUBSET_PM25_PM10_O3` policy, rejecting unsupported conversion of raw unverified source-scale gases (CO, NO2, SO2).
 
-## 8. Statistical / SML Workflow
+## 8. Statistical / Statistics for Machine Learning Workflow
 1. Data Engineering
 2. AQI Calculation
 3. Exploratory Data Analysis
@@ -144,7 +144,7 @@ Suggestions, ideas and academic feedback are welcome through GitHub Discussions.
 Supervised static models struggle to adapt classification boundaries gracefully when background baseline prevalences collapse.
 
 ## 16. Current Status
-**STATISTICAL / SML MODELING CORE COMPLETE.**
+**STATISTICAL / MACHINE LEARNING MODELING CORE COMPLETE.**
 
 All statistical and machine learning model development is frozen. R remains the canonical analytical and modeling implementation language.
 

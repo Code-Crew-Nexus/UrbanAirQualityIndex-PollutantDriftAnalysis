@@ -5,10 +5,19 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-let isExploreSectionInitialized = false;
-window.initExploreSection = async function() {
-  if (isExploreSectionInitialized) return;
-  isExploreSectionInitialized = true;
+let exploreState = 'uninitialized';
+window.initExploreSection = async function(force = false) {
+  if (!force && (exploreState === 'initializing' || exploreState === 'ready')) return;
+  exploreState = 'initializing';
+  
+  const loadingEl = document.getElementById('explore-loading');
+  const errorEl = document.getElementById('explore-error');
+  const dashEl = document.getElementById('explore-dashboard');
+  
+  if (loadingEl) loadingEl.style.display = 'block';
+  if (errorEl) errorEl.style.display = 'none';
+  if (dashEl) dashEl.style.display = 'none';
+
 
   'use strict';
 
@@ -155,11 +164,21 @@ window.initExploreSection = async function() {
     await initFilters();
 
     // 3. Render Initial State
+
+    exploreState = 'ready';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (dashEl) dashEl.style.display = 'block';
     updateView();
+
+  
 
   } catch (err) {
     console.error('Error loading Explore Data assets:', err);
     showLoadError(window.location.protocol === 'file:');
+  
+    exploreState = 'failed';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'block';
   }
 
   async function ensureLiveObservationsLoaded() {
@@ -659,9 +678,9 @@ window.initExploreSection = async function() {
 
   function renderDatasetInspector(filteredRows, stationObj, varConfig, startDate, endDate) {
     if (datasetInspectorSubtitle) {
-      if (currentMode === 'frozen') {
+      if (currentDataMode === 'frozen') {
         datasetInspectorSubtitle.textContent = 'Filtered frozen study observations used by the visualization above.';
-      } else if (currentMode === 'live') {
+      } else if (currentDataMode === 'live') {
         datasetInspectorSubtitle.textContent = 'Filtered operational-extension observations used by the visualization above.';
       } else {
         datasetInspectorSubtitle.textContent = 'Filtered frozen + operational-extension observations used by the visualization above.';

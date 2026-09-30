@@ -5,10 +5,19 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-let isStatisticsSectionInitialized = false;
-window.initStatisticsSection = async function() {
-  if (isStatisticsSectionInitialized) return;
-  isStatisticsSectionInitialized = true;
+let statsState = 'uninitialized';
+window.initStatisticsSection = async function(force = false) {
+  if (!force && (statsState === 'initializing' || statsState === 'ready')) return;
+  statsState = 'initializing';
+  
+  const loadingEl = document.getElementById('statistics-loading');
+  const errorEl = document.getElementById('statistics-error');
+  const dashEl = document.getElementById('statistics-dashboard');
+  
+  if (loadingEl) loadingEl.style.display = 'block';
+  if (errorEl) errorEl.style.display = 'none';
+  if (dashEl) dashEl.style.display = 'none';
+
 
   'use strict';
 
@@ -76,7 +85,13 @@ window.initStatisticsSection = async function() {
 
     initTabs();
     initControls();
+
+    statsState = 'ready';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (dashEl) dashEl.style.display = 'block';
     updateView();
+
+  
 
   } catch (err) {
     console.error('Error loading Statistical Analysis assets:', err);
@@ -86,7 +101,11 @@ window.initStatisticsSection = async function() {
       errRegion.classList.remove('visually-hidden');
       if (window.location.protocol === 'file:') {
         errRegion.innerHTML = '<div class="load-error-card local-preview-card" style="margin-bottom: 1.5rem;"><div class="load-error-header"><span class="load-error-badge">LOCAL PREVIEW REQUIRED</span><h3 class="load-error-title">Interactive Datasets Require Local HTTP Server</h3></div><p class="load-error-desc">Datasets cannot be loaded when opening this page directly from disk (<code>file://</code>). Start the local server with <code>py scripts/serve_website_local.py</code> or <code>py -m http.server 8000 --directory docs</code> and open <a href="http://localhost:8000/statistics.html" class="preview-direct-link">http://localhost:8000/statistics.html</a>.</p></div>';
-      } else {
+      
+    statsState = 'failed';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'block';
+  } else {
         errRegion.textContent = 'Error: Statistical Analysis data could not be loaded. Please refresh the page.';
       }
     }

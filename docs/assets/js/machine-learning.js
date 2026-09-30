@@ -5,10 +5,19 @@
  * Baseline: v0.6-svm-freeze (FROZEN — READ ONLY)
  */
 
-let isMachineLearningSectionInitialized = false;
-window.initMachineLearningSection = async function() {
-  if (isMachineLearningSectionInitialized) return;
-  isMachineLearningSectionInitialized = true;
+let mlState = 'uninitialized';
+window.initMachineLearningSection = async function(force = false) {
+  if (!force && (mlState === 'initializing' || mlState === 'ready')) return;
+  mlState = 'initializing';
+  
+  const loadingEl = document.getElementById('machine-learning-loading');
+  const errorEl = document.getElementById('machine-learning-error');
+  const dashEl = document.getElementById('machine-learning-dashboard');
+  
+  if (loadingEl) loadingEl.style.display = 'block';
+  if (errorEl) errorEl.style.display = 'none';
+  if (dashEl) dashEl.style.display = 'none';
+
 
   'use strict';
 
@@ -72,15 +81,26 @@ window.initMachineLearningSection = async function() {
     updateRegressionView();
     updateClassificationView();
     updateRegimesView();
+    mlState = 'ready';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (dashEl) dashEl.style.display = 'block';
+
+
+  
 
   } catch (err) {
     console.error('Error loading Machine Learning assets:', err);
+    mlState = 'failed';
+    if (loadingEl) loadingEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'block';
+
     const errRegion = document.getElementById('ml-load-error');
     if (errRegion) {
       errRegion.classList.remove('visually-hidden');
       if (window.location.protocol === 'file:') {
         errRegion.innerHTML = '<div class="load-error-card local-preview-card" style="margin-bottom: 1.5rem;"><div class="load-error-header"><span class="load-error-badge">LOCAL PREVIEW REQUIRED</span><h3 class="load-error-title">Interactive Datasets Require Local HTTP Server</h3></div><p class="load-error-desc">Datasets cannot be loaded when opening this page directly from disk (<code>file://</code>). Start the local server with <code>py scripts/serve_website_local.py</code> or <code>py -m http.server 8000 --directory docs</code> and open <a href="http://localhost:8000/machine-learning.html" class="preview-direct-link">http://localhost:8000/machine-learning.html</a>.</p></div>';
-      } else {
+      
+} else {
         errRegion.textContent = 'Error: Machine Learning data could not be loaded. Please refresh the page.';
       }
     }

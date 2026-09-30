@@ -2808,3 +2808,9 @@ a:focus {
     grid-template-columns: 1fr;
   }
 }
+
+.presentation-section { scroll-margin-top: calc(var(--header-height, 60px) + 2rem); }
+
+
+.katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: 1rem 0; }
+.presentation-section { overflow-x: hidden; }

@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const updateNav = (id) => {
     navLinks.forEach(link => {
       link.classList.remove('active');
+      link.removeAttribute('aria-current');
       if (link.getAttribute('href').endsWith(`#${id}`)) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'location');
       }
     });
   };
@@ -27,13 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        updateNav(id);
-        initSection(id);
-      }
-    });
+    let intersecting = entries.filter(e => e.isIntersecting);
+    if (intersecting.length > 0) {
+      intersecting.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+      updateNav(intersecting[0].target.id);
+      intersecting.forEach(e => initSection(e.target.id));
+    }
   }, observerOptions);
 
   sections.forEach(sec => sectionObserver.observe(sec));

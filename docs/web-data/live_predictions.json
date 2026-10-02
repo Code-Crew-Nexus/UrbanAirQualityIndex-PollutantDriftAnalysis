@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-10-01T09:02:30Z",
+    "generated_at": "2026-10-02T08:38:09Z",
     "model_baseline": "v0.6-svm-freeze",
     "inference_type": "DETERMINISTIC_FROZEN_INFERENCE",
     "models_used": {
@@ -8,10 +8,10 @@
       "logistic": "Phase 4C Adverse Event Logistic Regression (Model B)"
     },
     "disclaimer": "Predictions generated deterministically using frozen v0.6 models. Models have NOT been retrained on live data.",
-    "total_scored_records": 131,
+    "total_scored_records": 130,
     "observation_window": {
       "start": "2026-09-22",
-      "end": "2026-09-30"
+      "end": "2026-10-01"
     }
   },
   "predictions": [
@@ -101,9 +101,9 @@
       "predicted_aqi_next_day_mlr": 63.3,
       "predicted_adverse_prob_next_day": 0.0401,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 82,
-      "residual_mlr": -18.7,
-      "residual_persistence": -26
+      "actual_aqi_next_day": 83,
+      "residual_mlr": -19.7,
+      "residual_persistence": -27
     },
     {
       "scope": "Hyderabad",
@@ -112,13 +112,13 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 82,
-      "predicted_aqi_next_day_mlr": 84.9,
-      "predicted_adverse_prob_next_day": 0.259,
+      "observed_aqi_current": 83,
+      "predicted_aqi_next_day_mlr": 85.6,
+      "predicted_adverse_prob_next_day": 0.2693,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 79,
-      "residual_mlr": 5.9,
-      "residual_persistence": 3
+      "residual_mlr": 6.6,
+      "residual_persistence": 4
     },
     {
       "scope": "Hyderabad",
@@ -142,6 +142,21 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
+      "project_station_id": "PROJ_007",
+      "station_name": "Zoo Park, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -287,6 +302,21 @@
     },
     {
       "scope": "Hyderabad",
+      "project_station_id": "PROJ_036",
+      "station_name": "Bollaram Industrial Area, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
       "project_station_id": "PROJ_044",
       "station_name": "Central University, Hyderabad - TSPCB",
       "city": "Hyderabad",
@@ -371,9 +401,9 @@
       "predicted_aqi_next_day_mlr": 28.7,
       "predicted_adverse_prob_next_day": 0.004,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 28,
-      "residual_mlr": 0.7,
-      "residual_persistence": -8
+      "actual_aqi_next_day": 27,
+      "residual_mlr": 1.7,
+      "residual_persistence": -7
     },
     {
       "scope": "Hyderabad",
@@ -382,13 +412,13 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 28,
-      "predicted_aqi_next_day_mlr": 35.7,
-      "predicted_adverse_prob_next_day": 0.0122,
+      "observed_aqi_current": 27,
+      "predicted_aqi_next_day_mlr": 34.8,
+      "predicted_adverse_prob_next_day": 0.0113,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 33,
-      "residual_mlr": 2.7,
-      "residual_persistence": -5
+      "residual_mlr": 1.8,
+      "residual_persistence": -6
     },
     {
       "scope": "Hyderabad",
@@ -412,6 +442,21 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
+      "project_station_id": "PROJ_044",
+      "station_name": "Central University, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -557,6 +602,21 @@
     },
     {
       "scope": "Hyderabad",
+      "project_station_id": "PROJ_179",
+      "station_name": "ECIL Kapra, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
       "project_station_id": "PROJ_180",
       "station_name": "Kompally Municipal Office, Hyderabad - TSPCB",
       "city": "Hyderabad",
@@ -641,9 +701,9 @@
       "predicted_aqi_next_day_mlr": 61,
       "predicted_adverse_prob_next_day": 0.0056,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 61,
-      "residual_mlr": 0,
-      "residual_persistence": -7
+      "actual_aqi_next_day": 60,
+      "residual_mlr": 1,
+      "residual_persistence": -6
     },
     {
       "scope": "Hyderabad",
@@ -652,13 +712,13 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 61,
-      "predicted_aqi_next_day_mlr": 65.9,
-      "predicted_adverse_prob_next_day": 0.0132,
+      "observed_aqi_current": 60,
+      "predicted_aqi_next_day_mlr": 65.2,
+      "predicted_adverse_prob_next_day": 0.0125,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 57,
-      "residual_mlr": 8.9,
-      "residual_persistence": 4
+      "residual_mlr": 8.2,
+      "residual_persistence": 3
     },
     {
       "scope": "Hyderabad",
@@ -682,6 +742,21 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
+      "project_station_id": "PROJ_180",
+      "station_name": "Kompally Municipal Office, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -776,9 +851,9 @@
       "predicted_aqi_next_day_mlr": 49.6,
       "predicted_adverse_prob_next_day": 0.0068,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 47,
-      "residual_mlr": 2.6,
-      "residual_persistence": -10
+      "actual_aqi_next_day": 48,
+      "residual_mlr": 1.6,
+      "residual_persistence": -11
     },
     {
       "scope": "Hyderabad",
@@ -787,13 +862,13 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 47,
-      "predicted_aqi_next_day_mlr": 59.1,
-      "predicted_adverse_prob_next_day": 0.0249,
+      "observed_aqi_current": 48,
+      "predicted_aqi_next_day_mlr": 60,
+      "predicted_adverse_prob_next_day": 0.0269,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 56,
-      "residual_mlr": 3.1,
-      "residual_persistence": -9
+      "residual_mlr": 4,
+      "residual_persistence": -8
     },
     {
       "scope": "Hyderabad",
@@ -817,6 +892,21 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "Hyderabad",
+      "project_station_id": "PROJ_181",
+      "station_name": "Somajiguda, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -961,6 +1051,21 @@
       "residual_persistence": null
     },
     {
+      "scope": "Hyderabad",
+      "project_station_id": "PROJ_186",
+      "station_name": "New Malakpet, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
       "scope": "India",
       "project_station_id": "PROJ_002",
       "station_name": "R K Puram, Delhi - DPCC",
@@ -1046,9 +1151,9 @@
       "predicted_aqi_next_day_mlr": 75.2,
       "predicted_adverse_prob_next_day": 0.1118,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 59,
-      "residual_mlr": 16.2,
-      "residual_persistence": -18
+      "actual_aqi_next_day": 63,
+      "residual_mlr": 12.2,
+      "residual_persistence": -22
     },
     {
       "scope": "India",
@@ -1057,13 +1162,13 @@
       "city": "Delhi",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 59,
-      "predicted_aqi_next_day_mlr": 88.3,
-      "predicted_adverse_prob_next_day": 0.1562,
+      "observed_aqi_current": 63,
+      "predicted_aqi_next_day_mlr": 91.5,
+      "predicted_adverse_prob_next_day": 0.1773,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 106,
-      "residual_mlr": -17.7,
-      "residual_persistence": -47
+      "residual_mlr": -14.5,
+      "residual_persistence": -43
     },
     {
       "scope": "India",
@@ -1087,6 +1192,21 @@
       "city": "Delhi",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_002",
+      "station_name": "R K Puram, Delhi - DPCC",
+      "city": "Delhi",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1181,9 +1301,9 @@
       "predicted_aqi_next_day_mlr": 67,
       "predicted_adverse_prob_next_day": 0.0862,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 82,
-      "residual_mlr": -15,
-      "residual_persistence": -26
+      "actual_aqi_next_day": 83,
+      "residual_mlr": -16,
+      "residual_persistence": -27
     },
     {
       "scope": "India",
@@ -1192,13 +1312,13 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 82,
-      "predicted_aqi_next_day_mlr": 89.3,
-      "predicted_adverse_prob_next_day": 0.236,
+      "observed_aqi_current": 83,
+      "predicted_aqi_next_day_mlr": 90,
+      "predicted_adverse_prob_next_day": 0.2442,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 79,
-      "residual_mlr": 10.3,
-      "residual_persistence": 3
+      "residual_mlr": 11,
+      "residual_persistence": 4
     },
     {
       "scope": "India",
@@ -1222,6 +1342,21 @@
       "city": "Hyderabad",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_007",
+      "station_name": "Zoo Park, Hyderabad - TSPCB",
+      "city": "Hyderabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1316,9 +1451,9 @@
       "predicted_aqi_next_day_mlr": 97.3,
       "predicted_adverse_prob_next_day": 0.3077,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 119,
-      "residual_mlr": -21.7,
-      "residual_persistence": -19
+      "actual_aqi_next_day": 121,
+      "residual_mlr": -23.7,
+      "residual_persistence": -21
     },
     {
       "scope": "India",
@@ -1327,13 +1462,13 @@
       "city": "Chennai",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 119,
-      "predicted_aqi_next_day_mlr": 115.4,
-      "predicted_adverse_prob_next_day": 0.5418,
+      "observed_aqi_current": 121,
+      "predicted_aqi_next_day_mlr": 117,
+      "predicted_adverse_prob_next_day": 0.5687,
       "predicted_adverse_class_next_day": 1,
       "actual_aqi_next_day": 111,
-      "residual_mlr": 4.4,
-      "residual_persistence": 8
+      "residual_mlr": 6,
+      "residual_persistence": 10
     },
     {
       "scope": "India",
@@ -1357,6 +1492,21 @@
       "city": "Chennai",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_019",
+      "station_name": "Manali, Chennai - CPCB",
+      "city": "Chennai",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1451,9 +1601,9 @@
       "predicted_aqi_next_day_mlr": 54.6,
       "predicted_adverse_prob_next_day": 0.0363,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 58,
-      "residual_mlr": -3.4,
-      "residual_persistence": -9
+      "actual_aqi_next_day": 56,
+      "residual_mlr": -1.4,
+      "residual_persistence": -7
     },
     {
       "scope": "India",
@@ -1462,13 +1612,13 @@
       "city": "Nagpur",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 58,
-      "predicted_aqi_next_day_mlr": 62.6,
-      "predicted_adverse_prob_next_day": 0.0545,
+      "observed_aqi_current": 56,
+      "predicted_aqi_next_day_mlr": 60.9,
+      "predicted_adverse_prob_next_day": 0.0514,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 71,
-      "residual_mlr": -8.4,
-      "residual_persistence": -13
+      "residual_mlr": -10.1,
+      "residual_persistence": -15
     },
     {
       "scope": "India",
@@ -1492,6 +1642,21 @@
       "city": "Nagpur",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_042",
+      "station_name": "Opp GPO Civil Lines, Nagpur - MPCB",
+      "city": "Nagpur",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1586,9 +1751,9 @@
       "predicted_aqi_next_day_mlr": 129,
       "predicted_adverse_prob_next_day": 0.9224,
       "predicted_adverse_class_next_day": 1,
-      "actual_aqi_next_day": 118,
-      "residual_mlr": 11,
-      "residual_persistence": 5
+      "actual_aqi_next_day": 111,
+      "residual_mlr": 18,
+      "residual_persistence": 12
     },
     {
       "scope": "India",
@@ -1597,13 +1762,13 @@
       "city": "Visakhapatnam",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 118,
-      "predicted_aqi_next_day_mlr": 123.5,
-      "predicted_adverse_prob_next_day": 0.866,
+      "observed_aqi_current": 111,
+      "predicted_aqi_next_day_mlr": 118.5,
+      "predicted_adverse_prob_next_day": 0.8152,
       "predicted_adverse_class_next_day": 1,
       "actual_aqi_next_day": 116,
-      "residual_mlr": 7.5,
-      "residual_persistence": 2
+      "residual_mlr": 2.5,
+      "residual_persistence": -5
     },
     {
       "scope": "India",
@@ -1627,6 +1792,21 @@
       "city": "Visakhapatnam",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_048",
+      "station_name": "GVM Corporation, Visakhapatnam - APPCB",
+      "city": "Visakhapatnam",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1772,6 +1952,21 @@
     },
     {
       "scope": "India",
+      "project_station_id": "PROJ_050",
+      "station_name": "Maninagar, Ahmedabad - GPCB",
+      "city": "Ahmedabad",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
       "project_station_id": "PROJ_051",
       "station_name": "Police Commissionerate, Jaipur - RSPCB",
       "city": "Jaipur",
@@ -1856,9 +2051,9 @@
       "predicted_aqi_next_day_mlr": 78.6,
       "predicted_adverse_prob_next_day": 0.1795,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 100,
-      "residual_mlr": -21.4,
-      "residual_persistence": -21
+      "actual_aqi_next_day": 107,
+      "residual_mlr": -28.4,
+      "residual_persistence": -28
     },
     {
       "scope": "India",
@@ -1867,13 +2062,13 @@
       "city": "Jaipur",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 100,
-      "predicted_aqi_next_day_mlr": 94.6,
-      "predicted_adverse_prob_next_day": 0.2534,
+      "observed_aqi_current": 107,
+      "predicted_aqi_next_day_mlr": 100,
+      "predicted_adverse_prob_next_day": 0.3195,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 126,
-      "residual_mlr": -31.4,
-      "residual_persistence": -26
+      "residual_mlr": -26,
+      "residual_persistence": -19
     },
     {
       "scope": "India",
@@ -1897,6 +2092,21 @@
       "city": "Jaipur",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_051",
+      "station_name": "Police Commissionerate, Jaipur - RSPCB",
+      "city": "Jaipur",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -1991,9 +2201,9 @@
       "predicted_aqi_next_day_mlr": 59.8,
       "predicted_adverse_prob_next_day": 0.0355,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 52,
-      "residual_mlr": 7.8,
-      "residual_persistence": -16
+      "actual_aqi_next_day": 60,
+      "residual_mlr": -0.2,
+      "residual_persistence": -24
     },
     {
       "scope": "India",
@@ -2002,13 +2212,13 @@
       "city": "Lucknow",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 52,
-      "predicted_aqi_next_day_mlr": 72.8,
-      "predicted_adverse_prob_next_day": 0.1203,
+      "observed_aqi_current": 60,
+      "predicted_aqi_next_day_mlr": 78.6,
+      "predicted_adverse_prob_next_day": 0.1613,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 94,
-      "residual_mlr": -21.2,
-      "residual_persistence": -42
+      "residual_mlr": -15.4,
+      "residual_persistence": -34
     },
     {
       "scope": "India",
@@ -2032,6 +2242,21 @@
       "city": "Lucknow",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_063",
+      "station_name": "Lalbagh, Lucknow - CPCB",
+      "city": "Lucknow",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -2126,9 +2351,9 @@
       "predicted_aqi_next_day_mlr": 86.9,
       "predicted_adverse_prob_next_day": 0.1958,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 57,
-      "residual_mlr": 29.9,
-      "residual_persistence": 21
+      "actual_aqi_next_day": 61,
+      "residual_mlr": 25.9,
+      "residual_persistence": 17
     },
     {
       "scope": "India",
@@ -2137,13 +2362,13 @@
       "city": "Mumbai",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 57,
-      "predicted_aqi_next_day_mlr": 71.2,
-      "predicted_adverse_prob_next_day": 0.0916,
+      "observed_aqi_current": 61,
+      "predicted_aqi_next_day_mlr": 74.2,
+      "predicted_adverse_prob_next_day": 0.106,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 58,
-      "residual_mlr": 13.2,
-      "residual_persistence": -1
+      "residual_mlr": 16.2,
+      "residual_persistence": 3
     },
     {
       "scope": "India",
@@ -2167,6 +2392,21 @@
       "city": "Mumbai",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_092",
+      "station_name": "Kurla, Mumbai - MPCB",
+      "city": "Mumbai",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -2312,6 +2552,21 @@
     },
     {
       "scope": "India",
+      "project_station_id": "PROJ_094",
+      "station_name": "Jadavpur, Kolkata - WBPCB",
+      "city": "Kolkata",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
       "project_station_id": "PROJ_101",
       "station_name": "Jayanagar 5th Block, Bengaluru - KSPCB",
       "city": "Bengaluru",
@@ -2396,9 +2651,9 @@
       "predicted_aqi_next_day_mlr": 98.6,
       "predicted_adverse_prob_next_day": 0.4027,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 62,
-      "residual_mlr": 36.6,
-      "residual_persistence": 37
+      "actual_aqi_next_day": 60,
+      "residual_mlr": 38.6,
+      "residual_persistence": 39
     },
     {
       "scope": "India",
@@ -2407,9 +2662,9 @@
       "city": "Bengaluru",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 62,
-      "predicted_aqi_next_day_mlr": 66.8,
-      "predicted_adverse_prob_next_day": 0.0695,
+      "observed_aqi_current": 60,
+      "predicted_aqi_next_day_mlr": 65.3,
+      "predicted_adverse_prob_next_day": 0.0644,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": null,
       "residual_mlr": null,
@@ -2437,6 +2692,21 @@
       "city": "Bengaluru",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_101",
+      "station_name": "Jayanagar 5th Block, Bengaluru - KSPCB",
+      "city": "Bengaluru",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -2582,6 +2852,21 @@
     },
     {
       "scope": "India",
+      "project_station_id": "PROJ_133",
+      "station_name": "Rajbansi Nagar, Patna - BSPCB",
+      "city": "Patna",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
       "project_station_id": "PROJ_142",
       "station_name": "Railway Colony, Guwahati - APCB",
       "city": "Guwahati",
@@ -2666,9 +2951,9 @@
       "predicted_aqi_next_day_mlr": 52.8,
       "predicted_adverse_prob_next_day": 0.0356,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 115,
-      "residual_mlr": -62.2,
-      "residual_persistence": -73
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
     },
     {
       "scope": "India",
@@ -2677,13 +2962,13 @@
       "city": "Guwahati",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 115,
-      "predicted_aqi_next_day_mlr": 108.7,
-      "predicted_adverse_prob_next_day": 0.5238,
-      "predicted_adverse_class_next_day": 1,
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
       "actual_aqi_next_day": 105,
-      "residual_mlr": 3.7,
-      "residual_persistence": 10
+      "residual_mlr": null,
+      "residual_persistence": null
     },
     {
       "scope": "India",
@@ -2707,6 +2992,21 @@
       "city": "Guwahati",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_142",
+      "station_name": "Railway Colony, Guwahati - APCB",
+      "city": "Guwahati",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -2801,7 +3101,7 @@
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
       "predicted_adverse_class_next_day": null,
-      "actual_aqi_next_day": 90,
+      "actual_aqi_next_day": 98,
       "residual_mlr": null,
       "residual_persistence": null
     },
@@ -2812,13 +3112,13 @@
       "city": "Bhopal",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 90,
-      "predicted_aqi_next_day_mlr": 97.1,
-      "predicted_adverse_prob_next_day": 0.3593,
+      "observed_aqi_current": 98,
+      "predicted_aqi_next_day_mlr": 102.7,
+      "predicted_adverse_prob_next_day": 0.4433,
       "predicted_adverse_class_next_day": 0,
       "actual_aqi_next_day": 87,
-      "residual_mlr": 10.1,
-      "residual_persistence": 3
+      "residual_mlr": 15.7,
+      "residual_persistence": 11
     },
     {
       "scope": "India",
@@ -2842,6 +3142,21 @@
       "city": "Bhopal",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_144",
+      "station_name": "T T Nagar, Bhopal - MPPCB",
+      "city": "Bhopal",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,
@@ -2936,9 +3251,9 @@
       "predicted_aqi_next_day_mlr": 64.1,
       "predicted_adverse_prob_next_day": 0.0641,
       "predicted_adverse_class_next_day": 0,
-      "actual_aqi_next_day": 103,
-      "residual_mlr": -38.9,
-      "residual_persistence": -53
+      "actual_aqi_next_day": 111,
+      "residual_mlr": -46.9,
+      "residual_persistence": -61
     },
     {
       "scope": "India",
@@ -2947,13 +3262,13 @@
       "city": "Pune",
       "observation_date": "2026-09-28",
       "target_date": "2026-09-29",
-      "observed_aqi_current": 103,
-      "predicted_aqi_next_day_mlr": 104.6,
-      "predicted_adverse_prob_next_day": 0.5015,
+      "observed_aqi_current": 111,
+      "predicted_aqi_next_day_mlr": 110.4,
+      "predicted_adverse_prob_next_day": 0.6088,
       "predicted_adverse_class_next_day": 1,
       "actual_aqi_next_day": 160,
-      "residual_mlr": -55.4,
-      "residual_persistence": -57
+      "residual_mlr": -49.6,
+      "residual_persistence": -49
     },
     {
       "scope": "India",
@@ -2977,6 +3292,21 @@
       "city": "Pune",
       "observation_date": "2026-09-30",
       "target_date": "2026-10-01",
+      "observed_aqi_current": null,
+      "predicted_aqi_next_day_mlr": null,
+      "predicted_adverse_prob_next_day": null,
+      "predicted_adverse_class_next_day": null,
+      "actual_aqi_next_day": null,
+      "residual_mlr": null,
+      "residual_persistence": null
+    },
+    {
+      "scope": "India",
+      "project_station_id": "PROJ_158",
+      "station_name": "Revenue Colony-Shivajinagar, Pune - IITM",
+      "city": "Pune",
+      "observation_date": "2026-10-01",
+      "target_date": "2026-10-02",
       "observed_aqi_current": null,
       "predicted_aqi_next_day_mlr": null,
       "predicted_adverse_prob_next_day": null,

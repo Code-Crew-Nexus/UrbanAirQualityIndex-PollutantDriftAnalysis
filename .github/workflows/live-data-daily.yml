@@ -140,8 +140,15 @@ jobs:
           if git diff --quiet data/live/processed/ docs/web-data/live_daily_observations.json; then
             COMMIT_MSG="chore(live): pipeline status update [skip ci]"
           else
-            DATA_DATE=$(date -u +'%Y-%m-%d')
-            COMMIT_MSG="data(live): refresh validated observations through ${DATA_DATE} [skip ci]"
+            DATA_THROUGH=""
+            if [ -f docs/web-data/live_pipeline_status.json ]; then
+              DATA_THROUGH=$(jq -r '.data_through // empty' docs/web-data/live_pipeline_status.json 2>/dev/null || echo "")
+            fi
+            if echo "$DATA_THROUGH" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+              COMMIT_MSG="data(live): refresh validated observations through ${DATA_THROUGH} [skip ci]"
+            else
+              COMMIT_MSG="data(live): refresh validated observations [skip ci]"
+            fi
           fi
           
           git config user.name "github-actions[bot]"

@@ -181,17 +181,51 @@ window.initExploreSection = async function(force = false) {
     if (errorEl) errorEl.style.display = 'block';
   }
 
+  let liveDataThrough = null;
+  let formattedLiveThrough = '';
+
+  function formatHumanDate(dateStr) {
+    if (!dateStr) return '';
+    try {
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        const d = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)));
+        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+      }
+    } catch (e) {}
+    return dateStr;
+  }
+
   async function ensureLiveObservationsLoaded() {
     if (liveLoaded) return;
     try {
-      const liveData = await DataUtils.fetchJSON('web-data/live_daily_observations.json');
+      const [liveData, statusData] = await Promise.all([
+        DataUtils.fetchJSON('web-data/live_daily_observations.json').catch(e => {
+          console.warn('Could not load live_daily_observations.json:', e);
+          return null;
+        }),
+        DataUtils.fetchJSON('web-data/live_pipeline_status.json').catch(e => {
+          console.warn('Could not load live_pipeline_status.json:', e);
+          return null;
+        })
+      ]);
+
       if (Array.isArray(liveData) && liveData.length > 0) {
         liveObservations = liveData;
         latestLiveDate = liveData.reduce((max, r) => r.date > max ? r.date : max, '2026-09-26');
         liveLoaded = true;
       }
+
+      if (statusData && statusData.data_through) {
+        liveDataThrough = statusData.data_through;
+        latestLiveDate = statusData.data_through;
+        formattedLiveThrough = formatHumanDate(statusData.data_through);
+      } else if (latestLiveDate) {
+        liveDataThrough = latestLiveDate;
+        formattedLiveThrough = formatHumanDate(latestLiveDate);
+      }
     } catch (e) {
-      console.warn('Could not load live_daily_observations.json:', e);
+      console.warn('Could not load live observations/status:', e);
     }
   }
 
@@ -204,32 +238,38 @@ window.initExploreSection = async function(force = false) {
     if (mode === 'live') {
       await ensureLiveObservationsLoaded();
       dailyObservations = liveObservations;
+      const effectiveEndDate = liveDataThrough || latestLiveDate;
       startDateInput.min = '2026-09-22';
-      startDateInput.max = latestLiveDate;
+      startDateInput.max = effectiveEndDate;
       endDateInput.min = '2026-09-22';
-      endDateInput.max = latestLiveDate;
+      endDateInput.max = effectiveEndDate;
       startDateInput.value = '2026-09-22';
-      endDateInput.value = latestLiveDate;
+      endDateInput.value = effectiveEndDate;
+
+      const dateDisplay = formattedLiveThrough || effectiveEndDate;
 
       if (dataModeCalloutTitle) dataModeCalloutTitle.textContent = 'Extended / Live Mode (Operational Extension)';
       if (dataModeCalloutText) {
-        dataModeCalloutText.innerHTML = `Displaying operational observations from September 22, 2026 through <strong>${latestLiveDate}</strong> refreshed periodically from OpenAQ v3 and Open-Meteo. These records extend the monitoring timeline but do not alter the frozen v0.6 baseline.`;
+        dataModeCalloutText.innerHTML = `Validated observations through <strong>${dateDisplay}</strong> (latest validated complete day: ${dateDisplay}). Operational extension from September 22, 2026 onward, refreshed periodically from OpenAQ v3 and Open-Meteo as batch daily data (not real-time streaming). Does not alter the frozen v0.6 baseline.`;
       }
       if (preset90DaysBtn) preset90DaysBtn.textContent = 'Full Live Window';
       if (presetFullBtn) presetFullBtn.textContent = 'Full Live Window';
     } else if (mode === 'combined') {
       await ensureLiveObservationsLoaded();
       dailyObservations = [...frozenObservations, ...liveObservations];
+      const effectiveEndDate = liveDataThrough || latestLiveDate;
       startDateInput.min = STUDY_MIN_DATE;
-      startDateInput.max = latestLiveDate;
+      startDateInput.max = effectiveEndDate;
       endDateInput.min = STUDY_MIN_DATE;
-      endDateInput.max = latestLiveDate;
+      endDateInput.max = effectiveEndDate;
       startDateInput.value = DEFAULT_START_DATE;
-      endDateInput.value = latestLiveDate;
+      endDateInput.value = effectiveEndDate;
+
+      const dateDisplay = formattedLiveThrough || effectiveEndDate;
 
       if (dataModeCalloutTitle) dataModeCalloutTitle.textContent = 'Complete Continuity Mode (Frozen Study + Live Extension)';
       if (dataModeCalloutText) {
-        dataModeCalloutText.innerHTML = `Displaying the continuous combination of the frozen academic baseline (through September 21, 2026) and operational extension observations (September 22, 2026 onward through <strong>${latestLiveDate}</strong>).`;
+        dataModeCalloutText.innerHTML = `Displaying the continuous combination of the frozen academic baseline (through September 21, 2026) and operational extension observations (validated observations through <strong>${dateDisplay}</strong>). Periodically refreshed daily data, not real-time streaming.`;
       }
       if (preset90DaysBtn) preset90DaysBtn.textContent = 'Latest 90 Days';
       if (presetFullBtn) presetFullBtn.textContent = 'Complete Period';

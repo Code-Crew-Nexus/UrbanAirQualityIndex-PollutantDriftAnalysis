@@ -74,3 +74,52 @@ test_that("G6.2B Workflow logic evaluation", {
   expect_equal(eval_monthly_gate("schedule", "2026-11-01"), "active")
   expect_equal(eval_monthly_gate("workflow_dispatch", "2026-10-15"), "active")
 })
+
+test_that("Live workflow commit message metadata uses authoritative data_through", {
+  daily_content <- paste(readLines("../../.github/workflows/live-data-daily.yml", warn = FALSE), collapse = "\n")
+  monthly_content <- paste(readLines("../../.github/workflows/live-data-monthly.yml", warn = FALSE), collapse = "\n")
+  
+  # Ensure neither workflow uses runner execution date for the data commit message
+  expect_false(grepl("DATA_DATE=\\$\\(date", daily_content))
+  expect_false(grepl("DATA_DATE=\\$\\(date", monthly_content))
+  
+  # Ensure workflows read data_through from live_pipeline_status.json
+  expect_true(grepl("data_through // empty", daily_content, fixed = TRUE))
+  expect_true(grepl("data_through // empty", monthly_content, fixed = TRUE))
+  expect_true(grepl("live_pipeline_status.json", daily_content, fixed = TRUE))
+  expect_true(grepl("live_pipeline_status.json", monthly_content, fixed = TRUE))
+  
+  # Conceptual mock test of commit message generation
+  eval_commit_msg <- function(mode = "daily", data_through = "") {
+    is_valid <- grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", data_through)
+    if (mode == "daily") {
+      if (is_valid) {
+        return(paste0("data(live): refresh validated observations through ", data_through, " [skip ci]"))
+      } else {
+        return("data(live): refresh validated observations [skip ci]")
+      }
+    } else {
+      if (is_valid) {
+        return(paste0("data(live): monthly refresh through ", data_through, " [skip ci]"))
+      } else {
+        return("data(live): monthly refresh [skip ci]")
+      }
+    }
+  }
+  
+  # Verification 1: When workflow runs on 2026-10-07 and data_through is 2026-10-06
+  runner_date <- "2026-10-07"
+  status_data_through <- "2026-10-06"
+  daily_msg <- eval_commit_msg("daily", status_data_through)
+  expect_equal(daily_msg, "data(live): refresh validated observations through 2026-10-06 [skip ci]")
+  expect_false(grepl(runner_date, daily_msg))
+  
+  # Verification 2: Neutral fallback when data_through is unavailable
+  expect_equal(eval_commit_msg("daily", ""), "data(live): refresh validated observations [skip ci]")
+  expect_equal(eval_commit_msg("daily", "invalid-date"), "data(live): refresh validated observations [skip ci]")
+  
+  # Verification 3: Monthly refresh with authoritative date
+  expect_equal(eval_commit_msg("monthly", "2026-10-31"), "data(live): monthly refresh through 2026-10-31 [skip ci]")
+  expect_equal(eval_commit_msg("monthly", ""), "data(live): monthly refresh [skip ci]")
+})
+

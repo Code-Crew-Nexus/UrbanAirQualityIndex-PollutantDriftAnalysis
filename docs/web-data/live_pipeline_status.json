@@ -2,17 +2,17 @@
   "status": "ok",
   "severity": "info",
   "code": "LIVE_DATA_CURRENT",
-  "last_attempt_utc": "2026-10-28T08:39:55Z",
+  "last_attempt_utc": "2026-10-29T08:36:51Z",
   "schedule_mode": "daily",
   "source": "OpenAQ + Open-Meteo",
   "message": "Live extension updated successfully.",
-  "last_success_utc": "2026-10-28T08:39:55Z",
-  "data_through": "2026-10-27",
+  "last_success_utc": "2026-10-29T08:36:51Z",
+  "data_through": "2026-10-28",
   "total_stations": 21,
-  "total_live_station_days": 756,
-  "valid_aqi_count": 400,
+  "total_live_station_days": 777,
+  "valid_aqi_count": 419,
   "date_range": {
     "start": "2026-09-22",
-    "end": "2026-10-27"
+    "end": "2026-10-28"
   }
 }
